@@ -4,16 +4,16 @@ import { Route, Routes, useNavigate, useParams } from "react-router-dom";
 import { AxiosError } from "axios";
 import AppScreen from "./screens/AppScreen";
 import { routes } from "./constants/routes";
+import HomeScreen from "./screens/HomeScreen";
 // import Loader from "components/loader";
 
 function App() {
   return (
     <AppScreen>
-      {/* <Routes>
+      <Routes>
         <Route path={`${routes.home}/*`} element={<HomeScreen />} />
-        <Route path="/test" element={<TestScreen />} />
-      </Routes> */}
-      <h1>Hello world</h1>
+        
+      </Routes>
      </AppScreen>
   );
 }

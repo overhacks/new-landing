@@ -7,11 +7,7 @@ export const routes = {
     signup: '/signup',
     forgotPassword: '/forgot-password',
     resetPassword: '/reset-password',
-    profile: '/profile',
-    dashboard: '/dashboard',
-    pay: '/pay',
-    getPaid: '/get-paid',
-    organization: '/organization',
+    hackatons: '/hackatons',
     checkEmail: '/check-email/:token'
   }
   
