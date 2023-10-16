@@ -1,25 +1,20 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useCallback, useEffect } from "react";
+import "./stylesheets/App.css";
+import { Route, Routes, useNavigate, useParams } from "react-router-dom";
+import { AxiosError } from "axios";
+import AppScreen from "./screens/AppScreen";
+import { routes } from "./constants/routes";
+// import Loader from "components/loader";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AppScreen>
+      {/* <Routes>
+        <Route path={`${routes.home}/*`} element={<HomeScreen />} />
+        <Route path="/test" element={<TestScreen />} />
+      </Routes> */}
+      <h1>Hello world</h1>
+     </AppScreen>
   );
 }
 
