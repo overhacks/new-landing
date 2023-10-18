@@ -11,13 +11,16 @@ export const OverhacksName = styled.h1`
 
   width: max-content;
 `;
-export const Headercontainer = styled.div`
-  background-color: #003e54;
+export const Headercontainer = styled.header`
+  /* background-color: rgb(61, 60, 60); */
+  border-bottom: 2px solid rgb(109, 109, 109);
 
+  display: flex;
   flex-direction: row;
   align-items: center;
   max-width: 100%;
-  justify-content: space-between;
+  justify-content: start;
+  gap: 16px;
   flex-wrap: wrap;
 
   padding-left: 50px;

@@ -8,11 +8,43 @@ import HomeScreen from "./screens/HomeScreen";
 // import Loader from "components/loader";
 
 function App() {
+  const navigate = useNavigate();
+
+  const useRunSyncEvent = (cb: () => void) => {
+    useEffect(() => {
+      const runSync = () => {
+        cb();
+      }
+  
+      runSync();
+    }, [cb]);
+  }
+
+  // const checkIsLoaded = useCallback(() => {
+  //   const isLoaded = !isLoading && res !== undefined;
+
+  //   if (isLoaded) {
+  //     localStorage.setItem(TOKEN_KEY, res.data.token);
+  //     setUser(res.data.user);
+  //     setAuthorized(true);
+  //     navigate('/home/dashboard', { replace: false });
+  //   }
+  // }, [isLoading, res, setUser, setAuthorized, navigate]);
+
+  const checkIsLoaded = useCallback(() => {
+      navigate('/home/dashboard', { replace: false });
+  }, [navigate]);
+
+  useRunSyncEvent(() => {
+    checkIsLoaded()
+  });
+
+
+  navigate('/home/', { replace: false });
   return (
     <AppScreen>
       <Routes>
         <Route path={`${routes.home}/*`} element={<HomeScreen />} />
-        
       </Routes>
      </AppScreen>
   );
