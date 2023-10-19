@@ -10,8 +10,9 @@ import Header from "../../components/Header";
 import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Virtual } from "swiper/modules";
-import "swiper/css/virtual";
+import { useSwiperSlide } from 'swiper/react';
 
+import "swiper/css/virtual";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -41,6 +42,8 @@ function HomeScreen() {
     "Slide 20",
   ];
 
+  const swiperSlide = useSwiperSlide();
+
   return (
     <>
       <HomeScreenContainer>
@@ -50,23 +53,23 @@ function HomeScreen() {
             <StyledSwiper
               modules={[Virtual]}
               spaceBetween={40}
-              slidesPerView={3}
+              slidesPerView={1}
               virtual
               loop={true}
               centeredSlides={true}
               breakpoints= {{
 
                 640: {
-                    slidesPerView: 1,
-                },
-                768: {
                     slidesPerView: 2,
                 },
-                1080: {
+                768: {
                     slidesPerView: 3,
                 },
-                1280: {
+                1080: {
                     slidesPerView: 4,
+                },
+                1280: {
+                    slidesPerView: 5,
                 }}
             }
             >

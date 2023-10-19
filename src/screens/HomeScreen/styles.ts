@@ -20,17 +20,54 @@ export const HomeScreenContent = styled.div`
 export const StyledSwiper = styled(Swiper)`
   width: 100%;
   height: 400px;
-  margin: 40px 0;
-  padding: 45px 0;
+  padding-top: 38px;
+  padding-top: 70px;
+
+  /* .swiper-slide {
+   opacity: 0.4;
+   overflow: hidden;
+   transition: .7s;
+ }
+
+    .swiper-slide-active {
+    opacity: 1;
+    z-index: 1;
+    transform: scale(1.5);
+} */
+  
 `;
 
-export const StyledSlide = styled(SwiperSlide)`
-    opacity: 0.4;
-    overflow: hidden;
-    width: 100px;
-    height: 250px;
+export const StyledSlide = styled(SwiperSlide)<{isActive?: boolean}>`
+    /* opacity: ${(props) => { 
+      if(props.isActive) {return("1")}
+      return("0.4") 
+    }}; */
     background-color: white;
-
     display: flex;
     flex-direction: column;
+    height: 150px;
+    
 `;
+
+
+// .swiper-container {
+//   width: 100%;
+//   margin: 40px 0;
+//   padding: 45px 0;
+// }
+
+// .swiper-slide {
+//   opacity: 0.4;
+//   overflow: hidden;
+//   transition: .7s;
+// }
+
+// .swiper-slide img {
+//   width: 100%;
+// }
+
+// .swiper-slide-active {
+//   opacity: 1;
+//   z-index: 1;
+//   transform: scale(1.5);
+// }
