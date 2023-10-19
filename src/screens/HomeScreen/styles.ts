@@ -38,15 +38,33 @@ export const StyledSwiper = styled(Swiper)`
 `;
 
 export const StyledSlide = styled(SwiperSlide)<{isActive?: boolean}>`
-    /* opacity: ${(props) => { 
-      if(props.isActive) {return("1")}
-      return("0.4") 
-    }}; */
-    background-color: white;
+    height: 150px;
+`;
+
+export const SlideContent = styled.div<{isActive: boolean}>`
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
-    height: 150px;
+    background-color: white;
+    overflow: hidden;
     
+    transition: all ease .7s;
+
+    opacity: ${(props) => {
+      if(props.isActive) {return("1")}
+      return("0.4")
+    }};
+    transform: ${(props) => {
+      if(props.isActive) {return("scale(1.5)")}
+      return("scale(1)")
+    }};
+
+    z-index: ${(props) => {
+      if(props.isActive) {return("1")}
+      return("none")
+    }};
+
 `;
 
 

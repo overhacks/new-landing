@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import {
   HomeScreenContainer,
   HomeScreenContent,
+  SlideContent,
   StyledSlide,
   StyledSwiper,
 } from "./styles";
@@ -51,12 +52,10 @@ function HomeScreen() {
         <HomeScreenContent>
           
             <StyledSwiper
-              modules={[Virtual]}
               spaceBetween={40}
               slidesPerView={1}
-              virtual
-              loop={true}
-              centeredSlides={true}
+              loop
+              centeredSlides
               breakpoints= {{
 
                 640: {
@@ -75,7 +74,12 @@ function HomeScreen() {
             >
               {slides.map((slideContent, index) => (
                 <StyledSlide key={slideContent} virtualIndex={index}>
-                  <h1>{slideContent}</h1>
+                  {({ isActive }) => (
+                    <SlideContent isActive={isActive}>
+                    <h1>{slideContent}</h1>
+                  </SlideContent>
+                  )}
+                  
                 </StyledSlide>
               ))}
             </StyledSwiper>
