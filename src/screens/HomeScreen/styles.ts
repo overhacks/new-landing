@@ -39,6 +39,7 @@ export const StyledSwiper = styled(Swiper)`
 
 export const StyledSlide = styled(SwiperSlide)<{isActive?: boolean}>`
     height: 150px;
+    z-index: 1;
 `;
 
 export const SlideContent = styled.div<{isActive: boolean}>`
@@ -53,17 +54,18 @@ export const SlideContent = styled.div<{isActive: boolean}>`
 
     opacity: ${(props) => {
       if(props.isActive) {return("1")}
-      return("0.4")
+      return("0.2")
     }};
     transform: ${(props) => {
-      if(props.isActive) {return("scale(1.3)")}
-      return("scale(1)")
+      if(props.isActive) {return("scale(1.35)")}
+      return("none")
     }};
 
     z-index: ${(props) => {
-      if(props.isActive) {return("1")}
-      return("none")
+      if(props.isActive) {return("2")}
+      return("1")
     }};
+    
 
 `;
 

@@ -8,7 +8,7 @@ import {
 } from "./styles";
 import Header from "../../components/Header";
 // import InvitePopup from 'components/newDesignComponents/invitePopup'
-import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
+import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Virtual } from "swiper/modules";
 import { useSwiperSlide } from 'swiper/react';
@@ -18,6 +18,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
+import "swiper/css/autoplay"
 
 function HomeScreen() {
   const slides = [
@@ -55,6 +56,7 @@ function HomeScreen() {
               spaceBetween={50}
               slidesPerView={1.5}
               loop
+              speed={500}
               centeredSlides
               centeredSlidesBounds
               breakpoints= {{
@@ -71,13 +73,20 @@ function HomeScreen() {
                 1280: {
                     slidesPerView: 5.5,
                 }}
+                
             }
+            modules={[Autoplay, Pagination, Navigation]}
+            autoplay={{
+              delay: 2500,
+              disableOnInteraction: false
+          }}
             >
               {slides.map((slideContent, index) => (
                 <StyledSlide key={slideContent} virtualIndex={index}>
                   {({ isActive }) => (
                     <SlideContent isActive={isActive}>
                     <h1>{slideContent}</h1>
+                    <h2>dftyhjgfdrfghyjknbvcdfghjk</h2>
                   </SlideContent>
                   )}
                   

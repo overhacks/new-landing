@@ -8,6 +8,8 @@ import HomeScreen from "./screens/HomeScreen";
 // import Loader from "components/loader";
 
 function App() {
+
+
   const navigate = useNavigate();
 
   const useRunSyncEvent = (cb: () => void) => {
@@ -41,6 +43,8 @@ function App() {
 
 
   navigate('/home/', { replace: false });
+
+  
   return (
     <AppScreen>
       <Routes>
