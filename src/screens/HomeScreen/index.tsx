@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import {
+  Banner,
   HomeScreenContainer,
   HomeScreenContent,
   SlideContent,
@@ -53,7 +54,7 @@ function HomeScreen() {
         <HomeScreenContent>
           
             <StyledSwiper
-              spaceBetween={50}
+              spaceBetween={80}
               slidesPerView={1.5}
               loop
               speed={500}
@@ -65,13 +66,13 @@ function HomeScreen() {
                     slidesPerView: 2.5,
                 },
                 768: {
-                    slidesPerView: 3.5,
+                    slidesPerView: 2.5,
                 },
                 1080: {
-                    slidesPerView: 4.5,
+                    slidesPerView: 2.5,
                 },
                 1280: {
-                    slidesPerView: 5.5,
+                    slidesPerView: 3.5,
                 }}
                 
             }
@@ -85,8 +86,8 @@ function HomeScreen() {
                 <StyledSlide key={slideContent} virtualIndex={index}>
                   {({ isActive }) => (
                     <SlideContent isActive={isActive}>
-                    <h1>{slideContent}</h1>
-                    <h2>dftyhjgfdrfghyjknbvcdfghjk</h2>
+                    {/* //d112y698adiu2z.cloudfront.net/photos/production/challenge_thumbnails/002/552/118/datas/medium_square.jpg */}
+                    {/* <Banner src="https://d112y698adiu2z.cloudfront.net/photos/production/challenge_thumbnails/002/597/511/datas/medium_square.png"/> */}
                   </SlideContent>
                   )}
                   

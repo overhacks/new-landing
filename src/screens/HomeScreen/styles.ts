@@ -2,43 +2,43 @@ import styled, { css } from "styled-components";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 
+
+export const Banner = styled.img`
+    width: 150px;
+    object-fit: cover;
+    height: 150px;
+`
+
+
 export const HomeScreenContainer = styled.div`
   flex: 1;
   height: 100vw;
   width: 100%;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 `;
 
 export const HomeScreenContent = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
   align-items: center;
+  overflow: hidden;
+  box-sizing: border-box;
+  flex: 1;
 `;
 
 export const StyledSwiper = styled(Swiper)`
   width: 100%;
-  height: 400px;
-  padding-top: 38px;
+  height: 60%;
+  padding-bottom: 60px;
   padding-top: 70px;
-
-  /* .swiper-slide {
-   opacity: 0.4;
-   overflow: hidden;
-   transition: .7s;
- }
-
-    .swiper-slide-active {
-    opacity: 1;
-    z-index: 1;
-    transform: scale(1.5);
-} */
-  
 `;
 
 export const StyledSlide = styled(SwiperSlide)<{isActive?: boolean}>`
-    height: 150px;
+    height: 100%;
     z-index: 1;
 `;
 
@@ -57,37 +57,13 @@ export const SlideContent = styled.div<{isActive: boolean}>`
       return("0.2")
     }};
     transform: ${(props) => {
-      if(props.isActive) {return("scale(1.35)")}
+      if(props.isActive) {return("scale(1.3)")}
       return("none")
     }};
 
     z-index: ${(props) => {
       if(props.isActive) {return("2")}
       return("1")
-    }};
-    
-
+    }}
 `;
 
-
-// .swiper-container {
-//   width: 100%;
-//   margin: 40px 0;
-//   padding: 45px 0;
-// }
-
-// .swiper-slide {
-//   opacity: 0.4;
-//   overflow: hidden;
-//   transition: .7s;
-// }
-
-// .swiper-slide img {
-//   width: 100%;
-// }
-
-// .swiper-slide-active {
-//   opacity: 1;
-//   z-index: 1;
-//   transform: scale(1.5);
-// }

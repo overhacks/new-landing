@@ -8,12 +8,11 @@ export const OverhacksName = styled.h1`
   font-weight: 400;
   line-height: normal;
   letter-spacing: 3px;
-
   width: max-content;
 `;
 export const Headercontainer = styled.header`
   /* background-color: rgb(61, 60, 60); */
-  border-bottom: 2px solid rgb(109, 109, 109);
+  border-bottom: 2px solid rgb(44, 44, 48);
 
   display: flex;
   flex-direction: row;
