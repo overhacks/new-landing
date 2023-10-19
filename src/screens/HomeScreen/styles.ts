@@ -56,7 +56,7 @@ export const SlideContent = styled.div<{isActive: boolean}>`
       return("0.4")
     }};
     transform: ${(props) => {
-      if(props.isActive) {return("scale(1.5)")}
+      if(props.isActive) {return("scale(1.3)")}
       return("scale(1)")
     }};
 

@@ -52,23 +52,24 @@ function HomeScreen() {
         <HomeScreenContent>
           
             <StyledSwiper
-              spaceBetween={40}
-              slidesPerView={1}
+              spaceBetween={50}
+              slidesPerView={1.5}
               loop
               centeredSlides
+              centeredSlidesBounds
               breakpoints= {{
 
                 640: {
-                    slidesPerView: 2,
+                    slidesPerView: 2.5,
                 },
                 768: {
-                    slidesPerView: 3,
+                    slidesPerView: 3.5,
                 },
                 1080: {
-                    slidesPerView: 4,
+                    slidesPerView: 4.5,
                 },
                 1280: {
-                    slidesPerView: 5,
+                    slidesPerView: 5.5,
                 }}
             }
             >
