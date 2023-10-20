@@ -18,7 +18,7 @@ export const Headercontainer = styled.header`
   flex-direction: row;
   align-items: center;
   max-width: 100%;
-  justify-content: start;
+  justify-content: space-between;
   gap: 16px;
   flex-wrap: wrap;
 
@@ -26,6 +26,13 @@ export const Headercontainer = styled.header`
     padding-right: 50px;
     padding-bottom: 16px;
     padding-top: 16px;
+`;
+
+
+export const LogoAndName = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
 `;
 
 export const Logo = styled.div<{ background: any }>`
