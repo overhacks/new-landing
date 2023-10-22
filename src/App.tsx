@@ -34,7 +34,7 @@ function App() {
   // }, [isLoading, res, setUser, setAuthorized, navigate]);
 
   const checkIsLoaded = useCallback(() => {
-      navigate('/home/dashboard', { replace: false });
+      navigate('/home/hackatons', { replace: false });
   }, [navigate]);
 
   useRunSyncEvent(() => {
