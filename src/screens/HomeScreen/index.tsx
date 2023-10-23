@@ -2,22 +2,19 @@ import React, { useEffect, useState } from "react";
 import {
   HomeScreenContainer,
   HomeScreenContent,
-  SlideContent,
-  StyledSlide,
-  StyledSwiper,
 } from "./styles";
 import Header from "../../components/Header";
-// import InvitePopup from 'components/newDesignComponents/invitePopup'
-import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Virtual } from "swiper/modules";
-import { useSwiperSlide } from 'swiper/react';
 
 import "swiper/css/virtual";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
+import "swiper/css/autoplay";
+import SubTitle from "../../components/SubTitle";
+import { Route, Routes } from "react-router-dom";
+import { routes } from "../../constants/routes";
+import Hackatons from "../HackatonsScreen";
 
 function HomeScreen() {
   const slides = [
@@ -43,48 +40,19 @@ function HomeScreen() {
     "Slide 20",
   ];
 
-  const swiperSlide = useSwiperSlide();
+  function renderRoutes() {
+    return (
+      <Routes>
+        <Route path={`${routes.hackatons}/`} element={<Hackatons />} />
+      </Routes>
+    );
+  }
 
   return (
     <>
       <HomeScreenContainer>
         <Header />
-        <HomeScreenContent>
-          
-            <StyledSwiper
-              spaceBetween={50}
-              slidesPerView={1.5}
-              loop
-              centeredSlides
-              centeredSlidesBounds
-              breakpoints= {{
-
-                640: {
-                    slidesPerView: 2.5,
-                },
-                768: {
-                    slidesPerView: 3.5,
-                },
-                1080: {
-                    slidesPerView: 4.5,
-                },
-                1280: {
-                    slidesPerView: 5.5,
-                }}
-            }
-            >
-              {slides.map((slideContent, index) => (
-                <StyledSlide key={slideContent} virtualIndex={index}>
-                  {({ isActive }) => (
-                    <SlideContent isActive={isActive}>
-                    <h1>{slideContent}</h1>
-                  </SlideContent>
-                  )}
-                  
-                </StyledSlide>
-              ))}
-            </StyledSwiper>
-        </HomeScreenContent>
+        <HomeScreenContent>{renderRoutes()}</HomeScreenContent>
       </HomeScreenContainer>
     </>
   );

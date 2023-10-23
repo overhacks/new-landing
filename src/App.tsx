@@ -5,9 +5,12 @@ import { AxiosError } from "axios";
 import AppScreen from "./screens/AppScreen";
 import { routes } from "./constants/routes";
 import HomeScreen from "./screens/HomeScreen";
+import Gstyles from "./stylesheets/gstyles";
 // import Loader from "components/loader";
 
 function App() {
+
+
   const navigate = useNavigate();
 
   const useRunSyncEvent = (cb: () => void) => {
@@ -32,7 +35,7 @@ function App() {
   // }, [isLoading, res, setUser, setAuthorized, navigate]);
 
   const checkIsLoaded = useCallback(() => {
-      navigate('/home/dashboard', { replace: false });
+      navigate('/home/hackatons', { replace: false });
   }, [navigate]);
 
   useRunSyncEvent(() => {
@@ -41,11 +44,14 @@ function App() {
 
 
   navigate('/home/', { replace: false });
+
+  
   return (
     <AppScreen>
       <Routes>
         <Route path={`${routes.home}/*`} element={<HomeScreen />} />
       </Routes>
+      <Gstyles />
      </AppScreen>
   );
 }
