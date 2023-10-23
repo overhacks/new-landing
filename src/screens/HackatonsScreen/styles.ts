@@ -5,7 +5,29 @@ import { Swiper, SwiperSlide } from "swiper/react";
 export const Container = styled.div`
 width: 100%;
 height: 100%;
-    overflow-y: scroll;
+overflow-y: scroll;
+`
+
+export const Checks = styled.div`
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    grid-auto-rows: 24px;
+    gap: 16px;
+    flex-wrap: wrap;
+    padding-left: 32px;
+    padding-right: 32px;
+    padding-top: 32px;
+`;
+
+export const RowContainer = styled.div`
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    padding-left: 32px;
+    padding-right: 32px;
+    padding-top: 32px;
 `
 
 export const StyledSwiper = styled(Swiper)`
