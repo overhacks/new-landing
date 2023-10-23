@@ -4,17 +4,6 @@ import {
   HomeScreenContent,
 } from "./styles";
 import Header from "../../components/Header";
-// import InvitePopup from 'components/newDesignComponents/invitePopup'
-import {
-  Navigation,
-  Pagination,
-  Scrollbar,
-  A11y,
-  Autoplay,
-} from "swiper/modules";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Virtual } from "swiper/modules";
-import { useSwiperSlide } from "swiper/react";
 
 import "swiper/css/virtual";
 import "swiper/css";

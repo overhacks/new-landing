@@ -2,13 +2,45 @@ import styled, { css } from "styled-components";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 
-
+export const Container = styled.div`
+width: 100%;
+height: 100%;
+    overflow-y: scroll;
+`
 
 export const StyledSwiper = styled(Swiper)`
   width: 100%;
-  height: 60%;
-  padding-bottom: 60px;
-  padding-top: 70px;
+
+  @media (max-width: 576px)
+  {
+    height: 300px;
+    padding-top: 60px;
+  }
+  @media (min-width: 577px)
+  {
+    height: 350px;
+    padding-top: 70px;
+  }
+  @media (min-width: 769px)
+  {
+    height: 350px;
+    padding-top: 80px;
+  }
+  @media (min-width: 993px)
+  {
+    height: 400px;
+    padding-top: 90px;
+  }
+  @media (min-width: 1201px)
+  {
+    height: 400px;
+    padding-top: 100px;
+  }
+  @media (min-width: 1401px)
+  {
+    height: 500px;
+    padding-top: 120px;
+    }
 `;
 
 export const StyledSlide = styled(SwiperSlide)<{isActive?: boolean}>`

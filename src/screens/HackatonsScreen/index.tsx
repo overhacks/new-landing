@@ -1,5 +1,5 @@
 import SubTitle from "../../components/SubTitle"
-import { Banner, Description, ImgAndDescription, Info, SlideContent, StyledSlide, StyledSwiper } from "./styles"
+import { Banner, Container, Description, ImgAndDescription, Info, SlideContent, StyledSlide, StyledSwiper } from "./styles"
 import {
     Navigation,
     Pagination,
@@ -37,6 +37,7 @@ function Hackatons() {
 
 
     return (
+        <Container>
         <StyledSwiper
         spaceBetween={80}
         slidesPerView={1.5}
@@ -88,6 +89,7 @@ function Hackatons() {
           </StyledSlide>
         ))}
       </StyledSwiper>
+      </Container>
     )
   }
   
