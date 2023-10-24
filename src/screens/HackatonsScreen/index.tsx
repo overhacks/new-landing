@@ -1,6 +1,7 @@
 import SubTitle from "../../components/SubTitle";
 import {
   Banner,
+  Block,
   Checks,
   Container,
   Description,
@@ -135,6 +136,8 @@ function Hackatons() {
           </StyledSlide>
         ))}
       </StyledSwiper>
+
+      <Block></Block>
     </Container>
   );
 }

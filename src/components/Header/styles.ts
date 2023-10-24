@@ -3,12 +3,30 @@ import styled from "styled-components";
 export const OverhacksName = styled.h1`
   color: #22fa5f;
   font-family: PF Videotext Pro;
-  font-size: 48px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
   letter-spacing: 3px;
   width: max-content;
+
+  @media (max-width: 576px) {
+    font-size: 24px;
+  }
+  @media (min-width: 577px) {
+    font-size: 24px;
+  }
+  @media (min-width: 769px) {
+    font-size: 32px;
+  }
+  @media (min-width: 993px) {
+    font-size: 48px;
+  }
+  @media (min-width: 1201px) {
+    font-size: 48px;
+  }
+  @media (min-width: 1401px) {
+    font-size: 48px;
+  }
 `;
 export const DefaultHeadercontainer = styled.header`
   border-bottom: 2px solid rgb(44, 44, 48);
@@ -39,15 +57,36 @@ export const Logo = styled.div<{ background: any }>`
   background-image: url(${(props) => props.background});
   background-repeat: no-repeat;
   background-position: center center;
-  width: 52px;
-  height: 52px;
   background-size: cover;
+
+  @media (max-width: 576px) {
+    width: 24px;
+    height: 24px;
+  }
+  @media (min-width: 577px) {
+    width: 24px;
+    height: 24px;
+  }
+  @media (min-width: 769px) {
+    width: 32px;
+    height: 32px;
+  }
+  @media (min-width: 993px) {
+    width: 52px;
+    height: 52px;
+  }
+  @media (min-width: 1201px) {
+    width: 52px;
+    height: 52px;
+  }
+  @media (min-width: 1401px) {
+    fwidth: 52px;
+    height: 52px;
+  }
 `;
 
 export const SearchImg = styled.div<{ fill: string; fillHover: string }>`
   background-color: transparent;
-  height: 30px;
-  width: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -56,6 +95,31 @@ export const SearchImg = styled.div<{ fill: string; fillHover: string }>`
   }
   :hover {
     fill: ${(props) => props.fillHover};
+  }
+
+  @media (max-width: 576px) {
+    width: 24px;
+    height: 24px;
+  }
+  @media (min-width: 577px) {
+    width: 24px;
+    height: 24px;
+  }
+  @media (min-width: 769px) {
+    width: 30px;
+    height: 30px;
+  }
+  @media (min-width: 993px) {
+    width: 30px;
+    height: 30px;
+  }
+  @media (min-width: 1201px) {
+    width: 30px;
+    height: 30px;
+  }
+  @media (min-width: 1401px) {
+    width: 30px;
+    height: 30px;
   }
 `;
 
