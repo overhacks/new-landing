@@ -7,7 +7,10 @@ width: 100%;
 height: 100%;
 overflow-y: scroll;
 `
-
+export const Block = styled.div`
+  height: 600px;
+  width: 100%;
+`
 export const Checks = styled.div`
     width: 100%;
     display: flex;
@@ -30,6 +33,12 @@ export const RowContainer = styled.div`
     padding-top: 32px;
 `
 
+export const SubTitlecontainer = styled.div`
+  
+  padding-bottom: 13px;
+  border-bottom: 3px solid #22fa5f;
+`
+
 export const StyledSwiper = styled(Swiper)`
   width: 100%;
 
@@ -41,27 +50,27 @@ export const StyledSwiper = styled(Swiper)`
   @media (min-width: 577px)
   {
     height: 350px;
-    padding-top: 70px;
+    padding-top: 40px;
   }
   @media (min-width: 769px)
   {
     height: 350px;
-    padding-top: 80px;
+    padding-top: 50px;
   }
   @media (min-width: 993px)
   {
     height: 400px;
-    padding-top: 90px;
+    padding-top: 60px;
   }
   @media (min-width: 1201px)
   {
     height: 400px;
-    padding-top: 100px;
+    padding-top: 70px;
   }
   @media (min-width: 1401px)
   {
     height: 500px;
-    padding-top: 120px;
+    padding-top: 80px;
     }
 `;
 
@@ -120,7 +129,7 @@ export const SlideContent = styled.div<{isActive: boolean}>`
       return("0.2")
     }};
     transform: ${(props) => {
-      if(props.isActive) {return("scale(1.3)")}
+      if(props.isActive) {return("scale(1.15)")}
       return("none")
     }};
 

@@ -8,6 +8,10 @@ export const routes = {
     forgotPassword: '/forgot-password',
     resetPassword: '/reset-password',
     hackatons: '/hackatons',
+    about: '/about',
+
+
+
     checkEmail: '/check-email/:token'
   }
   
