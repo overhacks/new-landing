@@ -9,12 +9,35 @@ import {
   Input,
   InputContainer,
   CancelImg,
+  LinksContainer,
+  HeaderLinkBtn,
+  HeaderBtn,
 } from "./styles";
 // import InvitePopup from 'components/newDesignComponents/invitePopup'
 import LogoHacks from "../../assets/img/LOGOHACK.png";
+import { routes } from "../../constants/routes";
+import { useLocation } from "react-router-dom";
+
+export const screens: {
+  title: string;
+  screenName: string;
+  url: string;
+}[] = [
+  {
+    title: "Hackatons",
+    screenName: "Hackatons",
+    url: routes.hackatons,
+  },
+  {
+    title: "About",
+    screenName: "About",
+    url: routes.about,
+  },
+];
 
 function Header() {
   const [openSearch, setOpenSearch] = useState(false);
+  const location = useLocation();
 
   return (
     <DefaultHeadercontainer>
@@ -24,6 +47,35 @@ function Header() {
             <Logo background={LogoHacks} />
             <OverhacksName>Overhacks</OverhacksName>
           </LogoAndName>
+
+          <LinksContainer>
+            {screens.map((screen) => (
+              <HeaderLinkBtn
+                to={routes.home + screen.url}
+                key={screen.screenName}
+                bottomBorder="3px solid #22fa5f"
+                isActive={location.pathname === routes.home + screen.url}
+                defaultColor="white"
+                hoverBackgroundColor="rgb(42, 42, 45)"
+                hoverTextColor="#22fa5f"
+              >
+                {screen.title}
+              </HeaderLinkBtn>
+            ))}
+          </LinksContainer>
+
+          <LinksContainer>
+            <HeaderBtn
+              defaultColor="white"
+              hoverBackgroundColor="rgb(42, 42, 45)"
+              hoverTextColor="#22fa5f"
+            >Host a hackaton</HeaderBtn>
+            <HeaderBtn
+              defaultColor="white"
+              hoverBackgroundColor="rgb(42, 42, 45)"
+              hoverTextColor="#22fa5f"
+            >Sign Up</HeaderBtn>
+          </LinksContainer>
 
           <SearchImg
             fill="#22fa5f"

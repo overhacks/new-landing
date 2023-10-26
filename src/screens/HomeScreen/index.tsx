@@ -4,6 +4,7 @@ import {
   HomeScreenContent,
 } from "./styles";
 import Header from "../../components/Header";
+import { Routes, Route, useNavigate, Navigate } from 'react-router-dom';
 
 import "swiper/css/virtual";
 import "swiper/css";
@@ -12,41 +13,21 @@ import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import "swiper/css/autoplay";
 import SubTitle from "../../components/SubTitle";
-import { Route, Routes } from "react-router-dom";
 import { routes } from "../../constants/routes";
 import Hackatons from "../HackatonsScreen";
 
 function HomeScreen() {
-  const slides = [
-    "Slide 1",
-    "Slide 2",
-    "Slide 3",
-    "Slide 4",
-    "Slide 5",
-    "Slide 6",
-    "Slide 7",
-    "Slide 8",
-    "Slide 9",
-    "Slide 10",
-    "Slide 11",
-    "Slide 12",
-    "Slide 13",
-    "Slide 14",
-    "Slide 15",
-    "Slide 16",
-    "Slide 17",
-    "Slide 18",
-    "Slide 19",
-    "Slide 20",
-  ];
 
   function renderRoutes() {
     return (
       <Routes>
         <Route path={`${routes.hackatons}/`} element={<Hackatons />} />
+        <Route path={`${routes.about}/`} element={<></>} />
       </Routes>
     );
   }
+
+
 
   return (
     <>
