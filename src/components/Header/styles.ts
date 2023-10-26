@@ -32,20 +32,20 @@ export const OverhacksName = styled.h1`
     font-size: 38px;
   }
 `;
-export const DefaultHeadercontainer = styled.header`
+export const DefaultHeadercontainer = styled.header<{ paddingLeft: string }>`
   border-bottom: 2px solid rgb(44, 44, 48);
 
-  padding-left: 7%;
+  padding-left: ${(props) => props.paddingLeft};
   padding-right: 7%;
 `;
 
-export const Headercontainer = styled.div`
+export const Headercontainer = styled.div<{ gap: string }>`
   display: flex;
   flex-direction: row;
   align-items: center;
   max-width: 100%;
   justify-content: space-between;
-  gap: 16px;
+  gap: ${(props) => props.gap};
   flex-wrap: wrap;
 
   @media (max-width: 576px) {
@@ -71,6 +71,7 @@ export const Headercontainer = styled.div`
 export const LogoAndName = styled.div`
   display: flex;
   flex-direction: row;
+  align-items: center;
   gap: 16px;
 `;
 
@@ -111,6 +112,45 @@ export const SearchImg = styled.div<{ fill: string; fillHover: string }>`
   display: flex;
   align-items: center;
   justify-content: center;
+  & svg {
+    fill: ${(props) => props.fill};
+  }
+  :hover {
+    fill: ${(props) => props.fillHover};
+  }
+
+  @media (max-width: 576px) {
+    width: 24px;
+    height: 24px;
+  }
+  @media (min-width: 577px) {
+    width: 24px;
+    height: 24px;
+  }
+  @media (min-width: 769px) {
+    width: 30px;
+    height: 30px;
+  }
+  @media (min-width: 993px) {
+    width: 30px;
+    height: 30px;
+  }
+  @media (min-width: 1201px) {
+    width: 30px;
+    height: 30px;
+  }
+  @media (min-width: 1401px) {
+    width: 30px;
+    height: 30px;
+  }
+`;
+
+export const MenuBurgerImg = styled.div<{ fill: string; fillHover: string }>`
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 12px;
   & svg {
     fill: ${(props) => props.fill};
   }

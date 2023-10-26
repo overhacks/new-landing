@@ -12,6 +12,7 @@ import {
   LinksContainer,
   HeaderLinkBtn,
   HeaderBtn,
+  MenuBurgerImg,
 } from "./styles";
 // import InvitePopup from 'components/newDesignComponents/invitePopup'
 import LogoHacks from "../../assets/img/LOGOHACK.png";
@@ -35,47 +36,85 @@ export const screens: {
   },
 ];
 
+const matcher = () => {
+  return window.matchMedia("(max-width: 993px)").matches;
+};
+
 function Header() {
   const [openSearch, setOpenSearch] = useState(false);
   const location = useLocation();
 
+  const [isSmallScreen, setIsSmallScreen] = useState(matcher());
+
+  const checkScreenSize = () => {
+    setIsSmallScreen(matcher());
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", checkScreenSize);
+    return () => {
+      window.removeEventListener("resize", checkScreenSize);
+    };
+  }, []);
+
   return (
-    <DefaultHeadercontainer>
+    <DefaultHeadercontainer paddingLeft={isSmallScreen ? "2%" : "7%"}>
       {openSearch === false && (
-        <Headercontainer>
+        <Headercontainer gap={isSmallScreen ? "4px" : "16px"}>
           <LogoAndName>
+            {isSmallScreen && <MenuBurgerImg fill="#22fa5f" fillHover="#0b8c30">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                x="0px"
+                y="0px"
+                width="32"
+                height="32"
+                viewBox="0 0 50 50"
+              >
+                <path d="M 0 7.5 L 0 12.5 L 50 12.5 L 50 7.5 Z M 0 22.5 L 0 27.5 L 50 27.5 L 50 22.5 Z M 0 37.5 L 0 42.5 L 50 42.5 L 50 37.5 Z"></path>
+              </svg>
+            </MenuBurgerImg>}
+
             <Logo background={LogoHacks} />
             <OverhacksName>Overhacks</OverhacksName>
           </LogoAndName>
 
-          <LinksContainer>
-            {screens.map((screen) => (
-              <HeaderLinkBtn
-                to={routes.home + screen.url}
-                key={screen.screenName}
-                bottomBorder="3px solid #22fa5f"
-                isActive={location.pathname === routes.home + screen.url}
-                defaultColor="white"
-                hoverBackgroundColor="rgb(42, 42, 45)"
-                hoverTextColor="#22fa5f"
-              >
-                {screen.title}
-              </HeaderLinkBtn>
-            ))}
-          </LinksContainer>
+          {!isSmallScreen && (
+            <>
+              <LinksContainer>
+                {screens.map((screen) => (
+                  <HeaderLinkBtn
+                    to={routes.home + screen.url}
+                    key={screen.screenName}
+                    bottomBorder="3px solid #22fa5f"
+                    isActive={location.pathname === routes.home + screen.url}
+                    defaultColor="white"
+                    hoverBackgroundColor="rgb(42, 42, 45)"
+                    hoverTextColor="#22fa5f"
+                  >
+                    {screen.title}
+                  </HeaderLinkBtn>
+                ))}
+              </LinksContainer>
 
-          <LinksContainer>
-            <HeaderBtn
-              defaultColor="white"
-              hoverBackgroundColor="rgb(42, 42, 45)"
-              hoverTextColor="#22fa5f"
-            >Host a hackaton</HeaderBtn>
-            <HeaderBtn
-              defaultColor="white"
-              hoverBackgroundColor="rgb(42, 42, 45)"
-              hoverTextColor="#22fa5f"
-            >Sign Up</HeaderBtn>
-          </LinksContainer>
+              <LinksContainer>
+                <HeaderBtn
+                  defaultColor="white"
+                  hoverBackgroundColor="rgb(42, 42, 45)"
+                  hoverTextColor="#22fa5f"
+                >
+                  Host a hackaton
+                </HeaderBtn>
+                <HeaderBtn
+                  defaultColor="white"
+                  hoverBackgroundColor="rgb(42, 42, 45)"
+                  hoverTextColor="#22fa5f"
+                >
+                  Sign Up
+                </HeaderBtn>
+              </LinksContainer>
+            </>
+          )}
 
           <SearchImg
             fill="#22fa5f"
