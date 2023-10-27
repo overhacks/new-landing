@@ -41,6 +41,7 @@ export const SubTitlecontainer = styled.div`
 
 export const StyledSwiper = styled(Swiper)`
   width: 100%;
+  padding-bottom: 30px;
 
   @media (max-width: 576px)
   {
