@@ -39,6 +39,20 @@ export const DefaultHeadercontainer = styled.header<{ paddingLeft: string }>`
   padding-right: 7%;
 `;
 
+export const DefaultMenucontainer = styled.header`
+  border-bottom: 2px solid rgb(44, 44, 48);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+
+  padding-left: 7%;
+  padding-right: 7%;
+  padding-top: 16px;
+  padding-bottom: 16px;
+
+`;
+
 export const Headercontainer = styled.div<{ gap: string }>`
   display: flex;
   flex-direction: row;
@@ -278,6 +292,44 @@ export const HeaderLinkBtn: React.FC<LinkProps> = styled(Link)`
   }
 `;
 
+export const MenuLinkBtn: React.FC<LinkProps> = styled(Link)`
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  text-decoration: none;
+  justify-content: start;
+  align-items: center;
+  border: none;
+  box-shadow: none;
+  background-color: transparent;
+  height: 100%;
+  color: ${(props) => props.defaultColor};
+
+  &:hover {
+    background-color: ${(props) => props.hoverBackgroundColor};
+    color: ${(props) => props.hoverTextColor};
+  }
+
+  @media (max-width: 576px) {
+    font-size: 15px;
+  }
+  @media (min-width: 577px) {
+    font-size: 15px;
+  }
+  @media (min-width: 769px) {
+    font-size: 20px;
+  }
+  @media (min-width: 993px) {
+    font-size: 20px;
+  }
+  @media (min-width: 1201px) {
+    font-size: 20px;
+  }
+  @media (min-width: 1401px) {
+    font-size: 20px;
+  }
+`;
+
 export const HeaderBtn = styled.button<{
   hoverTextColor: string;
   hoverBackgroundColor: string;
@@ -293,6 +345,51 @@ export const HeaderBtn = styled.button<{
   height: 100%;
   padding-left: 12px;
   padding-right: 12px;
+  color: ${(props) => props.defaultColor};
+
+  &:hover {
+    background-color: ${(props) => props.hoverBackgroundColor};
+    color: ${(props) => props.hoverTextColor};
+  }
+
+  @media (max-width: 576px) {
+    font-size: 15px;
+  }
+  @media (min-width: 577px) {
+    font-size: 15px;
+  }
+  @media (min-width: 769px) {
+    font-size: 20px;
+  }
+  @media (min-width: 993px) {
+    font-size: 20px;
+  }
+  @media (min-width: 1201px) {
+    font-size: 20px;
+  }
+  @media (min-width: 1401px) {
+    font-size: 20px;
+  }
+`;
+
+export const Line = styled.div`
+  width: 100%;
+  border-bottom: 1px solid #22fa5f;
+`
+
+export const MenuBtn = styled.button<{
+  hoverTextColor: string;
+  hoverBackgroundColor: string;
+  defaultColor: string;
+}>`
+  width: 100%;
+  text-decoration: none;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border: none;
+  box-shadow: none;
+  background-color: transparent;
   color: ${(props) => props.defaultColor};
 
   &:hover {
