@@ -17,10 +17,7 @@ import {
   Button,
 } from "./styles";
 
-import {
-  CalendarFilled,
-  TagsFilled
-} from '@ant-design/icons';
+import { CalendarFilled, TagsFilled } from "@ant-design/icons";
 
 import {
   Navigation,
@@ -33,9 +30,10 @@ import {
 import { Checkbox } from "antd";
 import type { CheckboxChangeEvent } from "antd/es/checkbox";
 import AnySizeTitle from "../../components/Title";
+import { useEffect, useState } from "react";
 
-const onChange = (e: CheckboxChangeEvent) => {
-  console.log(`checked = ${e.target.checked}`);
+const matcher = () => {
+  return window.matchMedia("(max-width: 993px)").matches;
 };
 
 function Hackatons() {
@@ -61,7 +59,21 @@ function Hackatons() {
     "Slide 19",
     "Slide 20",
   ];
+  const onChange = (e: CheckboxChangeEvent) => {
+    console.log(`checked = ${e.target.checked}`);
+  };
 
+  const [isSmallScreen, setIsSmallScreen] = useState(matcher());
+  const checkScreenSize = () => {
+    setIsSmallScreen(matcher());
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", checkScreenSize);
+    return () => {
+      window.removeEventListener("resize", checkScreenSize);
+    };
+  }, []);
   return (
     <Container>
       {/* <RowContainer>
@@ -94,16 +106,17 @@ function Hackatons() {
             slidesPerView: 1.25,
           },
           1080: {
-            slidesPerView: 2,
+            slidesPerView: 2.5,
           },
           1280: {
-            slidesPerView: 2,
+            slidesPerView: 2.75,
           },
         }}
         modules={[
-          // Autoplay, 
-          Pagination, 
-          Navigation]}
+          // Autoplay,
+          Pagination,
+          Navigation,
+        ]}
         // autoplay={{
         //   delay: 2500,
         //   disableOnInteraction: false,
@@ -120,35 +133,36 @@ function Hackatons() {
                       color="white"
                       text="Docker AI/ML Hackathon"
                     />
+
                     <Row>
-                      <TagsFilled style={{color: "#22fa5fa4"}}/>
-                      
+                      <TagsFilled style={{ color: "#22fa5fa4" }} />
+
                       <Tag backgroundColor="#36f96d8c">
-                      <SubTitle
-                      fontSize="12px"
-                      textAlign="left"
-                      color="white"
-                      text="DevOps"
-                    />
+                        <SubTitle
+                          fontSize="12px"
+                          textAlign="left"
+                          color="white"
+                          text="DevOps"
+                        />
                       </Tag>
                       <Tag backgroundColor="#36f96d8c">
-                      <SubTitle
-                      fontSize="12px"
-                      textAlign="left"
-                      color="white"
-                      text="WEB"
-                    />
+                        <SubTitle
+                          fontSize="12px"
+                          textAlign="left"
+                          color="white"
+                          text="WEB"
+                        />
                       </Tag>
                       <Tag backgroundColor="#36f96d8c">
-                      <SubTitle
-                      fontSize="12px"
-                      textAlign="left"
-                      color="white"
-                      text="Machine Learning/AI"
-                    />
+                        <SubTitle
+                          fontSize="12px"
+                          textAlign="left"
+                          color="white"
+                          text="Machine Learning/AI"
+                        />
                       </Tag>
                     </Row>
-                    
+
                     {/* <SubTitle
                       fontSize="12px"
                       textAlign="left"
@@ -161,6 +175,17 @@ function Hackatons() {
                       color="rgba(170, 170, 170, 1)"
                       text="$20,000 in prizes"
                     /> */}
+                    { !isSmallScreen &&
+                      <SubTitle
+                        fontSize="12px"
+                        textAlign="left"
+                        color="rgba(170, 170, 170, 1)"
+                        text="Use Docker to get inspired and be productive within this exciting new frontier of AI"
+                        // overflow="hidden"
+                        // textOverflow="ellipsis"
+                        // whiteSpace="nowrap"
+                      />
+                    }
                   </Description>
                   <Banner src="https://d112y698adiu2z.cloudfront.net/photos/production/challenge_thumbnails/002/597/511/datas/medium_square.png" />
                 </ImgAndDescription>
@@ -168,43 +193,43 @@ function Hackatons() {
                 <Info borderTop="2px solid rgb(44, 44, 48)">
                   <Row paddingLeft="16px">
                     <Tag backgroundColor="#36f96d8c">
-                    <SubTitle
-                      fontSize="12px"
-                      textAlign="left"
-                      color="white"
-                      text="1776 participants"
-                    />
-                  </Tag>
-                  <Tag backgroundColor="#36f96d8c">
-                    <SubTitle
-                      fontSize="12px"
-                      textAlign="left"
-                      color="white"
-                      text="Offline"
-                    />
-                  </Tag>
+                      <SubTitle
+                        fontSize="12px"
+                        textAlign="left"
+                        color="white"
+                        text="1776 participants"
+                      />
+                    </Tag>
                     <Tag backgroundColor="#36f96d8c">
-                    <CalendarFilled style={{color: "white", fontSize: '12px'}}/>
-                    <SubTitle
-                      fontSize="12px"
-                      textAlign="left"
-                      color="white"
-                      text="Oct 03, 2023"
-                    />
-                  </Tag>
-                  
+                      <SubTitle
+                        fontSize="12px"
+                        textAlign="left"
+                        color="white"
+                        text="Offline"
+                      />
+                    </Tag>
+                    <Tag backgroundColor="#36f96d8c">
+                      <CalendarFilled
+                        style={{ color: "white", fontSize: "12px" }}
+                      />
+                      <SubTitle
+                        fontSize="12px"
+                        textAlign="left"
+                        color="white"
+                        text="Oct 03, 2023"
+                      />
+                    </Tag>
                   </Row>
-                
-                <Button>
-                  <SubTitle
+
+                  <Button>
+                    <SubTitle
                       fontSize="18px"
                       fontWeight="600"
                       textAlign="left"
                       color="#22fa5f"
                       text="Apply"
                     />
-                </Button>
-                  
+                  </Button>
                 </Info>
               </SlideContent>
             )}
@@ -213,14 +238,10 @@ function Hackatons() {
       </StyledSwiper>
 
       <RowContainer>
-          <SubTitlecontainer>
-            <SubTitle color="#22fa5f" text="Finished"/>
-          </SubTitlecontainer>
-        </RowContainer>
-
-
-     
-
+        <SubTitlecontainer>
+          <SubTitle color="#22fa5f" text="Finished" />
+        </SubTitlecontainer>
+      </RowContainer>
     </Container>
   );
 }

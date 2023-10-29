@@ -99,7 +99,7 @@ export const StyledSlide = styled(SwiperSlide)<{isActive?: boolean}>`
 
 export const Info = styled.div<{borderTop: string}>`
   width: 100%;
-  max-height: 30%;
+  max-height: 35%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -121,7 +121,7 @@ export const Tag = styled.div<{backgroundColor: string}>`
 
 export const ImgAndDescription = styled.div`
   width: 100%;
-  max-height: 70%;
+  max-height: 65%;
   display: flex;
   flex-direction: row;
   gap: 16px;
