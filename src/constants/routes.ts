@@ -8,6 +8,7 @@ export const routes = {
     forgotPassword: '/forgot-password',
     resetPassword: '/reset-password',
     hackatons: '/hackatons',
+    hackaton: '/hackaton',
     about: '/about',
 
 

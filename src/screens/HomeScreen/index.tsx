@@ -23,6 +23,7 @@ function HomeScreen() {
       <Routes>
         <Route path={`${routes.hackatons}/`} element={<Hackatons />} />
         <Route path={`${routes.about}/`} element={<></>} />
+        <Route path={`${routes.hackaton}/`} element={<></>} />
       </Routes>
     );
   }

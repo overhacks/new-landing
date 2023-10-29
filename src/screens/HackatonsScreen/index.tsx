@@ -12,7 +12,16 @@ import {
   StyledSlide,
   StyledSwiper,
   SubTitlecontainer,
+  Tag,
+  Row,
+  Button,
 } from "./styles";
+
+import {
+  CalendarFilled,
+  TagsFilled
+} from '@ant-design/icons';
+
 import {
   Navigation,
   Pagination,
@@ -91,51 +100,111 @@ function Hackatons() {
             slidesPerView: 2,
           },
         }}
-        modules={[Autoplay, Pagination, Navigation]}
-        autoplay={{
-          delay: 2500,
-          disableOnInteraction: false,
-        }}
+        modules={[
+          // Autoplay, 
+          Pagination, 
+          Navigation]}
+        // autoplay={{
+        //   delay: 2500,
+        //   disableOnInteraction: false,
+        // }}
       >
         {slides.map((slideContent, index) => (
           <StyledSlide key={slideContent} virtualIndex={index}>
             {({ isActive }) => (
               <SlideContent isActive={isActive}>
                 <ImgAndDescription>
-                  <Banner src="https://d112y698adiu2z.cloudfront.net/photos/production/challenge_thumbnails/002/597/511/datas/medium_square.png" />
                   <Description>
                     <SubTitle
-                      textAlign="right"
+                      textAlign="left"
                       color="white"
                       text="Docker AI/ML Hackathon"
                     />
-                    <SubTitle
+                    <Row>
+                      <TagsFilled style={{color: "#22fa5fa4"}}/>
+                      
+                      <Tag backgroundColor="#36f96d8c">
+                      <SubTitle
                       fontSize="12px"
-                      textAlign="right"
+                      textAlign="left"
+                      color="white"
+                      text="DevOps"
+                    />
+                      </Tag>
+                      <Tag backgroundColor="#36f96d8c">
+                      <SubTitle
+                      fontSize="12px"
+                      textAlign="left"
+                      color="white"
+                      text="WEB"
+                    />
+                      </Tag>
+                      <Tag backgroundColor="#36f96d8c">
+                      <SubTitle
+                      fontSize="12px"
+                      textAlign="left"
+                      color="white"
+                      text="Machine Learning/AI"
+                    />
+                      </Tag>
+                    </Row>
+                    
+                    {/* <SubTitle
+                      fontSize="12px"
+                      textAlign="left"
                       color="rgba(170, 170, 170, 1)"
                       text="19 days left"
                     />
                     <SubTitle
                       fontSize="12px"
-                      textAlign="right"
+                      textAlign="left"
                       color="rgba(170, 170, 170, 1)"
                       text="$20,000 in prizes"
-                    />
+                    /> */}
                   </Description>
+                  <Banner src="https://d112y698adiu2z.cloudfront.net/photos/production/challenge_thumbnails/002/597/511/datas/medium_square.png" />
                 </ImgAndDescription>
 
-                <Info>
+                <Info borderTop="2px solid rgb(44, 44, 48)">
+                  <Row paddingLeft="16px">
+                    <Tag backgroundColor="#36f96d8c">
+                    <SubTitle
+                      fontSize="12px"
+                      textAlign="left"
+                      color="white"
+                      text="1776 participants"
+                    />
+                  </Tag>
+                  <Tag backgroundColor="#36f96d8c">
+                    <SubTitle
+                      fontSize="12px"
+                      textAlign="left"
+                      color="white"
+                      text="Offline"
+                    />
+                  </Tag>
+                    <Tag backgroundColor="#36f96d8c">
+                    <CalendarFilled style={{color: "white", fontSize: '12px'}}/>
+                    <SubTitle
+                      fontSize="12px"
+                      textAlign="left"
+                      color="white"
+                      text="Oct 03, 2023"
+                    />
+                  </Tag>
+                  
+                  </Row>
+                
+                <Button>
                   <SubTitle
-                    textAlign="center"
-                    color="white"
-                    text="ABOUT THE CHALLENGE"
-                  />
-                  <SubTitle
-                    fontSize="12px"
-                    textAlign="left"
-                    color="rgba(170, 170, 170, 1)"
-                    text="Docker and Docker Hub are the starting point for practitioners to start their AI/ML journey and distribute their applications or models. We’re looking for hacks that use Docker products to help both beginners and advanced users get inspired, get started, and be productive within this exciting new frontier."
-                  />
+                      fontSize="18px"
+                      fontWeight="600"
+                      textAlign="left"
+                      color="#22fa5f"
+                      text="Apply"
+                    />
+                </Button>
+                  
                 </Info>
               </SlideContent>
             )}
@@ -150,78 +219,7 @@ function Hackatons() {
         </RowContainer>
 
 
-      <StyledSwiper
-        spaceBetween={80}
-        slidesPerView={1.25}
-        loop
-        speed={500}
-        centeredSlides
-        centeredSlidesBounds
-        breakpoints={{
-          640: {
-            slidesPerView: 1.25,
-          },
-          768: {
-            slidesPerView: 1.25,
-          },
-          1080: {
-            slidesPerView: 2,
-          },
-          1280: {
-            slidesPerView: 2,
-          },
-        }}
-        modules={[Autoplay, Pagination, Navigation]}
-        autoplay={{
-          delay: 2500,
-          disableOnInteraction: false,
-        }}
-      >
-        {slides.map((slideContent, index) => (
-          <StyledSlide key={slideContent} virtualIndex={index}>
-            {({ isActive }) => (
-              <SlideContent isActive={isActive}>
-                <ImgAndDescription>
-                  <Banner src="https://d112y698adiu2z.cloudfront.net/photos/production/challenge_thumbnails/002/597/511/datas/medium_square.png" />
-                  <Description>
-                    <SubTitle
-                      textAlign="right"
-                      color="white"
-                      text="Docker AI/ML Hackathon"
-                    />
-                    <SubTitle
-                      fontSize="12px"
-                      textAlign="right"
-                      color="rgba(170, 170, 170, 1)"
-                      text="19 days left"
-                    />
-                    <SubTitle
-                      fontSize="12px"
-                      textAlign="right"
-                      color="rgba(170, 170, 170, 1)"
-                      text="$20,000 in prizes"
-                    />
-                  </Description>
-                </ImgAndDescription>
-
-                <Info>
-                  <SubTitle
-                    textAlign="center"
-                    color="white"
-                    text="ABOUT THE CHALLENGE"
-                  />
-                  <SubTitle
-                    fontSize="12px"
-                    textAlign="left"
-                    color="rgba(170, 170, 170, 1)"
-                    text="Docker and Docker Hub are the starting point for practitioners to start their AI/ML journey and distribute their applications or models. We’re looking for hacks that use Docker products to help both beginners and advanced users get inspired, get started, and be productive within this exciting new frontier."
-                  />
-                </Info>
-              </SlideContent>
-            )}
-          </StyledSlide>
-        ))}
-      </StyledSwiper>
+     
 
     </Container>
   );

@@ -16,6 +16,7 @@ interface Props {
   textOverflow: string;
   alignSelf: string;
   width: string;
+  fontWeight: string
 }
 
 export const Text = styled.h1<any>`
@@ -29,7 +30,7 @@ export const Text = styled.h1<any>`
     
     font-family: Play;
     
-    font-weight: 400;
+    font-weight: ${props => props.fontWeight || "400px"};
     letter-spacing: 0em;
 
     max-width: ${props => props.maxWidth};
