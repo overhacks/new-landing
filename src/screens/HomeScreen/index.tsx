@@ -15,6 +15,7 @@ import "swiper/css/autoplay";
 import SubTitle from "../../components/SubTitle";
 import { routes } from "../../constants/routes";
 import Hackatons from "../HackatonsScreen";
+import Footer from "../../components/Footer";
 
 function HomeScreen() {
 

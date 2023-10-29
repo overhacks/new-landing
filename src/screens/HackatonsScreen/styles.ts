@@ -119,6 +119,18 @@ export const Tag = styled.div<{backgroundColor: string}>`
   background-color: ${props => props.backgroundColor};
 `
 
+export const Moto = styled.div`
+  height: 100px;
+  width: 100%;
+  background-color: rgba(54, 249, 109, 0.341);
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+`
+
+
 export const ImgAndDescription = styled.div`
   width: 100%;
   max-height: 65%;
