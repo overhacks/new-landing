@@ -78,9 +78,11 @@ function Hackatons() {
   }, []);
   return (
     <Container>
-      <Moto/>
+      <Moto>
+        <AnySizeTitle color="white" text="Moto"/>
+      </Moto>
 
-      <RowContainer>
+      <RowContainer id="hackatons">
         <SubTitlecontainer>
           <SubTitle color="#22fa5f" text="Ongoing" />
         </SubTitlecontainer>

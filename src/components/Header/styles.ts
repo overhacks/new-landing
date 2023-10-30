@@ -292,6 +292,51 @@ export const HeaderLinkBtn: React.FC<LinkProps> = styled(Link)`
   }
 `;
 
+export const HeaderLinkBtnInner = styled.a<{
+  hoverTextColor: string;
+  hoverBackgroundColor: string;
+  defaultColor: string;
+  isActive: boolean;
+  bottomBorder: string;
+}>`
+  display: flex;
+  text-decoration: none;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  box-shadow: none;
+  background-color: transparent;
+  height: 100%;
+  padding-left: 12px;
+  padding-right: 12px;
+  color: ${(props) => props.defaultColor};
+  border-bottom: ${(props) => (props.isActive ? props.bottomBorder : "none")};
+
+  &:hover {
+    background-color: ${(props) => props.hoverBackgroundColor};
+    color: ${(props) => props.hoverTextColor};
+  }
+
+  @media (max-width: 576px) {
+    font-size: 15px;
+  }
+  @media (min-width: 577px) {
+    font-size: 15px;
+  }
+  @media (min-width: 769px) {
+    font-size: 20px;
+  }
+  @media (min-width: 993px) {
+    font-size: 20px;
+  }
+  @media (min-width: 1201px) {
+    font-size: 20px;
+  }
+  @media (min-width: 1401px) {
+    font-size: 20px;
+  }
+`;
+
 export const MenuLinkBtn: React.FC<LinkProps> = styled(Link)`
   display: flex;
   flex-direction: row;

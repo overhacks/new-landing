@@ -17,6 +17,7 @@ import {
   MenuLinkBtn,
   MenuBtn,
   Line,
+  HeaderLinkBtnInner,
 } from "./styles";
 // import InvitePopup from 'components/newDesignComponents/invitePopup'
 import LogoHacks from "../../assets/img/LOGOHACK.png";
@@ -103,7 +104,7 @@ function Header() {
             {!isSmallScreen && (
               <>
                 <LinksContainer>
-                  {screens.map((screen) => (
+                  {/* {screens.map((screen) => (
                     <HeaderLinkBtn
                       to={routes.home + screen.url}
                       key={screen.screenName}
@@ -115,7 +116,25 @@ function Header() {
                     >
                       {screen.title}
                     </HeaderLinkBtn>
-                  ))}
+                  ))} */}
+
+                  <HeaderLinkBtnInner
+                    bottomBorder="3px solid #22fa5f"
+                    isActive={false}
+                    defaultColor="white"
+                    hoverBackgroundColor="rgb(42, 42, 45)"
+                    hoverTextColor="#22fa5f"
+                    href="#hackatons"
+                  >Hackatons</HeaderLinkBtnInner>
+                  <HeaderLinkBtnInner
+                    bottomBorder="3px solid #22fa5f"
+                    isActive={false}
+                    defaultColor="white"
+                    hoverBackgroundColor="rgb(42, 42, 45)"
+                    hoverTextColor="#22fa5f"
+                    href="#about"
+                  >About</HeaderLinkBtnInner>
+
                 </LinksContainer>
 
                 <LinksContainer>
@@ -216,7 +235,7 @@ function Header() {
               {screen.title}
             </MenuLinkBtn>
           ))}
-          <Line/>
+          <Line />
           <MenuBtn
             defaultColor="white"
             hoverBackgroundColor="transparent"

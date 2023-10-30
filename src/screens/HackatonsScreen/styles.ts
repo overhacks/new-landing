@@ -120,7 +120,6 @@ export const Tag = styled.div<{backgroundColor: string}>`
 `
 
 export const Moto = styled.div`
-  height: 100px;
   width: 100%;
   background-color: rgba(54, 249, 109, 0.341);
 
@@ -128,6 +127,31 @@ export const Moto = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
+
+  @media (max-width: 576px)
+  {
+    height: 60px;
+  }
+  @media (min-width: 577px)
+  {
+    height: 70px;
+  }
+  @media (min-width: 769px)
+  {
+    height: 80px;
+  }
+  @media (min-width: 993px)
+  {
+    height: 90px;
+  }
+  @media (min-width: 1201px)
+  {
+    height: 100px;
+  }
+  @media (min-width: 1401px)
+  {
+    height: 100px;
+    }
 `
 
 
