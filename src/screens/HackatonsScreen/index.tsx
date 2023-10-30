@@ -90,25 +90,27 @@ function Hackatons() {
 
       <StyledSwiper
         spaceBetween={80}
-        slidesPerView={1.25}
+        slidesPerView={2}
+        slidesPerGroupSkip={2}
+        centeredSlides={false}
+        grabCursor={true}
         loop
         speed={500}
-        centeredSlides
         centeredSlidesBounds
-        breakpoints={{
-          640: {
-            slidesPerView: 1.25,
-          },
-          768: {
-            slidesPerView: 1.25,
-          },
-          1080: {
-            slidesPerView: 2.5,
-          },
-          1280: {
-            slidesPerView: 2.75,
-          },
-        }}
+        // breakpoints={{
+        //   640: {
+        //     slidesPerView: 1.25,
+        //   },
+        //   768: {
+        //     slidesPerView: 1.25,
+        //   },
+        //   1080: {
+        //     slidesPerView: 2.5,
+        //   },
+        //   1280: {
+        //     slidesPerView: 2.75,
+        //   },
+        // }}
         modules={[
           Autoplay,
           Pagination,

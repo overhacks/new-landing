@@ -57,7 +57,7 @@ export const Button = styled.button`
 `
 
 export const StyledSwiper = styled(Swiper)`
-  width: 100%;
+  width: 90%;
   padding-bottom: 30px;
 
   @media (max-width: 576px)
@@ -199,7 +199,7 @@ export const SlideContent = styled.div<{isActive: boolean}>`
     
     transition: all ease .7s;
 
-    opacity: ${(props) => {
+    /* opacity: ${(props) => {
       if(props.isActive) {return("1")}
       return("0.2")
     }};
@@ -211,5 +211,5 @@ export const SlideContent = styled.div<{isActive: boolean}>`
     z-index: ${(props) => {
       if(props.isActive) {return("2")}
       return("1")
-    }}
+    }} */
 `;
