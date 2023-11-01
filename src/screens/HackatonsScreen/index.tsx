@@ -16,6 +16,7 @@ import {
   Row,
   Button,
   Moto,
+  PopupWrapper,
 } from "./styles";
 
 import { CalendarFilled, TagsFilled } from "@ant-design/icons";
@@ -61,10 +62,6 @@ function Hackatons() {
     "Slide 19",
     "Slide 20",
   ];
-  const onChange = (e: CheckboxChangeEvent) => {
-    console.log(`checked = ${e.target.checked}`);
-  };
-
   const [isSmallScreen, setIsSmallScreen] = useState(matcher());
   const checkScreenSize = () => {
     setIsSmallScreen(matcher());
@@ -129,6 +126,7 @@ function Hackatons() {
           disableOnInteraction: false,
         }}
       >
+        {/* <PopupWrapper></PopupWrapper> */}
         {slides.map((slideContent, index) => (
           <StyledSlide key={slideContent} virtualIndex={index}>
             {({ isActive }) => (
@@ -176,9 +174,6 @@ function Hackatons() {
                         textAlign="left"
                         color="rgba(170, 170, 170, 1)"
                         text="Use Docker to get inspired and be productive within this exciting new frontier of AI"
-                        // overflow="hidden"
-                        // textOverflow="ellipsis"
-                        // whiteSpace="nowrap"
                       />
                     }
                   </Description>
@@ -370,6 +365,36 @@ function Hackatons() {
           </StyledSlide>
         ))}
       </StyledSwiper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
       <Footer/>
     </Container>

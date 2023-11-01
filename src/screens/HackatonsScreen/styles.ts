@@ -58,7 +58,9 @@ export const Button = styled.button`
 
 export const StyledSwiper = styled(Swiper)`
   width: 90%;
-  padding-bottom: 30px;
+  padding-bottom: 120px;
+  position: relative;
+  overflow-y: visible;
 
   @media (max-width: 576px)
   {
@@ -68,17 +70,17 @@ export const StyledSwiper = styled(Swiper)`
   @media (min-width: 577px)
   {
     height: 250px;
-    padding-top: 40px;
+    padding-top: 60px;
   }
   @media (min-width: 769px)
   {
     height: 250px;
-    padding-top: 50px;
+    padding-top: 70px;
   }
   @media (min-width: 993px)
   {
     height: 250px;
-    padding-top: 60px;
+    padding-top: 70px;
   }
   @media (min-width: 1201px)
   {
@@ -189,11 +191,20 @@ export const Description = styled.div`
 `
 
 export const SlideContent = styled.div<{isActive: boolean}>`
-    width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
-    background-color: transparent;
+
+    background-color: rgba(196, 196, 196, 0.01);
+    box-shadow: 0px 98px 100px 0px rgba(88, 13, 245, 0.38) inset, 0px 4px 18px 0px #580DF5 inset, 0px 1px 18px 0px #580DF5 inset;
+    backdrop-filter: blur(50px);
+    border-radius: 32px;
+
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+
     overflow: hidden;
     /* box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.3); */
     
@@ -212,4 +223,47 @@ export const SlideContent = styled.div<{isActive: boolean}>`
       if(props.isActive) {return("2")}
       return("1")
     }} */
+`;
+
+
+
+export const PopupWrapper = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 999;
+  background: #fff;
+  padding: 20px;
+  width: 60%;
+  max-width: 80%;
+  max-height: 80%;
+  overflow-y: auto;
+
+
+
+  @media (max-width: 576px)
+  {
+    height: 300px;
+  }
+  @media (min-width: 577px)
+  {
+    height: 300px;
+  }
+  @media (min-width: 769px)
+  {
+    height: 300px;
+  }
+  @media (min-width: 993px)
+  {
+    height: 300px;
+  }
+  @media (min-width: 1201px)
+  {
+    height: 300px;
+  }
+  @media (min-width: 1401px)
+  {
+    height: 400px;
+    }
 `;

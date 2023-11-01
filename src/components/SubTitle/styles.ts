@@ -28,7 +28,7 @@ export const Text = styled.h1<any>`
     cursor: ${props => props.cursor || "auto"};
     text-align: ${props => props.textAlign || "left"};
     
-    font-family: Play;
+    font-family: "PF Videotext Pro";
     
     font-weight: ${props => props.fontWeight || "400px"};
     letter-spacing: 0em;

@@ -23,7 +23,7 @@ export const Title = styled.h1<Props>`
     transition: all ease 35ms;
     line-height: ${props => props.lineHeight || "normal"};
     
-    font-family: Play;
+    font-family: "Hanson";
     max-width: ${props => props.maxWidth};
     overflow: ${props => props.overflow};
     white-space: ${props => props.whiteSpace};
@@ -37,27 +37,27 @@ export const Title = styled.h1<Props>`
   }
       @media (max-width: 576px)
     {
-     font-size: 25px;
+     font-size: 20px;
    }
       @media (min-width: 577px)
    {
-      font-size: 25px;
+      font-size: 20px;
    }
       @media (min-width: 769px)
    {
-     font-size: 35px;
+     font-size: 20px;
    }
       @media (min-width: 993px)
    {
-     font-size: 35px;
+     font-size: 20px;
    }
       @media (min-width: 1201px)
    {
-     font-size: 35px;
+     font-size: 20px;
    }
    @media (min-width: 1401px)
    {
-     font-size: 35px;
+     font-size: 20px;
      }
    
 `;
