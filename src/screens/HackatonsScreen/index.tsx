@@ -129,7 +129,71 @@ function Hackatons() {
         //   disableOnInteraction: false,
         // }}
       >
-        {/* <PopupWrapper></PopupWrapper> */}
+        {/* <PopupWrapper>
+        <AnySizeTitle
+                  text="Docker AI/ML Hackathon"
+                  color="#CCFF5A"
+                  alignSelf="left"
+                />
+                <ImgAndDescription>
+                  <Description>
+                    <SubTitle
+                      textAlign="left"
+                      color="#E7FFB0"
+                      text="Use Docker to get inspired and be productive within this exciting new frontier of AI"
+                    />
+                  </Description>
+                  <Banner imgSrc="url(https://d112y698adiu2z.cloudfront.net/photos/production/challenge_thumbnails/002/597/511/datas/medium_square.png)" />
+                </ImgAndDescription>
+
+                <Info borderTop="2px solid rgb(44, 44, 48)">
+                  <Row>
+                    <InfoColumn>
+                      <SubTitle
+                        textAlign="left"
+                        color="#E7FFB0"
+                        text="Offline"
+                      />
+                      <SubTitle
+                        textAlign="left"
+                        color="#E7FFB0"
+                        text="Offline"
+                      />
+                    </InfoColumn>
+                    <InfoColumn>
+                      <SubTitle
+                        textAlign="left"
+                        color="#E7FFB0"
+                        text="Participants"
+                      />
+                      <SubTitle textAlign="left" color="#E7FFB0" text="1436" />
+                    </InfoColumn>
+                    <InfoColumn>
+                      <SubTitle
+                        textAlign="left"
+                        color="#E7FFB0"
+                        text="Start Date"
+                      />
+                      <SubTitle
+                        textAlign="left"
+                        color="#E7FFB0"
+                        text="28.11.2023"
+                      />
+                    </InfoColumn>
+                  </Row>
+
+                  <Button backgroundImg={ApplyButton}>
+                    <SubTitle
+                      fontSize="25px"
+                      fontWeight="600"
+                      textAlign="left"
+                      color="#000"
+                      text="Apply"
+                    />
+                  </Button>
+                </Info>
+        </PopupWrapper>
+         */}
         {slides.map((slideContent, index) => (
           <StyledSlide key={slideContent} virtualIndex={index}>
             {({ isActive }) => (
@@ -153,7 +217,7 @@ function Hackatons() {
                 <Info borderTop="2px solid rgb(44, 44, 48)">
                   <Row>
                     <InfoColumn>
-                    <SubTitle
+                      <SubTitle
                         textAlign="left"
                         color="#E7FFB0"
                         text="Offline"
@@ -164,20 +228,16 @@ function Hackatons() {
                         text="Offline"
                       />
                     </InfoColumn>
-                    { !isSmallScreen && <InfoColumn>
-                    <SubTitle
+                    <InfoColumn>
+                      <SubTitle
                         textAlign="left"
                         color="#E7FFB0"
                         text="Participants"
                       />
-                      <SubTitle
-                        textAlign="left"
-                        color="#E7FFB0"
-                        text="1436"
-                      />
-                    </InfoColumn>}
+                      <SubTitle textAlign="left" color="#E7FFB0" text="1436" />
+                    </InfoColumn>
                     <InfoColumn>
-                    <SubTitle
+                      <SubTitle
                         textAlign="left"
                         color="#E7FFB0"
                         text="Start Date"
@@ -188,13 +248,9 @@ function Hackatons() {
                         text="28.11.2023"
                       />
                     </InfoColumn>
-                  
-                    
-                    
                   </Row>
 
                   <Button backgroundImg={ApplyButton}>
-                    
                     <SubTitle
                       fontSize="25px"
                       fontWeight="600"
