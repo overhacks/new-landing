@@ -17,7 +17,10 @@ import {
   Button,
   Moto,
   PopupWrapper,
+  InfoColumn,
 } from "./styles";
+
+import ApplyButton from "../../assets/img/applyButton.png";
 
 import { CalendarFilled, TagsFilled } from "@ant-design/icons";
 
@@ -76,7 +79,7 @@ function Hackatons() {
   return (
     <Container>
       <Moto>
-        <AnySizeTitle color="white" text="Moto"/>
+        <AnySizeTitle color="white" text="Moto" />
       </Moto>
 
       <RowContainer id="hackatons">
@@ -98,125 +101,105 @@ function Hackatons() {
           640: {
             slidesPerView: 1,
             slidesPerGroupSkip: 1,
-            centeredSlides: true
+            centeredSlides: true,
           },
           768: {
             slidesPerView: 1,
             slidesPerGroupSkip: 1,
-            centeredSlides: true
+            centeredSlides: true,
           },
           1080: {
             slidesPerView: 2,
             slidesPerGroupSkip: 2,
-            centeredSlides: false
+            centeredSlides: false,
           },
           1280: {
             slidesPerView: 2,
             slidesPerGroupSkip: 2,
-            centeredSlides: false
+            centeredSlides: false,
           },
         }}
         modules={[
-          Autoplay,
+          // Autoplay,
           Pagination,
           Navigation,
         ]}
-        autoplay={{
-          delay: 3500,
-          disableOnInteraction: false,
-        }}
+        // autoplay={{
+        //   delay: 3500,
+        //   disableOnInteraction: false,
+        // }}
       >
         {/* <PopupWrapper></PopupWrapper> */}
         {slides.map((slideContent, index) => (
           <StyledSlide key={slideContent} virtualIndex={index}>
             {({ isActive }) => (
               <SlideContent isActive={isActive}>
+                <AnySizeTitle
+                  text="Docker AI/ML Hackathon"
+                  color="#CCFF5A"
+                  alignSelf="left"
+                />
                 <ImgAndDescription>
                   <Description>
                     <SubTitle
                       textAlign="left"
-                      color="white"
-                      text="Docker AI/ML Hackathon"
+                      color="#E7FFB0"
+                      text="Use Docker to get inspired and be productive within this exciting new frontier of AI"
                     />
-
-                    <Row>
-                      <TagsFilled style={{ color: "#22fa5fa4" }} />
-
-                      <Tag backgroundColor="#36f96d8c">
-                        <SubTitle
-                          fontSize="12px"
-                          textAlign="left"
-                          color="white"
-                          text="DevOps"
-                        />
-                      </Tag>
-                      <Tag backgroundColor="#36f96d8c">
-                        <SubTitle
-                          fontSize="12px"
-                          textAlign="left"
-                          color="white"
-                          text="WEB"
-                        />
-                      </Tag>
-                      
-                      <Tag backgroundColor="rgba(54, 249, 109, 0.549)">
-                        <SubTitle
-                          fontSize="12px"
-                          textAlign="left"
-                          color="white"
-                          text="Machine Learning/AI"
-                        />
-                      </Tag>
-                    </Row>
-                    { !isSmallScreen &&
-                      <SubTitle
-                        fontSize="12px"
-                        textAlign="left"
-                        color="rgba(170, 170, 170, 1)"
-                        text="Use Docker to get inspired and be productive within this exciting new frontier of AI"
-                      />
-                    }
                   </Description>
-                  <Banner src="https://d112y698adiu2z.cloudfront.net/photos/production/challenge_thumbnails/002/597/511/datas/medium_square.png" />
+                  <Banner imgSrc="url(https://d112y698adiu2z.cloudfront.net/photos/production/challenge_thumbnails/002/597/511/datas/medium_square.png)" />
                 </ImgAndDescription>
 
                 <Info borderTop="2px solid rgb(44, 44, 48)">
-                  <Row paddingLeft="16px">
-                    <Tag backgroundColor="#36f96d8c">
-                      <SubTitle
-                        fontSize="12px"
+                  <Row>
+                    <InfoColumn>
+                    <SubTitle
                         textAlign="left"
-                        color="white"
-                        text="1776 participants"
-                      />
-                    </Tag>
-                    <Tag backgroundColor="#36f96d8c">
-                      <SubTitle
-                        fontSize="12px"
-                        textAlign="left"
-                        color="white"
+                        color="#E7FFB0"
                         text="Offline"
                       />
-                    </Tag>
-                    <Tag backgroundColor="#36f96d8c">
-                      <CalendarFilled
-                        style={{ color: "white", fontSize: "12px" }}
+                      <SubTitle
+                        textAlign="left"
+                        color="#E7FFB0"
+                        text="Offline"
+                      />
+                    </InfoColumn>
+                    { !isSmallScreen && <InfoColumn>
+                    <SubTitle
+                        textAlign="left"
+                        color="#E7FFB0"
+                        text="Participants"
                       />
                       <SubTitle
-                        fontSize="12px"
                         textAlign="left"
-                        color="white"
-                        text="Oct 03, 2023"
+                        color="#E7FFB0"
+                        text="1436"
                       />
-                    </Tag>
+                    </InfoColumn>}
+                    <InfoColumn>
+                    <SubTitle
+                        textAlign="left"
+                        color="#E7FFB0"
+                        text="Start Date"
+                      />
+                      <SubTitle
+                        textAlign="left"
+                        color="#E7FFB0"
+                        text="28.11.2023"
+                      />
+                    </InfoColumn>
+                  
+                    
+                    
                   </Row>
 
-                  <Button>
+                  <Button backgroundImg={ApplyButton}>
+                    
                     <SubTitle
-                      fontSize="18px"
+                      fontSize="25px"
                       fontWeight="600"
                       textAlign="left"
-                      color="#22fa5f"
+                      color="#000"
                       text="Apply"
                     />
                   </Button>
@@ -233,170 +216,7 @@ function Hackatons() {
         </SubTitlecontainer>
       </RowContainer>
 
-      <StyledSwiper
-        spaceBetween={80}
-        slidesPerView={1.25}
-        loop
-        speed={500}
-        centeredSlides
-        centeredSlidesBounds
-        breakpoints={{
-          640: {
-            slidesPerView: 1.25,
-          },
-          768: {
-            slidesPerView: 1.25,
-          },
-          1080: {
-            slidesPerView: 2.5,
-          },
-          1280: {
-            slidesPerView: 2.75,
-          },
-        }}
-        modules={[
-          Autoplay,
-          Pagination,
-          Navigation,
-        ]}
-        autoplay={{
-          delay: 2500,
-          disableOnInteraction: false,
-        }}
-      >
-        {slides.map((slideContent, index) => (
-          <StyledSlide key={slideContent} virtualIndex={index}>
-            {({ isActive }) => (
-              <SlideContent isActive={isActive}>
-                <ImgAndDescription>
-                  <Description>
-                    <SubTitle
-                      textAlign="left"
-                      color="white"
-                      text="Docker AI/ML Hackathon"
-                    />
-
-                    <Row>
-                      <TagsFilled style={{ color: "#22fa5fa4" }} />
-
-                      <Tag backgroundColor="#36f96d8c">
-                        <SubTitle
-                          fontSize="12px"
-                          textAlign="left"
-                          color="white"
-                          text="DevOps"
-                        />
-                      </Tag>
-                      <Tag backgroundColor="#36f96d8c">
-                        <SubTitle
-                          fontSize="12px"
-                          textAlign="left"
-                          color="white"
-                          text="WEB"
-                        />
-                      </Tag>
-                      <Tag backgroundColor="#36f96d8c">
-                        <SubTitle
-                          fontSize="12px"
-                          textAlign="left"
-                          color="white"
-                          text="Machine Learning/AI"
-                        />
-                      </Tag>
-                    </Row>
-                    { !isSmallScreen &&
-                      <SubTitle
-                        fontSize="12px"
-                        textAlign="left"
-                        color="rgba(170, 170, 170, 1)"
-                        text="Use Docker to get inspired and be productive within this exciting new frontier of AI"
-                        // overflow="hidden"
-                        // textOverflow="ellipsis"
-                        // whiteSpace="nowrap"
-                      />
-                    }
-                  </Description>
-                  <Banner src="https://d112y698adiu2z.cloudfront.net/photos/production/challenge_thumbnails/002/597/511/datas/medium_square.png" />
-                </ImgAndDescription>
-
-                <Info borderTop="2px solid rgb(44, 44, 48)">
-                  <Row paddingLeft="16px">
-                    <Tag backgroundColor="#36f96d8c">
-                      <SubTitle
-                        fontSize="12px"
-                        textAlign="left"
-                        color="white"
-                        text="1776 participants"
-                      />
-                    </Tag>
-                    <Tag backgroundColor="#36f96d8c">
-                      <SubTitle
-                        fontSize="12px"
-                        textAlign="left"
-                        color="white"
-                        text="Offline"
-                      />
-                    </Tag>
-                    <Tag backgroundColor="#36f96d8c">
-                      <CalendarFilled
-                        style={{ color: "white", fontSize: "12px" }}
-                      />
-                      <SubTitle
-                        fontSize="12px"
-                        textAlign="left"
-                        color="white"
-                        text="Oct 03, 2023"
-                      />
-                    </Tag>
-                  </Row>
-
-                  <Button>
-                    <SubTitle
-                      fontSize="18px"
-                      fontWeight="600"
-                      textAlign="left"
-                      color="#22fa5f"
-                      text="Apply"
-                    />
-                  </Button>
-                </Info>
-              </SlideContent>
-            )}
-          </StyledSlide>
-        ))}
-      </StyledSwiper>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      <Footer/>
+      <Footer />
     </Container>
   );
 }

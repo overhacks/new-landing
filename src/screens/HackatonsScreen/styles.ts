@@ -39,21 +39,49 @@ export const SubTitlecontainer = styled.div`
   border-bottom: 3px solid #22fa5f;
 `
 
-export const Button = styled.button`
+export const Button = styled.button<{ backgroundImg: any }>`
   background-color: transparent;
-  border-radius: 3px;
-  padding-top: 6px;
-  padding-bottom: 6px;
-  padding-left: 12px;
-  padding-right: 12px;
-  border: 1px solid #22fa5f;
+  background-image: url(${(props) => props.backgroundImg});
+  border: none;
   display: flex;
   justify-content: center;
   align-items: center;
+  max-height: 50px;
+
+
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  aspect-ratio: 1 / 5;
 
   &:hover {
     opacity: 0.8;
   }
+
+  @media (max-width: 576px)
+  {
+    width: 160px;
+  }
+  @media (min-width: 577px)
+  {
+    width: 160px;
+  }
+  @media (min-width: 769px)
+  {
+    width: 160px;
+  }
+  @media (min-width: 993px)
+  {
+    width: 160px;
+  }
+  @media (min-width: 1201px)
+  {
+    width: 160px;
+  }
+  @media (min-width: 1401px)
+  {
+    width: 200px;
+    }
 `
 
 export const StyledSwiper = styled(Swiper)`
@@ -105,11 +133,9 @@ export const Info = styled.div<{borderTop: string}>`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   gap: 16px;
-  padding-top: 16px;
   //2px solid rgb(44, 44, 48)
-
-  border-top: ${props => props.borderTop};
 `
 
 export const Tag = styled.div<{backgroundColor: string}>`
@@ -162,38 +188,83 @@ export const ImgAndDescription = styled.div`
   max-height: 65%;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   gap: 16px;
+`
+// export const Banner = styled.img`
+//     backdrop-filter: lightgray -0.196px 0px / 129.539% 100% no-repeat;
+//     max-width: 50%;
+//     object-fit: contain;
+//     object-position: right;
+//     aspect-ratio: 1 / 1;
+//     border-radius: 32px;
+// `
 
-  padding-bottom: 16px;
-`
-export const Banner = styled.img`
-    width: 50%;
-    object-fit: contain;
-    object-position: right;
+export const Banner = styled.div<{ imgSrc: string }>`
+    background-image: ${props => props.imgSrc};
+    background-position: center right;
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* background: lightgray -0.196px 0px / 129.539% 100% no-repeat; */
+    
+    max-width: 50%;
     aspect-ratio: 1 / 1;
+    border-radius: 32px;
+
+    @media (max-width: 576px)
+  {
+    width: 162.5px;;
+  }
+  @media (min-width: 577px)
+  {
+    width: 162.5px;
+  }
+  @media (min-width: 769px)
+  {
+    width: 162.5px;
+  }
+  @media (min-width: 993px)
+  {
+    width: 162.5px;
+  }
+  @media (min-width: 1201px)
+  {
+    width: 162.5px;
+  }
+  @media (min-width: 1401px)
+  {
+    width: 200px;
+    }
 `
+
 export const Row = styled.div<{paddingLeft?: string}>`
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 22px;
   padding-left: ${props => props.paddingLeft || "0px"};
+  width: 60%;
 `
 
 export const Description = styled.div`
   display: flex;
   flex-direction: column;
   gap: 12px;
-  width: 50%;
-  padding-left: 16px;
+  width: 50%
 `
-
+export const InfoColumn = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+`
 export const SlideContent = styled.div<{isActive: boolean}>`
     height: 100%;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    gap: 12px;
 
     background-color: rgba(196, 196, 196, 0.01);
     box-shadow: 0px 98px 100px 0px rgba(88, 13, 245, 0.38) inset, 0px 4px 18px 0px #580DF5 inset, 0px 1px 18px 0px #580DF5 inset;
@@ -202,8 +273,6 @@ export const SlideContent = styled.div<{isActive: boolean}>`
 
     padding-left: 20px;
     padding-right: 20px;
-    padding-top: 40px;
-    padding-bottom: 40px;
 
     overflow: hidden;
     /* box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.3); */
@@ -223,6 +292,50 @@ export const SlideContent = styled.div<{isActive: boolean}>`
       if(props.isActive) {return("2")}
       return("1")
     }} */
+
+
+    @media (max-width: 576px)
+  {
+    padding-top: 40px;
+    padding-bottom: 50px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  @media (min-width: 577px)
+  {
+    padding-top: 40px;
+    padding-bottom: 50px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  @media (min-width: 769px)
+  {
+    padding-top: 40px;
+    padding-bottom: 50px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  @media (min-width: 993px)
+  {
+   padding-top: 40px;
+    padding-bottom: 50px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  @media (min-width: 1201px)
+  {
+    padding-top: 40px;
+    padding-bottom: 50px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  @media (min-width: 1401px)
+  {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    padding-left: 32px;
+    padding-right: 32px;
+    }
 `;
 
 
