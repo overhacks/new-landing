@@ -42,6 +42,7 @@ import type { CheckboxChangeEvent } from "antd/es/checkbox";
 import AnySizeTitle from "../../components/Title";
 import { useEffect, useState } from "react";
 import Footer from "../../components/Footer";
+import Header from "../../components/Header";
 
 const matcher = () => {
   return window.matchMedia("(max-width: 993px)").matches;
@@ -70,13 +71,7 @@ function Hackatons() {
     "Slide 19",
     "Slide 20",
   ];
-  const projects = [
-    "Slide 1",
-    "Slide 2",
-    "Slide 3",
-    "Slide 4",
-    "Slide 5",
-  ];
+  const projects = ["Slide 1", "Slide 2", "Slide 3", "Slide 4", "Slide 5"];
   const [isSmallScreen, setIsSmallScreen] = useState(matcher());
   const checkScreenSize = () => {
     setIsSmallScreen(matcher());
@@ -88,8 +83,18 @@ function Hackatons() {
       window.removeEventListener("resize", checkScreenSize);
     };
   }, []);
+
+  const [popupOpen, setPopupOpen] = useState(false);
+  const [selectedSlideId, setSelectedSlideId] = useState(null);
+
+  const handlePopupOpen = (id: any) => {
+    setPopupOpen(!popupOpen);
+    setSelectedSlideId(id);
+  };
+
   return (
     <Container>
+      <Header />
       <Moto>
         <AnySizeTitle color="white" text="Moto" />
       </Moto>
@@ -141,7 +146,7 @@ function Hackatons() {
         //   disableOnInteraction: false,
         // }}
       >
-        <PopupWrapper>
+        {popupOpen && <PopupWrapper>
           <AnySizeTitle
             text="Docker AI/ML Hackathon"
             color="#CCFF5A"
@@ -165,12 +170,15 @@ function Hackatons() {
                 />
               </TextWrapper>
             </Description>
-            <Banner width="40%" imgSrc="url(https://d112y698adiu2z.cloudfront.net/photos/production/challenge_thumbnails/002/597/511/datas/medium_square.png)" />
+            <Banner
+              width="40%"
+              imgSrc="url(https://d112y698adiu2z.cloudfront.net/photos/production/challenge_thumbnails/002/597/511/datas/medium_square.png)"
+            />
           </ImgAndDescription>
 
           <RowPopup>
             <ApllyLargeButton width="50%">
-            <SubTitle
+              <SubTitle
                 fontSize="25px"
                 fontWeight="600"
                 textAlign="left"
@@ -179,10 +187,14 @@ function Hackatons() {
               />
             </ApllyLargeButton>
 
-            <Row justifyContent="space-between"  width="40%">
+            <Row justifyContent="space-between" width="40%">
               <InfoColumn>
-                <SubTitle textAlign="left" color="rgba(231, 255, 176, 0.51)" text="Offline" />
-                <SubTitle textAlign="left" color="#E7FFB0" text="Offline" />
+                <SubTitle
+                  textAlign="left"
+                  color="rgba(231, 255, 176, 0.51)"
+                  text="Offline"
+                />
+                <SubTitle marginTop="18px" textAlign="left" color="#E7FFB0" text="Offline" />
               </InfoColumn>
               <InfoColumn>
                 <SubTitle
@@ -190,11 +202,15 @@ function Hackatons() {
                   color="rgba(231, 255, 176, 0.51)"
                   text="Participants"
                 />
-                <SubTitle textAlign="left" color="#E7FFB0" text="1436" />
+                <SubTitle marginTop="18px" textAlign="left" color="#E7FFB0" text="1436" />
               </InfoColumn>
               <InfoColumn>
-                <SubTitle textAlign="left" color="rgba(231, 255, 176, 0.51)" text="Start Date" />
-                <SubTitle textAlign="left" color="#E7FFB0" text="28.11.2023" />
+                <SubTitle
+                  textAlign="left"
+                  color="rgba(231, 255, 176, 0.51)"
+                  text="Start Date"
+                />
+                <SubTitle marginTop="18px" textAlign="left" color="#E7FFB0" text="28.11.2023" />
               </InfoColumn>
             </Row>
           </RowPopup>
@@ -207,40 +223,39 @@ function Hackatons() {
           />
 
           <Projects>
-            {projects.map((project) => (<Project>
-            <SubTitle
-            text="Some Project"
-            color="#CCFF5A"
-            alignSelf="left"
-            fontSize="25px"
-          />
-          <SubTitle
-            text="project description project description project description"
-            color="#CCFF5A"
-            alignSelf="left"
-            maxWidth="33%"
-          />
+            {projects.map((project) => (
+              <Project>
+                <SubTitle
+                  text="Some Project"
+                  color="#CCFF5A"
+                  alignSelf="left"
+                  fontSize="25px"
+                />
+                <SubTitle
+                  text="project description project description project description"
+                  color="#CCFF5A"
+                  alignSelf="left"
+                  maxWidth="33%"
+                />
 
-          <ApllyLargeButton width="128px">
-            <SubTitle
-                fontSize="25px"
-                fontWeight="600"
-                textAlign="left"
-                color="#000"
-                text="link"
-              />
-            </ApllyLargeButton>
-            </Project>))}
-            
+                <ApllyLargeButton width="128px">
+                  <SubTitle
+                    fontSize="25px"
+                    fontWeight="600"
+                    textAlign="left"
+                    color="#000"
+                    text="link"
+                  />
+                </ApllyLargeButton>
+              </Project>
+            ))}
           </Projects>
-
-          
-        </PopupWrapper>
+        </PopupWrapper>}
 
         {slides.map((slideContent, index) => (
           <StyledSlide key={slideContent} virtualIndex={index}>
             {({ isActive }) => (
-              <SlideContent isActive={isActive}>
+              <SlideContent opacity={popupOpen ? "0.2" : "1"} onClick={() => handlePopupOpen("1")} isActive={isActive}>
                 <AnySizeTitle
                   text="Docker AI/ML Hackathon"
                   color="#CCFF5A"
@@ -254,7 +269,10 @@ function Hackatons() {
                       text="Use Docker to get inspired and be productive within this exciting new frontier of AI"
                     />
                   </Description>
-                  <Banner width="40%" imgSrc="url(https://d112y698adiu2z.cloudfront.net/photos/production/challenge_thumbnails/002/597/511/datas/medium_square.png)" />
+                  <Banner
+                    width="40%"
+                    imgSrc="url(https://d112y698adiu2z.cloudfront.net/photos/production/challenge_thumbnails/002/597/511/datas/medium_square.png)"
+                  />
                 </ImgAndDescription>
 
                 <Info borderTop="2px solid rgb(44, 44, 48)">
@@ -300,6 +318,7 @@ function Hackatons() {
                       textAlign="left"
                       color="#000"
                       text="Apply"
+                      
                     />
                   </Button>
                 </Info>

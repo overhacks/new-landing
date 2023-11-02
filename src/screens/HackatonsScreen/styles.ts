@@ -52,6 +52,7 @@ export const Button = styled.button<{ backgroundImg: any }>`
   background-repeat: no-repeat;
   background-size: contain;
   aspect-ratio: 1 / 5;
+  cursor: pointer;
 
   &:hover {
     opacity: 0.8;
@@ -228,7 +229,7 @@ export const InfoColumn = styled.div`
   flex-direction: column;
   gap: 4px;
 `;
-export const SlideContent = styled.div<{ isActive: boolean }>`
+export const SlideContent = styled.div<{ isActive: boolean, opacity: string }>`
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -244,29 +245,11 @@ export const SlideContent = styled.div<{ isActive: boolean }>`
   padding-right: 20px;
 
   overflow: hidden;
-  /* box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.3); */
 
   transition: all ease 0.7s;
 
-  /* opacity: ${(props) => {
-    if (props.isActive) {
-      return "1";
-    }
-    return "0.2";
-  }};
-    transform: ${(props) => {
-    if (props.isActive) {
-      return "scale(1.15)";
-    }
-    return "none";
-  }};
+  opacity: ${props => props.opacity};
 
-    z-index: ${(props) => {
-    if (props.isActive) {
-      return "2";
-    }
-    return "1";
-  }} */
 
   @media (max-width: 576px) {
     padding-top: 40px;
@@ -315,22 +298,24 @@ export const PopupWrapper = styled.div`
   background: #fff;
   padding: 20px;
   width: 60%;
-  height: 80%;
+  height: 90%;
   overflow-y: auto;
 
   display: flex;
   flex-direction: column;
   gap: 12px;
-  border-radius: 32px;
+  border-radius: 16px;
   padding-left: 30px;
   padding-right: 40px;
   overflow-y: scroll;
   overflow-x: hidden;
   background-color: rgba(196, 196, 196, 0.01);
   box-shadow: 0px 98px 100px 0px rgba(88, 13, 245, 0.38) inset,
-    0px 4px 18px 0px #580df5 inset, 0px 1px 18px 0px #580df5 inset;
+    0px 4px 18px 0px #580df5 inset, 0px 1px 18px 0px #580df5 inset, 0px 0px 48px 24px rgba(23,1,78,0.9);
   backdrop-filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
   backdrop-filter: blur(50px);
+
+
 
 `;
 
