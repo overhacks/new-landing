@@ -49,11 +49,11 @@ export const Title = styled.h1<Props>`
    }
       @media (min-width: 993px)
    {
-     font-size: 20px;
+     font-size: 24px;
    }
       @media (min-width: 1201px)
    {
-     font-size: 20px;
+     font-size: 24px;
    }
    @media (min-width: 1401px)
    {

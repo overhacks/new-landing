@@ -173,16 +173,8 @@ export const ImgAndDescription = styled.div`
   gap: 16px;
   margin-top: 20px;
 `;
-// export const Banner = styled.img`
-//     backdrop-filter: lightgray -0.196px 0px / 129.539% 100% no-repeat;
-//     max-width: 50%;
-//     object-fit: contain;
-//     object-position: right;
-//     aspect-ratio: 1 / 1;
-//     border-radius: 32px;
-// `
 
-export const Banner = styled.div<{ imgSrc: string }>`
+export const Banner = styled.div<{ imgSrc: string, width: string }>`
   background-image: ${(props) => props.imgSrc};
   background-position: center right;
   background-repeat: no-repeat;
@@ -190,7 +182,7 @@ export const Banner = styled.div<{ imgSrc: string }>`
   /* background: lightgray -0.196px 0px / 129.539% 100% no-repeat; */
 
   max-width: 50%;
-  width: 40%;
+  width: ${props => props.width};
   aspect-ratio: 1 / 1;
   border-radius: 32px;
 
@@ -214,15 +206,15 @@ export const Banner = styled.div<{ imgSrc: string }>`
   } */
 `;
 
-export const Row = styled.div<{ paddingLeft?: string }>`
+export const Row = styled.div<{ paddingLeft?: string, width: string, justifyContent: string }>`
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: ${props => props.justifyContent};
   align-items: center;
   flex-wrap: wrap;
   gap: 22px;
   padding-left: ${(props) => props.paddingLeft || "0px"};
-  width: 60%;
+  width: ${props => props.width};
 `;
 
 export const Description = styled.div`
@@ -323,28 +315,75 @@ export const PopupWrapper = styled.div`
   background: #fff;
   padding: 20px;
   width: 60%;
-  height: 90%;
+  height: 80%;
   overflow-y: auto;
 
   display: flex;
   flex-direction: column;
   gap: 12px;
-
-  /* background-color: rgba(196, 196, 196, 0.01);
-    box-shadow: 0px 98px 100px 0px rgba(88, 13, 245, 0.38) inset, 0px 4px 18px 0px #580DF5 inset, 0px 1px 18px 0px #580DF5 inset;
-    backdrop-filter: blur(50px); */
   border-radius: 32px;
-
-  padding-left: 20px;
-  padding-right: 20px;
-
+  padding-left: 30px;
+  padding-right: 40px;
   overflow-y: scroll;
   overflow-x: hidden;
-
   background-color: rgba(196, 196, 196, 0.01);
-
   box-shadow: 0px 98px 100px 0px rgba(88, 13, 245, 0.38) inset,
     0px 4px 18px 0px #580df5 inset, 0px 1px 18px 0px #580df5 inset;
   backdrop-filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
   backdrop-filter: blur(50px);
+
 `;
+
+export const TextWrapper = styled.div`
+  padding: 15px;
+  background-color: #170540;
+  border-radius: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+
+export const RowPopup = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  justify-content: space-between;
+  margin-top: 32px;
+`
+
+export const ApllyLargeButton = styled.button<{ width: string }>`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+  background-color: #56DF53;
+  width: ${props => props.width};
+  border: none;
+  border-radius: 12px;
+
+  height: 48px;
+
+
+  &:hover {
+    opacity: 0.8;
+  }
+`
+
+export const Projects = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  justify-content: flex-start;
+  margin-top: 22px;
+  width: 100%;
+`
+
+export const Project = styled.div`
+  padding: 24px;
+  border-radius: 16px;
+  background-color: #170540;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`
