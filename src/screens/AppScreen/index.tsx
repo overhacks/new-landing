@@ -7,7 +7,7 @@ function AppScreen({ children, style = {} }: any) {
         flex: 1,
         flexDirection: 'column',
         boxSizing: 'border-box',
-        backgroundColor: '#171719',
+        backgroundColor: 'rgb(14, 14, 14)',
         height: "100vh",
         overflow: 'hidden',
         ...style,

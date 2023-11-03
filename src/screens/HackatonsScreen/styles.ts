@@ -7,6 +7,7 @@ export const Container = styled.div`
   height: 100%;
   overflow-y: scroll;
   overflow-x: hidden;
+  z-index: 1;
 `;
 export const Block = styled.div`
   height: 600px;
@@ -337,12 +338,12 @@ export const RowPopup = styled.div`
   margin-top: 32px;
 `
 
-export const ApllyLargeButton = styled.button<{ width: string }>`
+export const PopupButton = styled.button<{ width: string, backgroundColor: string }>`
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 8px;
-  background-color: #56DF53;
+  background-color: ${props => props.backgroundColor};
   width: ${props => props.width};
   border: none;
   border-radius: 12px;
