@@ -34,7 +34,6 @@ function HomeScreen() {
   return (
     <>
       <HomeScreenContainer>
-        <Header />
         <HomeScreenContent>{renderRoutes()}</HomeScreenContent>
       </HomeScreenContainer>
     </>
