@@ -18,11 +18,15 @@ import {
   MenuBtn,
   Line,
   HeaderLinkBtnInner,
+  HeaderContainer,
+  MotoContainer,
 } from "./styles";
 // import InvitePopup from 'components/newDesignComponents/invitePopup'
 import LogoHacks from "../../assets/img/LOGOHACK.png";
 import { routes } from "../../constants/routes";
 import { useLocation } from "react-router-dom";
+import Background from "../../assets/img/backgroundHeader1.png";
+import BackgroundMoto from "../../assets/img/moto.svg";
 
 export const screens: {
   title: string;
@@ -72,6 +76,7 @@ function Header() {
 
   return (
     <>
+      <HeaderContainer backgroundImg={Background}>
       <DefaultHeadercontainer paddingLeft={isSmallScreen ? "2%" : "7%"}>
         {openSearch === false && (
           <Headercontainer gap={isSmallScreen ? "4px" : "16px"}>
@@ -252,6 +257,10 @@ function Header() {
           </MenuBtn>
         </DefaultMenucontainer>
       )}
+        <MotoContainer backgroundImg={BackgroundMoto}>
+          
+        </MotoContainer>
+      </HeaderContainer>
     </>
   );
 }

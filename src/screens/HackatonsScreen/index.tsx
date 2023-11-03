@@ -25,7 +25,7 @@ import {
   Project,
 } from "./styles";
 
-import ApplyButton from "../../assets/img/applyButton.png";
+import ApplyButton from "../../assets/img/button.svg";
 
 import { CalendarFilled, TagsFilled } from "@ant-design/icons";
 
@@ -100,9 +100,9 @@ function Hackatons() {
   return (
     <Container>
       <Header />
-      <Moto>
+      {/* <Moto>
         <AnySizeTitle color="white" text="Moto" />
-      </Moto>
+      </Moto> */}
 
       <RowContainer id="hackatons">
         <SubTitlecontainer>

@@ -33,11 +33,56 @@ export const OverhacksName = styled.h1`
   }
 `;
 export const DefaultHeadercontainer = styled.header<{ paddingLeft: string }>`
-  border-bottom: 2px solid rgb(44, 44, 48);
+  /* border-bottom: 2px solid rgb(44, 44, 48); */
 
   padding-left: ${(props) => props.paddingLeft};
   padding-right: 7%;
+  width: 90%;
 `;
+
+export const HeaderContainer = styled.div<{ backgroundImg: any }>`
+  background-color: transparent;
+  background-image: url(${(props) => props.backgroundImg});
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  aspect-ratio: 10 / 6.9;
+  width: 100%;
+
+  z-index: 1;
+  background-color: rgb(14, 14, 14);
+
+  display: flex;
+  flex-direction: column;
+  row-gap: 7.3%;
+  justify-content: flex-start;
+  align-items: center;
+`;
+
+export const MotoContainer = styled.div<{ backgroundImg: any }>`
+  background-color: transparent;
+  background-image: url(${(props) => props.backgroundImg});
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  z-index: 2;
+
+  aspect-ratio: 10 / 5;
+
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  
+`;
+
+// box-shadow: 0px 98px 100px 0px rgba(30, 144, 62, 0.05) inset,
+//       0px 4px 18px 0px rgba(30, 120, 82, 0.5) inset,
+//       0px 1px 18px 0px rgba(185, 255, 168, 0.2) inset;
+//     backdrop-filter: blur(50px);
 
 export const DefaultMenucontainer = styled.header`
   border-bottom: 2px solid rgb(44, 44, 48);
@@ -50,7 +95,6 @@ export const DefaultMenucontainer = styled.header`
   padding-right: 7%;
   padding-top: 16px;
   padding-bottom: 16px;
-
 `;
 
 export const Headercontainer = styled.div<{ gap: string }>`
@@ -313,7 +357,7 @@ export const HeaderLinkBtnInner = styled.a<{
   border-bottom: ${(props) => (props.isActive ? props.bottomBorder : "none")};
 
   &:hover {
-    background-color: ${(props) => props.hoverBackgroundColor};
+    /* background-color: ${(props) => props.hoverBackgroundColor}; */
     color: ${(props) => props.hoverTextColor};
   }
 
@@ -393,7 +437,7 @@ export const HeaderBtn = styled.button<{
   color: ${(props) => props.defaultColor};
 
   &:hover {
-    background-color: ${(props) => props.hoverBackgroundColor};
+    /* background-color: ${(props) => props.hoverBackgroundColor}; */
     color: ${(props) => props.hoverTextColor};
   }
 
@@ -420,7 +464,7 @@ export const HeaderBtn = styled.button<{
 export const Line = styled.div`
   width: 100%;
   border-bottom: 1px solid #22fa5f;
-`
+`;
 
 export const MenuBtn = styled.button<{
   hoverTextColor: string;
