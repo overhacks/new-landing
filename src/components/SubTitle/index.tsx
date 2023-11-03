@@ -20,6 +20,7 @@ interface SubTitleProps {
   whiteSpace?: string
   textOverflow?: string
   alignSelf?: string
+  fontWeight?: string
 }
 
 const SubTitle: React.FC<SubTitleProps> = ({
@@ -40,6 +41,7 @@ const SubTitle: React.FC<SubTitleProps> = ({
   textAlign,
   onClick,
   hoverColor,
+  fontWeight
 }) => {
   return (
     <Text
@@ -58,7 +60,9 @@ const SubTitle: React.FC<SubTitleProps> = ({
       lineHeight={lineHeight}
       cursor={cursor}
       onClick={onClick}
-      hoverColor={hoverColor}>
+      hoverColor={hoverColor}
+      fontWeight={fontWeight}
+      >
       {text}
     </Text>
   )

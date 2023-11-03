@@ -32,20 +32,34 @@ export const OverhacksName = styled.h1`
     font-size: 38px;
   }
 `;
-export const DefaultHeadercontainer = styled.header`
+export const DefaultHeadercontainer = styled.header<{ paddingLeft: string }>`
   border-bottom: 2px solid rgb(44, 44, 48);
 
-  padding-left: 7%;
+  padding-left: ${(props) => props.paddingLeft};
   padding-right: 7%;
 `;
 
-export const Headercontainer = styled.div`
+export const DefaultMenucontainer = styled.header`
+  border-bottom: 2px solid rgb(44, 44, 48);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+
+  padding-left: 7%;
+  padding-right: 7%;
+  padding-top: 16px;
+  padding-bottom: 16px;
+
+`;
+
+export const Headercontainer = styled.div<{ gap: string }>`
   display: flex;
   flex-direction: row;
   align-items: center;
   max-width: 100%;
   justify-content: space-between;
-  gap: 16px;
+  gap: ${(props) => props.gap};
   flex-wrap: wrap;
 
   @media (max-width: 576px) {
@@ -71,6 +85,7 @@ export const Headercontainer = styled.div`
 export const LogoAndName = styled.div`
   display: flex;
   flex-direction: row;
+  align-items: center;
   gap: 16px;
 `;
 
@@ -111,6 +126,45 @@ export const SearchImg = styled.div<{ fill: string; fillHover: string }>`
   display: flex;
   align-items: center;
   justify-content: center;
+  & svg {
+    fill: ${(props) => props.fill};
+  }
+  :hover {
+    fill: ${(props) => props.fillHover};
+  }
+
+  @media (max-width: 576px) {
+    width: 24px;
+    height: 24px;
+  }
+  @media (min-width: 577px) {
+    width: 24px;
+    height: 24px;
+  }
+  @media (min-width: 769px) {
+    width: 30px;
+    height: 30px;
+  }
+  @media (min-width: 993px) {
+    width: 30px;
+    height: 30px;
+  }
+  @media (min-width: 1201px) {
+    width: 30px;
+    height: 30px;
+  }
+  @media (min-width: 1401px) {
+    width: 30px;
+    height: 30px;
+  }
+`;
+
+export const MenuBurgerImg = styled.div<{ fill: string; fillHover: string }>`
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 12px;
   & svg {
     fill: ${(props) => props.fill};
   }
@@ -238,6 +292,89 @@ export const HeaderLinkBtn: React.FC<LinkProps> = styled(Link)`
   }
 `;
 
+export const HeaderLinkBtnInner = styled.a<{
+  hoverTextColor: string;
+  hoverBackgroundColor: string;
+  defaultColor: string;
+  isActive: boolean;
+  bottomBorder: string;
+}>`
+  display: flex;
+  text-decoration: none;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  box-shadow: none;
+  background-color: transparent;
+  height: 100%;
+  padding-left: 12px;
+  padding-right: 12px;
+  color: ${(props) => props.defaultColor};
+  border-bottom: ${(props) => (props.isActive ? props.bottomBorder : "none")};
+
+  &:hover {
+    background-color: ${(props) => props.hoverBackgroundColor};
+    color: ${(props) => props.hoverTextColor};
+  }
+
+  @media (max-width: 576px) {
+    font-size: 15px;
+  }
+  @media (min-width: 577px) {
+    font-size: 15px;
+  }
+  @media (min-width: 769px) {
+    font-size: 20px;
+  }
+  @media (min-width: 993px) {
+    font-size: 20px;
+  }
+  @media (min-width: 1201px) {
+    font-size: 20px;
+  }
+  @media (min-width: 1401px) {
+    font-size: 20px;
+  }
+`;
+
+export const MenuLinkBtn: React.FC<LinkProps> = styled(Link)`
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  text-decoration: none;
+  justify-content: start;
+  align-items: center;
+  border: none;
+  box-shadow: none;
+  background-color: transparent;
+  height: 100%;
+  color: ${(props) => props.defaultColor};
+
+  &:hover {
+    background-color: ${(props) => props.hoverBackgroundColor};
+    color: ${(props) => props.hoverTextColor};
+  }
+
+  @media (max-width: 576px) {
+    font-size: 15px;
+  }
+  @media (min-width: 577px) {
+    font-size: 15px;
+  }
+  @media (min-width: 769px) {
+    font-size: 20px;
+  }
+  @media (min-width: 993px) {
+    font-size: 20px;
+  }
+  @media (min-width: 1201px) {
+    font-size: 20px;
+  }
+  @media (min-width: 1401px) {
+    font-size: 20px;
+  }
+`;
+
 export const HeaderBtn = styled.button<{
   hoverTextColor: string;
   hoverBackgroundColor: string;
@@ -253,6 +390,51 @@ export const HeaderBtn = styled.button<{
   height: 100%;
   padding-left: 12px;
   padding-right: 12px;
+  color: ${(props) => props.defaultColor};
+
+  &:hover {
+    background-color: ${(props) => props.hoverBackgroundColor};
+    color: ${(props) => props.hoverTextColor};
+  }
+
+  @media (max-width: 576px) {
+    font-size: 15px;
+  }
+  @media (min-width: 577px) {
+    font-size: 15px;
+  }
+  @media (min-width: 769px) {
+    font-size: 20px;
+  }
+  @media (min-width: 993px) {
+    font-size: 20px;
+  }
+  @media (min-width: 1201px) {
+    font-size: 20px;
+  }
+  @media (min-width: 1401px) {
+    font-size: 20px;
+  }
+`;
+
+export const Line = styled.div`
+  width: 100%;
+  border-bottom: 1px solid #22fa5f;
+`
+
+export const MenuBtn = styled.button<{
+  hoverTextColor: string;
+  hoverBackgroundColor: string;
+  defaultColor: string;
+}>`
+  width: 100%;
+  text-decoration: none;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border: none;
+  box-shadow: none;
+  background-color: transparent;
   color: ${(props) => props.defaultColor};
 
   &:hover {

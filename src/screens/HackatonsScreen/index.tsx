@@ -12,7 +12,23 @@ import {
   StyledSlide,
   StyledSwiper,
   SubTitlecontainer,
+  Tag,
+  Row,
+  Button,
+  Moto,
+  PopupWrapper,
+  InfoColumn,
+  TextWrapper,
+  RowPopup,
+  PopupButton,
+  Projects,
+  Project,
 } from "./styles";
+
+import ApplyButton from "../../assets/img/applyButton.png";
+
+import { CalendarFilled, TagsFilled } from "@ant-design/icons";
+
 import {
   Navigation,
   Pagination,
@@ -24,9 +40,12 @@ import {
 import { Checkbox } from "antd";
 import type { CheckboxChangeEvent } from "antd/es/checkbox";
 import AnySizeTitle from "../../components/Title";
+import { useEffect, useState } from "react";
+import Footer from "../../components/Footer";
+import Header from "../../components/Header";
 
-const onChange = (e: CheckboxChangeEvent) => {
-  console.log(`checked = ${e.target.checked}`);
+const matcher = () => {
+  return window.matchMedia("(max-width: 993px)").matches;
 };
 
 function Hackatons() {
@@ -52,19 +71,40 @@ function Hackatons() {
     "Slide 19",
     "Slide 20",
   ];
+  const projects = ["Slide 1", "Slide 2", "Slide 3", "Slide 4", "Slide 5"];
+  const [isSmallScreen, setIsSmallScreen] = useState(matcher());
+  const checkScreenSize = () => {
+    setIsSmallScreen(matcher());
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", checkScreenSize);
+    return () => {
+      window.removeEventListener("resize", checkScreenSize);
+    };
+  }, []);
+
+  const [popupOpen, setPopupOpen] = useState(false);
+  const [finishedPopupOpen, setFinishedPopupOpen] = useState(false);
+  const [selectedSlideId, setSelectedSlideId] = useState(null);
+
+  const handlePopupOpen = (id: any) => {
+    setPopupOpen(!popupOpen);
+    setSelectedSlideId(id);
+  };
+  const handleFinishedPopupOpen = (id: any) => {
+    setFinishedPopupOpen(!finishedPopupOpen);
+    setSelectedSlideId(id);
+  };
 
   return (
     <Container>
-      {/* <RowContainer>
-            <AnySizeTitle text="Filters" color="white" />
-        </RowContainer>
-        <Checks>
-        <Checkbox onChange={onChange}>
-            <SubTitle text="Checkbox" color="rgba(170, 170, 170, 1)"/>
-        </Checkbox>
-        </Checks> */}
+      <Header />
+      <Moto>
+        <AnySizeTitle color="white" text="Moto" />
+      </Moto>
 
-      <RowContainer>
+      <RowContainer id="hackatons">
         <SubTitlecontainer>
           <SubTitle color="#22fa5f" text="Ongoing" />
         </SubTitlecontainer>
@@ -72,70 +112,218 @@ function Hackatons() {
 
       <StyledSwiper
         spaceBetween={80}
-        slidesPerView={1.25}
+        slidesPerView={1}
+        slidesPerGroupSkip={1}
+        centeredSlides={false}
+        grabCursor={true}
         loop
         speed={500}
-        centeredSlides
         centeredSlidesBounds
         breakpoints={{
           640: {
-            slidesPerView: 1.25,
+            slidesPerView: 1,
+            slidesPerGroupSkip: 1,
+            centeredSlides: true,
           },
           768: {
-            slidesPerView: 1.25,
+            slidesPerView: 1,
+            slidesPerGroupSkip: 1,
+            centeredSlides: true,
           },
           1080: {
             slidesPerView: 2,
+            slidesPerGroupSkip: 2,
+            centeredSlides: false,
           },
           1280: {
             slidesPerView: 2,
+            slidesPerGroupSkip: 2,
+            centeredSlides: false,
           },
         }}
-        modules={[Autoplay, Pagination, Navigation]}
+        modules={[Autoplay,
+          Pagination,
+          Navigation]}
         autoplay={{
-          delay: 2500,
+          delay: 3500,
           disableOnInteraction: false,
         }}
       >
+        {popupOpen && <PopupWrapper>
+          <AnySizeTitle
+            text="Docker AI/ML Hackathon"
+            color="#CCFF5A"
+            alignSelf="left"
+          />
+          <ImgAndDescription>
+            <Description>
+              <TextWrapper>
+                <SubTitle
+                  textAlign="left"
+                  color="#E7FFB0"
+                  text="Use Docker to get inspired and be productive within this exciting new frontier of AI"
+                />
+              </TextWrapper>
+
+              <TextWrapper>
+                <SubTitle
+                  textAlign="left"
+                  color="#E7FFB0"
+                  text="Docker and Docker Hub are the starting point for practitioners to start their AI/ML journey and distribute their applications or models. We’re looking for hacks that use Docker products to help both beginners and advanced users get inspired, get started, and be productive within this exciting new frontier."
+                />
+              </TextWrapper>
+            </Description>
+            <Banner
+              width="40%"
+              imgSrc="url(https://d112y698adiu2z.cloudfront.net/photos/production/challenge_thumbnails/002/597/511/datas/medium_square.png)"
+            />
+          </ImgAndDescription>
+
+          <RowPopup>
+            <PopupButton backgroundColor="#56DF53" width="50%">
+              <SubTitle
+                fontSize="25px"
+                fontWeight="600"
+                textAlign="left"
+                color="#000"
+                text="Apply"
+              />
+            </PopupButton>
+
+            <Row justifyContent="space-between" width="40%">
+              <InfoColumn>
+                <SubTitle
+                  textAlign="left"
+                  color="rgba(231, 255, 176, 0.51)"
+                  text="Offline"
+                />
+                <SubTitle marginTop="18px" textAlign="left" color="#E7FFB0" text="Offline" />
+              </InfoColumn>
+              <InfoColumn>
+                <SubTitle
+                  textAlign="left"
+                  color="rgba(231, 255, 176, 0.51)"
+                  text="Participants"
+                />
+                <SubTitle marginTop="18px" textAlign="left" color="#E7FFB0" text="1436" />
+              </InfoColumn>
+              <InfoColumn>
+                <SubTitle
+                  textAlign="left"
+                  color="rgba(231, 255, 176, 0.51)"
+                  text="Start Date"
+                />
+                <SubTitle marginTop="18px" textAlign="left" color="#E7FFB0" text="28.11.2023" />
+              </InfoColumn>
+            </Row>
+          </RowPopup>
+
+          <AnySizeTitle
+            text="Projects"
+            color="#CCFF5A"
+            alignSelf="left"
+            marginTop="60px"
+          />
+
+          <Projects>
+            {projects.map((project) => (
+              <Project>
+                <SubTitle
+                  text="Some Project"
+                  color="#CCFF5A"
+                  alignSelf="left"
+                  fontSize="25px"
+                />
+                <SubTitle
+                  text="project description project description project description"
+                  color="#CCFF5A"
+                  alignSelf="left"
+                  maxWidth="33%"
+                />
+
+                <PopupButton backgroundColor="#79C777" width="128px">
+                  <SubTitle
+                    fontSize="25px"
+                    fontWeight="600"
+                    textAlign="left"
+                    color="#000"
+                    text="link"
+                  />
+                </PopupButton>
+              </Project>
+            ))}
+          </Projects>
+        </PopupWrapper>}
+
         {slides.map((slideContent, index) => (
           <StyledSlide key={slideContent} virtualIndex={index}>
             {({ isActive }) => (
-              <SlideContent isActive={isActive}>
+              <SlideContent opacity={popupOpen ? "0.2" : "1"} onClick={() => handlePopupOpen("1")} isActive={isActive}>
+                <AnySizeTitle
+                  text="Docker AI/ML Hackathon"
+                  color="#CCFF5A"
+                  alignSelf="left"
+                />
                 <ImgAndDescription>
-                  <Banner src="https://d112y698adiu2z.cloudfront.net/photos/production/challenge_thumbnails/002/597/511/datas/medium_square.png" />
                   <Description>
                     <SubTitle
-                      textAlign="right"
-                      color="white"
-                      text="Docker AI/ML Hackathon"
-                    />
-                    <SubTitle
-                      fontSize="12px"
-                      textAlign="right"
-                      color="rgba(170, 170, 170, 1)"
-                      text="19 days left"
-                    />
-                    <SubTitle
-                      fontSize="12px"
-                      textAlign="right"
-                      color="rgba(170, 170, 170, 1)"
-                      text="$20,000 in prizes"
+                      textAlign="left"
+                      color="#E7FFB0"
+                      text="Use Docker to get inspired and be productive within this exciting new frontier of AI"
                     />
                   </Description>
+                  <Banner
+                    width="40%"
+                    imgSrc="url(https://d112y698adiu2z.cloudfront.net/photos/production/challenge_thumbnails/002/597/511/datas/medium_square.png)"
+                  />
                 </ImgAndDescription>
 
-                <Info>
-                  <SubTitle
-                    textAlign="center"
-                    color="white"
-                    text="ABOUT THE CHALLENGE"
-                  />
-                  <SubTitle
-                    fontSize="12px"
-                    textAlign="left"
-                    color="rgba(170, 170, 170, 1)"
-                    text="Docker and Docker Hub are the starting point for practitioners to start their AI/ML journey and distribute their applications or models. We’re looking for hacks that use Docker products to help both beginners and advanced users get inspired, get started, and be productive within this exciting new frontier."
-                  />
+                <Info borderTop="2px solid rgb(44, 44, 48)">
+                  <Row justifyContent="flex-start" width="60%">
+                    <InfoColumn>
+                      <SubTitle
+                        textAlign="left"
+                        color="#E7FFB0"
+                        text="Offline"
+                      />
+                      <SubTitle
+                        textAlign="left"
+                        color="#E7FFB0"
+                        text="Offline"
+                      />
+                    </InfoColumn>
+                    <InfoColumn>
+                      <SubTitle
+                        textAlign="left"
+                        color="#E7FFB0"
+                        text="Participants"
+                      />
+                      <SubTitle textAlign="left" color="#E7FFB0" text="1436" />
+                    </InfoColumn>
+                    <InfoColumn>
+                      <SubTitle
+                        textAlign="left"
+                        color="#E7FFB0"
+                        text="Start Date"
+                      />
+                      <SubTitle
+                        textAlign="left"
+                        color="#E7FFB0"
+                        text="28.11.2023"
+                      />
+                    </InfoColumn>
+                  </Row>
+
+                  <Button backgroundImg={ApplyButton}>
+                    <SubTitle
+                      fontSize="25px"
+                      fontWeight="600"
+                      textAlign="left"
+                      color="#000"
+                      text="Apply"
+                      
+                    />
+                  </Button>
                 </Info>
               </SlideContent>
             )}
@@ -144,78 +332,227 @@ function Hackatons() {
       </StyledSwiper>
 
       <RowContainer>
-          <SubTitlecontainer>
-            <SubTitle color="#22fa5f" text="Finished"/>
-          </SubTitlecontainer>
-        </RowContainer>
-
+        <SubTitlecontainer>
+          <SubTitle color="#22fa5f" text="Finished" />
+        </SubTitlecontainer>
+      </RowContainer>
 
       <StyledSwiper
         spaceBetween={80}
-        slidesPerView={1.25}
+        slidesPerView={1}
+        slidesPerGroupSkip={1}
+        centeredSlides={false}
+        grabCursor={true}
         loop
         speed={500}
-        centeredSlides
         centeredSlidesBounds
         breakpoints={{
           640: {
-            slidesPerView: 1.25,
+            slidesPerView: 1,
+            slidesPerGroupSkip: 1,
+            centeredSlides: true,
           },
           768: {
-            slidesPerView: 1.25,
+            slidesPerView: 1,
+            slidesPerGroupSkip: 1,
+            centeredSlides: true,
           },
           1080: {
             slidesPerView: 2,
+            slidesPerGroupSkip: 2,
+            centeredSlides: false,
           },
           1280: {
             slidesPerView: 2,
+            slidesPerGroupSkip: 2,
+            centeredSlides: false,
           },
         }}
-        modules={[Autoplay, Pagination, Navigation]}
+        modules={[
+          Autoplay,
+          Pagination,
+          Navigation,
+        ]}
         autoplay={{
-          delay: 2500,
+          delay: 5500,
           disableOnInteraction: false,
         }}
       >
+        {finishedPopupOpen && <PopupWrapper>
+          <AnySizeTitle
+            text="Docker AI/ML Hackathon"
+            color="#CCFF5A"
+            alignSelf="left"
+          />
+          <ImgAndDescription>
+            <Description>
+              <TextWrapper>
+                <SubTitle
+                  textAlign="left"
+                  color="#E7FFB0"
+                  text="Use Docker to get inspired and be productive within this exciting new frontier of AI"
+                />
+              </TextWrapper>
+
+              <TextWrapper>
+                <SubTitle
+                  textAlign="left"
+                  color="#E7FFB0"
+                  text="Docker and Docker Hub are the starting point for practitioners to start their AI/ML journey and distribute their applications or models. We’re looking for hacks that use Docker products to help both beginners and advanced users get inspired, get started, and be productive within this exciting new frontier."
+                />
+              </TextWrapper>
+            </Description>
+            <Banner
+              width="40%"
+              imgSrc="url(https://d112y698adiu2z.cloudfront.net/photos/production/challenge_thumbnails/002/597/511/datas/medium_square.png)"
+            />
+          </ImgAndDescription>
+
+          <RowPopup>
+            <PopupButton backgroundColor="#56DF53" width="50%">
+              <SubTitle
+                fontSize="25px"
+                fontWeight="600"
+                textAlign="left"
+                color="#000"
+                text="Apply"
+              />
+            </PopupButton>
+
+            <Row justifyContent="space-between" width="40%">
+              <InfoColumn>
+                <SubTitle
+                  textAlign="left"
+                  color="rgba(231, 255, 176, 0.51)"
+                  text="Offline"
+                />
+                <SubTitle marginTop="18px" textAlign="left" color="#E7FFB0" text="Offline" />
+              </InfoColumn>
+              <InfoColumn>
+                <SubTitle
+                  textAlign="left"
+                  color="rgba(231, 255, 176, 0.51)"
+                  text="Participants"
+                />
+                <SubTitle marginTop="18px" textAlign="left" color="#E7FFB0" text="1436" />
+              </InfoColumn>
+              <InfoColumn>
+                <SubTitle
+                  textAlign="left"
+                  color="rgba(231, 255, 176, 0.51)"
+                  text="Start Date"
+                />
+                <SubTitle marginTop="18px" textAlign="left" color="#E7FFB0" text="28.11.2023" />
+              </InfoColumn>
+            </Row>
+          </RowPopup>
+
+          <AnySizeTitle
+            text="Projects"
+            color="#CCFF5A"
+            alignSelf="left"
+            marginTop="60px"
+          />
+
+          <Projects>
+            {projects.map((project) => (
+              <Project>
+                <SubTitle
+                  text="Some Project"
+                  color="#CCFF5A"
+                  alignSelf="left"
+                  fontSize="25px"
+                />
+                <SubTitle
+                  text="project description project description project description"
+                  color="#CCFF5A"
+                  alignSelf="left"
+                  maxWidth="33%"
+                />
+
+                <PopupButton backgroundColor="#79C777" width="128px">
+                  <SubTitle
+                    fontSize="25px"
+                    fontWeight="600"
+                    textAlign="left"
+                    color="#000"
+                    text="link"
+                  />
+                </PopupButton>
+              </Project>
+            ))}
+          </Projects>
+        </PopupWrapper>}
+
         {slides.map((slideContent, index) => (
           <StyledSlide key={slideContent} virtualIndex={index}>
             {({ isActive }) => (
-              <SlideContent isActive={isActive}>
+              <SlideContent opacity={finishedPopupOpen ? "0.2" : "1"} onClick={() => handleFinishedPopupOpen("1")} isActive={isActive}>
+                <AnySizeTitle
+                  text="Docker AI/ML Hackathon"
+                  color="#CCFF5A"
+                  alignSelf="left"
+                />
                 <ImgAndDescription>
-                  <Banner src="https://d112y698adiu2z.cloudfront.net/photos/production/challenge_thumbnails/002/597/511/datas/medium_square.png" />
                   <Description>
                     <SubTitle
-                      textAlign="right"
-                      color="white"
-                      text="Docker AI/ML Hackathon"
-                    />
-                    <SubTitle
-                      fontSize="12px"
-                      textAlign="right"
-                      color="rgba(170, 170, 170, 1)"
-                      text="19 days left"
-                    />
-                    <SubTitle
-                      fontSize="12px"
-                      textAlign="right"
-                      color="rgba(170, 170, 170, 1)"
-                      text="$20,000 in prizes"
+                      textAlign="left"
+                      color="#E7FFB0"
+                      text="Use Docker to get inspired and be productive within this exciting new frontier of AI"
                     />
                   </Description>
+                  <Banner
+                    width="40%"
+                    imgSrc="url(https://d112y698adiu2z.cloudfront.net/photos/production/challenge_thumbnails/002/597/511/datas/medium_square.png)"
+                  />
                 </ImgAndDescription>
 
-                <Info>
-                  <SubTitle
-                    textAlign="center"
-                    color="white"
-                    text="ABOUT THE CHALLENGE"
-                  />
-                  <SubTitle
-                    fontSize="12px"
-                    textAlign="left"
-                    color="rgba(170, 170, 170, 1)"
-                    text="Docker and Docker Hub are the starting point for practitioners to start their AI/ML journey and distribute their applications or models. We’re looking for hacks that use Docker products to help both beginners and advanced users get inspired, get started, and be productive within this exciting new frontier."
-                  />
+                <Info borderTop="2px solid rgb(44, 44, 48)">
+                  <Row justifyContent="flex-start" width="60%">
+                    <InfoColumn>
+                      <SubTitle
+                        textAlign="left"
+                        color="#E7FFB0"
+                        text="Offline"
+                      />
+                      <SubTitle
+                        textAlign="left"
+                        color="#E7FFB0"
+                        text="Offline"
+                      />
+                    </InfoColumn>
+                    <InfoColumn>
+                      <SubTitle
+                        textAlign="left"
+                        color="#E7FFB0"
+                        text="Participants"
+                      />
+                      <SubTitle textAlign="left" color="#E7FFB0" text="1436" />
+                    </InfoColumn>
+                    <InfoColumn>
+                      <SubTitle
+                        textAlign="left"
+                        color="#E7FFB0"
+                        text="Start Date"
+                      />
+                      <SubTitle
+                        textAlign="left"
+                        color="#E7FFB0"
+                        text="28.11.2023"
+                      />
+                    </InfoColumn>
+                  </Row>
+
+                  <Button backgroundImg={ApplyButton}>
+                    <SubTitle
+                      fontSize="25px"
+                      fontWeight="600"
+                      textAlign="left"
+                      color="#000"
+                      text="Apply"
+                      
+                    />
+                  </Button>
                 </Info>
               </SlideContent>
             )}
@@ -223,6 +560,7 @@ function Hackatons() {
         ))}
       </StyledSwiper>
 
+      <Footer />
     </Container>
   );
 }

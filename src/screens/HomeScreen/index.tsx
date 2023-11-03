@@ -15,6 +15,7 @@ import "swiper/css/autoplay";
 import SubTitle from "../../components/SubTitle";
 import { routes } from "../../constants/routes";
 import Hackatons from "../HackatonsScreen";
+import Footer from "../../components/Footer";
 
 function HomeScreen() {
 
@@ -23,6 +24,7 @@ function HomeScreen() {
       <Routes>
         <Route path={`${routes.hackatons}/`} element={<Hackatons />} />
         <Route path={`${routes.about}/`} element={<></>} />
+        <Route path={`${routes.hackaton}/`} element={<></>} />
       </Routes>
     );
   }
@@ -32,7 +34,6 @@ function HomeScreen() {
   return (
     <>
       <HomeScreenContainer>
-        <Header />
         <HomeScreenContent>{renderRoutes()}</HomeScreenContent>
       </HomeScreenContainer>
     </>

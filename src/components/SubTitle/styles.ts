@@ -16,6 +16,7 @@ interface Props {
   textOverflow: string;
   alignSelf: string;
   width: string;
+  fontWeight: string
 }
 
 export const Text = styled.h1<any>`
@@ -27,9 +28,9 @@ export const Text = styled.h1<any>`
     cursor: ${props => props.cursor || "auto"};
     text-align: ${props => props.textAlign || "left"};
     
-    font-family: Play;
+    font-family: "PF Videotext Pro";
     
-    font-weight: 400;
+    font-weight: ${props => props.fontWeight || "400px"};
     letter-spacing: 0em;
 
     max-width: ${props => props.maxWidth};
@@ -52,18 +53,18 @@ export const Text = styled.h1<any>`
   }
   @media (min-width: 769px)
   {
-    font-size: ${props => props.fontSize || "20px"}
+    font-size: ${props => props.fontSize || "15px"}
   }
   @media (min-width: 993px)
   {
-    font-size: ${props => props.fontSize || "20px"}
+    font-size: ${props => props.fontSize || "15px"}
   }
   @media (min-width: 1201px)
   {
-    font-size: ${props => props.fontSize || "20px"}
+    font-size: ${props => props.fontSize || "15px"}
   }
   @media (min-width: 1401px)
   {
-    font-size: ${props => props.fontSize || "20px"}
+    font-size: ${props => props.fontSize || "15px"}
     }
 `;
