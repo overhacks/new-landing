@@ -80,6 +80,8 @@ export const Button = styled.button<{ backgroundImg: any }>`
 
 export const StyledSwiper = styled(Swiper)`
   width: 90%;
+  padding-left: 5%;
+  padding-right: 5%;
   padding-bottom: 120px;
   position: relative;
   overflow-y: visible;
