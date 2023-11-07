@@ -231,15 +231,14 @@ export const InfoColumn = styled.div`
   flex-direction: column;
   gap: 4px;
 `;
-export const SlideContent = styled.div<{ isActive: boolean, opacity: string }>`
+export const SlideContent = styled.div<{ isActive: boolean, opacity: string, boxShadow: string }>`
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 
   background-color: rgba(196, 196, 196, 0.01);
-  box-shadow: 0px 98px 100px 0px rgba(88, 13, 245, 0.38) inset,
-    0px 4px 18px 0px #580df5 inset, 0px 1px 18px 0px #580df5 inset;
+  box-shadow: ${props => props.boxShadow};
   backdrop-filter: blur(50px);
   border-radius: 32px;
 
@@ -291,7 +290,7 @@ export const SlideContent = styled.div<{ isActive: boolean, opacity: string }>`
   }
 `;
 
-export const PopupWrapper = styled.div`
+export const PopupWrapper = styled.div<{ boxShadow: string }>`
   position: absolute;
   top: 50%;
   left: 50%;
@@ -312,8 +311,7 @@ export const PopupWrapper = styled.div`
   overflow-y: scroll;
   overflow-x: hidden;
   background-color: rgba(196, 196, 196, 0.01);
-  box-shadow: 0px 98px 100px 0px rgba(88, 13, 245, 0.38) inset,
-    0px 4px 18px 0px #580df5 inset, 0px 1px 18px 0px #580df5 inset, 0px 0px 48px 24px rgba(23,1,78,0.9);
+  box-shadow: ${props => props.boxShadow};
   backdrop-filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
   backdrop-filter: blur(50px);
 
@@ -321,9 +319,9 @@ export const PopupWrapper = styled.div`
 
 `;
 
-export const TextWrapper = styled.div`
+export const TextWrapper = styled.div<{ backgroundColor: string }>`
   padding: 15px;
-  background-color: #170540;
+  background-color: ${props => props.backgroundColor};
   border-radius: 16px;
   display: flex;
   justify-content: center;
@@ -366,10 +364,10 @@ export const Projects = styled.div`
   width: 100%;
 `
 
-export const Project = styled.div`
+export const Project = styled.div<{ backgroundColor: string }>`
   padding: 24px;
   border-radius: 16px;
-  background-color: #170540;
+  background-color: ${props => props.backgroundColor};
   display: flex;
   justify-content: space-between;
   align-items: center;

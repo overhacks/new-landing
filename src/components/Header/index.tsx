@@ -20,13 +20,22 @@ import {
   HeaderLinkBtnInner,
   HeaderContainer,
   MotoContainer,
+  Moto,
+  Promo,
+  Name,
+  Letter,
+  Button,
 } from "./styles";
 // import InvitePopup from 'components/newDesignComponents/invitePopup'
 import LogoHacks from "../../assets/img/LOGOHACK.png";
 import { routes } from "../../constants/routes";
 import { useLocation } from "react-router-dom";
 import Background from "../../assets/img/backgroundHeader1.png";
-import BackgroundMoto from "../../assets/img/moto.svg";
+import BackgroundMoto from "../../assets/img/motoImg.png";
+import OV from "../../assets/img/ov.png";
+import AnySizeTitle from "../Title";
+import SubTitle from "../SubTitle";
+import SignUpButton from "../../assets/img/signUp.png";
 
 export const screens: {
   title: string;
@@ -103,26 +112,13 @@ function Header() {
               )}
 
               <Logo background={LogoHacks} />
-              <OverhacksName>Overhacks</OverhacksName>
+              {/* <OverhacksName>Overhacks</OverhacksName> */}
             </LogoAndName>
 
             {!isSmallScreen && (
               <>
                 <LinksContainer>
-                  {/* {screens.map((screen) => (
-                    <HeaderLinkBtn
-                      to={routes.home + screen.url}
-                      key={screen.screenName}
-                      bottomBorder="3px solid #22fa5f"
-                      isActive={location.pathname === routes.home + screen.url}
-                      defaultColor="white"
-                      hoverBackgroundColor="rgb(42, 42, 45)"
-                      hoverTextColor="#22fa5f"
-                    >
-                      {screen.title}
-                    </HeaderLinkBtn>
-                  ))} */}
-
+                  
                   <HeaderLinkBtnInner
                     bottomBorder="3px solid #22fa5f"
                     isActive={false}
@@ -150,13 +146,17 @@ function Header() {
                   >
                     Host a hackaton
                   </HeaderBtn>
-                  <HeaderBtn
-                    defaultColor="white"
-                    hoverBackgroundColor="rgb(42, 42, 45)"
-                    hoverTextColor="#22fa5f"
-                  >
-                    Sign Up
-                  </HeaderBtn>
+                  <Button backgroundImg={SignUpButton}>
+                  <SubTitle
+                      fontSize="25px"
+                      fontWeight="600"
+                      textAlign="left"
+                      color="#000"
+                      text="Sign Up"
+                      
+                    />
+                  </Button>
+                  
                 </LinksContainer>
               </>
             )}
@@ -258,7 +258,18 @@ function Header() {
         </DefaultMenucontainer>
       )}
         <MotoContainer backgroundImg={BackgroundMoto}>
-          
+          <Moto>
+            <Promo>
+              <AnySizeTitle text="Unleash" color="#3D7352"/>
+              <AnySizeTitle text="your" color="#3D7352"/>
+              <AnySizeTitle text="potential" color="#3D7352"/>
+              <AnySizeTitle text="with" color="#3D7352"/>
+            </Promo>
+            <Name>
+              <Letter background={OV} width="249px" height="92px"></Letter>
+            </Name>
+            
+          </Moto>
         </MotoContainer>
       </HeaderContainer>
     </>

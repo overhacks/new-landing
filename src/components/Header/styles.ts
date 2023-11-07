@@ -46,15 +46,15 @@ export const HeaderContainer = styled.div<{ backgroundImg: any }>`
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
-  aspect-ratio: 10 / 6.9;
   width: 100%;
+  padding-bottom: 116px;
 
   z-index: 1;
   background-color: rgb(14, 14, 14);
 
   display: flex;
   flex-direction: column;
-  row-gap: 7.3%;
+  row-gap: 80px;
   justify-content: flex-start;
   align-items: center;
 `;
@@ -64,27 +64,116 @@ export const MotoContainer = styled.div<{ backgroundImg: any }>`
   background-image: url(${(props) => props.backgroundImg});
   background-position: center center;
   background-repeat: no-repeat;
+  /* background-size: 100% auto; */
+
+
   background-size: cover;
   width: 100%;
   z-index: 2;
-
-  aspect-ratio: 10 / 5;
-
-
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 
-  
+
+
+  @media (max-width: 576px) {
+    height: 400px;
+  }
+  @media (min-width: 577px) {
+    height: 400px;
+  }
+  @media (min-width: 769px) {
+    height: 500px;
+  }
+  @media (min-width: 993px) {
+    height: 600px;
+  }
+  @media (min-width: 1201px) {
+    height: 700px;
+  }
+  @media (min-width: 1401px) {
+    height: 800px;
+  }
 `;
 
-// box-shadow: 0px 98px 100px 0px rgba(30, 144, 62, 0.05) inset,
-//       0px 4px 18px 0px rgba(30, 120, 82, 0.5) inset,
-//       0px 1px 18px 0px rgba(185, 255, 168, 0.2) inset;
-//     backdrop-filter: blur(50px);
+export const Moto = styled.div`
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 40px;
+`
 
-export const DefaultMenucontainer = styled.header`
+export const Promo = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 18px;
+  flex-wrap: wrap;
+`
+
+export const Name = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+`
+
+export const Letter = styled.div<{ width: string, height: string, background: string}>`
+  background-image: url(${(props) => props.background});
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  border: none;
+  background-color: transparent;
+
+  height: ${(props) => props.height};
+  width: ${(props) => props.width};
+
+`
+
+export const Button = styled.button<{ backgroundImg: any }>`
+  background-color: transparent;
+  background-image: url(${(props) => props.backgroundImg});
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-height: 50px;
+
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  aspect-ratio: 1 / 5;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  @media (max-width: 576px) {
+    width: 160px;
+  }
+  @media (min-width: 577px) {
+    width: 160px;
+  }
+  @media (min-width: 769px) {
+    width: 160px;
+  }
+  @media (min-width: 993px) {
+    width: 160px;
+  }
+  @media (min-width: 1201px) {
+    width: 160px;
+  }
+  @media (min-width: 1401px) {
+    width: 200px;
+  }
+`;
+
+export const DefaultMenucontainer = styled.div`
   border-bottom: 2px solid rgb(44, 44, 48);
   display: flex;
   flex-direction: column;
@@ -95,6 +184,8 @@ export const DefaultMenucontainer = styled.header`
   padding-right: 7%;
   padding-top: 16px;
   padding-bottom: 16px;
+
+  width: 86%;
 `;
 
 export const Headercontainer = styled.div<{ gap: string }>`
@@ -287,6 +378,7 @@ export const LinksContainer = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+  gap: 42px;
 `;
 
 interface LinkProps extends NavLinkProps {
@@ -362,10 +454,10 @@ export const HeaderLinkBtnInner = styled.a<{
   }
 
   @media (max-width: 576px) {
-    font-size: 15px;
+    font-size: 20px;
   }
   @media (min-width: 577px) {
-    font-size: 15px;
+    font-size: 20px;
   }
   @media (min-width: 769px) {
     font-size: 20px;
@@ -374,10 +466,10 @@ export const HeaderLinkBtnInner = styled.a<{
     font-size: 20px;
   }
   @media (min-width: 1201px) {
-    font-size: 20px;
+    font-size: 25px;
   }
   @media (min-width: 1401px) {
-    font-size: 20px;
+    font-size: 25px;
   }
 `;
 
@@ -442,10 +534,10 @@ export const HeaderBtn = styled.button<{
   }
 
   @media (max-width: 576px) {
-    font-size: 15px;
+    font-size: 20px;
   }
   @media (min-width: 577px) {
-    font-size: 15px;
+    font-size: 20px;
   }
   @media (min-width: 769px) {
     font-size: 20px;
@@ -454,10 +546,10 @@ export const HeaderBtn = styled.button<{
     font-size: 20px;
   }
   @media (min-width: 1201px) {
-    font-size: 20px;
+    font-size: 25px;
   }
   @media (min-width: 1401px) {
-    font-size: 20px;
+    font-size: 25px;
   }
 `;
 
