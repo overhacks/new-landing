@@ -65,6 +65,6 @@ export const Text = styled.h1<any>`
   }
   @media (min-width: 1401px)
   {
-    font-size: ${props => props.fontSize || "15px"}
+    font-size: ${props => props.fontSize || "20px"}
     }
 `;

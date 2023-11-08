@@ -25,18 +25,20 @@ export const Checks = styled.div`
 `;
 
 export const RowContainer = styled.div`
-  width: 100%;
+  width: 90%;
   display: flex;
   flex-direction: row;
-  justify-content: start;
-  padding-left: 32px;
-  padding-right: 32px;
+  justify-content: center;
+  padding-left: 5%;
+  padding-right: 5%;
   padding-top: 32px;
 `;
 
 export const SubTitlecontainer = styled.div`
-  padding-bottom: 13px;
-  border-bottom: 3px solid #22fa5f;
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  justify-content: center;
 `;
 
 export const Button = styled.button<{ backgroundImg: any }>`
@@ -83,6 +85,7 @@ export const StyledSwiper = styled(Swiper)`
   padding-left: 5%;
   padding-right: 5%;
   padding-bottom: 120px;
+  margin-bottom: 32px;
   position: relative;
   overflow-y: visible;
 

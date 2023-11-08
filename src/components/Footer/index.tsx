@@ -2,11 +2,13 @@ import React, { useEffect, useState } from "react";
 import {
   Column,
   Container,
-  FooterBoofer,
   FooterBtn,
+  Logo,
   StyledFooter,
 } from "./styles";
 import SubTitle from "../SubTitle";
+import AnySizeTitle from "../Title";
+import LogoHacks from "../../assets/img/LOGOHACK.png";
 
 const matcher = () => {
   return window.matchMedia("(max-width: 769px)").matches;
@@ -28,74 +30,59 @@ function Footer() {
 
   return (
     <StyledFooter>
-      <FooterBoofer />
+      <Logo background={LogoHacks}/>
 
-      <Container columns={isSmallScreen ? "1fr 1fr" : "1fr 1fr 1fr 1fr"}>
+      <Container>
         <Column>
-          <SubTitle
-            fontWeight="600"
-            textAlign="left"
-            color="white"
-            text="Overhacks"
+          <AnySizeTitle
+            color="#CCFF5A"
+            text="OVERHACKS"
+            fontSize="17px"
           />
           <FooterBtn>
-            <SubTitle textAlign="left" color="white" text="About" />
+            <SubTitle textAlign="left" color="#F4FFDD" text="About" />
           </FooterBtn>
           <FooterBtn>
-            <SubTitle textAlign="left" color="white" text="Contact us" />
+            <SubTitle textAlign="left" color="#F4FFDD" text="Contact us" />
           </FooterBtn>
           <FooterBtn>
-            <SubTitle textAlign="left" color="white" text="Terms of service" />
+            <SubTitle textAlign="left" color="#F4FFDD" text="Terms of service" />
           </FooterBtn>
         </Column>
 
         <Column>
-          <SubTitle
-            fontWeight="600"
-            textAlign="left"
-            color="white"
-            text="Hackatons"
+        <AnySizeTitle
+            color="#CCFF5A"
+            text="HACKATONS"
+            fontSize="17px"
           />
           <FooterBtn>
-            <SubTitle textAlign="left" color="white" text="Host a hackaton" />
+            <SubTitle textAlign="left" color="#F4FFDD" text="Host a hackaton" />
           </FooterBtn>
           <FooterBtn>
-            <SubTitle textAlign="left" color="white" text="Browse hackatons" />
+            <SubTitle textAlign="left" color="#F4FFDD" text="Browse hackatons" />
           </FooterBtn>
         </Column>
 
+
         <Column>
-          <SubTitle
-            fontWeight="600"
-            textAlign="left"
-            color="white"
-            text="Portfolio"
+        <AnySizeTitle
+            color="#CCFF5A"
+            text="SOCIAL MEDIA"
+            fontSize="17px"
           />
           <FooterBtn>
-            <SubTitle textAlign="left" color="white" text="Your hackatons" />
+            <SubTitle textAlign="left"  color="#F4FFDD" text="Twitter" />
           </FooterBtn>
           <FooterBtn>
-            <SubTitle textAlign="left" color="white" text="Your projects" />
+            <SubTitle textAlign="left" color="#F4FFDD" text="LinkedIn" />
+          </FooterBtn>
+          <FooterBtn>
+            <SubTitle textAlign="left" color="#F4FFDD" text="Medium" />
           </FooterBtn>
         </Column>
 
-        <Column>
-          <SubTitle
-            fontWeight="600"
-            textAlign="left"
-            color="white"
-            text="Social media"
-          />
-          <FooterBtn>
-            <SubTitle textAlign="left" color="white" text="Telegram" />
-          </FooterBtn>
-          <FooterBtn>
-            <SubTitle textAlign="left" color="white" text="Discord" />
-          </FooterBtn>
-          <FooterBtn>
-            <SubTitle textAlign="left" color="white" text="Twitter" />
-          </FooterBtn>
-        </Column>
+        
       </Container>
     </StyledFooter>
   );

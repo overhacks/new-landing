@@ -106,7 +106,25 @@ function Hackatons() {
 
       <RowContainer id="hackatons">
         <SubTitlecontainer>
-          <SubTitle color="#22fa5f" text="Ongoing" />
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="15"
+            height="35"
+            viewBox="0 0 15 35"
+            fill="none"
+          >
+            <path d="M14.5 0.5H1V34.5H14.5" stroke="#CCFF5A" />
+          </svg>
+          <SubTitle color="#CCFF5A" text="Ongoing" fontSize="30px" />
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="15"
+            height="36"
+            viewBox="0 0 15 36"
+            fill="none"
+          >
+            <path d="M0.5 35H14L14 1H0.5" stroke="#CCFF5A" />
+          </svg>
         </SubTitlecontainer>
       </RowContainer>
 
@@ -148,8 +166,10 @@ function Hackatons() {
         }}
       >
         {popupOpen && (
-          <PopupWrapper boxShadow="0px 98px 100px 0px rgba(88, 13, 245, 0.38) inset,
-          0px 4px 18px 0px #580df5 inset, 0px 1px 18px 0px #580df5 inset">
+          <PopupWrapper
+            boxShadow="0px 98px 100px 0px rgba(88, 13, 245, 0.38) inset,
+          0px 4px 18px 0px #580df5 inset, 0px 1px 18px 0px #580df5 inset"
+          >
             <AnySizeTitle
               text="Docker AI/ML Hackathon"
               color="#CCFF5A"
@@ -354,7 +374,25 @@ function Hackatons() {
 
       <RowContainer>
         <SubTitlecontainer>
-          <SubTitle color="#22fa5f" text="Finished" />
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="15"
+            height="35"
+            viewBox="0 0 15 35"
+            fill="none"
+          >
+            <path d="M14.5 0.5H1V34.5H14.5" stroke="#CCFF5A" />
+          </svg>
+          <SubTitle color="#CCFF5A" text="Finished" fontSize="30px" />
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="15"
+            height="36"
+            viewBox="0 0 15 36"
+            fill="none"
+          >
+            <path d="M0.5 35H14L14 1H0.5" stroke="#CCFF5A" />
+          </svg>
         </SubTitlecontainer>
       </RowContainer>
 

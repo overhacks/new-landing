@@ -3,30 +3,33 @@ import { NavLinkProps } from "react-router-dom";
 import styled from "styled-components";
 
 export const StyledFooter = styled.footer`
-  width: 100%;
+  width: 90%;
+  padding-top: 52px;
   padding-bottom: 32px;
+  border-top: solid 2px #22FA5F;
+
+  padding-left: 5%;
+  padding-right: 5%;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  background: radial-gradient(
+    circle at 0% 0%,  
+    rgba(34, 250, 95, 0.5) 10%, rgba(34, 250, 95, 0)
+  );
 `;
 
-export const FooterBoofer = styled.div`
-  height: 75px;
-  width: 100%;
-  background-color: rgba(54, 249, 109, 0.341);
 
-  border-top: 1px solid rgb(44, 44, 48);
-  border-bottom: 1px solid rgb(44, 44, 48);
-`;
 
-export const Container = styled.div<{ columns: string, }>`
-    width: 100%;
-    display: grid;
-    grid-template-columns: ${props => props.columns};
-    grid-template-rows: auto;
-    gap: 12px;
+export const Container = styled.div`
+    max-width: 70%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 82px;
     row-gap: 32px;
-    padding-right: 16px;
-    padding-left: 16px;
-
-    padding-top: 16px;
 `
 
 export const Column = styled.div`
@@ -44,3 +47,34 @@ export const FooterBtn = styled.button`
     }
     
 `
+export const Logo = styled.div<{ background: any }>`
+  background-image: url(${(props) => props.background});
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+
+  @media (max-width: 576px) {
+    width: 24px;
+    height: 24px;
+  }
+  @media (min-width: 577px) {
+    width: 24px;
+    height: 24px;
+  }
+  @media (min-width: 769px) {
+    width: 32px;
+    height: 32px;
+  }
+  @media (min-width: 993px) {
+    width: 48px;
+    height: 48px;
+  }
+  @media (min-width: 1201px) {
+    width: 48px;
+    height: 48px;
+  }
+  @media (min-width: 1401px) {
+    fwidth: 48px;
+    height: 48px;
+  }
+`;
