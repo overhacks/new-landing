@@ -32,6 +32,7 @@ export const RowContainer = styled.div`
   padding-left: 5%;
   padding-right: 5%;
   padding-top: 32px;
+  margin-bottom: 80px;
 `;
 
 export const SubTitlecontainer = styled.div`

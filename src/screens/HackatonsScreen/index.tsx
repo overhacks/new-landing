@@ -1,4 +1,5 @@
 import SubTitle from "../../components/SubTitle";
+import { Controller } from "react-scrollmagic";
 import {
   Banner,
   Block,
@@ -43,6 +44,7 @@ import AnySizeTitle from "../../components/Title";
 import { useEffect, useState } from "react";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
+import AboutTunnel from "../../components/About";
 
 const matcher = () => {
   return window.matchMedia("(max-width: 993px)").matches;
@@ -99,6 +101,7 @@ function Hackatons() {
 
   return (
     <Container>
+      <Controller>
       <Header />
       {/* <Moto>
         <AnySizeTitle color="white" text="Moto" />
@@ -636,7 +639,11 @@ function Hackatons() {
         ))}
       </StyledSwiper>
 
+
+      <AboutTunnel/>
+
       <Footer />
+      </Controller>
     </Container>
   );
 }
