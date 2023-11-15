@@ -27,8 +27,6 @@ import {
 
 import ApplyButton from "../../assets/img/button.svg";
 
-import { CalendarFilled, TagsFilled } from "@ant-design/icons";
-
 import {
   Navigation,
   Pagination,
@@ -43,8 +41,9 @@ import AnySizeTitle from "../../components/Title";
 import { useEffect, useState } from "react";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
-import WhySection from "../../components/About";
+import WhySection from "../../components/WhySection";
 import SubTitleRow from "../../components/SubTitleRow";
+import PartnersSection from "../../components/PartnersSection";
 
 const matcher = () => {
   return window.matchMedia("(max-width: 993px)").matches;
@@ -583,6 +582,8 @@ function Hackatons() {
 
 
       <WhySection/>
+
+      <PartnersSection/>
 
       <Footer />
     </Container>

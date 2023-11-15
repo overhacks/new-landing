@@ -1,4 +1,3 @@
-import { Controller, Scene } from "react-scrollmagic";
 import styled from "styled-components";
 
 export const RowContainer = styled.div`
@@ -80,8 +79,6 @@ export const Banner = styled.div<{ imgSrc: string; width: string }>`
   background-position: center right;
   background-repeat: no-repeat;
   background-size: contain;
-
-  max-width: 50%;
   width: ${(props) => props.width};
   aspect-ratio: 1 / 1;
   border-radius: 32px;
