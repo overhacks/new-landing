@@ -118,9 +118,11 @@ export const ColumnTextLarge = styled.div`
 `;
 
 export const TextBlock = styled.div`
-  padding-top: 18px;
-  padding-bottom: 18px;
+  height: 50%;
   gap: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 `;
 
 export const PhotoVertical = styled.a<{ imgSrc: string }>`
