@@ -44,6 +44,7 @@ import Header from "../../components/Header";
 import WhySection from "../../components/WhySection";
 import SubTitleRow from "../../components/SubTitleRow";
 import PartnersSection from "../../components/PartnersSection";
+import AboutSection from "../../components/AboutSection";
 
 const matcher = () => {
   return window.matchMedia("(max-width: 993px)").matches;
@@ -584,6 +585,8 @@ function Hackatons() {
       <WhySection/>
 
       <PartnersSection/>
+
+      <AboutSection/>
 
       <Footer />
     </Container>
