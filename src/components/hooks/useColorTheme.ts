@@ -1,22 +1,14 @@
-import { useEffect, useState } from "react";
-// import { useStores } from "stores";
-// import WebAppSDK from '@twa-dev/sdk'
-// import { useStore as useStoreNanoStores } from '@nanostores/react'
-import backgroundImage from "assets/img/backgroundImage.png";
-import backgroundImageLightTheme from "assets/img/lightThemeBackgroundImage.png"
 export const useColorTheme = () => {
+  const webColors = {
     
-    const darkThemeColors = {
-        
-      
-      };
-            
-      const twaColors = {
-      };
 
-      const [designColors, setDesignColors] = useState(darkThemeColors)
-  
-    return {
-      designColors
-    };
+      whyCardBackground: "rgba(14, 14, 14, 0.90)",
+      whyCardBorder: "1px solid rgba(14, 14, 14, 0.80)",
+
+      WhyCardText: "rgba(231, 255, 176, 1)",
   };
+
+  return {
+      webColors,
+  };
+};

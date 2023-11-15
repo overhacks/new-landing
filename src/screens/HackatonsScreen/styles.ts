@@ -186,31 +186,11 @@ export const Banner = styled.div<{ imgSrc: string, width: string }>`
   background-position: center right;
   background-repeat: no-repeat;
   background-size: contain;
-  /* background: lightgray -0.196px 0px / 129.539% 100% no-repeat; */
 
   max-width: 50%;
   width: ${props => props.width};
   aspect-ratio: 1 / 1;
   border-radius: 32px;
-
-  /* @media (max-width: 576px) {
-    width: 162.5px;
-  }
-  @media (min-width: 577px) {
-    width: 162.5px;
-  }
-  @media (min-width: 769px) {
-    width: 162.5px;
-  }
-  @media (min-width: 993px) {
-    width: 162.5px;
-  }
-  @media (min-width: 1201px) {
-    width: 162.5px;
-  }
-  @media (min-width: 1401px) {
-    width: 200px;
-  } */
 `;
 
 export const Row = styled.div<{ paddingLeft?: string, width: string, justifyContent: string }>`

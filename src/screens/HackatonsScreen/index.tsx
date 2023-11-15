@@ -1,5 +1,4 @@
 import SubTitle from "../../components/SubTitle";
-import { Controller } from "react-scrollmagic";
 import {
   Banner,
   Block,
@@ -44,7 +43,8 @@ import AnySizeTitle from "../../components/Title";
 import { useEffect, useState } from "react";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
-import AboutTunnel from "../../components/About";
+import WhySection from "../../components/About";
+import SubTitleRow from "../../components/SubTitleRow";
 
 const matcher = () => {
   return window.matchMedia("(max-width: 993px)").matches;
@@ -57,21 +57,6 @@ function Hackatons() {
     "Slide 3",
     "Slide 4",
     "Slide 5",
-    "Slide 6",
-    "Slide 7",
-    "Slide 8",
-    "Slide 9",
-    "Slide 10",
-    "Slide 11",
-    "Slide 12",
-    "Slide 13",
-    "Slide 14",
-    "Slide 15",
-    "Slide 16",
-    "Slide 17",
-    "Slide 18",
-    "Slide 19",
-    "Slide 20",
   ];
   const projects = ["Slide 1", "Slide 2", "Slide 3", "Slide 4", "Slide 5"];
   const [isSmallScreen, setIsSmallScreen] = useState(matcher());
@@ -101,37 +86,14 @@ function Hackatons() {
 
   return (
     <Container>
-      <Controller>
       <Header />
-      {/* <Moto>
-        <AnySizeTitle color="white" text="Moto" />
-      </Moto> */}
 
       <RowContainer id="hackatons">
-        <SubTitlecontainer>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="15"
-            height="35"
-            viewBox="0 0 15 35"
-            fill="none"
-          >
-            <path d="M14.5 0.5H1V34.5H14.5" stroke="#CCFF5A" />
-          </svg>
-          <SubTitle color="#CCFF5A" text="Ongoing" fontSize="30px" />
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="15"
-            height="36"
-            viewBox="0 0 15 36"
-            fill="none"
-          >
-            <path d="M0.5 35H14L14 1H0.5" stroke="#CCFF5A" />
-          </svg>
-        </SubTitlecontainer>
+        <SubTitleRow text="Ongoing"/>
       </RowContainer>
 
       <StyledSwiper
+        
         spaceBetween={80}
         slidesPerView={1}
         slidesPerGroupSkip={1}
@@ -376,27 +338,7 @@ function Hackatons() {
       </StyledSwiper>
 
       <RowContainer>
-        <SubTitlecontainer>
-        <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="15"
-            height="35"
-            viewBox="0 0 15 35"
-            fill="none"
-          >
-            <path d="M14.5 0.5H1V34.5H14.5" stroke="#CCFF5A" />
-          </svg>
-          <SubTitle color="#CCFF5A" text="Finished" fontSize="30px" />
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="15"
-            height="36"
-            viewBox="0 0 15 36"
-            fill="none"
-          >
-            <path d="M0.5 35H14L14 1H0.5" stroke="#CCFF5A" />
-          </svg>
-        </SubTitlecontainer>
+        <SubTitleRow text="Finished"/>
       </RowContainer>
 
       <StyledSwiper
@@ -640,10 +582,9 @@ function Hackatons() {
       </StyledSwiper>
 
 
-      <AboutTunnel/>
+      <WhySection/>
 
       <Footer />
-      </Controller>
     </Container>
   );
 }

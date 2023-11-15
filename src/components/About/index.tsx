@@ -1,37 +1,106 @@
-import { Container, Tunnel, TunnelLayer } from "./styles";
+import {
+  Banner,
+  CardsContainer,
+  CardsLight,
+  RowContainer,
+  WhyCard,
+  WhyCardsSection,
+  WhyColumn,
+} from "./styles";
 import React, { useEffect, useRef } from "react";
-import { Tween, Timeline } from "react-gsap";
-import { Controller, Scene } from "react-scrollmagic";
+import SubTitleRow from "../SubTitleRow";
+import { useColorTheme } from "../hooks/useColorTheme";
+import AnySizeTitle from "../Title";
+import EasyImg from "../../assets/img/Easy.png";
+import Puzzle from "../../assets/img/puzzle.png";
+import Cash from "../../assets/img/cash.png";
+import SubTitle from "../SubTitle";
 
-const AboutTunnel = () => {
+const WhySection = () => {
+  const { webColors } = useColorTheme();
   return (
-    
-       
-      
-       
-          <Scene
-            duration={800}
-            triggerHook={0.75}
-            pin={{ pushFollowers: false }}
-            triggerElement=".tunnel-layer"
-          >
-            {(progress: any) => (
-              <Timeline totalProgress={progress} paused>
-                <Timeline target={<Container className="timeline"><Tunnel><TunnelLayer className="tunnel-layer" /></Tunnel></Container>}>
-                  
-                  <Tween
-                    from={{ z: 0 }}
-                    to={{ z: -5000}}
-                  />
-                  {/* <Tween from={{ x: -1000 }} to={{ x: 250 }} /> */}
-                </Timeline>
-              </Timeline>
-            )}
-          </Scene>
-          
-        
-    
+    <WhyCardsSection>
+      <RowContainer>
+        <SubTitleRow text="Why do people choose Overhacks?" />
+      </RowContainer>
+      <CardsContainer>
+        <WhyCard
+          backgroundColor={webColors.whyCardBackground}
+          border={webColors.whyCardBorder}
+        >
+          <AnySizeTitle
+            text="Easy to register"
+            maxWidth="25%"
+            color={webColors.WhyCardText}
+            alignSelf="left"
+          />
+
+          <Banner width="25%" imgSrc={EasyImg} />
+
+          <WhyColumn>
+            <SubTitle
+              text="1. Choose your skills"
+              textAlign="left"
+              color={webColors.WhyCardText}
+            />
+            <SubTitle
+              text="2. Create your project"
+              textAlign="left"
+              color={webColors.WhyCardText}
+            />
+            <SubTitle
+              text="3. DONE"
+              textAlign="left"
+              color={webColors.WhyCardText}
+            />
+          </WhyColumn>
+        </WhyCard>
+        <WhyCard
+          backgroundColor={webColors.whyCardBackground}
+          border={webColors.whyCardBorder}
+        >
+          <AnySizeTitle
+            text="Team matching"
+            maxWidth="25%"
+            color={webColors.WhyCardText}
+            alignSelf="left"
+          />
+
+          <Banner width="25%" imgSrc={Puzzle} />
+
+          <SubTitle
+              text="Matchmaking for skilled players to team up and complete bounties!"
+              textAlign="left"
+              maxWidth="30%"
+              color={webColors.WhyCardText}
+            />
+
+        </WhyCard>
+        <WhyCard
+          backgroundColor={webColors.whyCardBackground}
+          border={webColors.whyCardBorder}
+        >
+          <AnySizeTitle
+            text="Project incubation"
+            maxWidth="25%"
+            color={webColors.WhyCardText}
+            alignSelf="left"
+          />
+
+          <Banner width="25%" imgSrc={Cash} />
+
+          <SubTitle
+              text="As well as POST-HACKATHON support for the project and opportunity to work for a sponsor company"
+              textAlign="left"
+              maxWidth="30%"
+              color={webColors.WhyCardText}
+            />
+
+        </WhyCard>
+        <CardsLight />
+      </CardsContainer>
+    </WhyCardsSection>
   );
 };
 
-export default AboutTunnel;
+export default WhySection;
