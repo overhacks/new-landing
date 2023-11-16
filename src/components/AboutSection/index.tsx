@@ -21,7 +21,7 @@ import {
 const AboutSection = () => {
   const { webColors } = useColorTheme();
   return (
-    <SectionWrapper>
+    <SectionWrapper id="about">
       <Row>
         <AnySizeTitle
           text="About"

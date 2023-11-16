@@ -87,6 +87,10 @@ export const SlideContent = styled.div<{ imgSrc: string }>`
   justify-content: center;
   align-items: center;
   width: 100%;
+
+  &:hover {
+    opacity: 0.65;
+  }
 `;
 export const TonanaLogo = styled.a<{ imgSrc: string }>`
   background-image: url(${(props) => props.imgSrc});
@@ -116,7 +120,20 @@ export const Arrow = styled.div<{ imgSrc: string }>`
   aspect-ratio: 1 / 1 ;
 
   width: 64px;
+
+  &:hover {
+    opacity: 0.8;
+  }
 `;
+
+export const SwiperContainer = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 5%;
+  padding: 0 100px 0;
+`
 
 const GSwipePartnersStyles: any = createGlobalStyle`
 
@@ -126,10 +143,7 @@ const GSwipePartnersStyles: any = createGlobalStyle`
   }
 
   .styled-swiper {
-    width: 85%;
-  padding-left: 2.5%;
-  padding-right: 2.5%;
-  margin-bottom: 32px;
+    width: 70%;
   }
 
 `;

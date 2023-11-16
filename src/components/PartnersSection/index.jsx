@@ -6,6 +6,7 @@ import GSwipePartnersStyles, {
   RowContainer,
   RowContainerBetween,
   SlideContent,
+  SwiperContainer,
   TonanaLogo,
 } from "./styles";
 import React, { useEffect, useRef, useCallback } from "react";
@@ -16,10 +17,11 @@ import TonanaLogoSvg from "../../assets/img/tonanabananalogo.svg";
 import Cube from "../../assets/img/cubePartner.png";
 import GrassCard from "../../assets/img/grassPartner.svg";
 import TonCard from "../../assets/img/tonPartner.svg";
-import ArrowLeft from "../../assets/img/arrowLeft.svg";
-import ArrowRight from "../../assets/img/arrowRight.svg";
 import SubTitle from "../SubTitle";
 import JoinButtonPng from "../../assets/img/JoinButton.png";
+import ArrowLeft from "../../assets/img/arrowLeft.svg";
+import ArrowRight from "../../assets/img/arrowRight.svg";
+
 
 const PartnersSection = () => {
   const swiperRef = useRef(null);
@@ -30,6 +32,7 @@ const PartnersSection = () => {
     const params = {
       grabCursor: true,
       spaceBetween: 64,
+      loop: true,
       breakpoints: {
         640: {
           slidesPerView: 2,
@@ -48,32 +51,6 @@ const PartnersSection = () => {
         nextEl: ".swiper-button-next-unique",
         prevEl: ".swiper-button-prev-unique",
       },
-      injectStyles: [
-        `
-          .swiper-button-next,
-          .swiper-button-prev {
-            background-color: transparent;
-            background-position: center;
-            width: 64px;
-            background-size: 64px;
-            background-repeat: no-repeat;
-            color: transparent;
-            
-          }
-
-          .swiper-button-prev {
-            background-image: url("/arrowLeft.svg");
-          }
-
-          .swiper-button-next {
-            background-image: url("/arrowRight.svg");
-          }
-
-          .swiper-button-next::after,.swiper-button-prev::after {
-            content: "";
-         }
-      `,
-      ],
     };
 
     Object.assign(swiperContainer, params);
@@ -81,11 +58,11 @@ const PartnersSection = () => {
   }, []);
 
   const handlePrevious = useCallback(() => {
-    swiperRef?.slidePrev();
+    swiperRef.current.swiper.slidePrev();
   }, [swiperRef]);
 
   const handleNext = useCallback(() => {
-    swiperRef?.slideNext();
+    swiperRef.current.swiper.slideNext();
   }, [swiperRef]);
 
   return (
@@ -94,7 +71,9 @@ const PartnersSection = () => {
         <SubTitleRow text="Our partners" />
       </RowContainer>
 
-      <swiper-container class="styled-swiper" init="false" ref={swiperRef}>
+      <SwiperContainer>
+        <Arrow onClick={handlePrevious} imgSrc={ArrowLeft}   class="swiper-button-prev-unique"></Arrow>
+        <swiper-container class="styled-swiper" init="false" ref={swiperRef}>
         <swiper-slide class="styled_slide">
           <SlideContent imgSrc={PartnerBackground}>
             <TonanaLogo
@@ -104,6 +83,47 @@ const PartnersSection = () => {
             />
           </SlideContent>
         </swiper-slide>
+
+        <swiper-slide class="styled_slide">
+          <SlideContent imgSrc={PartnerBackground}>
+            <TonanaLogo
+              href="https://tonana.org/"
+              target="_blank"
+              imgSrc={TonanaLogoSvg}
+            />
+          </SlideContent>
+        </swiper-slide>
+        <swiper-slide class="styled_slide">
+          <SlideContent imgSrc={PartnerBackground}>
+            <TonanaLogo
+              href="https://tonana.org/"
+              target="_blank"
+              imgSrc={TonanaLogoSvg}
+            />
+          </SlideContent>
+        </swiper-slide>
+        <swiper-slide class="styled_slide">
+          <SlideContent imgSrc={PartnerBackground}>
+            <TonanaLogo
+              href="https://tonana.org/"
+              target="_blank"
+              imgSrc={TonanaLogoSvg}
+            />
+          </SlideContent>
+        </swiper-slide>
+        <swiper-slide class="styled_slide">
+          <SlideContent imgSrc={PartnerBackground}>
+            <TonanaLogo
+              href="https://tonana.org/"
+              target="_blank"
+              imgSrc={TonanaLogoSvg}
+            />
+          </SlideContent>
+        </swiper-slide>
+
+
+
+
         <swiper-slide class="styled_slide">
           <SlideContent imgSrc={PartnerBackground}>
             <CubeLogo href="#" target="_blank" imgSrc={Cube} />
@@ -116,8 +136,11 @@ const PartnersSection = () => {
           <SlideContent imgSrc={TonCard}></SlideContent>
         </swiper-slide>
       </swiper-container>
-      {/* <Arrow onClick={handlePrevious} imgSrc={ArrowLeft}   class="swiper-button-prev-unique"></Arrow>
-      <Arrow onClick={handleNext} imgSrc={ArrowRight} class="swiper-button-next-unique"></Arrow> */}
+      <Arrow onClick={handleNext} imgSrc={ArrowRight} class="swiper-button-next-unique"></Arrow>
+      </SwiperContainer>
+      
+      
+      
       <RowContainerBetween>
         <SubTitle
           text="Become our partner to be a part of trusted unity!"
