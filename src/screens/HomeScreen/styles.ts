@@ -10,7 +10,8 @@ export const HomeScreenContainer = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
+  overflow-y: scroll;
+  overflow-x: hidden;
 
   &::before, &::after {
     content: '';
@@ -24,7 +25,7 @@ export const HomeScreenContainer = styled.div`
       rgba(255, 255, 255, 0.12),
       rgba(255, 255, 255, 0.12) 2px,
       transparent 2px,
-      transparent 240px /* Горизонтальные линии */
+      transparent 240px 
     );
   }
 
