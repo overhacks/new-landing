@@ -19,22 +19,11 @@ import Footer from "../../components/Footer";
 
 function HomeScreen() {
 
-  function renderRoutes() {
-    return (
-      <Routes>
-        <Route path={`${routes.hackatons}/`} element={<Hackatons />} />
-        <Route path={`${routes.about}/`} element={<></>} />
-        <Route path={`${routes.hackaton}/`} element={<></>} />
-      </Routes>
-    );
-  }
-
-
 
   return (
     <>
       <HomeScreenContainer>
-        <HomeScreenContent>{renderRoutes()}</HomeScreenContent>
+        <HomeScreenContent><Hackatons /></HomeScreenContent>
       </HomeScreenContainer>
     </>
   );
