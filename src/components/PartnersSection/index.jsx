@@ -11,7 +11,7 @@ import GSwipePartnersStyles, {
 } from "./styles";
 import React, { useEffect, useRef, useCallback } from "react";
 import SubTitleRow from "../SubTitleRow";
-import { useColorTheme } from "../hooks/useColorTheme";
+import { useColorTheme } from "../../hooks/useColorTheme";
 import PartnerBackground from "../../assets/img/partnerBackground.png";
 import TonanaLogoSvg from "../../assets/img/tonanabananalogo.svg";
 import Cube from "../../assets/img/cubePartner.png";

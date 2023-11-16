@@ -16,10 +16,6 @@ register();
 
 function App() {
 
-
-  
-
-  
   return (
     <AppScreen>
       <Routes>

@@ -9,7 +9,7 @@ import {
 } from "./styles";
 import React, { useEffect, useRef } from "react";
 import SubTitleRow from "../SubTitleRow";
-import { useColorTheme } from "../hooks/useColorTheme";
+import { useColorTheme } from "../../hooks/useColorTheme";
 import AnySizeTitle from "../Title";
 import EasyImg from "../../assets/img/Easy.png";
 import Puzzle from "../../assets/img/puzzle.png";

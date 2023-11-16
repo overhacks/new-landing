@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import SubTitleRow from "../SubTitleRow";
-import { useColorTheme } from "../hooks/useColorTheme";
+import { useColorTheme } from "../../hooks/useColorTheme";
 import AnySizeTitle from "../Title";
 import About1 from "../../assets/img/about1.png";
 import About2 from "../../assets/img/about2.png";

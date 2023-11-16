@@ -139,7 +139,7 @@ const GSwipePartnersStyles: any = createGlobalStyle`
 
   .styled_slide {
     height: 100%;
-  z-index: 1;
+    z-index: 1;
   }
 
   .styled-swiper {
