@@ -46,7 +46,6 @@ import H from "../../assets/img/h.png";
 import A from "../../assets/img/a.png";
 import C from "../../assets/img/c.png";
 import K from "../../assets/img/k.png";
-import ACK from "../../assets/img/ack.png";
 import S from "../../assets/img/s.png";
 
 import AnySizeTitle from "../Title";
@@ -129,7 +128,6 @@ function Header() {
                 )}
 
                 <Logo background={LogoHacks} />
-                {/* <OverhacksName>Overhacks</OverhacksName> */}
               </LogoAndName>
 
               {!isSmallScreen && (
@@ -244,19 +242,22 @@ function Header() {
         </DefaultHeadercontainer>
         {openMenu && (
           <DefaultMenucontainer>
-            {screens.map((screen) => (
-              <MenuLinkBtn
-                to={routes.home + screen.url}
-                key={screen.screenName}
-                bottomBorder="none"
-                isActive={location.pathname === routes.home + screen.url}
-                defaultColor="white"
-                hoverBackgroundColor="transparent"
-                hoverTextColor="#22fa5f"
-              >
-                {screen.title}
-              </MenuLinkBtn>
-            ))}
+            <MenuBtn
+              defaultColor="white"
+              hoverBackgroundColor="transparent"
+              hoverTextColor="#22fa5f"
+              href="#hackatons"
+            >
+              Hackatons
+            </MenuBtn>
+            <MenuBtn
+              defaultColor="white"
+              hoverBackgroundColor="transparent"
+              hoverTextColor="#22fa5f"
+              href="#about"
+            >
+              About
+            </MenuBtn>
             <Line />
             <MenuBtn
               defaultColor="white"

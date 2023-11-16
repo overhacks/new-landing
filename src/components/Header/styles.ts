@@ -684,7 +684,7 @@ export const HeaderLinkBtnInner = styled.a<{
   }
 `;
 
-export const MenuLinkBtn: React.FC<LinkProps> = styled(Link)`
+export const MenuLinkBtn = styled.a<{defaultColor : string, hoverBackgroundColor: string, hoverTextColor: string}>`
   display: flex;
   flex-direction: row;
   width: 100%;
@@ -769,7 +769,7 @@ export const Line = styled.div`
   border-bottom: 1px solid #22fa5f;
 `;
 
-export const MenuBtn = styled.button<{
+export const MenuBtn = styled.a<{
   hoverTextColor: string;
   hoverBackgroundColor: string;
   defaultColor: string;

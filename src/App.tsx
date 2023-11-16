@@ -23,9 +23,9 @@ function App() {
   return (
     <AppScreen>
       <Routes>
-      <Route index element={<Navigate to={`${routes.home + routes.hackatons}/`} replace />} />
+      <Route index element={<Navigate to={`${routes.hackatons}/`} replace />} />
       <Route path="/" element={<Outlet />} />
-        <Route path={`${routes.home}/*`} element={<HomeScreen />} />
+        <Route path={`${routes.hackatons}/*`} element={<HomeScreen />} />
       </Routes>
       <Gstyles />
      </AppScreen>
