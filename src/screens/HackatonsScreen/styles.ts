@@ -4,9 +4,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 export const Container = styled.div`
   width: 100%;
-  height: 100%;
-  overflow-y: scroll;
   overflow-x: hidden;
+  overflow-y: scroll;
   z-index: 1;
 `;
 export const Block = styled.div`
@@ -26,18 +25,21 @@ export const Checks = styled.div`
 `;
 
 export const RowContainer = styled.div`
-  width: 100%;
+  width: 90%;
   display: flex;
   flex-direction: row;
-  justify-content: start;
-  padding-left: 32px;
-  padding-right: 32px;
+  justify-content: center;
+  padding-left: 5%;
+  padding-right: 5%;
   padding-top: 32px;
+  margin-bottom: 80px;
 `;
 
 export const SubTitlecontainer = styled.div`
-  padding-bottom: 13px;
-  border-bottom: 3px solid #22fa5f;
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  justify-content: center;
 `;
 
 export const Button = styled.button<{ backgroundImg: any }>`
@@ -81,7 +83,10 @@ export const Button = styled.button<{ backgroundImg: any }>`
 
 export const StyledSwiper = styled(Swiper)`
   width: 90%;
+  padding-left: 5%;
+  padding-right: 5%;
   padding-bottom: 120px;
+  margin-bottom: 32px;
   position: relative;
   overflow-y: visible;
 
@@ -181,31 +186,11 @@ export const Banner = styled.div<{ imgSrc: string, width: string }>`
   background-position: center right;
   background-repeat: no-repeat;
   background-size: contain;
-  /* background: lightgray -0.196px 0px / 129.539% 100% no-repeat; */
 
   max-width: 50%;
   width: ${props => props.width};
   aspect-ratio: 1 / 1;
   border-radius: 32px;
-
-  /* @media (max-width: 576px) {
-    width: 162.5px;
-  }
-  @media (min-width: 577px) {
-    width: 162.5px;
-  }
-  @media (min-width: 769px) {
-    width: 162.5px;
-  }
-  @media (min-width: 993px) {
-    width: 162.5px;
-  }
-  @media (min-width: 1201px) {
-    width: 162.5px;
-  }
-  @media (min-width: 1401px) {
-    width: 200px;
-  } */
 `;
 
 export const Row = styled.div<{ paddingLeft?: string, width: string, justifyContent: string }>`
@@ -230,15 +215,14 @@ export const InfoColumn = styled.div`
   flex-direction: column;
   gap: 4px;
 `;
-export const SlideContent = styled.div<{ isActive: boolean, opacity: string }>`
+export const SlideContent = styled.div<{ isActive: boolean, opacity: string, boxShadow: string }>`
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 
   background-color: rgba(196, 196, 196, 0.01);
-  box-shadow: 0px 98px 100px 0px rgba(88, 13, 245, 0.38) inset,
-    0px 4px 18px 0px #580df5 inset, 0px 1px 18px 0px #580df5 inset;
+  box-shadow: ${props => props.boxShadow};
   backdrop-filter: blur(50px);
   border-radius: 32px;
 
@@ -290,7 +274,7 @@ export const SlideContent = styled.div<{ isActive: boolean, opacity: string }>`
   }
 `;
 
-export const PopupWrapper = styled.div`
+export const PopupWrapper = styled.div<{ boxShadow: string }>`
   position: absolute;
   top: 50%;
   left: 50%;
@@ -311,8 +295,7 @@ export const PopupWrapper = styled.div`
   overflow-y: scroll;
   overflow-x: hidden;
   background-color: rgba(196, 196, 196, 0.01);
-  box-shadow: 0px 98px 100px 0px rgba(88, 13, 245, 0.38) inset,
-    0px 4px 18px 0px #580df5 inset, 0px 1px 18px 0px #580df5 inset, 0px 0px 48px 24px rgba(23,1,78,0.9);
+  box-shadow: ${props => props.boxShadow};
   backdrop-filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
   backdrop-filter: blur(50px);
 
@@ -320,9 +303,9 @@ export const PopupWrapper = styled.div`
 
 `;
 
-export const TextWrapper = styled.div`
+export const TextWrapper = styled.div<{ backgroundColor: string }>`
   padding: 15px;
-  background-color: #170540;
+  background-color: ${props => props.backgroundColor};
   border-radius: 16px;
   display: flex;
   justify-content: center;
@@ -365,10 +348,10 @@ export const Projects = styled.div`
   width: 100%;
 `
 
-export const Project = styled.div`
+export const Project = styled.div<{ backgroundColor: string }>`
   padding: 24px;
   border-radius: 16px;
-  background-color: #170540;
+  background-color: ${props => props.backgroundColor};
   display: flex;
   justify-content: space-between;
   align-items: center;

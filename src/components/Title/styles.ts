@@ -37,27 +37,27 @@ export const Title = styled.h1<Props>`
   }
       @media (max-width: 576px)
     {
-     font-size: 20px;
+     font-size: ${props => props.fontSize || "20px"};
    }
       @media (min-width: 577px)
    {
-      font-size: 20px;
+      font-size: ${props => props.fontSize || "20px"};
    }
       @media (min-width: 769px)
    {
-     font-size: 20px;
+     font-size: ${props => props.fontSize || "20px"};
    }
       @media (min-width: 993px)
    {
-     font-size: 24px;
+     font-size: ${props => props.fontSize || "24px"};
    }
       @media (min-width: 1201px)
    {
-     font-size: 24px;
+     font-size: ${props => props.fontSize || "24px"};
    }
    @media (min-width: 1401px)
    {
-     font-size: 20px;
+     font-size: ${props => props.fontSize || "30px"};
      }
    
 `;

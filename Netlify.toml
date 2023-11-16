@@ -1,0 +1,39 @@
+[[plugins]]
+  package = "netlify-plugin-gatsby-cache"
+
+[[plugins]]
+  package = "netlify-plugin-inline-functions-env"
+
+[[plugins]]
+  package = "netlify-plugin-no-more-404"
+
+[[plugins]]
+  package = "netlify-plugin-cypress"
+
+[build]
+  publish = "build"
+  command = "yarn build"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[[plugins]]
+  package = "netlify-plugin-prerender-spa"
+
+[[plugins]]
+  package = "netlify-plugin-image-optim"
+
+[[plugins]]
+  resolve = "gatsby-plugin-purgecss"
+  options = {
+    develop = false
+    purgeOnly = ['']
+    ignore = ['swiper/']
+  }
