@@ -43,7 +43,6 @@ const HackatonsSwiper = ({ popupOpen, handlePopupOpen, isOngoin }) => {
     const params = {
       centeredSlides: false,
       grabCursor: true,
-      slidesPerView: 2,
       slidesPerGroupSkip: 1,
       spaceBetween: 80,
       loop: true,
