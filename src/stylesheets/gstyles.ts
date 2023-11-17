@@ -22,7 +22,7 @@ const Gstyles: any = createGlobalStyle<{ connectButtonColor: string }>`
 @font-face {
   font-family: 'Hanson';
   src: local('Hanson'),
-    url('../src/assets/fonts/Hanson-Bold.ttf') format('truetype');
+    url('../src/assets/fonts/Hanson.ttf') format('truetype');
   font-weight: bold;
 }
 
