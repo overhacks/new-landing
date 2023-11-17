@@ -135,8 +135,8 @@ export const Letter = styled.div<{ background: string}>`
 
 
   @media (max-width: 576px) {
-    width: 45.2px;
-    height: 36.8px;
+    width: 30.13px;
+    height: 24.53px;
   }
   @media (min-width: 577px) {
     width: 45.2px;
@@ -170,8 +170,8 @@ export const LetterV = styled.div<{ background: string}>`
 
 
   @media (max-width: 576px) {
-    width: 52.8px;
-    height: 36.8px;
+    width: 35.2px;
+    height: 24.53px;
   }
   @media (min-width: 577px) {
     width: 52.8px;
@@ -206,8 +206,8 @@ export const LetterE = styled.div<{ background: string}>`
 
 
   @media (max-width: 576px) {
-    width: 59.8px;
-    height: 36.8px;
+    width: 39.87px;
+    height: 24.53px;
   }
   @media (min-width: 577px) {
     width: 59.8px;
@@ -242,8 +242,8 @@ export const LetterH = styled.div<{ background: string}>`
 
 
   @media (max-width: 576px) {
-    width: 46.8px;
-    height: 36.8px;
+    width: 31.2px;
+    height: 24.53px;
   }
   @media (min-width: 577px) {
     width: 46.8px;
@@ -278,8 +278,8 @@ export const LetterS = styled.div<{ background: string}>`
 
 
   @media (max-width: 576px) {
-    width: 46.8px;
-    height: 36.8px;
+    width: 31.2px;
+    height: 24.53px;
   }
   @media (min-width: 577px) {
     width: 46.8px;
