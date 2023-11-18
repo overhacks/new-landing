@@ -1,14 +1,14 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useColorTheme } from "../../hooks/useColorTheme";
 
-import {
-  Navigation,
-  Pagination,
-  Scrollbar,
-  A11y,
-  Autoplay,
-  Virtual,
-} from "swiper/modules";
+// import {
+//   Navigation,
+//   Pagination,
+//   Scrollbar,
+//   A11y,
+//   Autoplay,
+//   Virtual,
+// } from "swiper/modules";
 import GSwipeHackatonsStyles, {
   Banner,
   Description,
@@ -16,13 +16,11 @@ import GSwipeHackatonsStyles, {
   PopupButton,
   PopupWrapper,
   RowPopup,
-  StyledSwiper,
   TextWrapper,
   Row,
   InfoColumn,
   Projects,
   Project,
-  StyledSlide,
   SlideContent,
   Info,
   Button,
@@ -41,6 +39,16 @@ const HackatonsSwiper = ({
 }) => {
   const swiperRef = useRef(null);
   const { webColors } = useColorTheme();
+
+  const [currentHackaton, setCurrentHackaton] = useState(null);
+
+  useEffect(() => {
+    const updatedCurrentHackaton = hackatons.find((hackaton) => hackaton.id === selectedHackatonId) || null;
+    setCurrentHackaton(updatedCurrentHackaton);
+  }, [selectedHackatonId, hackatons]);
+
+
+
 
   useEffect(() => {
     const swiperContainerHackatons = swiperRef.current;
@@ -78,11 +86,10 @@ const HackatonsSwiper = ({
     swiperContainerHackatons.initialize();
   }, []);
 
-  const projects = ["Slide 1", "Slide 2", "Slide 3", "Slide 4", "Slide 5"];
 
   return (
     <SwiperWrapper>
-      {popupOpen && (
+      {(currentHackaton && popupOpen) && (
         <PopupWrapper
           boxShadow={
             isOngoin
@@ -91,31 +98,39 @@ const HackatonsSwiper = ({
           }
         >
           <AnySizeTitle
-            text="Docker AI/ML Hackathon"
+            text={currentHackaton.name}
             color="#CCFF5A"
             alignSelf="left"
           />
           <ImgAndDescription>
             <Description>
-              <TextWrapper backgroundColor="#170540">
+              <TextWrapper backgroundColor={
+                  isOngoin
+                    ? webColors.ProjectWrapperOngoing
+                    : webColors.ProjectWrapperFinished
+                }>
                 <SubTitle
                   textAlign="left"
                   color="#E7FFB0"
-                  text="Use Docker to get inspired and be productive within this exciting new frontier of AI"
+                  text={currentHackaton.description}
                 />
               </TextWrapper>
 
-              <TextWrapper backgroundColor="#170540">
+              {/* <TextWrapper backgroundColor={
+                  isOngoin
+                    ? webColors.ProjectWrapperOngoing
+                    : webColors.ProjectWrapperFinished
+                }>
                 <SubTitle
                   textAlign="left"
                   color="#E7FFB0"
                   text="Docker and Docker Hub are the starting point for practitioners to start their AI/ML journey and distribute their applications or models. We’re looking for hacks that use Docker products to help both beginners and advanced users get inspired, get started, and be productive within this exciting new frontier."
                 />
-              </TextWrapper>
+              </TextWrapper> */}
             </Description>
             <Banner
               width="40%"
-              imgSrc="url(https://d112y698adiu2z.cloudfront.net/photos/production/challenge_thumbnails/002/597/511/datas/medium_square.png)"
+              imgSrc={currentHackaton.imageUrl}
             />
           </ImgAndDescription>
 
@@ -148,13 +163,13 @@ const HackatonsSwiper = ({
                 <SubTitle
                   textAlign="left"
                   color="rgba(231, 255, 176, 0.51)"
-                  text="Participants"
+                  text="Prize"
                 />
                 <SubTitle
                   marginTop="18px"
                   textAlign="left"
                   color="#E7FFB0"
-                  text="1436"
+                  text={currentHackaton.prize}
                 />
               </InfoColumn>
               <InfoColumn>
@@ -167,7 +182,13 @@ const HackatonsSwiper = ({
                   marginTop="18px"
                   textAlign="left"
                   color="#E7FFB0"
-                  text="28.11.2023"
+                  text={new Date(currentHackaton.startDate)
+                    .toLocaleDateString("en-US", {
+                      month: "2-digit",
+                      day: "2-digit",
+                      year: "numeric",
+                    })
+                    .replace(/\//g, ".")}
                 />
               </InfoColumn>
             </Row>
@@ -181,7 +202,7 @@ const HackatonsSwiper = ({
           />
 
           <Projects>
-            {projects.map((project) => (
+            {currentHackaton.projects.map((project) => (
               <Project
                 backgroundColor={
                   isOngoin

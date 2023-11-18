@@ -1,7 +1,5 @@
 import styled, { createGlobalStyle } from "styled-components";
 
-import { Swiper, SwiperSlide } from "swiper/react";
-
 export const PopupWrapper = styled.div<{ boxShadow: string }>`
   position: absolute;
   top: 50%;
@@ -114,11 +112,6 @@ export const Project = styled.div<{ backgroundColor: string }>`
   justify-content: space-between;
   align-items: center;
 `;
-export const StyledSlide = styled(SwiperSlide)`
-  height: 100%;
-  z-index: 1;
-`;
-
 export const SlideContent = styled.div<{ opacity: string; boxShadow: string }>`
   height: 100%;
   display: flex;
