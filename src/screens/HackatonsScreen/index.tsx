@@ -13,21 +13,58 @@ import SubTitleRow from "../../components/SubTitleRow";
 import PartnersSection from "../../components/PartnersSection";
 import AboutSection from "../../components/AboutSection";
 import HackatonsSwiper from "../../components/HackatonsSwiper";
+import { Hackathon, getHackathons } from "../../api/client";
 
 
 function Hackatons() {
   const [popupOpen, setPopupOpen] = useState(false);
   const [finishedPopupOpen, setFinishedPopupOpen] = useState(false);
-  const [selectedSlideId, setSelectedSlideId] = useState(null);
+  const [selectedSlideIdOngoing, setSelectedSlideIdOngoing] = useState(null);
+  const [selectedSlideIdFinished, setSelectedSlideIdFinished] = useState(null);
 
   const handlePopupOpen = (id: any) => {
     setPopupOpen(!popupOpen);
-    setSelectedSlideId(id);
+    setSelectedSlideIdOngoing(id);
   };
   const handleFinishedPopupOpen = (id: any) => {
     setFinishedPopupOpen(!finishedPopupOpen);
-    setSelectedSlideId(id);
+    setSelectedSlideIdFinished(id);
   };
+
+
+
+
+  const [hackathons, setHackathons] = useState<Hackathon[]>([]);
+  const [ongoingHackatons, setOngoingHackatons] = useState<Hackathon[]>([]);
+  const [finishedHackatons, setFinishedHackatons] = useState<Hackathon[]>([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const hackathonsData = await getHackathons();
+        setHackathons(hackathonsData);
+      } catch (error) {
+        console.error('Error fetching hackathons:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  useEffect(() => {
+    const currentDate = new Date().toISOString();
+
+    const ongoing = hackathons.filter((hackathon) => hackathon.startDate >= currentDate);
+    const finished = hackathons.filter((hackathon) => hackathon.startDate < currentDate);
+
+    setOngoingHackatons(ongoing);
+    setFinishedHackatons(finished);
+  }, [hackathons]);
+
+  console.log("hackathons", hackathons)
+  console.log("ongoingHackatons", ongoingHackatons)
+  console.log("finishedHackatons", finishedHackatons)
+
 
   return (
     <Container>
@@ -37,13 +74,13 @@ function Hackatons() {
         <SubTitleRow text="Ongoing"/>
       </RowContainer>
 
-      <HackatonsSwiper popupOpen={popupOpen} handlePopupOpen={handlePopupOpen} isOngoin={true}/>
+      <HackatonsSwiper selectedHackatonId={selectedSlideIdOngoing} hackatons={ongoingHackatons} popupOpen={popupOpen} handlePopupOpen={handlePopupOpen} isOngoin={true}/>
 
       <RowContainer>
         <SubTitleRow text="Finished"/>
       </RowContainer>
 
-      <HackatonsSwiper popupOpen={finishedPopupOpen} handlePopupOpen={handleFinishedPopupOpen} isOngoin={false}/>
+      <HackatonsSwiper selectedHackatonId={selectedSlideIdFinished} hackatons={finishedHackatons} popupOpen={finishedPopupOpen} handlePopupOpen={handleFinishedPopupOpen} isOngoin={false}/>
 
       <WhySection/>
 

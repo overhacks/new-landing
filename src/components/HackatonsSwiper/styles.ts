@@ -53,7 +53,7 @@ export const TextWrapper = styled.div<{ backgroundColor: string }>`
   align-items: center;
 `;
 export const Banner = styled.div<{ imgSrc: string; width: string }>`
-  background-image: ${(props) => props.imgSrc};
+  background-image: url(${(props) => props.imgSrc});
   background-position: center right;
   background-repeat: no-repeat;
   background-size: contain;
