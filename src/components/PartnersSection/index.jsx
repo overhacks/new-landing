@@ -62,6 +62,7 @@ const PartnersSection = () => {
 
   const handleNext = useCallback(() => {
     swiperRef.current.swiper.slideNext();
+    console.log("wsipe next")
   }, [swiperRef]);
 
   return (

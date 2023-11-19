@@ -1,6 +1,5 @@
 {
   "name": "cra-typescript-example",
-  "homepage": "https://overhacks.github.io/new-landing/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -34,7 +33,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "predeploy": "npm run build",
+    "predeploy": "yarn build",
     "deploy": "gh-pages -d build"
   },
   "eslintConfig": {

@@ -11,6 +11,7 @@ export interface Hackathon {
   projects: any[]; 
   startDate: string;
   topics: string[];
+  format: string;
 }
 
 const API_BASE_URL = 'http://104.199.52.23:3000';

@@ -112,12 +112,15 @@ export const CubeLogo = styled.a<{ imgSrc: string }>`
   width: 70%;
 `;
 
-export const Arrow = styled.div<{ imgSrc: string }>`
+export const Arrow = styled.button<{ imgSrc: string }>`
   background-image: url(${(props) => props.imgSrc});
+  background-color: transparent;
+  border: none;
   background-position: center right;
   background-repeat: no-repeat;
   background-size: contain;
   aspect-ratio: 1 / 1 ;
+  z-index: 2;
 
   width: 64px;
 

@@ -8,11 +8,7 @@ export const HomeScreenContainer = styled.div`
   flex: 1;
   height: 100vw;
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  overflow-y: scroll;
-  overflow-x: hidden;
-
+  overflow: hidden;
 `;
 
 export const HomeScreenContent = styled.div`

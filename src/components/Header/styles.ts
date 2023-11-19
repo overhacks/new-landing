@@ -63,15 +63,14 @@ export const MotoContainer = styled.div<{ backgroundImg: any }>`
   background-color: transparent;
   background-image: url(${(props) => props.backgroundImg});
   background-position: center center;
-  background-repeat: no-repeat;  background-size: cover;
+  background-repeat: no-repeat;
+  background-size: cover;
   width: 100%;
   z-index: 2;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
-
 
   @media (max-width: 576px) {
     height: 400px;
@@ -99,7 +98,7 @@ export const Moto = styled.div`
   flex-direction: column;
   justify-content: center;
   gap: 40px;
-`
+`;
 
 export const Promo = styled.div`
   width: 100%;
@@ -108,14 +107,14 @@ export const Promo = styled.div`
   justify-content: space-between;
   gap: 18px;
   flex-wrap: wrap;
-`
+`;
 
 export const MotoRow = styled.div`
   width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: flex-end
-`
+  justify-content: flex-end;
+`;
 
 export const Name = styled.div`
   width: 100%;
@@ -123,16 +122,15 @@ export const Name = styled.div`
   flex-direction: row;
   justify-content: space-between;
   flex-wrap: wrap;
-`
+`;
 
-export const Letter = styled.div<{ background: string}>`
+export const Letter = styled.div<{ background: string }>`
   background-image: url(${(props) => props.background});
   background-repeat: no-repeat;
   background-position: center center;
   background-size: contain;
   border: none;
   background-color: transparent;
-
 
   @media (max-width: 576px) {
     width: 30.13px;
@@ -158,16 +156,15 @@ export const Letter = styled.div<{ background: string}>`
     width: 113px;
     height: 92px;
   }
-`
+`;
 
-export const LetterV = styled.div<{ background: string}>`
+export const LetterV = styled.div<{ background: string }>`
   background-image: url(${(props) => props.background});
   background-repeat: no-repeat;
   background-position: center center;
   background-size: contain;
   border: none;
   background-color: transparent;
-
 
   @media (max-width: 576px) {
     width: 35.2px;
@@ -193,17 +190,15 @@ export const LetterV = styled.div<{ background: string}>`
     width: 132px;
     height: 92px;
   }
+`;
 
-`
-
-export const LetterE = styled.div<{ background: string}>`
+export const LetterE = styled.div<{ background: string }>`
   background-image: url(${(props) => props.background});
   background-repeat: no-repeat;
   background-position: center center;
   background-size: contain;
   border: none;
   background-color: transparent;
-
 
   @media (max-width: 576px) {
     width: 39.87px;
@@ -229,17 +224,15 @@ export const LetterE = styled.div<{ background: string}>`
     width: 127px;
     height: 92px;
   }
+`;
 
-`
-
-export const LetterH = styled.div<{ background: string}>`
+export const LetterH = styled.div<{ background: string }>`
   background-image: url(${(props) => props.background});
   background-repeat: no-repeat;
   background-position: center center;
   background-size: contain;
   border: none;
   background-color: transparent;
-
 
   @media (max-width: 576px) {
     width: 31.2px;
@@ -265,17 +258,15 @@ export const LetterH = styled.div<{ background: string}>`
     width: 117px;
     height: 92px;
   }
+`;
 
-`
-
-export const LetterS = styled.div<{ background: string}>`
+export const LetterS = styled.div<{ background: string }>`
   background-image: url(${(props) => props.background});
   background-repeat: no-repeat;
   background-position: center center;
   background-size: contain;
   border: none;
   background-color: transparent;
-
 
   @media (max-width: 576px) {
     width: 31.2px;
@@ -301,10 +292,33 @@ export const LetterS = styled.div<{ background: string}>`
     width: 117px;
     height: 92px;
   }
+`;
 
-`
+export const MotoPhase = styled.p`
+  color: #3d7352;
+  font-family: Hanson;
+  font-style: normal;
+  font-weight: 700;
 
-
+  @media (max-width: 576px) {
+    font-size: 12px;
+  }
+  @media (min-width: 577px) {
+    font-size: 16px;
+  }
+  @media (min-width: 769px) {
+    font-size: 24px;
+  }
+  @media (min-width: 993px) {
+    font-size: 30px;
+  }
+  @media (min-width: 1201px) {
+    font-size: 30px;
+  }
+  @media (min-width: 1401px) {
+    font-size: 30px;
+  }
+`;
 
 export const Button = styled.button<{ backgroundImg: any }>`
   background-color: transparent;
@@ -685,7 +699,11 @@ export const HeaderLinkBtnInner = styled.a<{
   }
 `;
 
-export const MenuLinkBtn = styled.a<{defaultColor : string, hoverBackgroundColor: string, hoverTextColor: string}>`
+export const MenuLinkBtn = styled.a<{
+  defaultColor: string;
+  hoverBackgroundColor: string;
+  hoverTextColor: string;
+}>`
   display: flex;
   flex-direction: row;
   width: 100%;

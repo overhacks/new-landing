@@ -31,6 +31,7 @@ import {
   LetterE,
   LetterH,
   LetterS,
+  MotoPhase,
 } from "./styles";
 // import InvitePopup from 'components/newDesignComponents/invitePopup'
 import LogoHacks from "../../assets/img/LOGOHACK.png";
@@ -276,25 +277,25 @@ function Header() {
         <MotoContainer backgroundImg={BackgroundMoto}>
           <Moto>
             <Promo>
-              <AnySizeTitle text="Unleash" color="#3D7352" />
+              <MotoPhase>Unleash</MotoPhase>
+              <MotoPhase>your</MotoPhase>
+              <MotoPhase>potential</MotoPhase>
+              <MotoPhase>with</MotoPhase>
+              {/* <AnySizeTitle text="Unleash" color="#3D7352" />
               <AnySizeTitle text="your" color="#3D7352" />
               <AnySizeTitle text="potential" color="#3D7352" />
-              <AnySizeTitle text="with" color="#3D7352" />
+              <AnySizeTitle text="with" color="#3D7352" /> */}
             </Promo>
             <Name>
               <Letter background={O} />
 
               <LetterV background={V} />
               <LetterE background={E}  />
-
               <Letter background={R} />
-
               <LetterH background={H} />
-
               <Letter background={A}  />
               <Letter background={C}  />
               <Letter background={K}  />
-
               <LetterS background={S}  />
             </Name>
             <MotoRow>
