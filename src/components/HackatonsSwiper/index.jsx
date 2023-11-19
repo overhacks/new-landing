@@ -115,18 +115,6 @@ const HackatonsSwiper = ({
                   text={currentHackaton.description}
                 />
               </TextWrapper>
-
-              {/* <TextWrapper backgroundColor={
-                  isOngoin
-                    ? webColors.ProjectWrapperOngoing
-                    : webColors.ProjectWrapperFinished
-                }>
-                <SubTitle
-                  textAlign="left"
-                  color="#E7FFB0"
-                  text="Docker and Docker Hub are the starting point for practitioners to start their AI/ML journey and distribute their applications or models. We’re looking for hacks that use Docker products to help both beginners and advanced users get inspired, get started, and be productive within this exciting new frontier."
-                />
-              </TextWrapper> */}
             </Description>
             <Banner
               width="40%"

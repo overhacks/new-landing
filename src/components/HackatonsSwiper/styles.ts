@@ -8,7 +8,6 @@ export const PopupWrapper = styled.div<{ boxShadow: string }>`
   z-index: 999;
   background: #fff;
   padding: 20px;
-  width: 60%;
   height: 90%;
   overflow-y: auto;
 
@@ -24,11 +23,30 @@ export const PopupWrapper = styled.div<{ boxShadow: string }>`
   box-shadow: ${(props) => props.boxShadow};
   backdrop-filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
   backdrop-filter: blur(50px);
+
+
+  @media (max-width: 576px) {
+    width: 90%;
+  }
+  @media (min-width: 577px) {
+    width: 90%;
+  }
+  @media (min-width: 769px) {
+    width: 90%;
+  }
+  @media (min-width: 993px) {
+    width: 80%;
+  }
+  @media (min-width: 1201px) {
+    width: 70%;
+  }
+  @media (min-width: 1401px) {
+    width: 60%;
+  }
 `;
 
 export const ImgAndDescription = styled.div`
   width: 100%;
-  max-height: 65%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -55,6 +73,7 @@ export const Banner = styled.div<{ imgSrc: string; width: string }>`
   background-position: center right;
   background-repeat: no-repeat;
   background-size: contain;
+  height: fit-content;
 
   max-width: 50%;
   width: ${(props) => props.width};
