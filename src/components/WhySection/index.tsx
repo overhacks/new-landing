@@ -1,3 +1,4 @@
+import React from "react";
 import {
   Banner,
   CardsContainer,
@@ -7,7 +8,6 @@ import {
   WhyCardsSection,
   WhyColumn,
 } from "./styles";
-import React, { useEffect, useRef } from "react";
 import SubTitleRow from "../SubTitleRow";
 import { useColorTheme } from "../../hooks/useColorTheme";
 import AnySizeTitle from "../Title";

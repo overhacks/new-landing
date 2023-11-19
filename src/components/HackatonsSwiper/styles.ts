@@ -78,7 +78,7 @@ export const Banner = styled.div<{ imgSrc: string; width: string }>`
   max-width: 50%;
   width: ${(props) => props.width};
   aspect-ratio: 1 / 1;
-  border-radius: 32px;
+  border-radius: 24px;
 `;
 export const RowPopup = styled.div`
   width: 100%;
@@ -140,7 +140,7 @@ export const SlideContent = styled.div<{ opacity: string; boxShadow: string }>`
   background-color: rgba(196, 196, 196, 0.01);
   box-shadow: ${(props) => props.boxShadow};
   backdrop-filter: blur(50px);
-  border-radius: 32px;
+  border-radius: 24px;
 
   padding-left: 20px;
   padding-right: 20px;
@@ -208,6 +208,7 @@ export const Button = styled.button<{ backgroundImg: any }>`
   justify-content: center;
   align-items: center;
   max-height: 50px;
+  width: 40%;
 
   background-position: center center;
   background-repeat: no-repeat;
@@ -219,24 +220,6 @@ export const Button = styled.button<{ backgroundImg: any }>`
     opacity: 0.8;
   }
 
-  @media (max-width: 576px) {
-    width: 160px;
-  }
-  @media (min-width: 577px) {
-    width: 160px;
-  }
-  @media (min-width: 769px) {
-    width: 160px;
-  }
-  @media (min-width: 993px) {
-    width: 160px;
-  }
-  @media (min-width: 1201px) {
-    width: 160px;
-  }
-  @media (min-width: 1401px) {
-    width: 200px;
-  }
 `;
 
 export const Row = styled.div<{

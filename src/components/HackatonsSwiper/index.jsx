@@ -182,12 +182,12 @@ const HackatonsSwiper = ({
             </Row>
           </RowPopup>
 
-          <AnySizeTitle
+          {(currentHackaton.projects.length !== 0) && <AnySizeTitle
             text="Projects"
             color="#CCFF5A"
             alignSelf="left"
             marginTop="60px"
-          />
+          />}
 
           <Projects>
             {currentHackaton.projects.map((project) => (
@@ -268,11 +268,11 @@ const HackatonsSwiper = ({
               <Info borderTop="2px solid rgb(44, 44, 48)">
                 <Row justifyContent="flex-start" width="60%">
                   <InfoColumn>
-                    <SubTitle textAlign="left" color="#E7FFB0" text="Offline" />
+                    <SubTitle textAlign="left" color="#6C6D6C" text="Offline" />
                     <SubTitle textAlign="left" color="#E7FFB0" text="Offline" />
                   </InfoColumn>
                   <InfoColumn>
-                    <SubTitle textAlign="left" color="#E7FFB0" text="Prize" />
+                    <SubTitle textAlign="left" color="#6C6D6C" text="Prize" />
                     <SubTitle
                       textAlign="left"
                       color="#E7FFB0"
@@ -282,7 +282,7 @@ const HackatonsSwiper = ({
                   <InfoColumn>
                     <SubTitle
                       textAlign="left"
-                      color="#E7FFB0"
+                      color="#6C6D6C"
                       text="Start Date"
                     />
                     <SubTitle

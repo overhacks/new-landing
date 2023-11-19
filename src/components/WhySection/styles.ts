@@ -19,8 +19,8 @@ export const CardsLight = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 60%;
-  height: 90%;
+  width: 40%;
+  height: 65%;
   z-index: 1;
 
   border-radius: 50%;
@@ -46,7 +46,7 @@ export const WhyColumn = styled.div`
 `;
 export const WhyCard = styled.div<{ backgroundColor: string; border: string }>`
   z-index: 2;
-  padding: 48px 32px 48px;
+  padding: 24px 32px 24px;
   border-radius: 21px;
   background-color: ${(props) => props.backgroundColor};
   border: ${(props) => props.border};
