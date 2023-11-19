@@ -23,7 +23,7 @@ function HomeScreen() {
   return (
     <>
       <HomeScreenContainer>
-        <HomeScreenContent><Hackatons /></HomeScreenContent>
+        <Hackatons />
       </HomeScreenContainer>
     </>
   );

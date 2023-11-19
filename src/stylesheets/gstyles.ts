@@ -4,7 +4,7 @@ import { createGlobalStyle } from "styled-components";
 const Gstyles: any = createGlobalStyle<{ connectButtonColor: string }>`
 
 * {
-  font-family: PF Videotext Pro, "Play", sans-serif;
+  /* font-family: PF Videotext Pro, "Play", sans-serif; */
   font-weight: 400;
   margin: 0;
   padding: 0;

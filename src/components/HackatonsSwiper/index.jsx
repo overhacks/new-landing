@@ -138,7 +138,7 @@ const HackatonsSwiper = ({
                 <SubTitle
                   textAlign="left"
                   color="rgba(231, 255, 176, 0.51)"
-                  text="Offline"
+                  text="Format"
                 />
                 <SubTitle
                   marginTop="18px"
@@ -268,7 +268,7 @@ const HackatonsSwiper = ({
               <Info borderTop="2px solid rgb(44, 44, 48)">
                 <Row justifyContent="flex-start" width="60%">
                   <InfoColumn>
-                    <SubTitle textAlign="left" color="#6C6D6C" text="Offline" />
+                    <SubTitle textAlign="left" color="#6C6D6C" text="Format" />
                     <SubTitle textAlign="left" color="#E7FFB0" text="Offline" />
                   </InfoColumn>
                   <InfoColumn>

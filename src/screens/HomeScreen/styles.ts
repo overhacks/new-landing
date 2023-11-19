@@ -13,6 +13,19 @@ export const HomeScreenContainer = styled.div`
   overflow-y: scroll;
   overflow-x: hidden;
 
+`;
+
+export const HomeScreenContent = styled.div`
+  /* width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  overflow: hidden;
+  box-sizing: border-box;
+  flex: 1; */
+
+
   &::before, &::after {
     content: '';
     z-index: 0;
@@ -40,15 +53,4 @@ export const HomeScreenContainer = styled.div`
     );
   }
 
-`;
-
-export const HomeScreenContent = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  overflow: hidden;
-  box-sizing: border-box;
-  flex: 1;
 `;
