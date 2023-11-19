@@ -656,6 +656,7 @@ export const HeaderLinkBtnInner = styled.a<{
   height: 100%;
   padding-left: 12px;
   padding-right: 12px;
+  font-family: "PF Videotext Pro";
   color: ${(props) => props.defaultColor};
   border-bottom: ${(props) => (props.isActive ? props.bottomBorder : "none")};
 
@@ -737,6 +738,7 @@ export const HeaderBtn = styled.button<{
   height: 100%;
   padding-left: 12px;
   padding-right: 12px;
+  font-family: "PF Videotext Pro";
   color: ${(props) => props.defaultColor};
 
   &:hover {
