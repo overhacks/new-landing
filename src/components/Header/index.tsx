@@ -35,7 +35,6 @@ import {
 // import InvitePopup from 'components/newDesignComponents/invitePopup'
 import LogoHacks from "../../assets/img/LOGOHACK.png";
 import { routes } from "../../constants/routes";
-import { useLocation } from "react-router-dom";
 import Background from "../../assets/img/backgroundHeader1.png";
 import BackgroundMoto from "../../assets/img/motoImg.png";
 import O from "../../assets/img/o.png";
@@ -78,7 +77,6 @@ function Header() {
   const [openSearch, setOpenSearch] = useState(false);
   const [openMenu, setOpenMenu] = useState(false);
 
-  const location = useLocation();
 
   const [isSmallScreen, setIsSmallScreen] = useState(matcher());
 
