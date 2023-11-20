@@ -12,7 +12,9 @@ export const RowContainer = styled.div`
 `;
 export const WhyCardsSection = styled.section`
   width: 100%;
-  margin-bottom: 338px;
+  padding-bottom: 338px;
+  position: relative;
+  z-index: 2;
 `;
 export const CardsLight = styled.div`
   position: absolute;

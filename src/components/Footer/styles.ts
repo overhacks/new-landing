@@ -15,6 +15,10 @@ export const StyledFooter = styled.footer`
   flex-direction: row;
   justify-content: space-between;
 
+  position: relative;
+  z-index: 2;
+
+
   background: radial-gradient(
     circle at 0% 0%,  
     rgba(34, 250, 95, 0.5) 10%, rgba(34, 250, 95, 0)

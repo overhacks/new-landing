@@ -24,7 +24,7 @@ export const HomeScreenContent = styled.div`
 
   &::before, &::after {
     content: '';
-    z-index: 0;
+    z-index: -1;
     position: absolute;
     width: 100%;
     height: 100%;
@@ -39,7 +39,7 @@ export const HomeScreenContent = styled.div`
   }
 
   &::after {
-    z-index: 0;
+    z-index: -1;
     background-image: repeating-linear-gradient(
       90deg,
       rgba(255, 255, 255, 0.12),

@@ -4,10 +4,12 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 export const PartnersSectionWrapper = styled.section`
   width: 100%;
-  margin-bottom: 338px;
+  padding-bottom: 338px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
+  z-index: 2;
 `;
 
 export const RowContainer = styled.div`

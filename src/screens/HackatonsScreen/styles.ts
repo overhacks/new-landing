@@ -8,26 +8,15 @@ export const Container = styled.div`
   overflow-x: hidden;
   overflow-y: scroll;
   z-index: 1;
-
   display: flex;
   flex-direction: column;
   align-items: center;
   box-sizing: border-box;
-
   flex: 1;
-
-/* 
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  box-sizing: border-box;
-  flex: 1; */
-
 
   &::before, &::after {
     content: '';
-    z-index: 0;
+    z-index: -1;
     position: absolute;
     width: 100%;
     height: 100%;
@@ -42,7 +31,7 @@ export const Container = styled.div`
   }
 
   &::after {
-    z-index: 0;
+    z-index: -1;
     background-image: repeating-linear-gradient(
       90deg,
       rgba(255, 255, 255, 0.12),
@@ -77,7 +66,10 @@ export const RowContainer = styled.div`
   padding-left: 5%;
   padding-right: 5%;
   padding-top: 32px;
-  margin-bottom: 80px;
+  padding-bottom: 80px;
+
+  position: relative;
+  z-index: 2;
 `;
 
 export const SubTitlecontainer = styled.div`

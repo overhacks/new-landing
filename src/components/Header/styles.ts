@@ -57,6 +57,8 @@ export const HeaderContainer = styled.div<{ backgroundImg: any }>`
   row-gap: 80px;
   justify-content: flex-start;
   align-items: center;
+
+  position: relative;
 `;
 
 export const MotoContainer = styled.div<{ backgroundImg: any }>`

@@ -8,7 +8,7 @@ export const PopupWrapper = styled.div<{ boxShadow: string }>`
   z-index: 999;
   background: #fff;
   padding: 20px;
-  height: 90%;
+  height: 75%;
   overflow-y: auto;
 
   display: flex;
@@ -238,6 +238,7 @@ export const Row = styled.div<{
 `;
 export const SwiperWrapper = styled.div`
     width: 100%;
+    z-index: 2;
     position: relative;
 `
 const GSwipeHackatonsStyles: any = createGlobalStyle`
@@ -251,7 +252,6 @@ const GSwipeHackatonsStyles: any = createGlobalStyle`
     width: 90%;
   padding-left: 5%;
   padding-right: 5%;
-  padding-bottom: 120px;
   margin-bottom: 32px;
   position: relative;
   overflow-y: visible;
@@ -259,26 +259,33 @@ const GSwipeHackatonsStyles: any = createGlobalStyle`
   @media (max-width: 576px) {
     /* height: 250px; */
     padding-top: 60px;
+    padding-bottom: 60px;
   }
   @media (min-width: 577px) {
     /* height: 250px; */
     padding-top: 60px;
+    padding-bottom: 60px;
   }
+
   @media (min-width: 769px) {
     /* height: 250px; */
     padding-top: 70px;
+    padding-bottom: 70px;
   }
   @media (min-width: 993px) {
     /* height: 250px; */
     padding-top: 70px;
+    padding-bottom: 70px;
   }
   @media (min-width: 1201px) {
     /* height: 250px; */
     padding-top: 70px;
+    padding-bottom: 70px;
   }
   @media (min-width: 1401px) {
     /* height: 350px; */
     padding-top: 80px;
+    padding-bottom: 80px;
   }
   }
 

@@ -30,6 +30,10 @@ import AnySizeTitle from "../Title";
 import SubTitle from "../SubTitle";
 import ApplyButton from "../../assets/img/button.svg";
 
+const matcher = () => {
+  return window.matchMedia("(max-width: 1201px)").matches;
+};
+
 const HackatonsSwiper = ({
   popupOpen,
   handlePopupOpen,
@@ -39,6 +43,19 @@ const HackatonsSwiper = ({
 }) => {
   const swiperRef = useRef(null);
   const { webColors } = useColorTheme();
+
+  const [isSmallScreen, setIsSmallScreen] = useState(matcher());
+
+  const checkScreenSize = () => {
+    setIsSmallScreen(matcher());
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", checkScreenSize);
+    return () => {
+      window.removeEventListener("resize", checkScreenSize);
+    };
+  }, []);
 
   const [currentHackaton, setCurrentHackaton] = useState(null);
 
@@ -89,7 +106,7 @@ const HackatonsSwiper = ({
 
   return (
     <SwiperWrapper>
-      {(currentHackaton && popupOpen) && (
+      {(!isSmallScreen && currentHackaton && popupOpen) && (
         <PopupWrapper
           boxShadow={
             isOngoin
@@ -242,7 +259,7 @@ const HackatonsSwiper = ({
                   ? webColors.OngoingHackatonSlide
                   : webColors.FinishedHackatonSlide
               }
-              opacity={popupOpen ? "0.2" : "1"}
+              opacity={(popupOpen && !isSmallScreen) ? "0.2" : "1"}
               onClick={() => handlePopupOpen(slideContent.id)}
             >
               <AnySizeTitle

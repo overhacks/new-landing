@@ -99,7 +99,6 @@ function Header() {
   }, []);
 
   return (
-    <>
       <HeaderContainer backgroundImg={Background}>
         <DefaultHeadercontainer paddingLeft={isSmallScreen ? "2%" : "7%"}>
           {openSearch === false && (
@@ -281,10 +280,6 @@ function Header() {
               <MotoPhase>your</MotoPhase>
               <MotoPhase>potential</MotoPhase>
               <MotoPhase>with</MotoPhase>
-              {/* <AnySizeTitle text="Unleash" color="#3D7352" />
-              <AnySizeTitle text="your" color="#3D7352" />
-              <AnySizeTitle text="potential" color="#3D7352" />
-              <AnySizeTitle text="with" color="#3D7352" /> */}
             </Promo>
             <Name>
               <Letter background={O} />
@@ -312,7 +307,6 @@ function Header() {
           </Moto>
         </MotoContainer>
       </HeaderContainer>
-    </>
   );
 }
 
