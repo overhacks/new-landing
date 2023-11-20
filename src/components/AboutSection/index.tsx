@@ -7,6 +7,7 @@ import About2 from "../../assets/img/about2.png";
 
 import SubTitle from "../SubTitle";
 import {
+  AboutHeader,
   AboutWrapper,
   ColumnText,
   ColumnTextLarge,
@@ -23,12 +24,7 @@ const AboutSection = () => {
   return (
     <SectionWrapper id="about">
       <Row>
-        <AnySizeTitle
-          text="About"
-          color="#E7FFB0"
-          fontSize="100px"
-          alignSelf="left"
-        />
+        <AboutHeader>About</AboutHeader>
       </Row>
 
       <AboutWrapper>

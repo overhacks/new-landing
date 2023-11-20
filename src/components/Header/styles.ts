@@ -2,36 +2,6 @@ import { Link } from "react-router-dom";
 import { NavLinkProps } from "react-router-dom";
 import styled from "styled-components";
 
-export const OverhacksName = styled.h1`
-  color: #22fa5f;
-  font-family: PF Videotext Pro;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  letter-spacing: 3px;
-  width: max-content;
-  display: flex;
-  align-items: flex-end;
-
-  @media (max-width: 576px) {
-    font-size: 24px;
-  }
-  @media (min-width: 577px) {
-    font-size: 24px;
-  }
-  @media (min-width: 769px) {
-    font-size: 32px;
-  }
-  @media (min-width: 993px) {
-    font-size: 38px;
-  }
-  @media (min-width: 1201px) {
-    font-size: 38px;
-  }
-  @media (min-width: 1401px) {
-    font-size: 38px;
-  }
-`;
 export const DefaultHeadercontainer = styled.header<{ paddingLeft: string }>`
   /* border-bottom: 2px solid rgb(44, 44, 48); */
 
@@ -298,10 +268,11 @@ export const LetterS = styled.div<{ background: string }>`
 
 export const MotoPhase = styled.p`
   color: #3d7352;
-  font-family: Hanson;
+  font-family: "Hanson";
   font-style: normal;
   font-weight: 700;
-
+  line-height: normal;
+  letter-spacing: 0.6px;
   @media (max-width: 576px) {
     font-size: 12px;
   }

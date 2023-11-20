@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 interface Props {
-  marginTop?: string; 
+  marginTop?: string;
   marginBottom?: string;
   marginRight?: string;
   color?: string;
@@ -16,48 +16,47 @@ interface Props {
 }
 
 export const Title = styled.h1<Props>`
-    margin-top: ${props => props.marginTop || '0'};
-    margin-bottom: ${props => props.marginBottom || '0'};
-    margin-right: ${props => props.marginRight || '0'};
-    color: ${props => props.color};
-    transition: all ease 35ms;
-    line-height: ${props => props.lineHeight || "normal"};
-    
-    font-family: "Hanson";
-    max-width: ${props => props.maxWidth};
-    overflow: ${props => props.overflow};
-    white-space: ${props => props.whiteSpace};
-    text-overflow:${props => props.textOverflow};
-    align-self: ${props => props.alignSelf};
-    font-weight: 700;
-    letter-spacing: 0em;
-    text-align: left;
-      &:hover {
-    color: ${props => props.hoverColor};
+  margin-top: ${(props) => props.marginTop || "0"};
+  margin-bottom: ${(props) => props.marginBottom || "0"};
+  margin-right: ${(props) => props.marginRight || "0"};
+  color: ${(props) => props.color};
+  transition: all ease 35ms;
+  line-height: ${(props) => props.lineHeight || "normal"};
+
+  font-family: "Hanson";
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 0.6px;
+
+
+
+  max-width: ${(props) => props.maxWidth};
+  overflow: ${(props) => props.overflow};
+  white-space: ${(props) => props.whiteSpace};
+  text-overflow: ${(props) => props.textOverflow};
+  align-self: ${(props) => props.alignSelf};
+  letter-spacing: 0em;
+  text-align: left;
+  &:hover {
+    color: ${(props) => props.hoverColor};
   }
-      @media (max-width: 576px)
-    {
-     font-size: ${props => props.fontSize || "16px"};
-   }
-      @media (min-width: 577px)
-   {
-      font-size: ${props => props.fontSize || "16px"};
-   }
-      @media (min-width: 769px)
-   {
-     font-size: ${props => props.fontSize || "20px"};
-   }
-      @media (min-width: 993px)
-   {
-     font-size: ${props => props.fontSize || "20px"};
-   }
-      @media (min-width: 1201px)
-   {
-     font-size: ${props => props.fontSize || "20px"};
-   }
-   @media (min-width: 1401px)
-   {
-     font-size: ${props => props.fontSize || "20px"};
-     }
-   
+  @media (max-width: 576px) {
+    font-size: ${(props) => props.fontSize || "16px"};
+  }
+  @media (min-width: 577px) {
+    font-size: ${(props) => props.fontSize || "16px"};
+  }
+  @media (min-width: 769px) {
+    font-size: ${(props) => props.fontSize || "20px"};
+  }
+  @media (min-width: 993px) {
+    font-size: ${(props) => props.fontSize || "20px"};
+  }
+  @media (min-width: 1201px) {
+    font-size: ${(props) => props.fontSize || "20px"};
+  }
+  @media (min-width: 1401px) {
+    font-size: ${(props) => props.fontSize || "20px"};
+  }
 `;

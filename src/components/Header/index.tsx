@@ -3,7 +3,6 @@ import {
   Headercontainer,
   Logo,
   LogoAndName,
-  OverhacksName,
   SearchImg,
   DefaultHeadercontainer,
   Input,

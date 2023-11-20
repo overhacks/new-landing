@@ -11,6 +11,36 @@ export const SectionWrapper = styled.section`
   position: relative;
 `;
 
+export const AboutHeader = styled.h1`
+  font-family: "Hanson";
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 0.6px;
+  color: #E7FFB0;
+  align-self: left;
+
+  @media (max-width: 576px) {
+    font-size: 45px;
+  }
+  @media (min-width: 577px) {
+    font-size: 60px;
+  }
+  @media (min-width: 769px) {
+    font-size: 65px;
+  }
+  @media (min-width: 993px) {
+    font-size: 85px;
+  }
+  @media (min-width: 1201px) {
+    font-size: 100px;
+  }
+  @media (min-width: 1401px) {
+    font-size: 110px;
+  }
+
+`
+
 export const Row = styled.div`
   width: 90%;
   display: flex;
