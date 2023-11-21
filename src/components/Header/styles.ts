@@ -871,6 +871,7 @@ export const Input = styled.input<{
 
 export const InputContainer = styled.div`
   width: 32%;
+  min-width: 320px;
   border: 1px solid rgba(86, 223, 83, 0.53);
 
   display: flex;

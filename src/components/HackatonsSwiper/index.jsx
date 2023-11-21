@@ -25,6 +25,7 @@ import GSwipeHackatonsStyles, {
   Info,
   Button,
   SwiperWrapper,
+  PopupImgContainer,
 } from "./styles";
 import AnySizeTitle from "../Title";
 import SubTitle from "../SubTitle";
@@ -134,69 +135,68 @@ const HackatonsSwiper = ({
                   text={currentHackaton.description}
                 />
               </TextWrapper>
+
+              <PopupButton backgroundColor="#56DF53" width="100%">
+                <SubTitle
+                  fontSize="25px"
+                  fontWeight="600"
+                  textAlign="left"
+                  color="#000"
+                  text="Apply"
+                />
+              </PopupButton>
             </Description>
-            <Banner width="40%" imgSrc={currentHackaton.imageUrl} />
+            <PopupImgContainer>
+              <Banner width="100%" imgSrc={currentHackaton.imageUrl} />
+              <Row justifyContent="space-between" width="100%">
+                <InfoColumn>
+                  <SubTitle
+                    textAlign="left"
+                    color="rgba(231, 255, 176, 0.51)"
+                    text="Format"
+                  />
+                  <SubTitle
+                    marginTop="18px"
+                    textAlign="left"
+                    color="#E7FFB0"
+                    text="Offline"
+                  />
+                </InfoColumn>
+                <InfoColumn>
+                  <SubTitle
+                    textAlign="left"
+                    color="rgba(231, 255, 176, 0.51)"
+                    text="Prize"
+                  />
+                  <SubTitle
+                    marginTop="18px"
+                    textAlign="left"
+                    color="#E7FFB0"
+                    text={currentHackaton.prize}
+                  />
+                </InfoColumn>
+                <InfoColumn>
+                  <SubTitle
+                    textAlign="left"
+                    color="rgba(231, 255, 176, 0.51)"
+                    text="Start Date"
+                  />
+                  <SubTitle
+                    marginTop="18px"
+                    textAlign="left"
+                    color="#E7FFB0"
+                    text={new Date(currentHackaton.startDate)
+                      .toLocaleDateString("en-US", {
+                        month: "2-digit",
+                        day: "2-digit",
+                        year: "numeric",
+                      })
+                      .replace(/\//g, ".")}
+                  />
+                </InfoColumn>
+              </Row>
+            </PopupImgContainer>
           </ImgAndDescription>
-
-          <RowPopup>
-            <PopupButton backgroundColor="#56DF53" width="50%">
-              <SubTitle
-                fontSize="25px"
-                fontWeight="600"
-                textAlign="left"
-                color="#000"
-                text="Apply"
-              />
-            </PopupButton>
-
-            <Row justifyContent="space-between" width="40%">
-              <InfoColumn>
-                <SubTitle
-                  textAlign="left"
-                  color="rgba(231, 255, 176, 0.51)"
-                  text="Format"
-                />
-                <SubTitle
-                  marginTop="18px"
-                  textAlign="left"
-                  color="#E7FFB0"
-                  text="Offline"
-                />
-              </InfoColumn>
-              <InfoColumn>
-                <SubTitle
-                  textAlign="left"
-                  color="rgba(231, 255, 176, 0.51)"
-                  text="Prize"
-                />
-                <SubTitle
-                  marginTop="18px"
-                  textAlign="left"
-                  color="#E7FFB0"
-                  text={currentHackaton.prize}
-                />
-              </InfoColumn>
-              <InfoColumn>
-                <SubTitle
-                  textAlign="left"
-                  color="rgba(231, 255, 176, 0.51)"
-                  text="Start Date"
-                />
-                <SubTitle
-                  marginTop="18px"
-                  textAlign="left"
-                  color="#E7FFB0"
-                  text={new Date(currentHackaton.startDate)
-                    .toLocaleDateString("en-US", {
-                      month: "2-digit",
-                      day: "2-digit",
-                      year: "numeric",
-                    })
-                    .replace(/\//g, ".")}
-                />
-              </InfoColumn>
-            </Row>
-          </RowPopup>
 
           {currentHackaton.projects.length !== 0 && (
             <AnySizeTitle

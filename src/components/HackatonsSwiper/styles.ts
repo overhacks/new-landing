@@ -45,6 +45,13 @@ export const PopupWrapper = styled.div<{ boxShadow: string }>`
   }
 `;
 
+export const PopupImgContainer = styled.div`
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+`
+
 export const ImgAndDescription = styled.div`
   width: 100%;
   display: flex;
@@ -74,8 +81,6 @@ export const Banner = styled.div<{ imgSrc: string; width: string }>`
   background-repeat: no-repeat;
   background-size: contain;
   height: fit-content;
-
-  max-width: 50%;
   width: ${(props) => props.width};
   aspect-ratio: 1 / 1;
   border-radius: 24px;
@@ -222,6 +227,8 @@ export const Button = styled.button<{ backgroundImg: any }>`
   }
 
 `;
+
+
 
 
 
