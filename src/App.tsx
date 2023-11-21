@@ -1,6 +1,5 @@
 import "./stylesheets/App.css";
 import AppScreen from "./screens/AppScreen";
-import HomeScreen from "./screens/HomeScreen";
 import Gstyles from "./stylesheets/gstyles";
 
 

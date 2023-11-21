@@ -5,8 +5,9 @@ export const StyledAppScreen = styled.div`
   flex: 1;
   flex-direction: column;
   box-sizing: border-box;
-  background-color: rgb(14, 14, 14);
   height: 100%;
   overflow: hidden;
   position: relative;
+  z-index: 1;
+  background-color: rgb(14, 14, 14);
 `;

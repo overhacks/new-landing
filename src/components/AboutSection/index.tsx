@@ -8,6 +8,8 @@ import About2 from "../../assets/img/about2.png";
 import SubTitle from "../SubTitle";
 import {
   AboutHeader,
+  AboutText,
+  AboutTextB,
   AboutWrapper,
   ColumnText,
   ColumnTextLarge,
@@ -36,13 +38,11 @@ const AboutSection = () => {
         <RowAbout>
           <PhotoHorizontal imgSrc={About1} />
           <ColumnText>
-            <SubTitle
-              text="Overhacks    your go-to platform for hackathons focused on empowering enthusiastic individuals to unleash creativity and ace their skills and knowledge to drive innovation in WEB3 world!"
-              color="#E7FFB0"
-              textAlign="left"
-              maxWidth="90%"
-              fontSize="25px"
-            />
+            <AboutText>
+              Overhacks your go-to platform for hackathons focused on empowering
+              enthusiastic individuals to unleash creativity and ace their
+              skills and knowledge to drive innovation in <AboutTextB>WEB3</AboutTextB> world!
+            </AboutText>
           </ColumnText>
         </RowAbout>
         <RowAbout>
@@ -56,26 +56,14 @@ const AboutSection = () => {
                 />
               </TitleWrapper>
 
-              <SubTitle
-                text="Our mission    to empower and inspire enthusiastic individuals, fostering their creativity and helping them excel in web3 technologies through immersive hackathons"
-                color="#E7FFB0"
-                textAlign="left"
-                maxWidth="90%"
-                fontSize="25px"
-              />
+              <AboutText>Our mission    to empower and inspire enthusiastic individuals, fostering their creativity and helping them excel in web3 technologies through immersive hackathons</AboutText>
             </TextBlock>
             <TextBlock>
               <TitleWrapper>
                 <AnySizeTitle text="VISION" color="#E7FFB0" alignSelf="left" />
               </TitleWrapper>
 
-              <SubTitle
-                text="We envision a world where every developer on OVERHACKS becomes a catalyst for innovation, shaping the future of the web3 landscape with their skills and knowledge"
-                color="#E7FFB0"
-                textAlign="left"
-                maxWidth="90%"
-                fontSize="25px"
-              />
+              <AboutText>We envision a world where every developer on <AboutTextB>OVERHACKS</AboutTextB> becomes a catalyst for innovation, shaping the future of the web3 landscape with their skills and knowledge</AboutText>
             </TextBlock>
           </ColumnTextLarge>
           <PhotoVertical imgSrc={About2} />

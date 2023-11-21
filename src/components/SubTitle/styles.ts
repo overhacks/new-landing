@@ -29,9 +29,9 @@ export const Text = styled.h1<any>`
     cursor: ${props => props.cursor || "auto"};
     text-align: ${props => props.textAlign || "left"};
     
-    font-family: "PF Videotext Pro";
     
     font-weight: ${props => props.fontWeight || "400px"};
+    font-family: "PF Videotext Pro";
     letter-spacing: 0em;
 
     max-width: ${props => props.maxWidth};

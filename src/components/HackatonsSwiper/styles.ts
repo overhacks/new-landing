@@ -248,7 +248,7 @@ const GSwipeHackatonsStyles: any = createGlobalStyle`
 
   .styled_slide {
     height: 100%;
-  z-index: 1;
+    z-index: 3;
   }
 
   .styled-swiper-hacktons {
@@ -258,6 +258,7 @@ const GSwipeHackatonsStyles: any = createGlobalStyle`
   margin-bottom: 32px;
   position: relative;
   overflow-y: visible;
+  z-index: 2;
 
   @media (max-width: 576px) {
     /* height: 250px; */
@@ -293,5 +294,8 @@ const GSwipeHackatonsStyles: any = createGlobalStyle`
   }
 
 `;
+
+
+
 
 export default GSwipeHackatonsStyles;

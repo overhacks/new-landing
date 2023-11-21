@@ -160,6 +160,22 @@ export const TextBlock = styled.div`
   border: 2px solid #1A1A1A;
   background-color: #0E0E0E;
 `;
+export const AboutText = styled.p`
+  font-family: "PF Videotext Pro";
+  letter-spacing: 0em;
+  color: #C9C5BA;
+  text-align: left;
+  font-size: 25px;
+  max-width: 90%;
+`
+
+export const AboutTextB = styled.b`
+  font-family: "PF Videotext Pro";
+  letter-spacing: 0em;
+  color: #E7FFB0;
+  text-align: left;
+  font-size: 25px;
+`
 
 export const TitleWrapper = styled.div`
   width: 90%;

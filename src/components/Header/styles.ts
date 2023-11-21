@@ -90,7 +90,8 @@ export const MotoRow = styled.div`
   width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
+  justify-content: space-between;
+  align-items: center;
 `;
 
 export const Name = styled.div`
@@ -356,22 +357,22 @@ export const JoinButton = styled.button<{ backgroundImg: any }>`
   }
 
   @media (max-width: 576px) {
-    width: 260px;
+    width: 231px;
   }
   @media (min-width: 577px) {
-    width: 260px;
+    width: 231px;
   }
   @media (min-width: 769px) {
-    width: 260px;
+    width: 231px;
   }
   @media (min-width: 993px) {
-    width: 280px;
+    width: 231px;
   }
   @media (min-width: 1201px) {
-    width: 300px;
+    width: 231px;
   }
   @media (min-width: 1401px) {
-    width: 321px;
+    width: 280px;
   }
 `;
 
@@ -475,6 +476,7 @@ export const SearchImg = styled.div<{ fill: string; fillHover: string }>`
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
   & svg {
     fill: ${(props) => props.fill};
   }
@@ -483,28 +485,28 @@ export const SearchImg = styled.div<{ fill: string; fillHover: string }>`
   }
 
   @media (max-width: 576px) {
-    width: 24px;
-    height: 24px;
+    width: 16px;
+    height: 16px;
   }
   @media (min-width: 577px) {
-    width: 24px;
-    height: 24px;
+    width: 16px;
+    height: 16px;
   }
   @media (min-width: 769px) {
-    width: 30px;
-    height: 30px;
+    width: 16px;
+    height: 16px;
   }
   @media (min-width: 993px) {
-    width: 30px;
-    height: 30px;
+    width: 16px;
+    height: 16px;
   }
   @media (min-width: 1201px) {
-    width: 30px;
-    height: 30px;
+    width: 16px;
+    height: 16px;
   }
   @media (min-width: 1401px) {
-    width: 30px;
-    height: 30px;
+    width: 16px;
+    height: 16px;
   }
 `;
 
@@ -827,7 +829,12 @@ export const Input = styled.input<{
   outline: none;
   border: none;
   background: transparent;
+  font-family: "PF Videotext Pro";
   color: ${(props) => props.defaultColor};
+  
+  &::placeholder {
+    color: ${(props) => props.placeholderColor};
+  }
 
   input[type="search"]:focus {
     outline: none;
@@ -863,18 +870,16 @@ export const Input = styled.input<{
 `;
 
 export const InputContainer = styled.div`
-  width: 100%;
-  height: 57px;
-  border-bottom: 1px solid #22fa5f;
+  width: 32%;
+  border: 1px solid rgba(86, 223, 83, 0.53);
 
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   align-items: center;
   gap: 16px;
-
-  margin-top: 8px;
-  margin-bottom: 14px;
-
+  padding: 12px 21px 9px 25px
+/* 
   @media (max-width: 576px) {
     height: 37px;
   }
@@ -882,15 +887,15 @@ export const InputContainer = styled.div`
     height: 37px;
   }
   @media (min-width: 769px) {
-    height: 47px;
+    height: 37px;
   }
   @media (min-width: 993px) {
-    height: 57px;
+    height: 37px;
   }
   @media (min-width: 1201px) {
-    height: 57px;
+    height: 37px;
   }
   @media (min-width: 1401px) {
-    height: 57px;
-  }
+    padding: 12px 21px 9px 25px
+  } */
 `;
