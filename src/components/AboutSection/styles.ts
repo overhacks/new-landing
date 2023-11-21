@@ -66,6 +66,7 @@ export const RowAbout = styled.div`
 `;
 export const ColumnText = styled.div`
   padding-bottom: 18px;
+  padding-top: 18px;
   box-sizing: border-box;
   border: 2px solid #1A1A1A;
   background-color: #0E0E0E;
@@ -152,6 +153,8 @@ export const TextBlock = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding-bottom: 18px;
+  padding-top: 18px;
 
   box-sizing: border-box;
   border: 2px solid #1A1A1A;
