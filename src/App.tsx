@@ -5,13 +5,14 @@ import Gstyles from "./stylesheets/gstyles";
 
 
 import { register } from 'swiper/element/bundle';
+import Hackatons from "./screens/HackatonsScreen";
 register();
 
 function App() {
 
   return (
     <AppScreen>
-      <HomeScreen />
+      <Hackatons/>
       <Gstyles />
      </AppScreen>
   );

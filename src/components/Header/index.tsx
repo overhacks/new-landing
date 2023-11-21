@@ -47,9 +47,8 @@ import C from "../../assets/img/c.png";
 import K from "../../assets/img/k.png";
 import S from "../../assets/img/s.png";
 
-import AnySizeTitle from "../Title";
 import SubTitle from "../SubTitle";
-import SignUpButton from "../../assets/img/signUp.png";
+import SignUpButton from "../../assets/img/signupBtn.svg";
 import JoinButtonPng from "../../assets/img/JoinButton.png";
 
 export const screens: {
@@ -100,7 +99,7 @@ function Header() {
   return (
       <HeaderContainer backgroundImg={Background}>
         <DefaultHeadercontainer paddingLeft={isSmallScreen ? "2%" : "7%"}>
-          {openSearch === false && (
+          
             <Headercontainer gap={isSmallScreen ? "4px" : "16px"}>
               <LogoAndName>
                 {isSmallScreen && (
@@ -167,13 +166,14 @@ function Header() {
                         textAlign="left"
                         color="#000"
                         text="Sign Up"
+                        marginBottom="3px"
                       />
                     </Button>
                   </LinksContainer>
                 </>
               )}
 
-              <SearchImg
+              {/* <SearchImg
                 fill="#22fa5f"
                 fillHover="#0b8c30"
                 onClick={() => {
@@ -190,11 +190,11 @@ function Header() {
                 >
                   <path d="M 21 3 C 11.601563 3 4 10.601563 4 20 C 4 29.398438 11.601563 37 21 37 C 24.355469 37 27.460938 36.015625 30.09375 34.34375 L 42.375 46.625 L 46.625 42.375 L 34.5 30.28125 C 36.679688 27.421875 38 23.878906 38 20 C 38 10.601563 30.398438 3 21 3 Z M 21 7 C 28.199219 7 34 12.800781 34 20 C 34 27.199219 28.199219 33 21 33 C 13.800781 33 8 27.199219 8 20 C 8 12.800781 13.800781 7 21 7 Z"></path>
                 </svg>{" "}
-              </SearchImg>
+              </SearchImg> */}
             </Headercontainer>
-          )}
+          
 
-          {openSearch && (
+          {/* {openSearch && (
             <InputContainer>
               <SearchImg
                 fill="#22fa5f"
@@ -235,7 +235,7 @@ function Header() {
                 </svg>
               </CancelImg>
             </InputContainer>
-          )}
+          )} */}
         </DefaultHeadercontainer>
         {openMenu && (
           <DefaultMenucontainer>

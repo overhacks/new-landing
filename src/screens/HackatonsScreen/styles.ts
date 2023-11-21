@@ -11,8 +11,8 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-sizing: border-box;
-  flex: 1;
+
+  position: relative;
 
   &::before, &::after {
     content: '';
@@ -40,8 +40,8 @@ export const Container = styled.div`
       transparent 240px 
     );
   }
-
 `;
+
 export const Block = styled.div`
   height: 600px;
   width: 100%;
