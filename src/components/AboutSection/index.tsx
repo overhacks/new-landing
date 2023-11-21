@@ -17,14 +17,19 @@ import {
   RowAbout,
   SectionWrapper,
   TextBlock,
+  TitleWrapper,
 } from "./styles";
 
 const AboutSection = () => {
   const { webColors } = useColorTheme();
   return (
     <SectionWrapper id="about">
-      <Row>
+      {/* <Row>
         <AboutHeader>About</AboutHeader>
+      </Row> */}
+
+      <Row>
+        <SubTitleRow text="Our partners" />
       </Row>
 
       <AboutWrapper>
@@ -35,7 +40,7 @@ const AboutSection = () => {
               text="Overhacks    your go-to platform for hackathons focused on empowering enthusiastic individuals to unleash creativity and ace their skills and knowledge to drive innovation in WEB3 world!"
               color="#E7FFB0"
               textAlign="left"
-              maxWidth="100%"
+              maxWidth="90%"
               fontSize="25px"
             />
           </ColumnText>
@@ -43,35 +48,37 @@ const AboutSection = () => {
         <RowAbout>
           <ColumnTextLarge>
             <TextBlock>
-              <AnySizeTitle
-                text="OUR MISSOIN"
-                color="#E7FFB0"
-                alignSelf="left"
-              />
+              <TitleWrapper>
+                <AnySizeTitle
+                  text="OUR MISSOIN"
+                  color="#E7FFB0"
+                  alignSelf="left"
+                />
+              </TitleWrapper>
+
               <SubTitle
                 text="Our mission    to empower and inspire enthusiastic individuals, fostering their creativity and helping them excel in web3 technologies through immersive hackathons"
                 color="#E7FFB0"
                 textAlign="left"
-                maxWidth="100%"
+                maxWidth="90%"
                 fontSize="25px"
               />
             </TextBlock>
             <TextBlock>
-              <AnySizeTitle
-                text="VISION"
-                color="#E7FFB0"
-                alignSelf="left"
-              />
+              <TitleWrapper>
+                <AnySizeTitle text="VISION" color="#E7FFB0" alignSelf="left" />
+              </TitleWrapper>
+
               <SubTitle
                 text="We envision a world where every developer on OVERHACKS becomes a catalyst for innovation, shaping the future of the web3 landscape with their skills and knowledge"
                 color="#E7FFB0"
                 textAlign="left"
-                maxWidth="100%"
+                maxWidth="90%"
                 fontSize="25px"
               />
             </TextBlock>
           </ColumnTextLarge>
-          <PhotoVertical imgSrc={About2}/>
+          <PhotoVertical imgSrc={About2} />
         </RowAbout>
       </AboutWrapper>
     </SectionWrapper>

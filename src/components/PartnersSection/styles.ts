@@ -20,7 +20,7 @@ export const RowContainer = styled.div`
   padding-left: 5%;
   padding-right: 5%;
   padding-top: 32px;
-  margin-bottom: 80px;
+  padding-bottom: 80px;
 `;
 export const RowContainerBetween = styled.div`
   width: 90%;
@@ -31,7 +31,7 @@ export const RowContainerBetween = styled.div`
   gap: 18px;
   padding-left: 5%;
   padding-right: 5%;
-  padding-top: 32px;
+  padding-top: 167px;
   margin-bottom: 80px;
 `;
 

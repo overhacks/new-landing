@@ -65,7 +65,7 @@ export const RowContainer = styled.div`
   justify-content: center;
   padding-left: 5%;
   padding-right: 5%;
-  padding-top: 32px;
+  padding-top: 88px;
   padding-bottom: 80px;
 
   position: relative;

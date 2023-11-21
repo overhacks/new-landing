@@ -16,7 +16,8 @@ interface Props {
   textOverflow: string;
   alignSelf: string;
   width: string;
-  fontWeight: string
+  fontWeight: string;
+  textWrap: string;
 }
 
 export const Text = styled.h1<any>`
@@ -38,6 +39,7 @@ export const Text = styled.h1<any>`
     overflow: ${props => props.overflow};
     white-space: ${props => props.whiteSpace};
     text-overflow:${props => props.textOverflow};
+    text-wrap: ${props => props.textWrap};
     align-self: ${props => props.alignSelf};
 
     &:hover {
@@ -65,6 +67,6 @@ export const Text = styled.h1<any>`
   }
   @media (min-width: 1401px)
   {
-    font-size: ${props => props.fontSize || "20px"}
+    font-size: ${props => props.fontSize || "15px"}
     }
 `;

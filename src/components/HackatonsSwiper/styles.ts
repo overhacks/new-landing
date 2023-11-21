@@ -112,6 +112,7 @@ export const InfoColumn = styled.div`
   display: flex;
   flex-direction: column;
   gap: 4px;
+  max-width: 33%;
 `;
 
 export const Projects = styled.div`
@@ -142,8 +143,8 @@ export const SlideContent = styled.div<{ opacity: string; boxShadow: string }>`
   backdrop-filter: blur(50px);
   border-radius: 24px;
 
-  padding-left: 20px;
-  padding-right: 20px;
+  /* padding-left: 20px;
+  padding-right: 20px; */
 
   overflow: hidden;
 
@@ -172,14 +173,14 @@ export const SlideContent = styled.div<{ opacity: string; boxShadow: string }>`
   @media (min-width: 993px) {
     padding-top: 40px;
     padding-bottom: 50px;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 27px;
+    padding-right: 27px;
   }
   @media (min-width: 1201px) {
     padding-top: 40px;
     padding-bottom: 50px;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 27px;
+    padding-right: 27px;
   }
   @media (min-width: 1401px) {
     padding-top: 40px;
@@ -222,6 +223,8 @@ export const Button = styled.button<{ backgroundImg: any }>`
 
 `;
 
+
+
 export const Row = styled.div<{
   paddingLeft?: string;
   width: string;
@@ -231,7 +234,7 @@ export const Row = styled.div<{
   flex-direction: row;
   justify-content: ${(props) => props.justifyContent};
   align-items: center;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
   gap: 22px;
   padding-left: ${(props) => props.paddingLeft || "0px"};
   width: ${(props) => props.width};

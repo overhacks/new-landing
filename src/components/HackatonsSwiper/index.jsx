@@ -60,36 +60,37 @@ const HackatonsSwiper = ({
   const [currentHackaton, setCurrentHackaton] = useState(null);
 
   useEffect(() => {
-    const updatedCurrentHackaton = hackatons.find((hackaton) => hackaton.id === selectedHackatonId) || null;
+    const updatedCurrentHackaton =
+      hackatons.find((hackaton) => hackaton.id === selectedHackatonId) || null;
     setCurrentHackaton(updatedCurrentHackaton);
   }, [selectedHackatonId, hackatons]);
-
-
-
 
   useEffect(() => {
     const swiperContainerHackatons = swiperRef.current;
     const params = {
       centeredSlides: false,
       grabCursor: true,
-      spaceBetween: 80,
       centeredSlidesBounds: true,
       breakpoints: {
         640: {
           slidesPerView: 1,
           centeredSlides: true,
+          spaceBetween: 150,
         },
         768: {
           slidesPerView: 1,
           centeredSlides: true,
+          spaceBetween: 150,
         },
         1080: {
           slidesPerView: 2,
           centeredSlides: false,
+          spaceBetween: 150,
         },
         1280: {
           slidesPerView: 2,
           centeredSlides: false,
+          spaceBetween: 170,
         },
       },
       // modules: [Autoplay],
@@ -103,10 +104,9 @@ const HackatonsSwiper = ({
     swiperContainerHackatons.initialize();
   }, []);
 
-
   return (
     <SwiperWrapper>
-      {(!isSmallScreen && currentHackaton && popupOpen) && (
+      {!isSmallScreen && currentHackaton && popupOpen && (
         <PopupWrapper
           boxShadow={
             isOngoin
@@ -121,11 +121,13 @@ const HackatonsSwiper = ({
           />
           <ImgAndDescription>
             <Description>
-              <TextWrapper backgroundColor={
+              <TextWrapper
+                backgroundColor={
                   isOngoin
                     ? webColors.ProjectWrapperOngoing
                     : webColors.ProjectWrapperFinished
-                }>
+                }
+              >
                 <SubTitle
                   textAlign="left"
                   color="#E7FFB0"
@@ -133,10 +135,7 @@ const HackatonsSwiper = ({
                 />
               </TextWrapper>
             </Description>
-            <Banner
-              width="40%"
-              imgSrc={currentHackaton.imageUrl}
-            />
+            <Banner width="40%" imgSrc={currentHackaton.imageUrl} />
           </ImgAndDescription>
 
           <RowPopup>
@@ -199,12 +198,14 @@ const HackatonsSwiper = ({
             </Row>
           </RowPopup>
 
-          {(currentHackaton.projects.length !== 0) && <AnySizeTitle
-            text="Projects"
-            color="#CCFF5A"
-            alignSelf="left"
-            marginTop="60px"
-          />}
+          {currentHackaton.projects.length !== 0 && (
+            <AnySizeTitle
+              text="Projects"
+              color="#CCFF5A"
+              alignSelf="left"
+              marginTop="60px"
+            />
+          )}
 
           <Projects>
             {currentHackaton.projects.map((project) => (
@@ -259,12 +260,12 @@ const HackatonsSwiper = ({
                   ? webColors.OngoingHackatonSlide
                   : webColors.FinishedHackatonSlide
               }
-              opacity={(popupOpen && !isSmallScreen) ? "0.2" : "1"}
+              opacity={popupOpen && !isSmallScreen ? "0.2" : "1"}
               onClick={() => handlePopupOpen(slideContent.id)}
             >
               <AnySizeTitle
                 text={slideContent.name}
-                color="#CCFF5A"
+                color={isOngoin ? "#E7FFB0" : "#CCFF5A"}
                 alignSelf="left"
               />
               <ImgAndDescription>
@@ -286,7 +287,15 @@ const HackatonsSwiper = ({
                 <Row justifyContent="flex-start" width="60%">
                   <InfoColumn>
                     <SubTitle textAlign="left" color="#6C6D6C" text="Format" />
-                    <SubTitle textAlign="left" color="#E7FFB0" text="Offline" />
+                    <SubTitle
+                      textAlign="left"
+                      color="#E7FFB0"
+                      text="Offline"
+                      overflow="hidden"
+                      textOverflow="ellipsis"
+                      maxWidth="100%"
+                      textWrap="nowrap"
+                    />
                   </InfoColumn>
                   <InfoColumn>
                     <SubTitle textAlign="left" color="#6C6D6C" text="Prize" />
@@ -294,6 +303,10 @@ const HackatonsSwiper = ({
                       textAlign="left"
                       color="#E7FFB0"
                       text={slideContent.prize}
+                      overflow="hidden"
+                      textOverflow="ellipsis"
+                      maxWidth="100%"
+                      textWrap="nowrap"
                     />
                   </InfoColumn>
                   <InfoColumn>
@@ -301,6 +314,10 @@ const HackatonsSwiper = ({
                       textAlign="left"
                       color="#6C6D6C"
                       text="Start Date"
+                      overflow="hidden"
+                      textOverflow="ellipsis"
+                      maxWidth="100%"
+                      textWrap="nowrap"
                     />
                     <SubTitle
                       textAlign="left"
@@ -312,6 +329,10 @@ const HackatonsSwiper = ({
                           year: "numeric",
                         })
                         .replace(/\//g, ".")}
+                      overflow="hidden"
+                      textOverflow="ellipsis"
+                      maxWidth="100%"
+                      textWrap="nowrap"
                     />
                   </InfoColumn>
                 </Row>
