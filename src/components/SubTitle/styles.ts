@@ -39,7 +39,7 @@ export const Text = styled.h1<any>`
     overflow: ${props => props.overflow};
     white-space: ${props => props.whiteSpace};
     text-overflow:${props => props.textOverflow};
-    text-wrap: ${props => props.textWrap};
+    white-space: ${props => props.textWrap};
     align-self: ${props => props.alignSelf};
 
     &:hover {

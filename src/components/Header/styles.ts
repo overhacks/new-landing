@@ -23,7 +23,7 @@ export const HeaderContainer = styled.section<{ backgroundImg: any }>`
 
   display: flex;
   flex-direction: column;
-  row-gap: 80px;
+  gap: 8.8%;
   justify-content: flex-start;
   align-items: center;
 

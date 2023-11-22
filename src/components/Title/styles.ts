@@ -13,6 +13,7 @@ interface Props {
   whiteSpace?: string;
   textOverflow?: string;
   alignSelf?: string;
+  textWrap?: string;
 }
 
 export const Title = styled.h1<Props>`
@@ -31,6 +32,7 @@ export const Title = styled.h1<Props>`
 
 
 
+  white-space:${props => props.textWrap};
   max-width: ${(props) => props.maxWidth};
   overflow: ${(props) => props.overflow};
   white-space: ${(props) => props.whiteSpace};

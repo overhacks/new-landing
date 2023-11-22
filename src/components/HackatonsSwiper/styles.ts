@@ -8,7 +8,7 @@ export const PopupWrapper = styled.div<{ boxShadow: string }>`
   z-index: 999;
   background: #fff;
   padding: 20px;
-  height: 75%;
+  height: 85%;
   overflow-y: auto;
 
   display: flex;
@@ -52,6 +52,26 @@ export const PopupImgContainer = styled.div`
   gap: 50px;
 `
 
+export const HackatonTitleText = styled.h1<{color: string}>`
+  font-size: 17px;
+  font-family: "Hanson";
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 0.6px;
+
+  color: ${props => props.color};
+  width: 100%;
+  max-width: 100%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+`
+export const HackatonTitleTextWrapper = styled.div`
+  width: 100%;
+  max-width: 100%;
+`
 export const ImgAndDescription = styled.div`
   width: 100%;
   display: flex;
@@ -117,6 +137,7 @@ export const InfoColumn = styled.div`
   display: flex;
   flex-direction: column;
   gap: 4px;
+  width: 33%;
   max-width: 33%;
 `;
 
@@ -214,7 +235,7 @@ export const Button = styled.button<{ backgroundImg: any }>`
   justify-content: center;
   align-items: center;
   max-height: 50px;
-  width: 40%;
+  width: 33%;
 
   background-position: center center;
   background-repeat: no-repeat;

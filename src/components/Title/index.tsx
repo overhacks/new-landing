@@ -18,6 +18,7 @@ interface AnySizeTitleProps {
   whiteSpace?: string
   textOverflow?: string
   alignSelf?: string
+  textWrap?: string
 }
 
 const AnySizeTitle: React.FC<AnySizeTitleProps> = ({
@@ -35,10 +36,12 @@ const AnySizeTitle: React.FC<AnySizeTitleProps> = ({
   fontSize,
   onClick,
   hoverColor,
+  textWrap,
 }) => {
   return (
     <Title
       maxWidth={maxWidth}
+      textWrap={textWrap}
       overflow={overflow}
       whiteSpace={whiteSpace}
       textOverflow={textOverflow}

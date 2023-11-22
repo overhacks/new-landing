@@ -26,6 +26,8 @@ import GSwipeHackatonsStyles, {
   Button,
   SwiperWrapper,
   PopupImgContainer,
+  HackatonTitleText,
+  HackatonTitleTextWrapper,
 } from "./styles";
 import AnySizeTitle from "../Title";
 import SubTitle from "../SubTitle";
@@ -263,11 +265,21 @@ const HackatonsSwiper = ({
               opacity={popupOpen && !isSmallScreen ? "0.2" : "1"}
               onClick={() => handlePopupOpen(slideContent.id)}
             >
-              <AnySizeTitle
+              {/* <AnySizeTitle
                 text={slideContent.name}
                 color={isOngoin ? "#E7FFB0" : "#CCFF5A"}
                 alignSelf="left"
-              />
+                
+                textOverflow="ellipsis"
+                maxWidth="100%"
+              /> */}
+              <HackatonTitleTextWrapper>
+                <HackatonTitleText color={isOngoin ? "#E7FFB0" : "#CCFF5A"}>
+                {slideContent.name}
+              </HackatonTitleText>
+              </HackatonTitleTextWrapper>
+              
+
               <ImgAndDescription>
                 <Description>
                   {slideContent.topics.map((topic) => (
@@ -280,11 +292,11 @@ const HackatonsSwiper = ({
                     />
                   ))}
                 </Description>
-                <Banner width="40%" imgSrc={slideContent.imageUrl} />
+                <Banner width="33%" imgSrc={slideContent.imageUrl} />
               </ImgAndDescription>
 
               <Info borderTop="2px solid rgb(44, 44, 48)">
-                <Row justifyContent="flex-start" width="60%">
+                <Row justifyContent="flex-start" width="55%">
                   <InfoColumn>
                     <SubTitle textAlign="left" color="#6C6D6C" text="Format" />
                     <SubTitle
