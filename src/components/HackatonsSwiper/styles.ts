@@ -58,7 +58,7 @@ export const PopupInnerWrapper = styled.div`
 `
 
 export const PopupImgContainer = styled.div`
-  width: 45%;
+  width: 33%;
   display: flex;
   flex-direction: column;
   gap: 50px;
@@ -97,7 +97,7 @@ export const Description = styled.div`
   display: flex;
   flex-direction: column;
   gap: 12px;
-  width: 50%;
+  width: 65%;
 `;
 
 export const TextWrapper = styled.div<{ backgroundColor: string }>`
