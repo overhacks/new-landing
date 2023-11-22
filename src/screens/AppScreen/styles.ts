@@ -10,4 +10,8 @@ export const StyledAppScreen = styled.div`
   position: relative;
   z-index: 1;
   background-color: rgb(14, 14, 14);
+
+  &::-webkit-scrollbar {
+  width: 0;
+}
 `;

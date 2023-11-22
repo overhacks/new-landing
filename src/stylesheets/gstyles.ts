@@ -41,6 +41,8 @@ const Gstyles: any = createGlobalStyle<{ connectButtonColor: string }>`
 ::-webkit-scrollbar {
   width: 0;
 }
+
+
 `;
 
 

@@ -7,7 +7,6 @@ export const PopupWrapper = styled.div<{ boxShadow: string }>`
   transform: translate(-50%, -50%);
   z-index: 999;
   background: #fff;
-  padding: 20px;
   height: 85%;
   overflow-y: auto;
 
@@ -15,8 +14,11 @@ export const PopupWrapper = styled.div<{ boxShadow: string }>`
   flex-direction: column;
   gap: 12px;
   border-radius: 16px;
+  padding-top: 20px;
+  padding-bottom: 20px;
   padding-left: 30px;
-  padding-right: 40px;
+  padding-right: 10px;
+  
   overflow-y: scroll;
   overflow-x: hidden;
   background-color: rgba(196, 196, 196, 0.01);
@@ -24,32 +26,43 @@ export const PopupWrapper = styled.div<{ boxShadow: string }>`
   backdrop-filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
   backdrop-filter: blur(50px);
 
+  &::-webkit-scrollbar {
+  width: 10px !important;
+}
 
   @media (max-width: 576px) {
-    width: 90%;
+    width: 90% !important;
   }
   @media (min-width: 577px) {
-    width: 90%;
+    width: 90% !important;
   }
   @media (min-width: 769px) {
-    width: 90%;
+    width: 90% !important;
   }
   @media (min-width: 993px) {
-    width: 80%;
+    width: 80% !important;
   }
   @media (min-width: 1201px) {
-    width: 70%;
+    width: 70% !important;
   }
   @media (min-width: 1401px) {
-    width: 60%;
+    width: 60% !important;
   }
 `;
+
+export const PopupInnerWrapper = styled.div`
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 30px;
+  padding-right: 40px;
+`
 
 export const PopupImgContainer = styled.div`
   width: 45%;
   display: flex;
   flex-direction: column;
   gap: 50px;
+  padding-right: 30px;
 `
 
 export const HackatonTitleText = styled.h1<{color: string}>`
@@ -273,6 +286,22 @@ export const SwiperWrapper = styled.div`
     position: relative;
 `
 const GSwipeHackatonsStyles: any = createGlobalStyle`
+
+.trackVertical {
+  right: 2px;
+  bottom: 2px;
+  top: 2px;
+  border-radius: 3px;
+  transition: all 200ms ease !important;
+  
+}
+
+.trackVertical:hover,
+.trackVertical:active {
+  width: 12px !important;
+  border-radius: 8px !important;
+}
+
 
   .styled_slide {
     height: 100%;

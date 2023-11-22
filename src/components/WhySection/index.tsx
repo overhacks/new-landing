@@ -20,6 +20,7 @@ const WhySection = () => {
   const { webColors } = useColorTheme();
   return (
     <WhyCardsSection>
+      
       <RowContainer>
         <SubTitleRow text="Why do people choose Overhacks?" />
       </RowContainer>

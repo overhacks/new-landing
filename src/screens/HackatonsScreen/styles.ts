@@ -13,6 +13,10 @@ export const Container = styled.div`
   align-items: center;
 
   position: relative;
+  
+  &::-webkit-scrollbar {
+  width: 0;
+}
 
   &::before, &::after {
     content: '';

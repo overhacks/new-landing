@@ -1,14 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useColorTheme } from "../../hooks/useColorTheme";
 
-// import {
-//   Navigation,
-//   Pagination,
-//   Scrollbar,
-//   A11y,
-//   Autoplay,
-//   Virtual,
-// } from "swiper/modules";
 import GSwipeHackatonsStyles, {
   Banner,
   Description,
@@ -28,10 +20,33 @@ import GSwipeHackatonsStyles, {
   PopupImgContainer,
   HackatonTitleText,
   HackatonTitleTextWrapper,
+  PopupInnerWrapper,
 } from "./styles";
 import AnySizeTitle from "../Title";
 import SubTitle from "../SubTitle";
 import ApplyButton from "../../assets/img/button.svg";
+import PerfectScrollbar from "@opuscapita/react-perfect-scrollbar";
+import styled from "styled-components";
+
+const PerfectScrollbarStyled = styled(PerfectScrollbar)`
+  .ps__thumb-y {
+    background-color: ${props => props.color};
+    width: 9px;
+    transition: all 400ms ease !important;
+    &:hover {
+      background-color: ${props => props.color};
+    }
+  }
+  .ps__rail-y:focus > .ps__thumb-y, .ps__rail-y.ps--clicking .ps__thumb-y {
+    background-color: ${props => props.color};
+  }
+  .ps__rail-y:hover, .ps__rail-y:focus, .ps .ps__rail-y.ps--clickin {
+    background-color: transparent;
+  }
+  .ps__thumb-x {
+    display: none;
+  }
+`;
 
 const matcher = () => {
   return window.matchMedia("(max-width: 1201px)").matches;
@@ -73,6 +88,7 @@ const HackatonsSwiper = ({
     const params = {
       centeredSlides: false,
       grabCursor: true,
+      spaceBetween: 170,
       centeredSlidesBounds: true,
       breakpoints: {
         640: {
@@ -117,7 +133,8 @@ const HackatonsSwiper = ({
               : webColors.BoxShadowHackatonPopupFinished
           }
         >
-          <AnySizeTitle
+          <PerfectScrollbarStyled color={isOngoin ? "#6E52AA" : "#445144"}>
+            <AnySizeTitle
             text={currentHackaton.name}
             color="#CCFF5A"
             alignSelf="left"
@@ -243,6 +260,9 @@ const HackatonsSwiper = ({
               </Project>
             ))}
           </Projects>
+          </PerfectScrollbarStyled>
+            
+          
         </PopupWrapper>
       )}
       <swiper-container
