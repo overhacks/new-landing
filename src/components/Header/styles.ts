@@ -2,36 +2,6 @@ import { Link } from "react-router-dom";
 import { NavLinkProps } from "react-router-dom";
 import styled from "styled-components";
 
-export const OverhacksName = styled.h1`
-  color: #22fa5f;
-  font-family: PF Videotext Pro;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  letter-spacing: 3px;
-  width: max-content;
-  display: flex;
-  align-items: flex-end;
-
-  @media (max-width: 576px) {
-    font-size: 24px;
-  }
-  @media (min-width: 577px) {
-    font-size: 24px;
-  }
-  @media (min-width: 769px) {
-    font-size: 32px;
-  }
-  @media (min-width: 993px) {
-    font-size: 38px;
-  }
-  @media (min-width: 1201px) {
-    font-size: 38px;
-  }
-  @media (min-width: 1401px) {
-    font-size: 38px;
-  }
-`;
 export const DefaultHeadercontainer = styled.header<{ paddingLeft: string }>`
   /* border-bottom: 2px solid rgb(44, 44, 48); */
 
@@ -40,21 +10,20 @@ export const DefaultHeadercontainer = styled.header<{ paddingLeft: string }>`
   width: 90%;
 `;
 
-export const HeaderContainer = styled.div<{ backgroundImg: any }>`
-  background-color: transparent;
+export const HeaderContainer = styled.section<{ backgroundImg: any }>`
   background-image: url(${(props) => props.backgroundImg});
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;
-  padding-bottom: 116px;
+  height: 100vh;
 
   z-index: 1;
   background-color: rgb(14, 14, 14);
 
   display: flex;
   flex-direction: column;
-  row-gap: 80px;
+  gap: 8.8%;
   justify-content: flex-start;
   align-items: center;
 
@@ -68,13 +37,21 @@ export const MotoContainer = styled.div<{ backgroundImg: any }>`
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;
+  height: 65%;
   z-index: 2;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 
-  @media (max-width: 576px) {
+  
+
+  /* box-shadow: 0px 98px 100px 0px rgba(30, 144, 62, 0.05) inset,
+    0px 4px 18px 0px rgba(30, 120, 82, 0.5) inset,
+    0px 1px 18px 0px rgba(185, 255, 168, 0.2) inset;
+  backdrop-filter: blur(50px); */
+
+  /* @media (max-width: 576px) {
     height: 400px;
   }
   @media (min-width: 577px) {
@@ -91,7 +68,7 @@ export const MotoContainer = styled.div<{ backgroundImg: any }>`
   }
   @media (min-width: 1401px) {
     height: 800px;
-  }
+  } */
 `;
 
 export const Moto = styled.div`
@@ -115,7 +92,8 @@ export const MotoRow = styled.div`
   width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
+  justify-content: space-between;
+  align-items: center;
 `;
 
 export const Name = styled.div`
@@ -298,10 +276,11 @@ export const LetterS = styled.div<{ background: string }>`
 
 export const MotoPhase = styled.p`
   color: #3d7352;
-  font-family: Hanson;
+  font-family: "Hanson";
   font-style: normal;
   font-weight: 700;
-
+  line-height: normal;
+  letter-spacing: 0.6px;
   @media (max-width: 576px) {
     font-size: 12px;
   }
@@ -329,12 +308,11 @@ export const Button = styled.button<{ backgroundImg: any }>`
   display: flex;
   justify-content: center;
   align-items: center;
-  max-height: 50px;
 
   background-position: center center;
   background-repeat: no-repeat;
   background-size: contain;
-  aspect-ratio: 1 / 5;
+  
   cursor: pointer;
 
   &:hover {
@@ -342,22 +320,22 @@ export const Button = styled.button<{ backgroundImg: any }>`
   }
 
   @media (max-width: 576px) {
-    width: 160px;
+    padding: 5px 44px 5px 44px;
   }
   @media (min-width: 577px) {
-    width: 160px;
+    padding: 5px 44px 5px 44px;
   }
   @media (min-width: 769px) {
-    width: 160px;
+    padding: 5px 44px 5px 44px;
   }
   @media (min-width: 993px) {
-    width: 160px;
+    padding: 5px 44px 5px 44px;
   }
   @media (min-width: 1201px) {
-    width: 160px;
+    padding: 5px 44px 5px 44px;
   }
   @media (min-width: 1401px) {
-    width: 200px;
+    padding: 5px 44px 5px 44px;
   }
 `;
 
@@ -381,22 +359,22 @@ export const JoinButton = styled.button<{ backgroundImg: any }>`
   }
 
   @media (max-width: 576px) {
-    width: 260px;
+    width: 231px;
   }
   @media (min-width: 577px) {
-    width: 260px;
+    width: 231px;
   }
   @media (min-width: 769px) {
-    width: 260px;
+    width: 231px;
   }
   @media (min-width: 993px) {
-    width: 280px;
+    width: 231px;
   }
   @media (min-width: 1201px) {
-    width: 300px;
+    width: 231px;
   }
   @media (min-width: 1401px) {
-    width: 321px;
+    width: 280px;
   }
 `;
 
@@ -425,22 +403,34 @@ export const Headercontainer = styled.div<{ gap: string }>`
   flex-wrap: wrap;
 
   @media (max-width: 576px) {
-    height: 48px;
+    /* height: 48px; */
+    padding-top: 16px;
+    padding-bottom: 16px;
   }
   @media (min-width: 577px) {
-    height: 48px;
+    /* height: 48px; */
+    padding-top: 24px;
+    padding-bottom: 24px;
   }
   @media (min-width: 769px) {
-    height: 58px;
+    /* height: 58px; */
+    padding-top: 32px;
+    padding-bottom: 32px;
   }
   @media (min-width: 993px) {
-    height: 68px;
+    /* height: 68px; */
+    padding-top: 32px;
+    padding-bottom: 32px;
   }
   @media (min-width: 1201px) {
-    height: 68px;
+    /* height: 68px; */
+    padding-top: 32px;
+    padding-bottom: 32px;
   }
   @media (min-width: 1401px) {
-    height: 68px;
+    /* height: 68px; */
+    padding-top: 32px;
+    padding-bottom: 32px;
   }
 `;
 
@@ -488,6 +478,7 @@ export const SearchImg = styled.div<{ fill: string; fillHover: string }>`
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
   & svg {
     fill: ${(props) => props.fill};
   }
@@ -496,28 +487,28 @@ export const SearchImg = styled.div<{ fill: string; fillHover: string }>`
   }
 
   @media (max-width: 576px) {
-    width: 24px;
-    height: 24px;
+    width: 16px;
+    height: 16px;
   }
   @media (min-width: 577px) {
-    width: 24px;
-    height: 24px;
+    width: 16px;
+    height: 16px;
   }
   @media (min-width: 769px) {
-    width: 30px;
-    height: 30px;
+    width: 16px;
+    height: 16px;
   }
   @media (min-width: 993px) {
-    width: 30px;
-    height: 30px;
+    width: 16px;
+    height: 16px;
   }
   @media (min-width: 1201px) {
-    width: 30px;
-    height: 30px;
+    width: 16px;
+    height: 16px;
   }
   @media (min-width: 1401px) {
-    width: 30px;
-    height: 30px;
+    width: 16px;
+    height: 16px;
   }
 `;
 
@@ -840,7 +831,12 @@ export const Input = styled.input<{
   outline: none;
   border: none;
   background: transparent;
+  font-family: "PF Videotext Pro";
   color: ${(props) => props.defaultColor};
+  
+  &::placeholder {
+    color: ${(props) => props.placeholderColor};
+  }
 
   input[type="search"]:focus {
     outline: none;
@@ -876,18 +872,17 @@ export const Input = styled.input<{
 `;
 
 export const InputContainer = styled.div`
-  width: 100%;
-  height: 57px;
-  border-bottom: 1px solid #22fa5f;
+  width: 32%;
+  min-width: 320px;
+  border: 1px solid rgba(86, 223, 83, 0.53);
 
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   align-items: center;
   gap: 16px;
-
-  margin-top: 8px;
-  margin-bottom: 14px;
-
+  padding: 12px 21px 9px 25px
+/* 
   @media (max-width: 576px) {
     height: 37px;
   }
@@ -895,15 +890,15 @@ export const InputContainer = styled.div`
     height: 37px;
   }
   @media (min-width: 769px) {
-    height: 47px;
+    height: 37px;
   }
   @media (min-width: 993px) {
-    height: 57px;
+    height: 37px;
   }
   @media (min-width: 1201px) {
-    height: 57px;
+    height: 37px;
   }
   @media (min-width: 1401px) {
-    height: 57px;
-  }
+    padding: 12px 21px 9px 25px
+  } */
 `;

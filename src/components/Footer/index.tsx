@@ -3,6 +3,7 @@ import {
   Column,
   Container,
   FooterBtn,
+  FooterWrapper,
   Logo,
   StyledFooter,
 } from "./styles";
@@ -29,7 +30,8 @@ function Footer() {
   }, []);
 
   return (
-    <StyledFooter>
+    <FooterWrapper>
+      <StyledFooter>
       <Logo background={LogoHacks}/>
 
       <Container>
@@ -85,6 +87,8 @@ function Footer() {
         
       </Container>
     </StyledFooter>
+    </FooterWrapper>
+    
   );
 }
 

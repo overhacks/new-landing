@@ -111,6 +111,7 @@ const PartnersSection = () => {
           text="Become our partner to be a part of trusted unity!"
           maxWidth="30%"
           textAlign="left"
+          fontSize="20px"
           color="rgba(204, 255, 90, 1)"
         />
 

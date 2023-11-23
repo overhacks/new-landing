@@ -7,6 +7,9 @@ import About2 from "../../assets/img/about2.png";
 
 import SubTitle from "../SubTitle";
 import {
+  AboutHeader,
+  AboutText,
+  AboutTextB,
   AboutWrapper,
   ColumnText,
   ColumnTextLarge,
@@ -16,66 +19,54 @@ import {
   RowAbout,
   SectionWrapper,
   TextBlock,
+  TitleWrapper,
 } from "./styles";
 
 const AboutSection = () => {
   const { webColors } = useColorTheme();
   return (
     <SectionWrapper id="about">
+      {/* <Row>
+        <AboutHeader>About</AboutHeader>
+      </Row> */}
+
       <Row>
-        <AnySizeTitle
-          text="About"
-          color="#E7FFB0"
-          fontSize="100px"
-          alignSelf="left"
-        />
+        <SubTitleRow text="Our partners" />
       </Row>
 
       <AboutWrapper>
         <RowAbout>
           <PhotoHorizontal imgSrc={About1} />
           <ColumnText>
-            <SubTitle
-              text="Overhacks    your go-to platform for hackathons focused on empowering enthusiastic individuals to unleash creativity and ace their skills and knowledge to drive innovation in WEB3 world!"
-              color="#E7FFB0"
-              textAlign="left"
-              maxWidth="100%"
-              fontSize="25px"
-            />
+            <AboutText>
+              Overhacks your go-to platform for hackathons focused on empowering
+              enthusiastic individuals to unleash creativity and ace their
+              skills and knowledge to drive innovation in <AboutTextB>WEB3</AboutTextB> world!
+            </AboutText>
           </ColumnText>
         </RowAbout>
         <RowAbout>
           <ColumnTextLarge>
             <TextBlock>
-              <AnySizeTitle
-                text="OUR MISSOIN"
-                color="#E7FFB0"
-                alignSelf="left"
-              />
-              <SubTitle
-                text="Our mission    to empower and inspire enthusiastic individuals, fostering their creativity and helping them excel in web3 technologies through immersive hackathons"
-                color="#E7FFB0"
-                textAlign="left"
-                maxWidth="100%"
-                fontSize="25px"
-              />
+              <TitleWrapper>
+                <AnySizeTitle
+                  text="OUR MISSOIN"
+                  color="#E7FFB0"
+                  alignSelf="left"
+                />
+              </TitleWrapper>
+
+              <AboutText>Our mission    to empower and inspire enthusiastic individuals, fostering their creativity and helping them excel in web3 technologies through immersive hackathons</AboutText>
             </TextBlock>
             <TextBlock>
-              <AnySizeTitle
-                text="VISION"
-                color="#E7FFB0"
-                alignSelf="left"
-              />
-              <SubTitle
-                text="We envision a world where every developer on OVERHACKS becomes a catalyst for innovation, shaping the future of the web3 landscape with their skills and knowledge"
-                color="#E7FFB0"
-                textAlign="left"
-                maxWidth="100%"
-                fontSize="25px"
-              />
+              <TitleWrapper>
+                <AnySizeTitle text="VISION" color="#E7FFB0" alignSelf="left" />
+              </TitleWrapper>
+
+              <AboutText>We envision a world where every developer on <AboutTextB>OVERHACKS</AboutTextB> becomes a catalyst for innovation, shaping the future of the web3 landscape with their skills and knowledge</AboutText>
             </TextBlock>
           </ColumnTextLarge>
-          <PhotoVertical imgSrc={About2}/>
+          <PhotoVertical imgSrc={About2} />
         </RowAbout>
       </AboutWrapper>
     </SectionWrapper>

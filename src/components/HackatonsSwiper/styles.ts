@@ -7,44 +7,100 @@ export const PopupWrapper = styled.div<{ boxShadow: string }>`
   transform: translate(-50%, -50%);
   z-index: 999;
   background: #fff;
-  padding: 20px;
-  height: 75%;
-  overflow-y: auto;
+  height: 85%;
 
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
   border-radius: 16px;
+  padding-top: 20px;
+  padding-bottom: 20px;
   padding-left: 30px;
-  padding-right: 40px;
-  overflow-y: scroll;
-  overflow-x: hidden;
+  padding-right: 10px;
+
   background-color: rgba(196, 196, 196, 0.01);
   box-shadow: ${(props) => props.boxShadow};
   backdrop-filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
   backdrop-filter: blur(50px);
 
+  &::-webkit-scrollbar {
+    width: 10px !important;
+  }
 
   @media (max-width: 576px) {
-    width: 90%;
+    width: 90% !important;
   }
   @media (min-width: 577px) {
-    width: 90%;
+    width: 80% !important;
   }
   @media (min-width: 769px) {
-    width: 90%;
+    width: 80% !important;
   }
   @media (min-width: 993px) {
-    width: 80%;
+    width: 70% !important;
   }
   @media (min-width: 1201px) {
-    width: 70%;
+    width: 65% !important;
   }
   @media (min-width: 1401px) {
-    width: 60%;
+    width: 55% !important;
   }
 `;
 
+export const ScrollContainer = styled.div<{ scrollStickColor: string }>`
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  &::-webkit-scrollbar {
+    width: 9px;
+  }
+    
+
+&::-webkit-scrollbar-thumb {
+    background-color: ${props => props.scrollStickColor};
+    border-radius: 3px;
+    width: 9px;
+}
+    
+`;
+
+export const PopupInnerWrapper = styled.div`
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 30px;
+  padding-right: 40px;
+`;
+
+export const PopupImgContainer = styled.div`
+  width: 35%;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  padding-right: 30px;
+`;
+
+export const HackatonTitleText = styled.h1<{ color: string }>`
+  font-size: 17px;
+  font-family: "Hanson";
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 0.6px;
+
+  color: ${(props) => props.color};
+  width: 100%;
+  max-width: 100%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+`;
+export const HackatonTitleTextWrapper = styled.div`
+  width: 100%;
+  max-width: 100%;
+`;
 export const ImgAndDescription = styled.div`
   width: 100%;
   display: flex;
@@ -57,7 +113,7 @@ export const Description = styled.div`
   display: flex;
   flex-direction: column;
   gap: 12px;
-  width: 50%;
+  width: 60%;
 `;
 
 export const TextWrapper = styled.div<{ backgroundColor: string }>`
@@ -74,8 +130,6 @@ export const Banner = styled.div<{ imgSrc: string; width: string }>`
   background-repeat: no-repeat;
   background-size: contain;
   height: fit-content;
-
-  max-width: 50%;
   width: ${(props) => props.width};
   aspect-ratio: 1 / 1;
   border-radius: 24px;
@@ -112,6 +166,8 @@ export const InfoColumn = styled.div`
   display: flex;
   flex-direction: column;
   gap: 4px;
+  width: 33%;
+  max-width: 33%;
 `;
 
 export const Projects = styled.div`
@@ -142,8 +198,8 @@ export const SlideContent = styled.div<{ opacity: string; boxShadow: string }>`
   backdrop-filter: blur(50px);
   border-radius: 24px;
 
-  padding-left: 20px;
-  padding-right: 20px;
+  /* padding-left: 20px;
+  padding-right: 20px; */
 
   overflow: hidden;
 
@@ -172,14 +228,14 @@ export const SlideContent = styled.div<{ opacity: string; boxShadow: string }>`
   @media (min-width: 993px) {
     padding-top: 40px;
     padding-bottom: 50px;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 27px;
+    padding-right: 27px;
   }
   @media (min-width: 1201px) {
     padding-top: 40px;
     padding-bottom: 50px;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 27px;
+    padding-right: 27px;
   }
   @media (min-width: 1401px) {
     padding-top: 40px;
@@ -208,7 +264,7 @@ export const Button = styled.button<{ backgroundImg: any }>`
   justify-content: center;
   align-items: center;
   max-height: 50px;
-  width: 40%;
+  width: 33%;
 
   background-position: center center;
   background-repeat: no-repeat;
@@ -219,7 +275,105 @@ export const Button = styled.button<{ backgroundImg: any }>`
   &:hover {
     opacity: 0.8;
   }
+`;
 
+export const LargeApplyButton = styled.button<{ backgroundImg: any }>`
+  background-color: transparent;
+  background-image: url(${(props) => props.backgroundImg});
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-height: 50px;
+
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  aspect-ratio: 1 / 5;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.8;
+  }
+  @media (max-width: 576px) {
+    width: 335px;
+  }
+  @media (min-width: 577px) {
+    width: 335px;
+  }
+  @media (min-width: 769px) {
+    width: 335px;
+  }
+  @media (min-width: 993px) {
+    width: 335px;
+  }
+  @media (min-width: 1201px) {
+    width: 335px;
+  }
+  @media (min-width: 1401px) {
+    width: 335px;
+  }
+`;
+
+export const PopupCellsWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+export const PopupCell = styled.div<{ imgSrc: string }>`
+  background-image: url(${(props) => props.imgSrc});
+  background-position: center right;
+  background-repeat: no-repeat;
+  background-size: contain;
+  aspect-ratio: 1 / 1;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 20%;
+
+  &:hover {
+    opacity: 0.65;
+  }
+`;
+
+export const LargeApplyWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+`;
+
+export const ButtonText = styled.p`
+  font-family: "PF Videotext Pro";
+  letter-spacing: 0em;
+  color: #000;
+  text-align: center;
+
+  @media (max-width: 576px) {
+    font-size: 20px;
+  }
+  @media (min-width: 577px) {
+    font-size: 20px;
+  }
+  @media (min-width: 769px) {
+    font-size: 20px;
+  }
+  @media (min-width: 993px) {
+    font-size: 17px;
+  }
+  @media (min-width: 1201px) {
+    font-size: 20px;
+  }
+  @media (min-width: 1401px) {
+    font-size: 25px;
+  }
 `;
 
 export const Row = styled.div<{
@@ -231,21 +385,37 @@ export const Row = styled.div<{
   flex-direction: row;
   justify-content: ${(props) => props.justifyContent};
   align-items: center;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
   gap: 22px;
   padding-left: ${(props) => props.paddingLeft || "0px"};
   width: ${(props) => props.width};
 `;
 export const SwiperWrapper = styled.div`
-    width: 100%;
-    z-index: 2;
-    position: relative;
-`
+  width: 100%;
+  z-index: 2;
+  position: relative;
+`;
 const GSwipeHackatonsStyles: any = createGlobalStyle`
+
+.trackVertical {
+  right: 2px;
+  bottom: 2px;
+  top: 2px;
+  border-radius: 3px;
+  transition: all 200ms ease !important;
+  
+}
+
+.trackVertical:hover,
+.trackVertical:active {
+  width: 12px !important;
+  border-radius: 8px !important;
+}
+
 
   .styled_slide {
     height: 100%;
-  z-index: 1;
+    z-index: 3;
   }
 
   .styled-swiper-hacktons {
@@ -255,6 +425,7 @@ const GSwipeHackatonsStyles: any = createGlobalStyle`
   margin-bottom: 32px;
   position: relative;
   overflow-y: visible;
+  z-index: 2;
 
   @media (max-width: 576px) {
     /* height: 250px; */

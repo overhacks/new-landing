@@ -50,7 +50,7 @@ function Hackatons() {
       imageUrl:
         "https://storage.googleapis.com/overhacks-resources/ton_gamedev.jpeg",
       name: "TON-based GameDev Weekend",
-      prize: "5000 USDT",
+      prize: "$5000",
       projects: [],
       startDate: "2023-09-23T00:00:00.000Z",
       topics: ["crypto", "games", " web3"],
@@ -64,7 +64,7 @@ function Hackatons() {
       endDate: "2022-05-16T00:00:00.000Z",
       imageUrl: "https://storage.googleapis.com/overhacks-resources/aibc.jpeg",
       name: "AIBC Hackathon",
-      prize: "25000 $",
+      prize: "$25000",
       projects: [],
       startDate: "2023-03-16T00:00:00.000Z",
       topics: ["crypto", "social bots", " web3 games"],
@@ -76,9 +76,9 @@ function Hackatons() {
       description:
         "<p>🚀 Get ready to elevate your coding game at the &quot;Ton Society Hacker House&quot; on the outskirts of Prague! 🚀</p>\n\n<p>🌐 **Highlights:**<br />\n1. 💡 **Coding Nirvana:** Escape the city chaos for two weeks of uninterrupted coding in a serene environment.<br />\n2. 🏡 **Work and Live:** Comfortable accommodations seamlessly blend with your coding haven.<br />\n3. 👩&zwj;💻 **Collab Paradise:** Connect with like-minded developers and supercharge your projects.<br />\n4. 🚀 **Master Classes:** Industry experts lead workshops to turbocharge your skills.<br />\n5. 🗣️ **Tech Talks and Panels:** Gain insights from tech demigods on the latest trends.<br />\n6. 💻 **Hackathon Hype:** Test your skills, collaborate, and stand a chance to win epic prizes.<br />\n7. 🤝 **Networking Extravaganza:** Forge connections beyond the event for future collaborations.<br />\n8. 🌳 **R&amp;R Reimagined:** Take breaks with outdoor activities to recharge your coding mojo.</p>\n\n<p>Don&#39;t miss the chance to code, connect, and conquer at the &quot;Ton Society Hacker House&quot; &ndash; where innovation meets adventure! 💻🌟 #TonSocietyHackerHouse #CodeConquerConnect 🚀</p>",
       endDate: "2024-01-15T00:00:00.000Z",
-      imageUrl: "",
+      imageUrl: "https://lh3.googleusercontent.com/u/0/drive-viewer/AK7aPaAdxxhkWpnJsViJFzgnmnP3CSBEmMErb3A3gn-N4x9d3o4Df0vJP6BnPpBa_VqLX7mSU0lvVzwNxVhlDXaGktiolYen=w1920-h921",
       name: "Ton society hackerhouse",
-      prize: "5000 USDT",
+      prize: "$5000",
       projects: [],
       startDate: "2024-01-15T00:00:00.000Z",
       topics: ['crypto', 'games', ' web3'],
@@ -93,7 +93,7 @@ function Hackatons() {
       imageUrl: 
       "https://storage.googleapis.com/overhacks-resources/hubhub.jpeg",
       name: "Hack in HubHub",
-      prize: "300000 USDT",
+      prize: "$300000",
       projects: [],
       startDate: "2022-02-11T00:00:00.000Z",
       topics: ['crypto', 'games', ' web3'],
@@ -101,12 +101,12 @@ function Hackatons() {
     },
     {
       __v: 0,
-      id: 1,
+      id: 5,
       description:
       "<p>🚀 Exciting News for Tech Enthusiasts! 🚀<br />\n<br />\n🌟 Get ready to unleash your creativity at the AIBC Summit&#39;s Hackathon, powered by Ledger! 🌟<br />\n<br />\n🔥 Imagine diving into cutting-edge tracks like Gaming Wallets, Social Bots, and Web 3 Games&mdash;your gateway to the future of technology! 🔥<br />\n<br />\n💰 And the rewards? Oh, they&#39;re HUGE! TBA in cash prizes, exclusive tickets to the AIBC Dubai event (with flights/accommodation covered), and incubation support from the brilliant minds at Playnance! 💡<br />\n<br />\n🚀 This isn&#39;t just a hackathon; it&#39;s your chance to shine and be part of something revolutionary! 🚀<br />\n<br />\n<br />\n🚀 Secure your spot now! Register for the hackathon at https://lnkd.in/ezRBerZe and let the tech adventure begin! 🚀<br />\n<br />\nDon&#39;t miss out on the opportunity of a lifetime&mdash;where groundbreaking ideas meet extraordinary rewards! 🌟🚀 #AIBCSummitHackathon #TechInnovation #UnlockTheFuture</p>"
       ,
       endDate: "2024-03-16T00:00:00.000Z",
-      imageUrl: "",
+      imageUrl: "https://lh3.googleusercontent.com/u/0/drive-viewer/AK7aPaBsKWo2MWk25ZjE9FhWZyjxErUHJPxu_dfc1X8lEW8f6Ou7aqKtSnR3pwc8hicYim304lWGz4TqgmuXpIMGOckq5RaBGQ=w1920-h921",
       name: "AIBC Hackathon",
       prize: "TBA",
       projects: [],

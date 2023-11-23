@@ -11,8 +11,12 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-sizing: border-box;
-  flex: 1;
+
+  position: relative;
+  
+  &::-webkit-scrollbar {
+  width: 0;
+}
 
   &::before, &::after {
     content: '';
@@ -40,8 +44,8 @@ export const Container = styled.div`
       transparent 240px 
     );
   }
-
 `;
+
 export const Block = styled.div`
   height: 600px;
   width: 100%;
@@ -65,8 +69,8 @@ export const RowContainer = styled.div`
   justify-content: center;
   padding-left: 5%;
   padding-right: 5%;
-  padding-top: 32px;
-  padding-bottom: 80px;
+  padding-top: 88px;
+  padding-bottom: 50px;
 
   position: relative;
   z-index: 2;
