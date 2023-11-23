@@ -32,7 +32,6 @@ import AnySizeTitle from "../Title";
 import SubTitle from "../SubTitle";
 import ApplyButton from "../../assets/img/button.svg";
 import LargeApplyButtonSVG from "../../assets/img/largeApply.svg";
-import PerfectScrollbar from "@opuscapita/react-perfect-scrollbar";
 
 
 import PopupCellOngoing from "../../assets/img/popCellongoing.svg";
