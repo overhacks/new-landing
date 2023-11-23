@@ -8,46 +8,62 @@ export const PopupWrapper = styled.div<{ boxShadow: string }>`
   z-index: 999;
   background: #fff;
   height: 85%;
-  overflow-y: auto;
 
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
   border-radius: 16px;
   padding-top: 20px;
   padding-bottom: 20px;
   padding-left: 30px;
   padding-right: 10px;
-  
-  overflow-y: scroll;
-  overflow-x: hidden;
+
   background-color: rgba(196, 196, 196, 0.01);
   box-shadow: ${(props) => props.boxShadow};
   backdrop-filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
   backdrop-filter: blur(50px);
 
   &::-webkit-scrollbar {
-  width: 10px !important;
-}
+    width: 10px !important;
+  }
 
   @media (max-width: 576px) {
     width: 90% !important;
   }
   @media (min-width: 577px) {
-    width: 90% !important;
-  }
-  @media (min-width: 769px) {
-    width: 90% !important;
-  }
-  @media (min-width: 993px) {
     width: 80% !important;
   }
-  @media (min-width: 1201px) {
+  @media (min-width: 769px) {
+    width: 80% !important;
+  }
+  @media (min-width: 993px) {
     width: 70% !important;
   }
-  @media (min-width: 1401px) {
-    width: 60% !important;
+  @media (min-width: 1201px) {
+    width: 65% !important;
   }
+  @media (min-width: 1401px) {
+    width: 55% !important;
+  }
+`;
+
+export const ScrollContainer = styled.div<{ scrollStickColor: string }>`
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  &::-webkit-scrollbar {
+    width: 9px;
+  }
+    
+
+&::-webkit-scrollbar-thumb {
+    background-color: ${props => props.scrollStickColor};
+    border-radius: 3px;
+    width: 9px;
+}
+    
 `;
 
 export const PopupInnerWrapper = styled.div`
@@ -55,17 +71,17 @@ export const PopupInnerWrapper = styled.div`
   padding-bottom: 20px;
   padding-left: 30px;
   padding-right: 40px;
-`
+`;
 
 export const PopupImgContainer = styled.div`
-  width: 33%;
+  width: 35%;
   display: flex;
   flex-direction: column;
   gap: 50px;
   padding-right: 30px;
-`
+`;
 
-export const HackatonTitleText = styled.h1<{color: string}>`
+export const HackatonTitleText = styled.h1<{ color: string }>`
   font-size: 17px;
   font-family: "Hanson";
   font-style: normal;
@@ -73,18 +89,18 @@ export const HackatonTitleText = styled.h1<{color: string}>`
   line-height: normal;
   letter-spacing: 0.6px;
 
-  color: ${props => props.color};
+  color: ${(props) => props.color};
   width: 100%;
   max-width: 100%;
   text-overflow: ellipsis;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-`
+`;
 export const HackatonTitleTextWrapper = styled.div`
   width: 100%;
   max-width: 100%;
-`
+`;
 export const ImgAndDescription = styled.div`
   width: 100%;
   display: flex;
@@ -97,7 +113,7 @@ export const Description = styled.div`
   display: flex;
   flex-direction: column;
   gap: 12px;
-  width: 65%;
+  width: 60%;
 `;
 
 export const TextWrapper = styled.div<{ backgroundColor: string }>`
@@ -259,12 +275,106 @@ export const Button = styled.button<{ backgroundImg: any }>`
   &:hover {
     opacity: 0.8;
   }
-
 `;
 
+export const LargeApplyButton = styled.button<{ backgroundImg: any }>`
+  background-color: transparent;
+  background-image: url(${(props) => props.backgroundImg});
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-height: 50px;
 
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  aspect-ratio: 1 / 5;
+  cursor: pointer;
 
+  &:hover {
+    opacity: 0.8;
+  }
+  @media (max-width: 576px) {
+    width: 335px;
+  }
+  @media (min-width: 577px) {
+    width: 335px;
+  }
+  @media (min-width: 769px) {
+    width: 335px;
+  }
+  @media (min-width: 993px) {
+    width: 335px;
+  }
+  @media (min-width: 1201px) {
+    width: 335px;
+  }
+  @media (min-width: 1401px) {
+    width: 335px;
+  }
+`;
 
+export const PopupCellsWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+export const PopupCell = styled.div<{ imgSrc: string }>`
+  background-image: url(${(props) => props.imgSrc});
+  background-position: center right;
+  background-repeat: no-repeat;
+  background-size: contain;
+  aspect-ratio: 1 / 1;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 20%;
+
+  &:hover {
+    opacity: 0.65;
+  }
+`;
+
+export const LargeApplyWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+`;
+
+export const ButtonText = styled.p`
+  font-family: "PF Videotext Pro";
+  letter-spacing: 0em;
+  color: #000;
+  text-align: center;
+
+  @media (max-width: 576px) {
+    font-size: 20px;
+  }
+  @media (min-width: 577px) {
+    font-size: 20px;
+  }
+  @media (min-width: 769px) {
+    font-size: 20px;
+  }
+  @media (min-width: 993px) {
+    font-size: 17px;
+  }
+  @media (min-width: 1201px) {
+    font-size: 20px;
+  }
+  @media (min-width: 1401px) {
+    font-size: 25px;
+  }
+`;
 
 export const Row = styled.div<{
   paddingLeft?: string;
@@ -281,10 +391,10 @@ export const Row = styled.div<{
   width: ${(props) => props.width};
 `;
 export const SwiperWrapper = styled.div`
-    width: 100%;
-    z-index: 2;
-    position: relative;
-`
+  width: 100%;
+  z-index: 2;
+  position: relative;
+`;
 const GSwipeHackatonsStyles: any = createGlobalStyle`
 
 .trackVertical {
@@ -351,8 +461,5 @@ const GSwipeHackatonsStyles: any = createGlobalStyle`
   }
 
 `;
-
-
-
 
 export default GSwipeHackatonsStyles;

@@ -21,32 +21,50 @@ import GSwipeHackatonsStyles, {
   HackatonTitleText,
   HackatonTitleTextWrapper,
   PopupInnerWrapper,
+  LargeApplyButton,
+  ButtonText,
+  LargeApplyWrapper,
+  PopupCellsWrapper,
+  PopupCell,
+  ScrollContainer,
 } from "./styles";
 import AnySizeTitle from "../Title";
 import SubTitle from "../SubTitle";
 import ApplyButton from "../../assets/img/button.svg";
+import LargeApplyButtonSVG from "../../assets/img/largeApply.svg";
 import PerfectScrollbar from "@opuscapita/react-perfect-scrollbar";
-import styled from "styled-components";
 
-const PerfectScrollbarStyled = styled(PerfectScrollbar)`
-  .ps__thumb-y {
-    background-color: ${props => props.color};
-    width: 9px;
-    transition: all 400ms ease !important;
-    &:hover {
-      background-color: ${props => props.color};
-    }
-  }
-  .ps__rail-y:focus > .ps__thumb-y, .ps__rail-y.ps--clicking .ps__thumb-y {
-    background-color: ${props => props.color};
-  }
-  .ps__rail-y:hover, .ps__rail-y:focus, .ps .ps__rail-y.ps--clickin {
-    background-color: transparent;
-  }
-  .ps__thumb-x {
-    display: none;
-  }
-`;
+
+import PopupCellOngoing from "../../assets/img/popCellongoing.svg";
+import PopupCellFinished from "../../assets/img/popupCellFinished.svg";
+
+
+// import styled from "styled-components";
+
+// const PerfectScrollbarStyled = styled(PerfectScrollbar)`
+//   .ps__thumb-y {
+//     background-color: ${(props) => props.color};
+//     width: 9px;
+//     /* transition: all 150ms ease !important; */
+//     &:hover {
+//       background-color: ${(props) => props.color};
+//     }
+//   }
+//   .ps__ral-iy:focus > .ps__thumb-y,
+//   .ps__rail-y.ps--clicking .ps__thumb-y {
+//     background-color: ${(props) => props.color};
+//   }
+//   .ps__rail-y:hover,
+//   .ps__rail-y:focus,
+//   .ps .ps__rail-y.ps--clickin {
+//     background-color: white;
+//   }
+//   .ps__thumb-x {
+//     display: none;
+//   }
+
+
+// `;
 
 const matcher = () => {
   return window.matchMedia("(max-width: 1201px)").matches;
@@ -133,136 +151,145 @@ const HackatonsSwiper = ({
               : webColors.BoxShadowHackatonPopupFinished
           }
         >
-          <PerfectScrollbarStyled color={isOngoin ? "#6E52AA" : "#445144"}>
+          <ScrollContainer scrollStickColor={isOngoin ? "#6E52AA" : "#445144"}>
             <AnySizeTitle
-            text={currentHackaton.name}
-            color="#CCFF5A"
-            alignSelf="left"
-          />
-          <ImgAndDescription>
-            <Description>
-              <TextWrapper
-                backgroundColor={
-                  isOngoin
-                    ? webColors.ProjectWrapperOngoing
-                    : webColors.ProjectWrapperFinished
-                }
-              >
-                <SubTitle
-                  textAlign="left"
-                  color="#E7FFB0"
-                  text={currentHackaton.description}
-                />
-              </TextWrapper>
-
-              <PopupButton backgroundColor="#56DF53" width="100%">
-                <SubTitle
-                  fontSize="25px"
-                  fontWeight="600"
-                  textAlign="left"
-                  color="#000"
-                  text="Apply"
-                />
-              </PopupButton>
-            </Description>
-            <PopupImgContainer>
-              <Banner width="100%" imgSrc={currentHackaton.imageUrl} />
-              <Row justifyContent="space-between" width="100%">
-                <InfoColumn>
-                  <SubTitle
-                    textAlign="left"
-                    color="rgba(231, 255, 176, 0.51)"
-                    text="Format"
-                  />
-                  <SubTitle
-                    marginTop="18px"
-                    textAlign="left"
-                    color="#E7FFB0"
-                    text="Offline"
-                  />
-                </InfoColumn>
-                <InfoColumn>
-                  <SubTitle
-                    textAlign="left"
-                    color="rgba(231, 255, 176, 0.51)"
-                    text="Prize"
-                  />
-                  <SubTitle
-                    marginTop="18px"
-                    textAlign="left"
-                    color="#E7FFB0"
-                    text={currentHackaton.prize}
-                  />
-                </InfoColumn>
-                <InfoColumn>
-                  <SubTitle
-                    textAlign="left"
-                    color="rgba(231, 255, 176, 0.51)"
-                    text="Start Date"
-                  />
-                  <SubTitle
-                    marginTop="18px"
-                    textAlign="left"
-                    color="#E7FFB0"
-                    text={new Date(currentHackaton.startDate)
-                      .toLocaleDateString("en-US", {
-                        month: "2-digit",
-                        day: "2-digit",
-                        year: "numeric",
-                      })
-                      .replace(/\//g, ".")}
-                  />
-                </InfoColumn>
-              </Row>
-            </PopupImgContainer>
-          </ImgAndDescription>
-
-          {currentHackaton.projects.length !== 0 && (
-            <AnySizeTitle
-              text="Projects"
+              text={currentHackaton.name}
               color="#CCFF5A"
               alignSelf="left"
-              marginTop="60px"
             />
-          )}
+            <ImgAndDescription>
+              <Description>
+                <TextWrapper
+                  backgroundColor={
+                    isOngoin
+                      ? webColors.ProjectWrapperOngoing
+                      : webColors.ProjectWrapperFinished
+                  }
+                >
+                  <SubTitle
+                    textAlign="left"
+                    color="#E7FFB0"
+                    text={currentHackaton.description}
+                  />
+                </TextWrapper>
 
-          <Projects>
-            {currentHackaton.projects.map((project) => (
-              <Project
-                backgroundColor={
-                  isOngoin
-                    ? webColors.ProjectWrapperOngoing
-                    : webColors.ProjectWrapperFinished
-                }
-              >
-                <SubTitle
-                  text="Some Project"
-                  color="#CCFF5A"
-                  alignSelf="left"
-                  fontSize="25px"
-                />
-                <SubTitle
-                  text="project description project description project description"
-                  color="#CCFF5A"
-                  alignSelf="left"
-                  maxWidth="33%"
-                />
+                <PopupCellsWrapper>
+                    <PopupCell imgSrc={isOngoin ? PopupCellOngoing : PopupCellFinished} />
+                    <PopupCell imgSrc={isOngoin ? PopupCellOngoing : PopupCellFinished} />
+                    <PopupCell imgSrc={isOngoin ? PopupCellOngoing : PopupCellFinished} />
+                  </PopupCellsWrapper>
 
-                <PopupButton backgroundColor="#79C777" width="128px">
+                  <LargeApplyWrapper>
+                    <LargeApplyButton backgroundImg={LargeApplyButtonSVG}>
                   <SubTitle
                     fontSize="25px"
                     fontWeight="600"
                     textAlign="left"
                     color="#000"
-                    text="link"
+                    text="Apply"
                   />
-                </PopupButton>
-              </Project>
-            ))}
-          </Projects>
-          </PerfectScrollbarStyled>
-            
-          
+                </LargeApplyButton>
+                  </LargeApplyWrapper>
+
+              
+                
+              </Description>
+              <PopupImgContainer>
+                <Banner width="100%" imgSrc={currentHackaton.imageUrl} />
+                <Row justifyContent="space-between" width="100%">
+                  <InfoColumn>
+                    <SubTitle
+                      textAlign="left"
+                      color="rgba(231, 255, 176, 0.51)"
+                      text="Format"
+                    />
+                    <SubTitle
+                      marginTop="18px"
+                      textAlign="left"
+                      color="#E7FFB0"
+                      text="Offline"
+                    />
+                  </InfoColumn>
+                  <InfoColumn>
+                    <SubTitle
+                      textAlign="left"
+                      color="rgba(231, 255, 176, 0.51)"
+                      text="Prize"
+                    />
+                    <SubTitle
+                      marginTop="18px"
+                      textAlign="left"
+                      color="#E7FFB0"
+                      text={currentHackaton.prize}
+                    />
+                  </InfoColumn>
+                  <InfoColumn>
+                    <SubTitle
+                      textAlign="left"
+                      color="rgba(231, 255, 176, 0.51)"
+                      text="Start Date"
+                    />
+                    <SubTitle
+                      marginTop="18px"
+                      textAlign="left"
+                      color="#E7FFB0"
+                      text={new Date(currentHackaton.startDate)
+                        .toLocaleDateString("en-US", {
+                          month: "2-digit",
+                          day: "2-digit",
+                          year: "numeric",
+                        })
+                        .replace(/\//g, ".")}
+                    />
+                  </InfoColumn>
+                </Row>
+              </PopupImgContainer>
+            </ImgAndDescription>
+
+            {currentHackaton.projects.length !== 0 && (
+              <AnySizeTitle
+                text="Projects"
+                color="#CCFF5A"
+                alignSelf="left"
+                marginTop="60px"
+              />
+            )}
+
+            <Projects>
+              {currentHackaton.projects.map((project) => (
+                <Project
+                  backgroundColor={
+                    isOngoin
+                      ? webColors.ProjectWrapperOngoing
+                      : webColors.ProjectWrapperFinished
+                  }
+                >
+                  <SubTitle
+                    text="Some Project"
+                    color="#CCFF5A"
+                    alignSelf="left"
+                    fontSize="25px"
+                  />
+                  <SubTitle
+                    text="project description project description project description"
+                    color="#CCFF5A"
+                    alignSelf="left"
+                    maxWidth="33%"
+                  />
+
+                  <PopupButton backgroundColor="#79C777" width="128px">
+                    <SubTitle
+                      fontSize="25px"
+                      fontWeight="600"
+                      textAlign="left"
+                      color="#000"
+                      text="link"
+                    />
+                  </PopupButton>
+                </Project>
+              ))}
+            </Projects>
+          </ScrollContainer>
         </PopupWrapper>
       )}
       <swiper-container
@@ -295,10 +322,9 @@ const HackatonsSwiper = ({
               /> */}
               <HackatonTitleTextWrapper>
                 <HackatonTitleText color={isOngoin ? "#E7FFB0" : "#CCFF5A"}>
-                {slideContent.name}
-              </HackatonTitleText>
+                  {slideContent.name}
+                </HackatonTitleText>
               </HackatonTitleTextWrapper>
-              
 
               <ImgAndDescription>
                 <Description>
@@ -370,13 +396,7 @@ const HackatonsSwiper = ({
                 </Row>
 
                 <Button backgroundImg={ApplyButton}>
-                  <SubTitle
-                    fontSize="25px"
-                    fontWeight="600"
-                    textAlign="left"
-                    color="#000"
-                    text="Apply"
-                  />
+                  <ButtonText>Apply</ButtonText>
                 </Button>
               </Info>
             </SlideContent>

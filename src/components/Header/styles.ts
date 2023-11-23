@@ -44,6 +44,8 @@ export const MotoContainer = styled.div<{ backgroundImg: any }>`
   justify-content: center;
   align-items: center;
 
+  
+
   /* box-shadow: 0px 98px 100px 0px rgba(30, 144, 62, 0.05) inset,
     0px 4px 18px 0px rgba(30, 120, 82, 0.5) inset,
     0px 1px 18px 0px rgba(185, 255, 168, 0.2) inset;

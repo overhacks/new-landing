@@ -36,7 +36,7 @@ import {
 import LogoHacks from "../../assets/img/LOGOHACK.png";
 import { routes } from "../../constants/routes";
 import Background from "../../assets/img/backgroundHeader1.png";
-import BackgroundMoto from "../../assets/img/motoImg.png";
+import BackgroundMoto from "../../assets/img/moto.svg";
 import O from "../../assets/img/o.png";
 import V from "../../assets/img/v.png";
 import E from "../../assets/img/e.png";
