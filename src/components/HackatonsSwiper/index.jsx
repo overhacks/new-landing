@@ -1,8 +1,6 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import { useColorTheme } from "../../hooks/useColorTheme";
-import {
-  CloseOutlined
-} from '@ant-design/icons';
+import { CloseOutlined } from "@ant-design/icons";
 
 import GSwipeHackatonsStyles, {
   Banner,
@@ -32,16 +30,16 @@ import GSwipeHackatonsStyles, {
   ScrollContainer,
   PopupHeaderRow,
   CancelBtn,
+  Arrow,
 } from "./styles";
 import AnySizeTitle from "../Title";
 import SubTitle from "../SubTitle";
 import ApplyButton from "../../assets/img/button.svg";
 import LargeApplyButtonSVG from "../../assets/img/largeApply.svg";
 
-
-import PopupCellOngoing from "../../assets/img/popCellongoing.svg";
+import ArrowLeft from "../../assets/img/arrowLeft.svg";
+import ArrowRight from "../../assets/img/arrowRight.svg";
 import PopupCellFinished from "../../assets/img/popupCellFinished.svg";
-
 
 const matcher = () => {
   return window.matchMedia("(max-width: 1201px)").matches;
@@ -83,29 +81,33 @@ const HackatonsSwiper = ({
     const params = {
       centeredSlides: false,
       grabCursor: true,
-      spaceBetween: 170,
+      spaceBetween: 47,
       centeredSlidesBounds: true,
       breakpoints: {
         640: {
           slidesPerView: 1,
           centeredSlides: true,
-          spaceBetween: 150,
+          spaceBetween: 47,
         },
         768: {
           slidesPerView: 1,
           centeredSlides: true,
-          spaceBetween: 150,
+          spaceBetween: 47,
         },
         1080: {
           slidesPerView: 2,
           centeredSlides: false,
-          spaceBetween: 150,
+          spaceBetween: 47,
         },
         1280: {
           slidesPerView: 2,
           centeredSlides: false,
-          spaceBetween: 170,
+          spaceBetween: 47,
         },
+      },
+      navigation: {
+        nextEl: ".swiper-button-next-unique",
+        prevEl: ".swiper-button-prev-unique",
       },
       // modules: [Autoplay],
       // autoplay: {
@@ -118,31 +120,34 @@ const HackatonsSwiper = ({
     swiperContainerHackatons.initialize();
   }, []);
 
+  const handlePrevious = useCallback(() => {
+    swiperRef.current.swiper.slidePrev();
+  }, [swiperRef]);
+
+  const handleNext = useCallback(() => {
+    swiperRef.current.swiper.slideNext();
+  }, [swiperRef]);
+
   return (
     <SwiperWrapper>
       {!isSmallScreen && currentHackaton && popupOpen && (
-        <PopupWrapper
-          boxShadow={webColors.BoxShadowHackatonPopupFinished}
-        >
+        <PopupWrapper boxShadow={webColors.BoxShadowHackatonPopupFinished}>
           <ScrollContainer scrollStickColor="#445144">
             <PopupHeaderRow>
               <AnySizeTitle
-              text={currentHackaton.name}
-              color="#CCFF5A"
-              alignSelf="left"
-              maxWidth="85%"
-            />
-            <CancelBtn onClick={handlePopupOpen}>
-             <CloseOutlined style={{ color: "#CCFF5A", fontSize: 20 }}/> 
-            </CancelBtn>
-            
+                text={currentHackaton.name}
+                color="#CCFF5A"
+                alignSelf="left"
+                maxWidth="85%"
+              />
+              <CancelBtn onClick={handlePopupOpen}>
+                <CloseOutlined style={{ color: "#CCFF5A", fontSize: 20 }} />
+              </CancelBtn>
             </PopupHeaderRow>
-            
+
             <ImgAndDescription>
               <Description>
-                <TextWrapper
-                  backgroundColor={webColors.ProjectWrapperFinished}
-                >
+                <TextWrapper backgroundColor={webColors.ProjectWrapperFinished}>
                   <SubTitle
                     textAlign="left"
                     color="#E7FFB0"
@@ -151,25 +156,22 @@ const HackatonsSwiper = ({
                 </TextWrapper>
 
                 <PopupCellsWrapper>
-                    <PopupCell imgSrc={PopupCellFinished} />
-                    <PopupCell imgSrc={PopupCellFinished} />
-                    <PopupCell imgSrc={PopupCellFinished} />
-                  </PopupCellsWrapper>
+                  <PopupCell imgSrc={PopupCellFinished} />
+                  <PopupCell imgSrc={PopupCellFinished} />
+                  <PopupCell imgSrc={PopupCellFinished} />
+                </PopupCellsWrapper>
 
-                  <LargeApplyWrapper>
-                    <LargeApplyButton backgroundImg={LargeApplyButtonSVG}>
-                  <SubTitle
-                    fontSize="25px"
-                    fontWeight="600"
-                    textAlign="left"
-                    color="#000"
-                    text="Apply"
-                  />
-                </LargeApplyButton>
-                  </LargeApplyWrapper>
-
-              
-                
+                <LargeApplyWrapper>
+                  <LargeApplyButton backgroundImg={LargeApplyButtonSVG}>
+                    <SubTitle
+                      fontSize="25px"
+                      fontWeight="600"
+                      textAlign="left"
+                      color="#000"
+                      text="Apply"
+                    />
+                  </LargeApplyButton>
+                </LargeApplyWrapper>
               </Description>
               <PopupImgContainer>
                 <Banner width="100%" imgSrc={currentHackaton.imageUrl} />
@@ -234,9 +236,7 @@ const HackatonsSwiper = ({
 
             <Projects>
               {currentHackaton.projects.map((project) => (
-                <Project
-                  backgroundColor={webColors.ProjectWrapperFinished}
-                >
+                <Project backgroundColor={webColors.ProjectWrapperFinished}>
                   <SubTitle
                     text="Some Project"
                     color="#CCFF5A"
@@ -265,16 +265,19 @@ const HackatonsSwiper = ({
           </ScrollContainer>
         </PopupWrapper>
       )}
+      <Arrow
+        onClick={handlePrevious}
+        imgSrc={ArrowLeft}
+        class="swiper-button-prev-unique"
+      ></Arrow>
+
       <swiper-container
         class="styled-swiper-hacktons"
         init="false"
         ref={swiperRef}
       >
         {hackatons.map((slideContent, index) => (
-          <swiper-slide
-            class="styled_slide"
-            key={slideContent.id}
-          >
+          <swiper-slide class="styled_slide" key={slideContent.id}>
             <SlideContent
               boxShadow={webColors.FinishedHackatonSlide}
               opacity={popupOpen && !isSmallScreen ? "0.2" : "1"}
@@ -363,6 +366,11 @@ const HackatonsSwiper = ({
           </swiper-slide>
         ))}
       </swiper-container>
+      <Arrow
+        onClick={handleNext}
+        imgSrc={ArrowRight}
+        class="swiper-button-next-unique"
+      ></Arrow>
       <GSwipeHackatonsStyles />
     </SwiperWrapper>
   );

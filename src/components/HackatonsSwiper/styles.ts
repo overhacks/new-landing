@@ -86,6 +86,22 @@ export const CancelBtn = styled.button`
   }
 `;
 
+export const Arrow = styled.button<{ imgSrc: string }>`
+  background-image: url(${(props) => props.imgSrc});
+  background-color: transparent;
+  border: none;
+  background-position: center right;
+  background-repeat: no-repeat;
+  background-size: contain;
+  aspect-ratio: 1 / 1 ;
+  z-index: 2;
+
+  width: 64px;
+
+  &:hover {
+    opacity: 0.8;
+  }
+`;
 
 
 export const PopupInnerWrapper = styled.div`
@@ -416,6 +432,11 @@ export const SwiperWrapper = styled.div`
   width: 100%;
   z-index: 2;
   position: relative;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 `;
 const GSwipeHackatonsStyles: any = createGlobalStyle`
 
@@ -441,7 +462,7 @@ const GSwipeHackatonsStyles: any = createGlobalStyle`
   }
 
   .styled-swiper-hacktons {
-    width: 90%;
+    width: 66.8%;
   padding-left: 5%;
   padding-right: 5%;
   margin-bottom: 32px;
