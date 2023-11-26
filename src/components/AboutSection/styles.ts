@@ -9,6 +9,8 @@ export const SectionWrapper = styled.section`
   justify-content: center;
   z-index: 2;
   position: relative;
+  background-color: #0E0E0E;
+  padding-top: 16px;
 `;
 
 export const AboutHeader = styled.h1`
@@ -53,9 +55,26 @@ export const Row = styled.div`
 `;
 
 export const AboutWrapper = styled.div`
-  width: 90%;
   display: flex;
   flex-direction: column;
+  @media (max-width: 576px) {
+    width: 90%;
+  }
+  @media (min-width: 577px) {
+    width: 90%;
+  }
+  @media (min-width: 769px) {
+    width: 90%;
+  }
+  @media (min-width: 993px) {
+    width: 90%;
+  }
+  @media (min-width: 1201px) {
+    width: 90%;
+  }
+  @media (min-width: 1401px) {
+    width: 75%;
+  }
 `;
 
 export const RowAbout = styled.div`
@@ -94,7 +113,7 @@ export const ColumnText = styled.div`
   }
 `;
 
-export const PhotoHorizontal = styled.a<{ imgSrc: string }>`
+export const PhotoHorizontal = styled.div<{ imgSrc: string }>`
   background-image: url(${(props) => props.imgSrc});
   background-position: center right;
   background-repeat: no-repeat;
@@ -181,7 +200,7 @@ export const TitleWrapper = styled.div`
   width: 90%;
 `
 
-export const PhotoVertical = styled.a<{ imgSrc: string }>`
+export const PhotoVertical = styled.div<{ imgSrc: string }>`
   background-image: url(${(props) => props.imgSrc});
   background-position: center right;
   background-repeat: no-repeat;
@@ -205,5 +224,28 @@ export const PhotoVertical = styled.a<{ imgSrc: string }>`
   }
   @media (min-width: 1401px) {
     width: 50%;
+  }
+`;
+
+export const Spider = styled.img`
+  margin-top: 110px;
+
+  @media (max-width: 576px) {
+    width: 90%;
+  }
+  @media (min-width: 577px) {
+    width: 90%;
+  }
+  @media (min-width: 769px) {
+    width: 90%;
+  }
+  @media (min-width: 993px) {
+    width: 90%;
+  }
+  @media (min-width: 1201px) {
+    width: 90%;
+  }
+  @media (min-width: 1401px) {
+    width: 75%;
   }
 `;

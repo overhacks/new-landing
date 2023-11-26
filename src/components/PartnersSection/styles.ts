@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 export const PartnersSectionWrapper = styled.section`
   width: 100%;
-  padding-bottom: 338px;
+  padding-bottom: 90px;
   display: flex;
   flex-direction: column;
   align-items: center;

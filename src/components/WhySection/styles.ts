@@ -12,7 +12,7 @@ export const RowContainer = styled.div`
 `;
 export const WhyCardsSection = styled.section`
   width: 100%;
-  padding-bottom: 338px;
+  padding-bottom: 110px;
   position: relative;
   z-index: 2;
 `;

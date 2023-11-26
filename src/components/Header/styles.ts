@@ -94,6 +94,8 @@ export const MotoRow = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 32px;
 `;
 
 export const Name = styled.div`
@@ -872,8 +874,6 @@ export const Input = styled.input<{
 `;
 
 export const InputContainer = styled.div`
-  width: 32%;
-  min-width: 320px;
   border: 1px solid rgba(86, 223, 83, 0.53);
 
   display: flex;
@@ -881,24 +881,24 @@ export const InputContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   gap: 16px;
-  padding: 12px 21px 9px 25px
-/* 
+  padding: 12px 21px 9px 25px;
+
   @media (max-width: 576px) {
-    height: 37px;
+    width: 100%;
   }
   @media (min-width: 577px) {
-    height: 37px;
+    width: 100%;
   }
   @media (min-width: 769px) {
-    height: 37px;
+    width: 100%;
   }
   @media (min-width: 993px) {
-    height: 37px;
+    width: 32%;
   }
   @media (min-width: 1201px) {
-    height: 37px;
+    width: 32%;
   }
   @media (min-width: 1401px) {
-    padding: 12px 21px 9px 25px
-  } */
+    width: 32%;
+  }
 `;

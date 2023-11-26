@@ -27,8 +27,8 @@ export const Container = styled.div`
     background-size: 240px 240px; 
     background-image: repeating-linear-gradient(
       0deg,
-      rgba(255, 255, 255, 0.12),
-      rgba(255, 255, 255, 0.12) 2px,
+      rgba(255, 255, 255, 0.05),
+      rgba(255, 255, 255, 0.05) 2px,
       transparent 2px,
       transparent 240px 
     );
@@ -38,8 +38,8 @@ export const Container = styled.div`
     z-index: -1;
     background-image: repeating-linear-gradient(
       90deg,
-      rgba(255, 255, 255, 0.12),
-      rgba(255, 255, 255, 0.12) 2px,
+      rgba(255, 255, 255, 0.05),
+      rgba(255, 255, 255, 0.05) 2px,
       transparent 2px,
       transparent 240px 
     );
