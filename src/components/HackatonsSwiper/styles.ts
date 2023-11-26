@@ -62,9 +62,31 @@ export const ScrollContainer = styled.div<{ scrollStickColor: string }>`
     background-color: ${props => props.scrollStickColor};
     border-radius: 3px;
     width: 9px;
+
 }
     
 `;
+
+export const PopupHeaderRow = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-right: 30px;
+
+`
+
+export const CancelBtn = styled.button`
+  border: none;
+  background-color: transparent;
+  text-decoration: none;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.8;
+  }
+`;
+
+
 
 export const PopupInnerWrapper = styled.div`
   padding-top: 20px;

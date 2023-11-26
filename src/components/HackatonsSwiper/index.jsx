@@ -1,5 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useColorTheme } from "../../hooks/useColorTheme";
+import {
+  CloseOutlined
+} from '@ant-design/icons';
 
 import GSwipeHackatonsStyles, {
   Banner,
@@ -27,6 +30,8 @@ import GSwipeHackatonsStyles, {
   PopupCellsWrapper,
   PopupCell,
   ScrollContainer,
+  PopupHeaderRow,
+  CancelBtn,
 } from "./styles";
 import AnySizeTitle from "../Title";
 import SubTitle from "../SubTitle";
@@ -117,26 +122,26 @@ const HackatonsSwiper = ({
     <SwiperWrapper>
       {!isSmallScreen && currentHackaton && popupOpen && (
         <PopupWrapper
-          boxShadow={
-            isOngoin
-              ? webColors.BoxShadowHackatonPopupOngoing
-              : webColors.BoxShadowHackatonPopupFinished
-          }
+          boxShadow={webColors.BoxShadowHackatonPopupFinished}
         >
-          <ScrollContainer scrollStickColor={isOngoin ? "#6E52AA" : "#445144"}>
-            <AnySizeTitle
+          <ScrollContainer scrollStickColor="#445144">
+            <PopupHeaderRow>
+              <AnySizeTitle
               text={currentHackaton.name}
               color="#CCFF5A"
               alignSelf="left"
+              maxWidth="85%"
             />
+            <CancelBtn onClick={handlePopupOpen}>
+             <CloseOutlined style={{ color: "#CCFF5A", fontSize: 20 }}/> 
+            </CancelBtn>
+            
+            </PopupHeaderRow>
+            
             <ImgAndDescription>
               <Description>
                 <TextWrapper
-                  backgroundColor={
-                    isOngoin
-                      ? webColors.ProjectWrapperOngoing
-                      : webColors.ProjectWrapperFinished
-                  }
+                  backgroundColor={webColors.ProjectWrapperFinished}
                 >
                   <SubTitle
                     textAlign="left"
@@ -146,9 +151,9 @@ const HackatonsSwiper = ({
                 </TextWrapper>
 
                 <PopupCellsWrapper>
-                    <PopupCell imgSrc={isOngoin ? PopupCellOngoing : PopupCellFinished} />
-                    <PopupCell imgSrc={isOngoin ? PopupCellOngoing : PopupCellFinished} />
-                    <PopupCell imgSrc={isOngoin ? PopupCellOngoing : PopupCellFinished} />
+                    <PopupCell imgSrc={PopupCellFinished} />
+                    <PopupCell imgSrc={PopupCellFinished} />
+                    <PopupCell imgSrc={PopupCellFinished} />
                   </PopupCellsWrapper>
 
                   <LargeApplyWrapper>
@@ -230,11 +235,7 @@ const HackatonsSwiper = ({
             <Projects>
               {currentHackaton.projects.map((project) => (
                 <Project
-                  backgroundColor={
-                    isOngoin
-                      ? webColors.ProjectWrapperOngoing
-                      : webColors.ProjectWrapperFinished
-                  }
+                  backgroundColor={webColors.ProjectWrapperFinished}
                 >
                   <SubTitle
                     text="Some Project"
@@ -273,25 +274,12 @@ const HackatonsSwiper = ({
           <swiper-slide
             class="styled_slide"
             key={slideContent.id}
-            virtualIndex={index}
           >
             <SlideContent
-              boxShadow={
-                isOngoin
-                  ? webColors.OngoingHackatonSlide
-                  : webColors.FinishedHackatonSlide
-              }
+              boxShadow={webColors.FinishedHackatonSlide}
               opacity={popupOpen && !isSmallScreen ? "0.2" : "1"}
               onClick={() => handlePopupOpen(slideContent.id)}
             >
-              {/* <AnySizeTitle
-                text={slideContent.name}
-                color={isOngoin ? "#E7FFB0" : "#CCFF5A"}
-                alignSelf="left"
-                
-                textOverflow="ellipsis"
-                maxWidth="100%"
-              /> */}
               <HackatonTitleTextWrapper>
                 <HackatonTitleText color={isOngoin ? "#E7FFB0" : "#CCFF5A"}>
                   {slideContent.name}
@@ -306,7 +294,7 @@ const HackatonsSwiper = ({
                       color="#E7FFB0"
                       overflow="hidden"
                       textOverflow="ellipsis"
-                      text={"• " + topic}
+                      text={"// " + topic}
                     />
                   ))}
                 </Description>

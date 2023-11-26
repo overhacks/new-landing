@@ -468,8 +468,8 @@ export const Logo = styled.div<{ background: any }>`
     height: 48px;
   }
   @media (min-width: 1401px) {
-    fwidth: 48px;
-    height: 48px;
+    width: 66px;
+    height: 66px;
   }
 `;
 
