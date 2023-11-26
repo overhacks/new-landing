@@ -38,33 +38,6 @@ import PopupCellOngoing from "../../assets/img/popCellongoing.svg";
 import PopupCellFinished from "../../assets/img/popupCellFinished.svg";
 
 
-// import styled from "styled-components";
-
-// const PerfectScrollbarStyled = styled(PerfectScrollbar)`
-//   .ps__thumb-y {
-//     background-color: ${(props) => props.color};
-//     width: 9px;
-//     /* transition: all 150ms ease !important; */
-//     &:hover {
-//       background-color: ${(props) => props.color};
-//     }
-//   }
-//   .ps__ral-iy:focus > .ps__thumb-y,
-//   .ps__rail-y.ps--clicking .ps__thumb-y {
-//     background-color: ${(props) => props.color};
-//   }
-//   .ps__rail-y:hover,
-//   .ps__rail-y:focus,
-//   .ps .ps__rail-y.ps--clickin {
-//     background-color: white;
-//   }
-//   .ps__thumb-x {
-//     display: none;
-//   }
-
-
-// `;
-
 const matcher = () => {
   return window.matchMedia("(max-width: 1201px)").matches;
 };

@@ -14,7 +14,7 @@ export interface Hackathon {
   format: string;
 }
 
-const API_BASE_URL = 'http://104.199.52.23:3000';
+const API_BASE_URL = 'https://levkach.xyz';
 
 const api: AxiosInstance = axios.create({
   baseURL: API_BASE_URL,
@@ -22,7 +22,7 @@ const api: AxiosInstance = axios.create({
 
 export const getHackathons = async (): Promise<Hackathon[]> => {
   try {
-    const response: AxiosResponse<Hackathon[]> = await api.get('/hackathons');
+    const response: AxiosResponse<Hackathon[]> = await api.get('/api/hackathons');
     return response.data;
   } catch (error) {
     console.error('Error fetching hackathons:', error);
