@@ -197,6 +197,8 @@ export const TextWrapper = styled.div<{ backgroundColor: string }>`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  color: #E7FFB0;
 `;
 
 export const Banner = styled.div<{ imgSrc: string; width: string }>`

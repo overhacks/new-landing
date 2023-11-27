@@ -73,12 +73,25 @@ const HackatonsSwiper = ({
   }, []);
 
   const [currentHackaton, setCurrentHackaton] = useState(null);
+  const [paragraphs, setParagraphs] = useState(null);
 
   useEffect(() => {
     const updatedCurrentHackaton =
       hackatons.find((hackaton) => hackaton.id === selectedHackatonId) || null;
     setCurrentHackaton(updatedCurrentHackaton);
   }, [selectedHackatonId, hackatons]);
+
+  useEffect(() => {
+    if (currentHackaton) {
+      setParagraphs(currentHackaton?.description.split(/<\/p>\s*<p>/))
+    } else {
+      setParagraphs(null)
+    }
+    
+  }, [currentHackaton])
+
+  console.log("currentHackaton", currentHackaton);
+  console.log("paragraphs", paragraphs);
 
   useEffect(() => {
     const swiperContainerHackatons = swiperRef.current;
@@ -151,13 +164,16 @@ const HackatonsSwiper = ({
 
             <PopupContentsWrapper>
               <Description>
-                <TextWrapper backgroundColor={webColors.ProjectWrapperFinished}>
-                  <SubTitle
+                {paragraphs && paragraphs.map((paragraph) => (
+                  <TextWrapper backgroundColor={webColors.ProjectWrapperFinished} dangerouslySetInnerHTML={{ __html: paragraph }}>
+                  {/* <SubTitle
                     textAlign="left"
                     color="#E7FFB0"
                     text={currentHackaton.description}
-                  />
+                  /> */}
                 </TextWrapper>
+                ))}
+                
 
                 {/* <LargeApplyWrapper>
                   <LargeApplyButton backgroundImg={LargeApplyButtonSVG}>
@@ -324,14 +340,6 @@ const HackatonsSwiper = ({
               <ImgAndDescription>
                 <Description>
                   {slideContent.topics.map((topic) => (
-                    // <SubTitle
-                    //   textAlign="left"
-                    //   color="#E7FFB0"
-                    //   overflow="hidden"
-                    //   textOverflow="ellipsis"
-                    //   text={"// " + topic}
-                    // />
-
                     <CardsPoint> <CardsBullet>// </CardsBullet> {topic}</CardsPoint>
                   ))}
                 </Description>
