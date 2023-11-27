@@ -154,6 +154,8 @@ function Header() {
                   defaultColor="white"
                   hoverBackgroundColor="rgb(42, 42, 45)"
                   hoverTextColor="#22fa5f"
+                  href="https://forms.gle/Exqa4wAzTi1kSzbU9"
+                  target="_blank"
                 >
                   Host a hackaton
                 </HeaderBtn>
@@ -257,6 +259,8 @@ function Header() {
             defaultColor="white"
             hoverBackgroundColor="transparent"
             hoverTextColor="#22fa5f"
+            href="https://forms.gle/Exqa4wAzTi1kSzbU9"
+            target="_blank"
           >
             Host a hackaton
           </MenuBtn>
@@ -317,13 +321,17 @@ function Header() {
               </SearchImg>
             </InputContainer>
 
-            <JoinButton backgroundImg={JoinButtonPng}>
+            <JoinButton
+              backgroundImg={JoinButtonPng}
+              href="https://t.me/OverhacksBot"
+            >
               <SubTitle
                 fontSize="25px"
                 fontWeight="600"
                 textAlign="left"
                 color="#000"
                 text="Join Now"
+                cursor="pointer"
               />
             </JoinButton>
           </MotoRow>

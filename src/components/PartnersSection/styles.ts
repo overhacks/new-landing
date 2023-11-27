@@ -76,7 +76,7 @@ export const JoinButton = styled.button<{ backgroundImg: any }>`
 
 
 
-export const SlideContent = styled.div<{ imgSrc: string }>`
+export const SlideContent = styled.a<{ imgSrc: string }>`
   background-image: url(${(props) => props.imgSrc});
   background-position: center right;
   background-repeat: no-repeat;

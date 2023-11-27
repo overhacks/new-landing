@@ -88,14 +88,14 @@ const PartnersSection = () => {
           </swiper-slide>
           <swiper-slide class="styled_slide">
             <SlideContent imgSrc={PartnerBackground}>
-              <CubeLogo href="#" target="_blank" imgSrc={Cube} />
+              <CubeLogo href="https://dedust.io/" target="_blank" imgSrc={Cube} />
             </SlideContent>
           </swiper-slide>
           <swiper-slide class="styled_slide">
-            <SlideContent imgSrc={GrassCard}></SlideContent>
+            <SlideContent href="https://society.ton.org/" target="_blank" imgSrc={GrassCard}></SlideContent>
           </swiper-slide>
           <swiper-slide class="styled_slide">
-            <SlideContent imgSrc={TonCard}></SlideContent>
+            <SlideContent href="https://ton.org/" target="_blank" imgSrc={TonCard}></SlideContent>
           </swiper-slide>
         </swiper-container>
         <Arrow

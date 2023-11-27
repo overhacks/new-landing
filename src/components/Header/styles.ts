@@ -335,7 +335,7 @@ export const Button = styled.button<{ backgroundImg: any }>`
   }
 `;
 
-export const JoinButton = styled.button<{ backgroundImg: any }>`
+export const JoinButton = styled.a<{ backgroundImg: any }>`
   background-color: transparent;
   background-image: url(${(props) => props.backgroundImg});
   border: none;
@@ -343,6 +343,7 @@ export const JoinButton = styled.button<{ backgroundImg: any }>`
   justify-content: center;
   align-items: center;
   max-height: 50px;
+  text-decoration: none;
 
   background-position: center center;
   background-repeat: no-repeat;
@@ -730,7 +731,7 @@ export const MenuLinkBtn = styled.a<{
   }
 `;
 
-export const HeaderBtn = styled.button<{
+export const HeaderBtn = styled.a<{
   hoverTextColor: string;
   hoverBackgroundColor: string;
   defaultColor: string;

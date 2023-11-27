@@ -32,63 +32,63 @@ function Footer() {
   return (
     <FooterWrapper>
       <StyledFooter>
-      <Logo background={LogoHacks}/>
+        <Logo background={LogoHacks} />
 
-      <Container>
-        <Column>
-          <AnySizeTitle
-            color="#CCFF5A"
-            text="OVERHACKS"
-            fontSize="17px"
-          />
-          <FooterBtn>
-            <SubTitle textAlign="left" color="#F4FFDD" text="About" />
-          </FooterBtn>
-          <FooterBtn>
-            <SubTitle textAlign="left" color="#F4FFDD" text="Contact us" />
-          </FooterBtn>
-          <FooterBtn>
-            <SubTitle textAlign="left" color="#F4FFDD" text="Terms of service" />
-          </FooterBtn>
-        </Column>
+        <Container>
+          <Column>
+            <AnySizeTitle color="#CCFF5A" text="OVERHACKS" fontSize="17px" />
+            <FooterBtn>
+              <SubTitle textAlign="left" color="#F4FFDD" text="About" />
+            </FooterBtn>
+            <FooterBtn>
+              <SubTitle textAlign="left" color="#F4FFDD" text="Contact us" />
+            </FooterBtn>
+            <FooterBtn>
+              <SubTitle
+                textAlign="left"
+                color="#F4FFDD"
+                text="Terms of service"
+              />
+            </FooterBtn>
+          </Column>
 
-        <Column>
-        <AnySizeTitle
-            color="#CCFF5A"
-            text="HACKATONS"
-            fontSize="17px"
-          />
-          <FooterBtn>
-            <SubTitle textAlign="left" color="#F4FFDD" text="Host a hackaton" />
-          </FooterBtn>
-          <FooterBtn>
-            <SubTitle textAlign="left" color="#F4FFDD" text="Browse hackatons" />
-          </FooterBtn>
-        </Column>
+          <Column>
+            <AnySizeTitle color="#CCFF5A" text="HACKATONS" fontSize="17px" />
+            <FooterBtn
+              href="https://forms.gle/Exqa4wAzTi1kSzbU9"
+              target="_blank"
+            >
+              <SubTitle
+                textAlign="left"
+                color="#F4FFDD"
+                text="Host a hackaton"
+                cursor="pointer"
+              />
+            </FooterBtn>
+            <FooterBtn>
+              <SubTitle
+                textAlign="left"
+                color="#F4FFDD"
+                text="Browse hackatons"
+              />
+            </FooterBtn>
+          </Column>
 
-
-        <Column>
-        <AnySizeTitle
-            color="#CCFF5A"
-            text="SOCIAL MEDIA"
-            fontSize="17px"
-          />
-          <FooterBtn>
-            <SubTitle textAlign="left"  color="#F4FFDD" text="Twitter" />
-          </FooterBtn>
-          <FooterBtn>
-            <SubTitle textAlign="left" color="#F4FFDD" text="LinkedIn" />
-          </FooterBtn>
-          <FooterBtn>
-            <SubTitle textAlign="left" color="#F4FFDD" text="Medium" />
-          </FooterBtn>
-        </Column>
-
-        
-      </Container>
-    </StyledFooter>
+          <Column>
+            <AnySizeTitle color="#CCFF5A" text="SOCIAL MEDIA" fontSize="17px" />
+            <FooterBtn>
+              <SubTitle textAlign="left" color="#F4FFDD" text="Twitter" />
+            </FooterBtn>
+            <FooterBtn>
+              <SubTitle textAlign="left" color="#F4FFDD" text="LinkedIn" />
+            </FooterBtn>
+            <FooterBtn>
+              <SubTitle textAlign="left" color="#F4FFDD" text="Medium" />
+            </FooterBtn>
+          </Column>
+        </Container>
+      </StyledFooter>
     </FooterWrapper>
-    
   );
 }
 

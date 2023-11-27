@@ -33,14 +33,27 @@ const Gstyles: any = createGlobalStyle<{ connectButtonColor: string }>`
     url("https://db.onlinewebfonts.com/t/5867a44d7af9038f2d931de87ff53d58.svg#Hanson")format("svg");
 }
 
+&::-webkit-scrollbar {
+    width: 9px;
+    background-color: rgb(14, 14, 14);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #445144;
+    border-radius: 3px;
+    width: 9px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: #445144a8;
+  }
 
 
-
-
+/* 
 
 ::-webkit-scrollbar {
   width: 0;
-}
+} */
 
 
 `;

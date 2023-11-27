@@ -147,9 +147,9 @@ function Hackatons() {
     setFinishedHackatons(finished);
   }, [hackathons]);
 
-  // console.log("hackathons", hackathons);
-  // console.log("ongoingHackatons", ongoingHackatons);
-  // console.log("finishedHackatons", finishedHackatons);
+  console.log("hackathons", hackathons);
+  console.log("ongoingHackatons", ongoingHackatons);
+  console.log("finishedHackatons", finishedHackatons);
 
   return (
     <Container>

@@ -58,6 +58,7 @@ export const ScrollContainer = styled.div<{
 
   &::-webkit-scrollbar {
     width: 9px;
+    background-color: transparent;
   }
 
   &::-webkit-scrollbar-thumb {
@@ -199,6 +200,8 @@ export const TextWrapper = styled.div<{ backgroundColor: string }>`
   align-items: center;
 
   color: #E7FFB0;
+  font-family: "PF Videotext Pro";
+  font-size: 15px;
 `;
 
 export const Banner = styled.div<{ imgSrc: string; width: string }>`
