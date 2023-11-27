@@ -12,8 +12,8 @@ export const PopupWrapper = styled.div<{ boxShadow: string }>`
   border-radius: 16px;
   padding-top: 20px;
   padding-bottom: 20px;
-  padding-left: 30px;
-  padding-right: 10px;
+  padding-left: 50px;
+  padding-right: 20px;
 
   background-color: rgba(196, 196, 196, 0.01);
   box-shadow: ${(props) => props.boxShadow};
@@ -25,26 +25,29 @@ export const PopupWrapper = styled.div<{ boxShadow: string }>`
   }
 
   @media (max-width: 576px) {
-    width: 90% !important;
+    width: 90%;
   }
   @media (min-width: 577px) {
-    width: 80% !important;
+    width: 80%;
   }
   @media (min-width: 769px) {
-    width: 80% !important;
+    width: 80%;
   }
   @media (min-width: 993px) {
-    width: 70% !important;
+    width: 70%;
   }
   @media (min-width: 1201px) {
-    width: 65% !important;
+    width: 65%;
   }
   @media (min-width: 1401px) {
-    width: 55% !important;
+    width: 45%;
   }
 `;
 
-export const ScrollContainer = styled.div<{ scrollStickColor: string }>`
+export const ScrollContainer = styled.div<{
+  scrollStickColor: string;
+  hoverScrollStickColor: string;
+}>`
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -56,15 +59,16 @@ export const ScrollContainer = styled.div<{ scrollStickColor: string }>`
   &::-webkit-scrollbar {
     width: 9px;
   }
-    
 
-&::-webkit-scrollbar-thumb {
-    background-color: ${props => props.scrollStickColor};
+  &::-webkit-scrollbar-thumb {
+    background-color: ${(props) => props.scrollStickColor};
     border-radius: 3px;
     width: 9px;
+  }
 
-}
-    
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: ${(props) => props.hoverScrollStickColor};
+  }
 `;
 
 export const PopupHeaderRow = styled.div`
@@ -72,8 +76,7 @@ export const PopupHeaderRow = styled.div`
   flex-direction: row;
   justify-content: space-between;
   padding-right: 30px;
-
-`
+`;
 
 export const CancelBtn = styled.button`
   border: none;
@@ -86,37 +89,60 @@ export const CancelBtn = styled.button`
   }
 `;
 
-export const Arrow = styled.button<{ imgSrc: string }>`
+export const Arrow = styled.button<{
+  imgSrc: string;
+  opacity: string;
+  popupOpen: boolean;
+}>`
   background-image: url(${(props) => props.imgSrc});
   background-color: transparent;
   border: none;
-  background-position: center right;
+  background-position: center center;
   background-repeat: no-repeat;
   background-size: contain;
-  aspect-ratio: 1 / 1 ;
+  aspect-ratio: 1 / 1;
   z-index: 2;
+  opacity: ${(props) => props.opacity};
 
   width: 64px;
 
   &:hover {
-    opacity: 0.8;
+    opacity: ${(props) => {
+      if (props.popupOpen) {
+        return "0.2";
+      }
+      return "0.8";
+    }};
   }
+
+  cursor: pointer;
 `;
 
+export const PopupStyledCross = styled.button<{ imgSrc: string }>`
+  background-image: url(${(props) => props.imgSrc});
+  background-color: transparent;
+  border: none;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  z-index: 2;
 
-export const PopupInnerWrapper = styled.div`
-  padding-top: 20px;
-  padding-bottom: 20px;
-  padding-left: 30px;
-  padding-right: 40px;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
 `;
 
-export const PopupImgContainer = styled.div`
-  width: 35%;
+export const PopupSponsorsContainer = styled.div`
+  width: 49%;
+`;
+
+export const SponsorsWrapper = styled.div<{ backgroundColor: string }>`
   display: flex;
   flex-direction: column;
-  gap: 50px;
-  padding-right: 30px;
+
+  padding: 15px;
+  background-color: ${(props) => props.backgroundColor};
+  border-radius: 12px;
 `;
 
 export const HackatonTitleText = styled.h1<{ color: string }>`
@@ -147,21 +173,32 @@ export const ImgAndDescription = styled.div`
   gap: 16px;
   margin-top: 20px;
 `;
+
+export const PopupContentsWrapper = styled.div`
+  width: calc(100% - 30px);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 20px;
+  margin-right: 30px;
+`;
+
 export const Description = styled.div`
   display: flex;
   flex-direction: column;
   gap: 12px;
-  width: 60%;
+  width: 49%;
 `;
 
 export const TextWrapper = styled.div<{ backgroundColor: string }>`
   padding: 15px;
   background-color: ${(props) => props.backgroundColor};
-  border-radius: 16px;
+  border-radius: 12px;
   display: flex;
   justify-content: center;
   align-items: center;
 `;
+
 export const Banner = styled.div<{ imgSrc: string; width: string }>`
   background-image: url(${(props) => props.imgSrc});
   background-position: center right;
@@ -323,33 +360,17 @@ export const LargeApplyButton = styled.button<{ backgroundImg: any }>`
   justify-content: center;
   align-items: center;
   max-height: 50px;
+  width: calc(100% - 30px);
+  margin-right: 30px;
 
   background-position: center center;
   background-repeat: no-repeat;
   background-size: contain;
-  aspect-ratio: 1 / 5;
+  aspect-ratio: 0.626 / 10;
   cursor: pointer;
 
   &:hover {
-    opacity: 0.8;
-  }
-  @media (max-width: 576px) {
-    width: 335px;
-  }
-  @media (min-width: 577px) {
-    width: 335px;
-  }
-  @media (min-width: 769px) {
-    width: 335px;
-  }
-  @media (min-width: 993px) {
-    width: 335px;
-  }
-  @media (min-width: 1201px) {
-    width: 335px;
-  }
-  @media (min-width: 1401px) {
-    width: 335px;
+    opacity: 0.6;
   }
 `;
 
@@ -360,6 +381,8 @@ export const PopupCellsWrapper = styled.div`
   gap: 12px;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 60px;
+  margin-top: 21px;
 `;
 
 export const PopupCell = styled.div<{ imgSrc: string }>`
@@ -373,7 +396,7 @@ export const PopupCell = styled.div<{ imgSrc: string }>`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 20%;
+  width: 25%;
 
   &:hover {
     opacity: 0.65;
@@ -413,6 +436,22 @@ export const ButtonText = styled.p`
     font-size: 25px;
   }
 `;
+
+export const CardsPoint = styled.p`
+  font-family: "PF Videotext Pro";
+  letter-spacing: 0em;
+  color: #E7FFB0;
+  text-align: left;
+  font-size: 15px;
+`
+
+export const CardsBullet = styled.b`
+  font-family: "PF Videotext Pro";
+  letter-spacing: 0em;
+  color: #22FA5F;
+  text-align: left;
+  font-size: 15px;
+`
 
 export const Row = styled.div<{
   paddingLeft?: string;

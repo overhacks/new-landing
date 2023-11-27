@@ -1,6 +1,5 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import { useColorTheme } from "../../hooks/useColorTheme";
-import { CloseOutlined } from "@ant-design/icons";
 
 import GSwipeHackatonsStyles, {
   Banner,
@@ -18,10 +17,8 @@ import GSwipeHackatonsStyles, {
   Info,
   Button,
   SwiperWrapper,
-  PopupImgContainer,
   HackatonTitleText,
   HackatonTitleTextWrapper,
-  PopupInnerWrapper,
   LargeApplyButton,
   ButtonText,
   LargeApplyWrapper,
@@ -31,6 +28,12 @@ import GSwipeHackatonsStyles, {
   PopupHeaderRow,
   CancelBtn,
   Arrow,
+  PopupStyledCross,
+  PopupSponsorsContainer,
+  PopupContentsWrapper,
+  SponsorsWrapper,
+  CardsPoint,
+  CardsBullet,
 } from "./styles";
 import AnySizeTitle from "../Title";
 import SubTitle from "../SubTitle";
@@ -39,6 +42,7 @@ import LargeApplyButtonSVG from "../../assets/img/largeApply.svg";
 
 import ArrowLeft from "../../assets/img/arrowLeft.svg";
 import ArrowRight from "../../assets/img/arrowRight.svg";
+import PopupCross from "../../assets/img/popupCross.svg"
 import PopupCellFinished from "../../assets/img/popupCellFinished.svg";
 
 const matcher = () => {
@@ -132,7 +136,7 @@ const HackatonsSwiper = ({
     <SwiperWrapper>
       {!isSmallScreen && currentHackaton && popupOpen && (
         <PopupWrapper boxShadow={webColors.BoxShadowHackatonPopupFinished}>
-          <ScrollContainer scrollStickColor="#445144">
+          <ScrollContainer scrollStickColor="#445144" hoverScrollStickColor="#445144a8">
             <PopupHeaderRow>
               <AnySizeTitle
                 text={currentHackaton.name}
@@ -141,11 +145,11 @@ const HackatonsSwiper = ({
                 maxWidth="85%"
               />
               <CancelBtn onClick={handlePopupOpen}>
-                <CloseOutlined style={{ color: "#CCFF5A", fontSize: 20 }} />
+                <PopupStyledCross imgSrc={PopupCross}/>
               </CancelBtn>
             </PopupHeaderRow>
 
-            <ImgAndDescription>
+            <PopupContentsWrapper>
               <Description>
                 <TextWrapper backgroundColor={webColors.ProjectWrapperFinished}>
                   <SubTitle
@@ -155,13 +159,7 @@ const HackatonsSwiper = ({
                   />
                 </TextWrapper>
 
-                <PopupCellsWrapper>
-                  <PopupCell imgSrc={PopupCellFinished} />
-                  <PopupCell imgSrc={PopupCellFinished} />
-                  <PopupCell imgSrc={PopupCellFinished} />
-                </PopupCellsWrapper>
-
-                <LargeApplyWrapper>
+                {/* <LargeApplyWrapper>
                   <LargeApplyButton backgroundImg={LargeApplyButtonSVG}>
                     <SubTitle
                       fontSize="25px"
@@ -171,11 +169,29 @@ const HackatonsSwiper = ({
                       text="Apply"
                     />
                   </LargeApplyButton>
-                </LargeApplyWrapper>
+                </LargeApplyWrapper> */}
               </Description>
-              <PopupImgContainer>
-                <Banner width="100%" imgSrc={currentHackaton.imageUrl} />
-                <Row justifyContent="space-between" width="100%">
+
+              <PopupSponsorsContainer>
+                <SponsorsWrapper backgroundColor={webColors.ProjectWrapperFinished}>
+
+                <Row justifyContent="flex-start" width="100%">
+                <SubTitle
+                      textAlign="left"
+                      color="rgba(108, 109, 108, 1)"
+                      text="Sponsors"
+                    />
+                </Row>
+
+
+                <PopupCellsWrapper>
+                  <PopupCell imgSrc={PopupCellFinished} />
+                  <PopupCell imgSrc={PopupCellFinished} />
+                  <PopupCell imgSrc={PopupCellFinished} />
+                </PopupCellsWrapper>
+
+
+                  <Row justifyContent="space-between" width="100%">
                   <InfoColumn>
                     <SubTitle
                       textAlign="left"
@@ -222,8 +238,22 @@ const HackatonsSwiper = ({
                     />
                   </InfoColumn>
                 </Row>
-              </PopupImgContainer>
-            </ImgAndDescription>
+                </SponsorsWrapper>
+                
+              </PopupSponsorsContainer>
+            </PopupContentsWrapper>
+
+            <LargeApplyWrapper>
+                  <LargeApplyButton backgroundImg={LargeApplyButtonSVG}>
+                    <SubTitle
+                      fontSize="25px"
+                      fontWeight="600"
+                      textAlign="left"
+                      color="#000"
+                      text="Apply"
+                    />
+                  </LargeApplyButton>
+                </LargeApplyWrapper>
 
             {currentHackaton.projects.length !== 0 && (
               <AnySizeTitle
@@ -269,6 +299,8 @@ const HackatonsSwiper = ({
         onClick={handlePrevious}
         imgSrc={ArrowLeft}
         class="swiper-button-prev-unique"
+        opacity={popupOpen && !isSmallScreen ? "0.2" : "1"}
+        popupOpen={popupOpen}
       ></Arrow>
 
       <swiper-container
@@ -292,13 +324,15 @@ const HackatonsSwiper = ({
               <ImgAndDescription>
                 <Description>
                   {slideContent.topics.map((topic) => (
-                    <SubTitle
-                      textAlign="left"
-                      color="#E7FFB0"
-                      overflow="hidden"
-                      textOverflow="ellipsis"
-                      text={"// " + topic}
-                    />
+                    // <SubTitle
+                    //   textAlign="left"
+                    //   color="#E7FFB0"
+                    //   overflow="hidden"
+                    //   textOverflow="ellipsis"
+                    //   text={"// " + topic}
+                    // />
+
+                    <CardsPoint> <CardsBullet>// </CardsBullet> {topic}</CardsPoint>
                   ))}
                 </Description>
                 <Banner width="33%" imgSrc={slideContent.imageUrl} />
@@ -370,6 +404,8 @@ const HackatonsSwiper = ({
         onClick={handleNext}
         imgSrc={ArrowRight}
         class="swiper-button-next-unique"
+        opacity={popupOpen && !isSmallScreen ? "0.2" : "1"}
+        popupOpen={popupOpen}
       ></Arrow>
       <GSwipeHackatonsStyles />
     </SwiperWrapper>
