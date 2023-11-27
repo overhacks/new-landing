@@ -23,7 +23,7 @@ export const HeaderContainer = styled.section<{ backgroundImg: any }>`
 
   display: flex;
   flex-direction: column;
-  gap: 8.8%;
+  gap: 5%;
   justify-content: flex-start;
   align-items: center;
 
@@ -31,44 +31,38 @@ export const HeaderContainer = styled.section<{ backgroundImg: any }>`
 `;
 
 export const MotoContainer = styled.div<{ backgroundImg: any }>`
-  background-color: transparent;
+  /* background-color: transparent;
   background-image: url(${(props) => props.backgroundImg});
   background-position: center center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: cover; */
   width: 100%;
-  height: 65%;
+  height: 70%;
   z-index: 2;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
 
-  
-
-  /* box-shadow: 0px 98px 100px 0px rgba(30, 144, 62, 0.05) inset,
-    0px 4px 18px 0px rgba(30, 120, 82, 0.5) inset,
-    0px 1px 18px 0px rgba(185, 255, 168, 0.2) inset;
-  backdrop-filter: blur(50px); */
-
-  /* @media (max-width: 576px) {
-    height: 400px;
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(${(props) => props.backgroundImg});
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    filter: drop-shadow(0px 10px 10px rgba(30, 144, 62, 0.05))
+    drop-shadow(0px 1px 5px rgba(30, 120, 82, 0.50))
+    drop-shadow(0px 0px 5px rgba(185, 255, 168, 0.20));
+    backdrop-filter: blur(50px);
+    /* background-color: rgba(196, 196, 196, 0.01); */
+    z-index: -1;
   }
-  @media (min-width: 577px) {
-    height: 400px;
-  }
-  @media (min-width: 769px) {
-    height: 500px;
-  }
-  @media (min-width: 993px) {
-    height: 600px;
-  }
-  @media (min-width: 1201px) {
-    height: 700px;
-  }
-  @media (min-width: 1401px) {
-    height: 800px;
-  } */
 `;
 
 export const Moto = styled.div`
@@ -314,7 +308,7 @@ export const Button = styled.button<{ backgroundImg: any }>`
   background-position: center center;
   background-repeat: no-repeat;
   background-size: contain;
-  
+
   cursor: pointer;
 
   &:hover {
@@ -835,7 +829,7 @@ export const Input = styled.input<{
   background: transparent;
   font-family: "PF Videotext Pro";
   color: ${(props) => props.defaultColor};
-  
+
   &::placeholder {
     color: ${(props) => props.placeholderColor};
   }
