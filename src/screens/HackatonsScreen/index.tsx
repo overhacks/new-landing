@@ -22,31 +22,33 @@ function Hackatons() {
   const [selectedSlideIdOngoing, setSelectedSlideIdOngoing] = useState(null);
   const [selectedSlideIdFinished, setSelectedSlideIdFinished] = useState(null);
 
-  const scrollToElement = ({ targetRef }: ScrollProps) => {
+  const scrollToElement = (targetRef: React.RefObject<HTMLElement>) => {
     if (targetRef.current) {
-      window.scrollTo({
-        top: targetRef.current.offsetTop,
-        behavior: 'smooth',
-      });
+      targetRef.current.scrollIntoView({ behavior: 'smooth' });
     }
   };
  
 
-  const handlePopupOpen = (id: any) => {
+  
+
+  const handlePopupOpen = (id: any, swiperRef: React.RefObject<HTMLElement>) => {
     if (popupOpen) {
       setPopupOpen(false);
       setSelectedSlideIdOngoing(null);
     } else if (!popupOpen) {
+      scrollToElement(swiperRef)
+
       setPopupOpen(true);
       setSelectedSlideIdOngoing(id);
     }
   };
 
-  const handleFinishedPopupOpen = (id: any) => {
+  const handleFinishedPopupOpen = (id: any, swiperRef: React.RefObject<HTMLElement>) => {
     if (finishedPopupOpen) {
       setFinishedPopupOpen(false);
       setSelectedSlideIdFinished(null);
     } else if (!finishedPopupOpen) {
+      scrollToElement(swiperRef)
       setFinishedPopupOpen(true);
       setSelectedSlideIdFinished(id);
     }

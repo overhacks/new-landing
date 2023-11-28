@@ -144,6 +144,10 @@ const HackatonsSwiper = ({
   const currentDate = new Date().toISOString();
   const isFinishedCurrent = currentHackaton?.startDate < currentDate;
 
+  const popupOpenHandle = () => {
+    
+  }
+
   return (
     <SwiperWrapper>
       {!isSmallScreen && currentHackaton && popupOpen && (
@@ -311,7 +315,7 @@ const HackatonsSwiper = ({
             <SlideContent
               boxShadow={webColors.FinishedHackatonSlide}
               opacity={popupOpen && !isSmallScreen ? "0.2" : "1"}
-              onClick={() => handlePopupOpen(slideContent.id)}
+              onClick={() => handlePopupOpen(slideContent.id, swiperRef)}
             >
               <HackatonTitleTextWrapper>
                 <HackatonTitleText color={isOngoin ? "#E7FFB0" : "#CCFF5A"}>
