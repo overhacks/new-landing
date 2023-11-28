@@ -16,8 +16,21 @@ export const WhyCardsSection = styled.section`
   position: relative;
   z-index: 2;
 `;
-export const CardsLight = styled.div`
-  position: absolute;
+
+export const CardsContainer = styled.div`
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 16px;
+
+  z-index: 4;
+
+  &::before {
+    content: '';
+    position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -47,16 +60,9 @@ export const CardsLight = styled.div`
   @media (min-width: 1401px) {
     width: 20%;
   }
-`;
 
-export const CardsContainer = styled.div`
-  width: 100%;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 16px;
+  }
+
 `;
 
 export const WhyColumn = styled.div`

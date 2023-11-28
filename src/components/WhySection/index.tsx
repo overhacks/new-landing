@@ -2,7 +2,6 @@ import React from "react";
 import {
   Banner,
   CardsContainer,
-  CardsLight,
   RowContainer,
   WhyCard,
   WhyCardsSection,
@@ -98,7 +97,6 @@ const WhySection = () => {
             />
 
         </WhyCard>
-        <CardsLight />
       </CardsContainer>
     </WhyCardsSection>
   );

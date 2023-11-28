@@ -31,7 +31,7 @@ const PartnersSection = () => {
     const params = {
       grabCursor: true,
       spaceBetween: 64,
-      // loop: true,
+      loop: true,
       breakpoints: {
         640: {
           slidesPerView: 2,
@@ -77,6 +77,27 @@ const PartnersSection = () => {
           class="swiper-button-prev-unique"
         ></Arrow>
         <swiper-container class="styled-swiper" init="false" ref={swiperRef}>
+          <swiper-slide class="styled_slide">
+            <SlideContent imgSrc={PartnerBackground}>
+              <TonanaLogo
+                href="https://tonana.org/"
+                target="_blank"
+                imgSrc={TonanaLogoSvg}
+              />
+            </SlideContent>
+          </swiper-slide>
+          <swiper-slide class="styled_slide">
+            <SlideContent imgSrc={PartnerBackground}>
+              <CubeLogo href="https://dedust.io/" target="_blank" imgSrc={Cube} />
+            </SlideContent>
+          </swiper-slide>
+          <swiper-slide class="styled_slide">
+            <SlideContent href="https://society.ton.org/" target="_blank" imgSrc={GrassCard}></SlideContent>
+          </swiper-slide>
+          <swiper-slide class="styled_slide">
+            <SlideContent href="https://ton.org/" target="_blank" imgSrc={TonCard}></SlideContent>
+          </swiper-slide>
+
           <swiper-slide class="styled_slide">
             <SlideContent imgSrc={PartnerBackground}>
               <TonanaLogo

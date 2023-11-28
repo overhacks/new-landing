@@ -11,11 +11,26 @@ import AboutSection from "../../components/AboutSection";
 import HackatonsSwiper from "../../components/HackatonsSwiper";
 import { Hackathon, getHackathons } from "../../api/client";
 
+
+interface ScrollProps {
+  targetRef: React.RefObject<HTMLElement>;
+}
+
 function Hackatons() {
   const [popupOpen, setPopupOpen] = useState(false);
   const [finishedPopupOpen, setFinishedPopupOpen] = useState(false);
   const [selectedSlideIdOngoing, setSelectedSlideIdOngoing] = useState(null);
   const [selectedSlideIdFinished, setSelectedSlideIdFinished] = useState(null);
+
+  const scrollToElement = ({ targetRef }: ScrollProps) => {
+    if (targetRef.current) {
+      window.scrollTo({
+        top: targetRef.current.offsetTop,
+        behavior: 'smooth',
+      });
+    }
+  };
+ 
 
   const handlePopupOpen = (id: any) => {
     if (popupOpen) {
@@ -26,6 +41,7 @@ function Hackatons() {
       setSelectedSlideIdOngoing(id);
     }
   };
+
   const handleFinishedPopupOpen = (id: any) => {
     if (finishedPopupOpen) {
       setFinishedPopupOpen(false);

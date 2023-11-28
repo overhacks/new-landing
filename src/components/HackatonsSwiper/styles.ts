@@ -17,7 +17,7 @@ export const PopupWrapper = styled.div<{ boxShadow: string }>`
 
   background-color: rgba(196, 196, 196, 0.01);
   box-shadow: ${(props) => props.boxShadow};
-  backdrop-filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  -webkit-backdrop-filter: blur(50px);
   backdrop-filter: blur(50px);
 
   &::-webkit-scrollbar {
@@ -268,13 +268,14 @@ export const Project = styled.div<{ backgroundColor: string }>`
   align-items: center;
 `;
 export const SlideContent = styled.div<{ opacity: string; boxShadow: string }>`
-  height: 100%;
+  max-height: 50vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 
   background-color: rgba(196, 196, 196, 0.01);
   box-shadow: ${(props) => props.boxShadow};
+  -webkit-backdrop-filter: blur(50px);
   backdrop-filter: blur(50px);
   border-radius: 24px;
 
@@ -506,7 +507,7 @@ const GSwipeHackatonsStyles: any = createGlobalStyle`
   }
 
   .styled-swiper-hacktons {
-    width: 66.8%;
+    width: 72%;
   padding-left: 5%;
   padding-right: 5%;
   margin-bottom: 32px;

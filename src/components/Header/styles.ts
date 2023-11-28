@@ -31,11 +31,11 @@ export const HeaderContainer = styled.section<{ backgroundImg: any }>`
 `;
 
 export const MotoContainer = styled.div<{ backgroundImg: any }>`
-  /* background-color: transparent;
+  background-color: transparent;
   background-image: url(${(props) => props.backgroundImg});
   background-position: center center;
   background-repeat: no-repeat;
-  background-size: cover; */
+  background-size: cover;
   width: 100%;
   height: 70%;
   z-index: 2;
@@ -45,24 +45,6 @@ export const MotoContainer = styled.div<{ backgroundImg: any }>`
   align-items: center;
   position: relative;
 
-  &:before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url(${(props) => props.backgroundImg});
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-    filter: drop-shadow(0px 10px 10px rgba(30, 144, 62, 0.05))
-    drop-shadow(0px 1px 5px rgba(30, 120, 82, 0.50))
-    drop-shadow(0px 0px 5px rgba(185, 255, 168, 0.20));
-    backdrop-filter: blur(50px);
-    /* background-color: rgba(196, 196, 196, 0.01); */
-    z-index: -1;
-  }
 `;
 
 export const Moto = styled.div`
@@ -100,13 +82,11 @@ export const Name = styled.div`
   flex-wrap: wrap;
 `;
 
-export const Letter = styled.div<{ background: string }>`
-  background-image: url(${(props) => props.background});
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: contain;
+export const Letter = styled.img`
   border: none;
   background-color: transparent;
+
+  object-fit: contain;
 
   @media (max-width: 576px) {
     width: 30.13px;
@@ -134,11 +114,42 @@ export const Letter = styled.div<{ background: string }>`
   }
 `;
 
-export const LetterV = styled.div<{ background: string }>`
-  background-image: url(${(props) => props.background});
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: contain;
+
+export const LetterO = styled.img`
+  border: none;
+  background-color: transparent;
+
+  object-fit: contain;
+  object-position: 0 50%;
+
+  @media (max-width: 576px) {
+    width: 20px;
+    height: 24.53px;
+  }
+  @media (min-width: 577px) {
+    width: 30px;
+    height: 36.8px;
+  }
+  @media (min-width: 769px) {
+    width: 37.5px;
+    height: 46px;
+  }
+  @media (min-width: 993px) {
+    width: 50px;
+    height: 61.3px;
+  }
+  @media (min-width: 1201px) {
+    width: 60px;
+    height: 73.6px;
+  }
+  @media (min-width: 1401px) {
+    width: 75px;
+    height: 92px;
+  }
+`;
+
+export const LetterV = styled.img`
+  object-fit: contain;
   border: none;
   background-color: transparent;
 
@@ -168,11 +179,8 @@ export const LetterV = styled.div<{ background: string }>`
   }
 `;
 
-export const LetterE = styled.div<{ background: string }>`
-  background-image: url(${(props) => props.background});
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: contain;
+export const LetterE = styled.img`
+  object-fit: contain;
   border: none;
   background-color: transparent;
 
@@ -202,11 +210,8 @@ export const LetterE = styled.div<{ background: string }>`
   }
 `;
 
-export const LetterH = styled.div<{ background: string }>`
-  background-image: url(${(props) => props.background});
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: contain;
+export const LetterH = styled.img`
+  object-fit: contain;
   border: none;
   background-color: transparent;
 
@@ -236,11 +241,8 @@ export const LetterH = styled.div<{ background: string }>`
   }
 `;
 
-export const LetterS = styled.div<{ background: string }>`
-  background-image: url(${(props) => props.background});
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: contain;
+export const LetterS = styled.img`
+  object-fit: contain;
   border: none;
   background-color: transparent;
 
@@ -375,20 +377,6 @@ export const JoinButton = styled.a<{ backgroundImg: any }>`
   }
 `;
 
-export const DefaultMenucontainer = styled.div`
-  border-bottom: 2px solid rgb(44, 44, 48);
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 12px;
-
-  padding-left: 7%;
-  padding-right: 7%;
-  padding-top: 16px;
-  padding-bottom: 16px;
-
-  width: 86%;
-`;
 
 export const Headercontainer = styled.div<{ gap: string }>`
   display: flex;
@@ -548,46 +536,6 @@ export const MenuBurgerImg = styled.div<{ fill: string; fillHover: string }>`
   }
 `;
 
-export const CancelImg = styled.div<{ fill: string; fillHover: string }>`
-  background-color: transparent;
-  height: 20px;
-  width: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  & line {
-    stroke: ${(props) => props.fill};
-  }
-  svg:hover line {
-    stroke: ${(props) => props.fillHover};
-  }
-
-  @media (max-width: 576px) {
-    height: 16px;
-    width: 16px;
-  }
-  @media (min-width: 577px) {
-    height: 16px;
-    width: 16px;
-  }
-  @media (min-width: 769px) {
-    height: 20px;
-    width: 20px;
-  }
-  @media (min-width: 993px) {
-    height: 20px;
-    width: 20px;
-  }
-  @media (min-width: 1201px) {
-    height: 20px;
-    width: 20px;
-  }
-  @media (min-width: 1401px) {
-    height: 20px;
-    width: 20px;
-  }
-`;
-
 export const LinksContainer = styled.div`
   height: 100%;
   display: flex;
@@ -604,44 +552,6 @@ interface LinkProps extends NavLinkProps {
   bottomBorder: string;
 }
 
-export const HeaderLinkBtn: React.FC<LinkProps> = styled(Link)`
-  display: flex;
-  text-decoration: none;
-  justify-content: center;
-  align-items: center;
-  border: none;
-  box-shadow: none;
-  background-color: transparent;
-  height: 100%;
-  padding-left: 12px;
-  padding-right: 12px;
-  color: ${(props) => props.defaultColor};
-  border-bottom: ${(props) => (props.isActive ? props.bottomBorder : "none")};
-
-  &:hover {
-    background-color: ${(props) => props.hoverBackgroundColor};
-    color: ${(props) => props.hoverTextColor};
-  }
-
-  @media (max-width: 576px) {
-    font-size: 15px;
-  }
-  @media (min-width: 577px) {
-    font-size: 15px;
-  }
-  @media (min-width: 769px) {
-    font-size: 20px;
-  }
-  @media (min-width: 993px) {
-    font-size: 20px;
-  }
-  @media (min-width: 1201px) {
-    font-size: 20px;
-  }
-  @media (min-width: 1401px) {
-    font-size: 20px;
-  }
-`;
 
 export const HeaderLinkBtnInner = styled.a<{
   hoverTextColor: string;
@@ -689,47 +599,6 @@ export const HeaderLinkBtnInner = styled.a<{
   }
 `;
 
-export const MenuLinkBtn = styled.a<{
-  defaultColor: string;
-  hoverBackgroundColor: string;
-  hoverTextColor: string;
-}>`
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  text-decoration: none;
-  justify-content: start;
-  align-items: center;
-  border: none;
-  box-shadow: none;
-  background-color: transparent;
-  height: 100%;
-  color: ${(props) => props.defaultColor};
-
-  &:hover {
-    background-color: ${(props) => props.hoverBackgroundColor};
-    color: ${(props) => props.hoverTextColor};
-  }
-
-  @media (max-width: 576px) {
-    font-size: 15px;
-  }
-  @media (min-width: 577px) {
-    font-size: 15px;
-  }
-  @media (min-width: 769px) {
-    font-size: 20px;
-  }
-  @media (min-width: 993px) {
-    font-size: 20px;
-  }
-  @media (min-width: 1201px) {
-    font-size: 20px;
-  }
-  @media (min-width: 1401px) {
-    font-size: 20px;
-  }
-`;
 
 export const HeaderBtn = styled.a<{
   hoverTextColor: string;
@@ -774,50 +643,6 @@ export const HeaderBtn = styled.a<{
   }
 `;
 
-export const Line = styled.div`
-  width: 100%;
-  border-bottom: 1px solid #22fa5f;
-`;
-
-export const MenuBtn = styled.a<{
-  hoverTextColor: string;
-  hoverBackgroundColor: string;
-  defaultColor: string;
-}>`
-  width: 100%;
-  text-decoration: none;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  border: none;
-  box-shadow: none;
-  background-color: transparent;
-  color: ${(props) => props.defaultColor};
-
-  &:hover {
-    background-color: ${(props) => props.hoverBackgroundColor};
-    color: ${(props) => props.hoverTextColor};
-  }
-
-  @media (max-width: 576px) {
-    font-size: 15px;
-  }
-  @media (min-width: 577px) {
-    font-size: 15px;
-  }
-  @media (min-width: 769px) {
-    font-size: 20px;
-  }
-  @media (min-width: 993px) {
-    font-size: 20px;
-  }
-  @media (min-width: 1201px) {
-    font-size: 20px;
-  }
-  @media (min-width: 1401px) {
-    font-size: 20px;
-  }
-`;
 
 export const Input = styled.input<{
   placeholderColor: string;

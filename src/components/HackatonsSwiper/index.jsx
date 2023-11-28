@@ -126,11 +126,6 @@ const HackatonsSwiper = ({
         nextEl: ".swiper-button-next-unique",
         prevEl: ".swiper-button-prev-unique",
       },
-      // modules: [Autoplay],
-      // autoplay: {
-      //   delay: 3500,
-      //   disableOnInteraction: false,
-      // },
     };
 
     Object.assign(swiperContainerHackatons, params);
@@ -166,26 +161,9 @@ const HackatonsSwiper = ({
               <Description>
                 {paragraphs && paragraphs.map((paragraph) => (
                   <TextWrapper backgroundColor={webColors.ProjectWrapperFinished} dangerouslySetInnerHTML={{ __html: paragraph }}>
-                  {/* <SubTitle
-                    textAlign="left"
-                    color="#E7FFB0"
-                    text={currentHackaton.description}
-                  /> */}
+                  
                 </TextWrapper>
                 ))}
-                
-
-                {/* <LargeApplyWrapper>
-                  <LargeApplyButton backgroundImg={LargeApplyButtonSVG}>
-                    <SubTitle
-                      fontSize="25px"
-                      fontWeight="600"
-                      textAlign="left"
-                      color="#000"
-                      text="Apply"
-                    />
-                  </LargeApplyButton>
-                </LargeApplyWrapper> */}
               </Description>
 
               <PopupSponsorsContainer>
