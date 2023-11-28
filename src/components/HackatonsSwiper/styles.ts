@@ -337,7 +337,7 @@ export const Info = styled.div<{ borderTop: string }>`
   //2px solid rgb(44, 44, 48)
 `;
 
-export const Button = styled.button<{ backgroundImg: any }>`
+export const Button = styled.button<{ backgroundImg: any, isFinished: boolean }>`
   background-color: transparent;
   background-image: url(${(props) => props.backgroundImg});
   border: none;
@@ -351,14 +351,31 @@ export const Button = styled.button<{ backgroundImg: any }>`
   background-repeat: no-repeat;
   background-size: contain;
   aspect-ratio: 1 / 5;
-  cursor: pointer;
+  cursor: ${(props) => {
+    if (props.isFinished) {
+      return("default")
+    }
+    return("pointer")
+  }};
+
+  opacity: ${(props) => {
+    if (props.isFinished) {
+      return("0.4")
+    }
+    return("1")
+  }};
 
   &:hover {
-    opacity: 0.8;
+    opacity: ${(props) => {
+    if (props.isFinished) {
+      return("0.4")
+    }
+    return("0.8")
+  }};
   }
 `;
 
-export const LargeApplyButton = styled.button<{ backgroundImg: any }>`
+export const LargeApplyButton = styled.button<{ backgroundImg: any, isFinishedCurrent: boolean }>`
   background-color: transparent;
   background-image: url(${(props) => props.backgroundImg});
   border: none;
@@ -373,10 +390,28 @@ export const LargeApplyButton = styled.button<{ backgroundImg: any }>`
   background-repeat: no-repeat;
   background-size: contain;
   aspect-ratio: 0.626 / 10;
-  cursor: pointer;
 
-  &:hover {
-    opacity: 0.6;
+  cursor: ${(props) => {
+    if (props.isFinishedCurrent) {
+      return("default")
+    }
+    return("pointer")
+  }};
+
+  opacity: ${(props) => {
+    if (props.isFinishedCurrent) {
+      return("0.4")
+    }
+    return("1")
+  }};
+
+&:hover {
+    opacity: ${(props) => {
+    if (props.isFinishedCurrent) {
+      return("0.4")
+    }
+    return("0.6")
+  }}
   }
 `;
 

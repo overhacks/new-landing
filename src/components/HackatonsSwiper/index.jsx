@@ -140,6 +140,9 @@ const HackatonsSwiper = ({
     swiperRef.current.swiper.slideNext();
   }, [swiperRef]);
 
+  const currentDate = new Date().toISOString();
+  const isFinishedCurrent = currentHackaton?.startDate < currentDate;
+
   return (
     <SwiperWrapper>
       {!isSmallScreen && currentHackaton && popupOpen && (
@@ -238,7 +241,7 @@ const HackatonsSwiper = ({
             </PopupContentsWrapper>
 
             <LargeApplyWrapper>
-                  <LargeApplyButton backgroundImg={LargeApplyButtonSVG}>
+                  <LargeApplyButton disabled={isFinishedCurrent} isFinishedCurrent={isFinishedCurrent} backgroundImg={LargeApplyButtonSVG}>
                     <SubTitle
                       fontSize="25px"
                       fontWeight="600"
@@ -378,7 +381,7 @@ const HackatonsSwiper = ({
                   </InfoColumn>
                 </Row>
 
-                <Button backgroundImg={ApplyButton}>
+                <Button disabled={!isOngoin} isFinished={!isOngoin} backgroundImg={ApplyButton}>
                   <ButtonText>Apply</ButtonText>
                 </Button>
               </Info>
