@@ -100,6 +100,7 @@ const HackatonsSwiper = ({
       grabCursor: true,
       spaceBetween: 47,
       centeredSlidesBounds: true,
+      loop: true,
       breakpoints: {
         640: {
           slidesPerView: 1,

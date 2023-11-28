@@ -159,8 +159,21 @@ function Hackatons() {
       (hackathon) => hackathon.startDate < currentDate
     );
 
-    setOngoingHackatons(ongoing);
-    setFinishedHackatons(finished);
+    if (ongoing.length < 4) {
+      const duplicateOngoing = [...ongoing, ...ongoing.slice(0, ongoing.length)];
+      setOngoingHackatons(duplicateOngoing);
+    } else {
+      setOngoingHackatons(ongoing);
+    }
+
+    if (finished.length < 4) {
+      const duplicateFinished = [...finished, ...finished.slice(0, finished.length)];
+      setFinishedHackatons(duplicateFinished);
+    } else {
+      setFinishedHackatons(finished);
+    }
+    
+    
   }, [hackathons]);
 
   console.log("hackathons", hackathons);
