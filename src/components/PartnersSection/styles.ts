@@ -34,28 +34,7 @@ export const RowContainerBetween = styled.div`
   padding-top: 167px;
   margin-bottom: 80px;
 `;
-
-export const JoinButton = styled.a<{ backgroundImg: any }>`
-  background-color: transparent;
-  background-image: url(${(props) => props.backgroundImg});
-  border: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  max-height: 50px;
-  text-decoration: none;
-  cursor: pointer;
-
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  aspect-ratio: 1 / 7.4;
-  cursor: pointer;
-
-  &:hover {
-    opacity: 0.8;
-  }
-
+export const ButtonWrapper = styled.div`
   @media (max-width: 576px) {
     width: 260px;
   }
@@ -73,6 +52,28 @@ export const JoinButton = styled.a<{ backgroundImg: any }>`
   }
   @media (min-width: 1401px) {
     width: 321px;
+  }
+
+`
+export const JoinButton = styled.a<{ backgroundImg: any }>`
+  background-color: transparent;
+  background-image: url(${(props) => props.backgroundImg});
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 100%;
+  height: 50px;
+  max-height: 50px;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.8;
   }
 `;
 

@@ -352,11 +352,11 @@ export const Button = styled.a<{ backgroundImg: any, isFinished: boolean }>`
   align-items: center;
   max-height: 50px;
   width: 100%;
-  height: auto;
+  height: 40px;
 
   background-position: center center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
   cursor: ${(props) => {
     if (props.isFinished) {
       return("default")

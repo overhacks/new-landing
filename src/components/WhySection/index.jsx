@@ -40,7 +40,7 @@ const WhySection = () => {
           border={webColors.whyCardBorder}
           data-aos="fade-right"
         >
-          <SubTitleContainer data-aos="fade-right">
+          <SubTitleContainer>
             <AnySizeTitle
               text="Easy to register"
               maxWidth="25%"
@@ -51,7 +51,7 @@ const WhySection = () => {
 
           <Banner width="25%" imgSrc={EasyImg} />
 
-          <WhyColumn data-aos="fade-right">
+          <WhyColumn>
             <SubTitle
               text="1. Choose your skills"
               textAlign="left"
@@ -74,7 +74,7 @@ const WhySection = () => {
           border={webColors.whyCardBorder}
           data-aos="fade-right"
         >
-          <SubTitleContainer data-aos="fade-right">
+          <SubTitleContainer>
             <AnySizeTitle
               text="Team matching"
               color={webColors.WhyCardText}
@@ -84,7 +84,7 @@ const WhySection = () => {
 
           <Banner width="25%" imgSrc={Puzzle} />
 
-          <WhyTextContainer data-aos="fade-right">
+          <WhyTextContainer>
             <SubTitle
             text="Matchmaking for skilled players to team up and complete bounties!"
             textAlign="left"
@@ -98,7 +98,7 @@ const WhySection = () => {
           border={webColors.whyCardBorder}
           data-aos="fade-right"
         >
-          <SubTitleContainer data-aos="fade-right">
+          <SubTitleContainer>
             <AnySizeTitle
               text="Project incubation"
               color={webColors.WhyCardText}
@@ -108,7 +108,7 @@ const WhySection = () => {
 
           <Banner width="25%" imgSrc={Cash} />
 
-          <WhyTextContainer data-aos="fade-right">
+          <WhyTextContainer >
 
             <SubTitle
             text="As well as POST-HACKATHON support for the project and opportunity to work for a sponsor company"

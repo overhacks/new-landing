@@ -1,5 +1,6 @@
 import GSwipePartnersStyles, {
   Arrow,
+  ButtonWrapper,
   CubeLogo,
   JoinButton,
   PartnersSectionWrapper,
@@ -149,7 +150,8 @@ const PartnersSection = () => {
         </SubTitleContainer>
         
 
-        <JoinButton backgroundImg={JoinButtonPng}
+        <ButtonWrapper>
+          <JoinButton backgroundImg={JoinButtonPng}
         href="https://forms.gle/Exqa4wAzTi1kSzbU9"
         target="_blank"
         data-aos="fade-down">
@@ -162,6 +164,10 @@ const PartnersSection = () => {
             cursor="pointer"
           />
         </JoinButton>
+        </ButtonWrapper>
+        
+
+
       </RowContainerBetween>
 
       <GSwipePartnersStyles />

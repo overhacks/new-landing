@@ -358,8 +358,8 @@ export const JoinButton = styled.a<{ backgroundImg: any }>`
 
   background-position: center center;
   background-repeat: no-repeat;
-  background-size: cover;
-  height: auto;
+  background-size: contain;
+  height: 42px;
   cursor: pointer;
 
   &:hover {
