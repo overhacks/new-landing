@@ -1,4 +1,7 @@
 import React, { useEffect, useState } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 import {
   Headercontainer,
   Logo,
@@ -55,6 +58,12 @@ function Header() {
   const [openMenu, setOpenMenu] = useState(false);
 
   const [isSmallScreen, setIsSmallScreen] = useState(matcher());
+
+  useEffect(() => {
+    AOS.init({
+      // duration : 5000
+    });
+  }, []);
 
   useEffect(() => {
     if (!isSmallScreen) {
@@ -161,6 +170,7 @@ function Header() {
             <MotoPhase>potential</MotoPhase>
             <MotoPhase>with</MotoPhase>
           </Promo>
+
           <Name>
             <div>
               <LetterO src={O} alt="letter O" />

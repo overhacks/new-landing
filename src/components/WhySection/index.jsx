@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Banner,
   CardsContainer,
   RowContainer,
+  SubTitleContainer,
   WhyCard,
   WhyCardsSection,
   WhyColumn,
+  WhyTextContainer,
 } from "./styles";
 import SubTitleRow from "../SubTitleRow";
 import { useColorTheme } from "../../hooks/useColorTheme";
@@ -15,29 +17,41 @@ import Puzzle from "../../assets/img/puzzle.png";
 import Cash from "../../assets/img/cash.png";
 import SubTitle from "../SubTitle";
 
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 const WhySection = () => {
   const { webColors } = useColorTheme();
+
+  useEffect(() => {
+    AOS.init({
+      duration : 500
+    });
+  }, []);
+
   return (
     <WhyCardsSection>
-      
-      <RowContainer>
+      <RowContainer data-aos="fade-right">
         <SubTitleRow text="Why do people choose Overhacks?" />
       </RowContainer>
       <CardsContainer>
         <WhyCard
           backgroundColor={webColors.whyCardBackground}
           border={webColors.whyCardBorder}
+          data-aos="fade-right"
         >
-          <AnySizeTitle
-            text="Easy to register"
-            maxWidth="25%"
-            color={webColors.WhyCardText}
-            alignSelf="left"
-          />
+          <SubTitleContainer data-aos="fade-right">
+            <AnySizeTitle
+              text="Easy to register"
+              maxWidth="25%"
+              color={webColors.WhyCardText}
+              alignSelf="left"
+            />
+          </SubTitleContainer>
 
           <Banner width="25%" imgSrc={EasyImg} />
 
-          <WhyColumn>
+          <WhyColumn data-aos="fade-right">
             <SubTitle
               text="1. Choose your skills"
               textAlign="left"
@@ -58,44 +72,51 @@ const WhySection = () => {
         <WhyCard
           backgroundColor={webColors.whyCardBackground}
           border={webColors.whyCardBorder}
+          data-aos="fade-right"
         >
-          <AnySizeTitle
-            text="Team matching"
-            maxWidth="25%"
-            color={webColors.WhyCardText}
-            alignSelf="left"
-          />
+          <SubTitleContainer data-aos="fade-right">
+            <AnySizeTitle
+              text="Team matching"
+              color={webColors.WhyCardText}
+              alignSelf="left"
+            />
+          </SubTitleContainer>
 
           <Banner width="25%" imgSrc={Puzzle} />
 
-          <SubTitle
-              text="Matchmaking for skilled players to team up and complete bounties!"
-              textAlign="left"
-              maxWidth="30%"
-              color={webColors.WhyCardText}
-            />
-
+          <WhyTextContainer data-aos="fade-right">
+            <SubTitle
+            text="Matchmaking for skilled players to team up and complete bounties!"
+            textAlign="left"
+            color={webColors.WhyCardText}
+          />
+          </WhyTextContainer>
+          
         </WhyCard>
         <WhyCard
           backgroundColor={webColors.whyCardBackground}
           border={webColors.whyCardBorder}
+          data-aos="fade-right"
         >
-          <AnySizeTitle
-            text="Project incubation"
-            maxWidth="25%"
-            color={webColors.WhyCardText}
-            alignSelf="left"
-          />
+          <SubTitleContainer data-aos="fade-right">
+            <AnySizeTitle
+              text="Project incubation"
+              color={webColors.WhyCardText}
+              alignSelf="left"
+            />
+          </SubTitleContainer>
 
           <Banner width="25%" imgSrc={Cash} />
 
-          <SubTitle
-              text="As well as POST-HACKATHON support for the project and opportunity to work for a sponsor company"
-              textAlign="left"
-              maxWidth="30%"
-              color={webColors.WhyCardText}
-            />
+          <WhyTextContainer data-aos="fade-right">
 
+            <SubTitle
+            text="As well as POST-HACKATHON support for the project and opportunity to work for a sponsor company"
+            textAlign="left"
+            color={webColors.WhyCardText}
+          />
+          </WhyTextContainer>
+          
         </WhyCard>
       </CardsContainer>
     </WhyCardsSection>

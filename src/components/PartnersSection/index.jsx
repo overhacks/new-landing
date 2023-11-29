@@ -6,6 +6,7 @@ import GSwipePartnersStyles, {
   RowContainer,
   RowContainerBetween,
   SlideContent,
+  SubTitleContainer,
   SwiperContainer,
   TonanaLogo,
 } from "./styles";
@@ -22,9 +23,20 @@ import JoinButtonPng from "../../assets/img/JoinButton.png";
 import ArrowLeft from "../../assets/img/arrowLeft.svg";
 import ArrowRight from "../../assets/img/arrowRight.svg";
 
+import AOS from "aos";
+import "aos/dist/aos.css";
+
+
 const PartnersSection = () => {
   const swiperRef = useRef(null);
   const { webColors } = useColorTheme();
+
+  useEffect(() => {
+    AOS.init({
+      // duration : 5000
+    });
+  }, []);
+
 
   useEffect(() => {
     const swiperContainer = swiperRef.current;
@@ -66,7 +78,7 @@ const PartnersSection = () => {
 
   return (
     <PartnersSectionWrapper>
-      <RowContainer>
+      <RowContainer data-aos="fade-right">
         <SubTitleRow text="Our partners" />
       </RowContainer>
 
@@ -127,17 +139,20 @@ const PartnersSection = () => {
       </SwiperContainer>
 
       <RowContainerBetween>
-        <SubTitle
+        <SubTitleContainer data-aos="fade-down">
+          <SubTitle
           text="Become our partner to be a part of trusted unity!"
-          maxWidth="30%"
           textAlign="left"
           fontSize="20px"
           color="rgba(204, 255, 90, 1)"
         />
+        </SubTitleContainer>
+        
 
         <JoinButton backgroundImg={JoinButtonPng}
         href="https://forms.gle/Exqa4wAzTi1kSzbU9"
-        target="_blank">
+        target="_blank"
+        data-aos="fade-down">
           <SubTitle
             fontSize="25px"
             fontWeight="600"

@@ -179,13 +179,14 @@ export const TextBlock = styled.div`
   border: 2px solid #1A1A1A;
   background-color: #0E0E0E;
 `;
-export const AboutText = styled.p`
+export const AboutText = styled.h2`
   font-family: "PF Videotext Pro";
   letter-spacing: 0em;
   color: #C9C5BA;
   text-align: left;
   font-size: 25px;
   max-width: 90%;
+  align-self: center;
 `
 
 export const AboutTextB = styled.b`

@@ -125,6 +125,7 @@ export const Arrow = styled.button<{ imgSrc: string }>`
   background-size: contain;
   aspect-ratio: 1 / 1 ;
   z-index: 2;
+  cursor: pointer;
 
   width: 64px;
 
@@ -132,6 +133,10 @@ export const Arrow = styled.button<{ imgSrc: string }>`
     opacity: 0.8;
   }
 `;
+
+export const SubTitleContainer = styled.div`
+  max-width: 30%;
+`
 
 export const SwiperContainer = styled.div`
   width: 100%;

@@ -123,8 +123,8 @@ const HackatonsSwiper = ({
         },
       },
       navigation: {
-        nextEl: ".swiper-button-next-unique",
-        prevEl: ".swiper-button-prev-unique",
+        nextEl: ".swiper-button-next-unique-hackatons",
+        prevEl: ".swiper-button-prev-unique-hackatons",
       },
       loop: true,
     };
@@ -134,9 +134,7 @@ const HackatonsSwiper = ({
   }, []);
 
   const handlePrevious = useCallback(() => {
-    register();
     swiperRef.current.swiper.slidePrev();
-    console.log("slidePrev");
   }, [swiperRef]);
 
   const handleNext = useCallback(() => {
@@ -314,7 +312,7 @@ const HackatonsSwiper = ({
       <Arrow
         onClick={handlePrevious}
         imgSrc={ArrowLeft}
-        class="swiper-button-prev-unique"
+        class="swiper-button-prev-unique-hackatons"
         opacity={popupOpen && !isSmallScreen ? "0.2" : "1"}
         popupOpen={popupOpen}
       ></Arrow>
@@ -426,7 +424,7 @@ const HackatonsSwiper = ({
       <Arrow
         onClick={handleNext}
         imgSrc={ArrowRight}
-        class="swiper-button-next-unique"
+        class="swiper-button-next-unique-hackatons"
         opacity={popupOpen && !isSmallScreen ? "0.2" : "1"}
         popupOpen={popupOpen}
       ></Arrow>

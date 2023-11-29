@@ -6,6 +6,9 @@ import About1 from "../../assets/img/about1.png";
 import About2 from "../../assets/img/about2.png";
 import SpiderPng from "../../assets/img/overhacksSpider.png";
 
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 import SubTitle from "../SubTitle";
 import {
   AboutHeader,
@@ -26,17 +29,29 @@ import {
 
 const AboutSection = () => {
   const { webColors } = useColorTheme();
+
+  useEffect(() => {
+    AOS.init({
+      // duration : 5000
+    });
+  }, []);
+
   return (
     <>
-      <Row>
+      {/* <div data-aos="fade-right">
+        <AnySizeTitle text="AOS ANIMATION" color="#E7FFB0" alignSelf="left" />
+      </div> */}
+
+      <Row data-aos="fade-right">
         <SubTitleRow text="About" />
       </Row>
+
       <SectionWrapper id="about">
         <AboutWrapper>
           <RowAbout>
             <PhotoHorizontal imgSrc={About1} />
             <ColumnText>
-              <AboutText>
+              <AboutText data-aos="fade-up">
                 Overhacks your go-to platform for hackathons focused on
                 empowering enthusiastic individuals to unleash creativity and
                 ace their skills and knowledge to drive innovation in{" "}
@@ -47,7 +62,7 @@ const AboutSection = () => {
           <RowAbout>
             <ColumnTextLarge>
               <TextBlock>
-                <TitleWrapper>
+                <TitleWrapper data-aos="fade-down">
                   <AnySizeTitle
                     text="OUR MISSOIN"
                     color="#E7FFB0"
@@ -55,14 +70,14 @@ const AboutSection = () => {
                   />
                 </TitleWrapper>
 
-                <AboutText>
+                <AboutText data-aos="fade-right">
                   Our mission to empower and inspire enthusiastic individuals,
                   fostering their creativity and helping them excel in web3
                   technologies through immersive hackathons
                 </AboutText>
               </TextBlock>
               <TextBlock>
-                <TitleWrapper>
+                <TitleWrapper data-aos="fade-down">
                   <AnySizeTitle
                     text="VISION"
                     color="#E7FFB0"
@@ -70,7 +85,7 @@ const AboutSection = () => {
                   />
                 </TitleWrapper>
 
-                <AboutText>
+                <AboutText data-aos="fade-right">
                   We envision a world where every developer on{" "}
                   <AboutTextB>OVERHACKS</AboutTextB> becomes a catalyst for
                   innovation, shaping the future of the web3 landscape with
@@ -82,9 +97,7 @@ const AboutSection = () => {
           </RowAbout>
         </AboutWrapper>
 
-        <Spider src={SpiderPng}/>
-
-
+        <Spider data-aos="fade-up" src={SpiderPng} />
       </SectionWrapper>
     </>
   );

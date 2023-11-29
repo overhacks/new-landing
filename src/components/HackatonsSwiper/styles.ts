@@ -543,15 +543,14 @@ const GSwipeHackatonsStyles: any = createGlobalStyle`
 }
 
 
-
   .styled_swiper_hackatons {
     width: 72%;
-  padding-left: 5%;
-  padding-right: 5%;
-  margin-bottom: 32px;
-  position: relative;
-  overflow-y: visible;
-  z-index: 3;
+    padding-left: 5%;
+    padding-right: 5%;
+    margin-bottom: 32px;
+    position: relative;
+    overflow-y: visible;
+    z-index: 3;
 
   @media (max-width: 576px) {
     /* height: 250px; */

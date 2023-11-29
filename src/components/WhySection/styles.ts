@@ -17,6 +17,15 @@ export const WhyCardsSection = styled.section`
   z-index: 2;
 `;
 
+export const SubTitleContainer = styled.div`
+  max-width: 25%;
+`
+
+export const WhyTextContainer = styled.div`
+  max-width: 30%;
+`
+
+
 export const CardsContainer = styled.div`
   width: 100%;
   position: relative;
