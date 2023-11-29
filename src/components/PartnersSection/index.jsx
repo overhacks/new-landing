@@ -135,13 +135,16 @@ const PartnersSection = () => {
           color="rgba(204, 255, 90, 1)"
         />
 
-        <JoinButton backgroundImg={JoinButtonPng}>
+        <JoinButton backgroundImg={JoinButtonPng}
+        href="https://forms.gle/Exqa4wAzTi1kSzbU9"
+        target="_blank">
           <SubTitle
             fontSize="25px"
             fontWeight="600"
             textAlign="left"
             color="#000"
             text="Become a partner"
+            cursor="pointer"
           />
         </JoinButton>
       </RowContainerBetween>

@@ -26,6 +26,7 @@ import {
   LetterS,
   MotoPhase,
   LetterO,
+  JoinButtonWrapper,
 } from "./styles";
 // import InvitePopup from 'components/newDesignComponents/invitePopup'
 import LogoHacks from "../../assets/img/LOGOHACK.png";
@@ -45,7 +46,6 @@ import S from "../../assets/img/s.png";
 import SubTitle from "../SubTitle";
 import SignUpButton from "../../assets/img/signupBtn.svg";
 import JoinButtonPng from "../../assets/img/JoinButton.png";
-
 
 const matcher = () => {
   return window.matchMedia("(max-width: 993px)").matches;
@@ -150,11 +150,9 @@ function Header() {
               </LinksContainer>
             </>
           )}
-
-        
         </Headercontainer>
       </DefaultHeadercontainer>
-      
+
       <MotoContainer backgroundImg={BackgroundMoto}>
         <Moto>
           <Promo>
@@ -164,15 +162,33 @@ function Header() {
             <MotoPhase>with</MotoPhase>
           </Promo>
           <Name>
-            <LetterO src={O} alt="letter O" />
-            <LetterV src={V} alt="letter V" />
-            <LetterE src={E} alt="letter E" />
-            <Letter src={R} alt="letter R" />
-            <LetterH src={H} alt="letter H" />
-            <Letter src={A} alt="letter A" />
-            <Letter src={C} alt="letter C" />
-            <Letter src={K} alt="letter K" />
-            <LetterS src={S} alt="letter S" />
+            <div>
+              <LetterO src={O} alt="letter O" />
+            </div>
+            <div>
+              <LetterV src={V} alt="letter V" />
+            </div>
+            <div>
+              <LetterE src={E} alt="letter E" />
+            </div>
+            <div>
+              <Letter src={R} alt="letter R" />
+            </div>
+            <div>
+              <LetterH src={H} alt="letter H" />
+            </div>
+            <div>
+              <Letter src={A} alt="letter A" />
+            </div>
+            <div>
+              <Letter src={C} alt="letter C" />
+            </div>
+            <div>
+              <Letter src={K} alt="letter K" />
+            </div>
+            <div>
+              <LetterS src={S} alt="letter S" />
+            </div>
           </Name>
           <MotoRow>
             <InputContainer>
@@ -203,19 +219,21 @@ function Header() {
               </SearchImg>
             </InputContainer>
 
-            <JoinButton
-              backgroundImg={JoinButtonPng}
-              href="https://t.me/OverhacksBot"
-            >
-              <SubTitle
-                fontSize="25px"
-                fontWeight="600"
-                textAlign="left"
-                color="#000"
-                text="Join Now"
-                cursor="pointer"
-              />
-            </JoinButton>
+            <JoinButtonWrapper>
+              <JoinButton
+                backgroundImg={JoinButtonPng}
+                href="https://t.me/OverhacksBot"
+              >
+                <SubTitle
+                  fontSize="25px"
+                  fontWeight="600"
+                  textAlign="left"
+                  color="#000"
+                  text="Join Now"
+                  cursor="pointer"
+                />
+              </JoinButton>
+            </JoinButtonWrapper>
           </MotoRow>
         </Moto>
       </MotoContainer>

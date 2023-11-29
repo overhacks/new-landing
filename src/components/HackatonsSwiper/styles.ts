@@ -171,6 +171,7 @@ export const ImgAndDescription = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: flex-start;
   gap: 16px;
   margin-top: 20px;
 `;
@@ -272,6 +273,7 @@ export const SlideContent = styled.div<{ opacity: string; boxShadow: string }>`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: flex-start;
 
   background-color: rgba(196, 196, 196, 0.01);
   box-shadow: ${(props) => props.boxShadow};
@@ -327,30 +329,34 @@ export const SlideContent = styled.div<{ opacity: string; boxShadow: string }>`
 `;
 export const Info = styled.div<{ borderTop: string }>`
   width: 100%;
-  max-height: 35%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   gap: 16px;
   margin-top: 40px;
-  //2px solid rgb(44, 44, 48)
 `;
 
-export const Button = styled.button<{ backgroundImg: any, isFinished: boolean }>`
+export const CardButtonWrapper = styled.div`
+  width: 33%;
+`
+
+export const Button = styled.a<{ backgroundImg: any, isFinished: boolean }>`
   background-color: transparent;
+  text-decoration: none;
   background-image: url(${(props) => props.backgroundImg});
   border: none;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   max-height: 50px;
-  width: 33%;
+  width: 100%;
+  height: auto;
 
   background-position: center center;
   background-repeat: no-repeat;
-  background-size: contain;
-  aspect-ratio: 1 / 5;
+  background-size: cover;
   cursor: ${(props) => {
     if (props.isFinished) {
       return("default")
@@ -375,7 +381,7 @@ export const Button = styled.button<{ backgroundImg: any, isFinished: boolean }>
   }
 `;
 
-export const LargeApplyButton = styled.button<{ backgroundImg: any, isFinishedCurrent: boolean }>`
+export const LargeApplyButton = styled.a<{ backgroundImg: any, isFinishedCurrent: boolean }>`
   background-color: transparent;
   background-image: url(${(props) => props.backgroundImg});
   border: none;
@@ -385,6 +391,7 @@ export const LargeApplyButton = styled.button<{ backgroundImg: any, isFinishedCu
   max-height: 50px;
   width: calc(100% - 30px);
   margin-right: 30px;
+  text-decoration: none;
 
   background-position: center center;
   background-repeat: no-repeat;
@@ -502,7 +509,7 @@ export const Row = styled.div<{
   display: flex;
   flex-direction: row;
   justify-content: ${(props) => props.justifyContent};
-  align-items: center;
+  align-items: flex-start;
   /* flex-wrap: wrap; */
   gap: 22px;
   padding-left: ${(props) => props.paddingLeft || "0px"};
@@ -536,19 +543,15 @@ const GSwipeHackatonsStyles: any = createGlobalStyle`
 }
 
 
-  .styled_slide {
-    height: 100%;
-    z-index: 3;
-  }
 
-  .styled-swiper-hacktons {
+  .styled_swiper_hackatons {
     width: 72%;
   padding-left: 5%;
   padding-right: 5%;
   margin-bottom: 32px;
   position: relative;
   overflow-y: visible;
-  z-index: 2;
+  z-index: 3;
 
   @media (max-width: 576px) {
     /* height: 250px; */

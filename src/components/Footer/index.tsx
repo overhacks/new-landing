@@ -38,20 +38,20 @@ function Footer() {
           <Column>
             <AnySizeTitle color="#CCFF5A" text="OVERHACKS" fontSize="17px" />
             <FooterBtn>
-              <SubTitle textAlign="left" color="#F4FFDD" text="About" />
+              <SubTitle textAlign="left" color="#F4FFDD" text="About" cursor="pointer"/>
             </FooterBtn>
             <FooterBtn>
-              <SubTitle textAlign="left" color="#F4FFDD" text="Contact us" />
+              <SubTitle textAlign="left" color="#F4FFDD" text="Contact us" cursor="pointer"/>
             </FooterBtn>
             <FooterBtn>
               <SubTitle
                 textAlign="left"
                 color="#F4FFDD"
                 text="Terms of service"
+                cursor="pointer"
               />
             </FooterBtn>
           </Column>
-
           <Column>
             <AnySizeTitle color="#CCFF5A" text="HACKATONS" fontSize="17px" />
             <FooterBtn
@@ -70,20 +70,27 @@ function Footer() {
                 textAlign="left"
                 color="#F4FFDD"
                 text="Browse hackatons"
+                cursor="pointer"
               />
             </FooterBtn>
           </Column>
-
           <Column>
             <AnySizeTitle color="#CCFF5A" text="SOCIAL MEDIA" fontSize="17px" />
-            <FooterBtn>
-              <SubTitle textAlign="left" color="#F4FFDD" text="Twitter" />
+            <FooterBtn
+            href="https://x.com/overhackscom"
+            target="_blank">
+              <SubTitle textAlign="left" color="#F4FFDD" text="Twitter" cursor="pointer"/>
             </FooterBtn>
-            <FooterBtn>
-              <SubTitle textAlign="left" color="#F4FFDD" text="LinkedIn" />
+            <FooterBtn
+            href="https://www.linkedin.com/company/overhacks/"
+            target="_blank">
+              <SubTitle textAlign="left" color="#F4FFDD" text="LinkedIn" cursor="pointer"/>
             </FooterBtn>
-            <FooterBtn>
-              <SubTitle textAlign="left" color="#F4FFDD" text="Medium" />
+            <FooterBtn
+              href="https://medium.com/@overhacks.com/"
+              target="_blank"
+            >
+              <SubTitle textAlign="left" color="#F4FFDD" text="Medium" cursor="pointer"/>
             </FooterBtn>
           </Column>
         </Container>

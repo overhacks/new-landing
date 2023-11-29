@@ -35,7 +35,7 @@ export const RowContainerBetween = styled.div`
   margin-bottom: 80px;
 `;
 
-export const JoinButton = styled.button<{ backgroundImg: any }>`
+export const JoinButton = styled.a<{ backgroundImg: any }>`
   background-color: transparent;
   background-image: url(${(props) => props.backgroundImg});
   border: none;
@@ -43,6 +43,8 @@ export const JoinButton = styled.button<{ backgroundImg: any }>`
   justify-content: center;
   align-items: center;
   max-height: 50px;
+  text-decoration: none;
+  cursor: pointer;
 
   background-position: center center;
   background-repeat: no-repeat;
@@ -143,7 +145,6 @@ export const SwiperContainer = styled.div`
 const GSwipePartnersStyles: any = createGlobalStyle`
 
   .styled_slide {
-    height: 100%;
     z-index: 1;
   }
 

@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import { useColorTheme } from "../../hooks/useColorTheme";
-
+import { register } from "swiper/element/bundle";
 import GSwipeHackatonsStyles, {
   Banner,
   Description,
@@ -34,6 +34,7 @@ import GSwipeHackatonsStyles, {
   SponsorsWrapper,
   CardsPoint,
   CardsBullet,
+  CardButtonWrapper,
 } from "./styles";
 import AnySizeTitle from "../Title";
 import SubTitle from "../SubTitle";
@@ -42,7 +43,7 @@ import LargeApplyButtonSVG from "../../assets/img/largeApply.svg";
 
 import ArrowLeft from "../../assets/img/arrowLeft.svg";
 import ArrowRight from "../../assets/img/arrowRight.svg";
-import PopupCross from "../../assets/img/popupCross.svg"
+import PopupCross from "../../assets/img/popupCross.svg";
 import PopupCellFinished from "../../assets/img/popupCellFinished.svg";
 
 const matcher = () => {
@@ -83,12 +84,11 @@ const HackatonsSwiper = ({
 
   useEffect(() => {
     if (currentHackaton) {
-      setParagraphs(currentHackaton?.description.split(/<\/p>\s*<p>/))
+      setParagraphs(currentHackaton?.description.split(/<\/p>\s*<p>/));
     } else {
-      setParagraphs(null)
+      setParagraphs(null);
     }
-    
-  }, [currentHackaton])
+  }, [currentHackaton]);
 
   console.log("currentHackaton", currentHackaton);
   console.log("paragraphs", paragraphs);
@@ -100,7 +100,6 @@ const HackatonsSwiper = ({
       grabCursor: true,
       spaceBetween: 47,
       centeredSlidesBounds: true,
-      loop: true,
       breakpoints: {
         640: {
           slidesPerView: 1,
@@ -127,6 +126,7 @@ const HackatonsSwiper = ({
         nextEl: ".swiper-button-next-unique",
         prevEl: ".swiper-button-prev-unique",
       },
+      loop: true,
     };
 
     Object.assign(swiperContainerHackatons, params);
@@ -134,7 +134,9 @@ const HackatonsSwiper = ({
   }, []);
 
   const handlePrevious = useCallback(() => {
+    register();
     swiperRef.current.swiper.slidePrev();
+    console.log("slidePrev");
   }, [swiperRef]);
 
   const handleNext = useCallback(() => {
@@ -144,15 +146,16 @@ const HackatonsSwiper = ({
   const currentDate = new Date().toISOString();
   const isFinishedCurrent = currentHackaton?.startDate < currentDate;
 
-  const popupOpenHandle = () => {
-    
-  }
+  const popupOpenHandle = () => {};
 
   return (
     <SwiperWrapper>
       {!isSmallScreen && currentHackaton && popupOpen && (
         <PopupWrapper boxShadow={webColors.BoxShadowHackatonPopupFinished}>
-          <ScrollContainer scrollStickColor="#445144" hoverScrollStickColor="#445144a8">
+          <ScrollContainer
+            scrollStickColor="#445144"
+            hoverScrollStickColor="#445144a8"
+          >
             <PopupHeaderRow>
               <AnySizeTitle
                 text={currentHackaton.name}
@@ -161,101 +164,112 @@ const HackatonsSwiper = ({
                 maxWidth="85%"
               />
               <CancelBtn onClick={handlePopupOpen}>
-                <PopupStyledCross imgSrc={PopupCross}/>
+                <PopupStyledCross imgSrc={PopupCross} />
               </CancelBtn>
             </PopupHeaderRow>
 
             <PopupContentsWrapper>
               <Description>
-                {paragraphs && paragraphs.map((paragraph) => (
-                  <TextWrapper backgroundColor={webColors.ProjectWrapperFinished} dangerouslySetInnerHTML={{ __html: paragraph }}>
-                  
-                </TextWrapper>
-                ))}
+                {paragraphs &&
+                  paragraphs.map((paragraph) => (
+                    <TextWrapper
+                      backgroundColor={webColors.ProjectWrapperFinished}
+                      dangerouslySetInnerHTML={{ __html: paragraph }}
+                    ></TextWrapper>
+                  ))}
               </Description>
 
               <PopupSponsorsContainer>
-                <SponsorsWrapper backgroundColor={webColors.ProjectWrapperFinished}>
-
-                <Row justifyContent="flex-start" width="100%">
-                <SubTitle
+                <SponsorsWrapper
+                  backgroundColor={webColors.ProjectWrapperFinished}
+                >
+                  <Row justifyContent="flex-start" width="100%">
+                    <SubTitle
                       textAlign="left"
                       color="rgba(108, 109, 108, 1)"
                       text="Sponsors"
                     />
-                </Row>
+                  </Row>
 
-
-                <PopupCellsWrapper>
-                  <PopupCell imgSrc={PopupCellFinished} />
-                  <PopupCell imgSrc={PopupCellFinished} />
-                  <PopupCell imgSrc={PopupCellFinished} />
-                </PopupCellsWrapper>
-
+                  <PopupCellsWrapper>
+                    <PopupCell imgSrc={PopupCellFinished} />
+                    <PopupCell imgSrc={PopupCellFinished} />
+                    <PopupCell imgSrc={PopupCellFinished} />
+                  </PopupCellsWrapper>
 
                   <Row justifyContent="space-between" width="100%">
-                  <InfoColumn>
-                    <SubTitle
-                      textAlign="left"
-                      color="rgba(231, 255, 176, 0.51)"
-                      text="Format"
-                    />
-                    <SubTitle
-                      marginTop="18px"
-                      textAlign="left"
-                      color="#E7FFB0"
-                      text="Offline"
-                    />
-                  </InfoColumn>
-                  <InfoColumn>
-                    <SubTitle
-                      textAlign="left"
-                      color="rgba(231, 255, 176, 0.51)"
-                      text="Prize"
-                    />
-                    <SubTitle
-                      marginTop="18px"
-                      textAlign="left"
-                      color="#E7FFB0"
-                      text={currentHackaton.prize}
-                    />
-                  </InfoColumn>
-                  <InfoColumn>
-                    <SubTitle
-                      textAlign="left"
-                      color="rgba(231, 255, 176, 0.51)"
-                      text="Start Date"
-                    />
-                    <SubTitle
-                      marginTop="18px"
-                      textAlign="left"
-                      color="#E7FFB0"
-                      text={new Date(currentHackaton.startDate)
-                        .toLocaleDateString("en-US", {
-                          month: "2-digit",
-                          day: "2-digit",
-                          year: "numeric",
-                        })
-                        .replace(/\//g, ".")}
-                    />
-                  </InfoColumn>
-                </Row>
+                    <InfoColumn>
+                      <SubTitle
+                        textAlign="left"
+                        color="rgba(231, 255, 176, 0.51)"
+                        text="Format"
+                      />
+                      <SubTitle
+                        marginTop="18px"
+                        textAlign="left"
+                        color="#E7FFB0"
+                        text="Offline"
+                      />
+                    </InfoColumn>
+                    <InfoColumn>
+                      <SubTitle
+                        textAlign="left"
+                        color="rgba(231, 255, 176, 0.51)"
+                        text="Prize"
+                      />
+                      <SubTitle
+                        marginTop="18px"
+                        textAlign="left"
+                        color="#E7FFB0"
+                        text={currentHackaton.prize}
+                      />
+                    </InfoColumn>
+                    <InfoColumn>
+                      <SubTitle
+                        textAlign="left"
+                        color="rgba(231, 255, 176, 0.51)"
+                        text="Start Date"
+                      />
+                      <SubTitle
+                        marginTop="18px"
+                        textAlign="left"
+                        color="#E7FFB0"
+                        text={new Date(currentHackaton.startDate)
+                          .toLocaleDateString("en-US", {
+                            month: "2-digit",
+                            day: "2-digit",
+                            year: "numeric",
+                          })
+                          .replace(/\//g, ".")}
+                      />
+                    </InfoColumn>
+                  </Row>
                 </SponsorsWrapper>
-                
               </PopupSponsorsContainer>
             </PopupContentsWrapper>
 
             <LargeApplyWrapper>
-                  <LargeApplyButton disabled={isFinishedCurrent} isFinishedCurrent={isFinishedCurrent} backgroundImg={LargeApplyButtonSVG}>
-                    <SubTitle
-                      fontSize="25px"
-                      fontWeight="600"
-                      textAlign="left"
-                      color="#000"
-                      text="Apply"
-                    />
-                  </LargeApplyButton>
-                </LargeApplyWrapper>
+              <LargeApplyButton
+                disabled={isFinishedCurrent}
+                isFinishedCurrent={isFinishedCurrent}
+                backgroundImg={LargeApplyButtonSVG}
+                href={isOngoin ? "https://t.me/OverhacksBot" : undefined}
+                onClick={(e) => {
+                  if (isOngoin) {
+                    e.stopPropagation();
+                    e.nativeEvent.stopImmediatePropagation();
+                  }
+                }}
+              >
+                <SubTitle
+                  fontSize="25px"
+                  fontWeight="600"
+                  textAlign="left"
+                  color="#000"
+                  text="Apply"
+                />
+              </LargeApplyButton>
+            </LargeApplyWrapper>
 
             {currentHackaton.projects.length !== 0 && (
               <AnySizeTitle
@@ -306,12 +320,12 @@ const HackatonsSwiper = ({
       ></Arrow>
 
       <swiper-container
-        class="styled-swiper-hacktons"
+        class="styled_swiper_hackatons"
         init="false"
         ref={swiperRef}
       >
         {hackatons.map((slideContent, index) => (
-          <swiper-slide class="styled_slide" key={slideContent.id}>
+          <swiper-slide class="styled_slide_hackatons" key={slideContent.id}>
             <SlideContent
               boxShadow={webColors.FinishedHackatonSlide}
               opacity={popupOpen && !isSmallScreen ? "0.2" : "1"}
@@ -326,7 +340,10 @@ const HackatonsSwiper = ({
               <ImgAndDescription>
                 <Description>
                   {slideContent.topics.map((topic) => (
-                    <CardsPoint> <CardsBullet>// </CardsBullet> {topic}</CardsPoint>
+                    <CardsPoint>
+                      {" "}
+                      <CardsBullet>// </CardsBullet> {topic}
+                    </CardsPoint>
                   ))}
                 </Description>
                 <Banner width="33%" imgSrc={slideContent.imageUrl} />
@@ -386,9 +403,21 @@ const HackatonsSwiper = ({
                   </InfoColumn>
                 </Row>
 
-                <Button disabled={!isOngoin} isFinished={!isOngoin} backgroundImg={ApplyButton}>
-                  <ButtonText>Apply</ButtonText>
-                </Button>
+                <CardButtonWrapper>
+                  <Button
+                    isFinished={!isOngoin}
+                    backgroundImg={ApplyButton}
+                    href={isOngoin ? "https://t.me/OverhacksBot" : undefined}
+                    onClick={(e) => {
+                      if (isOngoin) {
+                        e.stopPropagation();
+                        e.nativeEvent.stopImmediatePropagation();
+                      }
+                    }}
+                  >
+                    <ButtonText>Apply</ButtonText>
+                  </Button>
+                </CardButtonWrapper>
               </Info>
             </SlideContent>
           </swiper-slide>

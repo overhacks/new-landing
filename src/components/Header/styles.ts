@@ -44,14 +44,15 @@ export const MotoContainer = styled.div<{ backgroundImg: any }>`
   justify-content: center;
   align-items: center;
   position: relative;
-
 `;
 
 export const Moto = styled.div`
+  height: 100%;
   width: 90%;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: flex-start;
   gap: 40px;
 `;
 
@@ -60,6 +61,7 @@ export const Promo = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: flex-start;
   gap: 18px;
   flex-wrap: wrap;
 `;
@@ -69,9 +71,16 @@ export const MotoRow = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   flex-wrap: wrap;
   gap: 32px;
+`;
+
+export const JoinButtonWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const Name = styled.div`
@@ -79,6 +88,7 @@ export const Name = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: flex-start;
   flex-wrap: wrap;
 `;
 
@@ -113,7 +123,6 @@ export const Letter = styled.img`
     height: 92px;
   }
 `;
-
 
 export const LetterO = styled.img`
   border: none;
@@ -349,8 +358,8 @@ export const JoinButton = styled.a<{ backgroundImg: any }>`
 
   background-position: center center;
   background-repeat: no-repeat;
-  background-size: contain;
-  aspect-ratio: 1 / 7;
+  background-size: cover;
+  height: auto;
   cursor: pointer;
 
   &:hover {
@@ -376,7 +385,6 @@ export const JoinButton = styled.a<{ backgroundImg: any }>`
     width: 280px;
   }
 `;
-
 
 export const Headercontainer = styled.div<{ gap: string }>`
   display: flex;
@@ -552,7 +560,6 @@ interface LinkProps extends NavLinkProps {
   bottomBorder: string;
 }
 
-
 export const HeaderLinkBtnInner = styled.a<{
   hoverTextColor: string;
   hoverBackgroundColor: string;
@@ -599,7 +606,6 @@ export const HeaderLinkBtnInner = styled.a<{
   }
 `;
 
-
 export const HeaderBtn = styled.a<{
   hoverTextColor: string;
   hoverBackgroundColor: string;
@@ -642,7 +648,6 @@ export const HeaderBtn = styled.a<{
     font-size: 25px;
   }
 `;
-
 
 export const Input = styled.input<{
   placeholderColor: string;
