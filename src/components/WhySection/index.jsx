@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Banner,
   CardsContainer,
@@ -20,8 +20,24 @@ import SubTitle from "../SubTitle";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
+const matcher = () => {
+  return window.matchMedia("(max-width: 993px)").matches;
+};
+
 const WhySection = () => {
   const { webColors } = useColorTheme();
+  const [isSmallScreen, setIsSmallScreen] = useState(matcher());
+
+  const checkScreenSize = () => {
+    setIsSmallScreen(matcher());
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", checkScreenSize);
+    return () => {
+      window.removeEventListener("resize", checkScreenSize);
+    };
+  }, []);
 
   useEffect(() => {
     AOS.init({
@@ -44,32 +60,38 @@ const WhySection = () => {
           <SubTitleContainer>
             <AnySizeTitle
               text="Easy to register"
-              maxWidth="25%"
               color={webColors.WhyCardText}
               alignSelf="left"
+              fontSize={isSmallScreen ? "30px" : ""}
             />
           </SubTitleContainer>
 
-          <Banner width="25%" imgSrc={EasyImg} />
+          {!isSmallScreen && <Banner width="25%" imgSrc={EasyImg} />}
 
           <WhyColumn>
             <SubTitle
               text="1. Choose your skills"
               textAlign="left"
               color={webColors.WhyCardText}
+              fontSize={isSmallScreen ? "22px" : ""}
             />
             <SubTitle
               text="2. Create your project"
               textAlign="left"
               color={webColors.WhyCardText}
+              fontSize={isSmallScreen ? "22px" : ""}
             />
             <SubTitle
               text="3. DONE"
               textAlign="left"
               color={webColors.WhyCardText}
+              fontSize={isSmallScreen ? "22px" : ""}
             />
           </WhyColumn>
+
+          {isSmallScreen && <Banner width="65%" imgSrc={EasyImg} />}
         </WhyCard>
+        
         <WhyCard
           backgroundColor={webColors.whyCardBackground}
           border={webColors.whyCardBorder}
@@ -80,19 +102,22 @@ const WhySection = () => {
               text="Team matching"
               color={webColors.WhyCardText}
               alignSelf="left"
+              fontSize={isSmallScreen ? "30px" : ""}
             />
           </SubTitleContainer>
 
-          <Banner width="25%" imgSrc={Puzzle} />
+          { !isSmallScreen && <Banner width="25%" imgSrc={Puzzle} />}
 
           <WhyTextContainer>
             <SubTitle
             text="Matchmaking for skilled players to team up and complete bounties!"
             textAlign="left"
             color={webColors.WhyCardText}
+            fontSize={isSmallScreen ? "22px" : ""}
           />
           </WhyTextContainer>
           
+          { isSmallScreen && <Banner width="55%" imgSrc={Puzzle} marginBottom="22px"/>}
         </WhyCard>
         <WhyCard
           backgroundColor={webColors.whyCardBackground}
@@ -104,10 +129,11 @@ const WhySection = () => {
               text="Project incubation"
               color={webColors.WhyCardText}
               alignSelf="left"
+              fontSize={isSmallScreen ? "30px" : ""}
             />
           </SubTitleContainer>
 
-          <Banner width="25%" imgSrc={Cash} />
+          { !isSmallScreen && <Banner width="25%" imgSrc={Cash} />}
 
           <WhyTextContainer >
 
@@ -115,9 +141,10 @@ const WhySection = () => {
             text="As well as POST-HACKATHON support for the project and opportunity to work for a sponsor company"
             textAlign="left"
             color={webColors.WhyCardText}
+            fontSize={isSmallScreen ? "22px" : ""}
           />
           </WhyTextContainer>
-          
+          { isSmallScreen && <Banner width="55%" imgSrc={Cash} />}
         </WhyCard>
       </CardsContainer>
     </WhyCardsSection>
