@@ -32,7 +32,8 @@ const AboutSection = () => {
 
   useEffect(() => {
     AOS.init({
-      // duration : 5000
+      duration : 200,
+      once: true,
     });
   }, []);
 

@@ -25,7 +25,8 @@ const WhySection = () => {
 
   useEffect(() => {
     AOS.init({
-      duration : 500
+      duration : 200,
+      once: true,
     });
   }, []);
 
