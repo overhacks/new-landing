@@ -23,7 +23,7 @@ export const HeaderContainer = styled.section<{ backgroundImg: any }>`
 
   display: flex;
   flex-direction: column;
-  gap: 8.8%;
+  gap: 5%;
   justify-content: flex-start;
   align-items: center;
 
@@ -37,45 +37,22 @@ export const MotoContainer = styled.div<{ backgroundImg: any }>`
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;
-  height: 65%;
+  height: 70%;
   z-index: 2;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
-  
-
-  /* box-shadow: 0px 98px 100px 0px rgba(30, 144, 62, 0.05) inset,
-    0px 4px 18px 0px rgba(30, 120, 82, 0.5) inset,
-    0px 1px 18px 0px rgba(185, 255, 168, 0.2) inset;
-  backdrop-filter: blur(50px); */
-
-  /* @media (max-width: 576px) {
-    height: 400px;
-  }
-  @media (min-width: 577px) {
-    height: 400px;
-  }
-  @media (min-width: 769px) {
-    height: 500px;
-  }
-  @media (min-width: 993px) {
-    height: 600px;
-  }
-  @media (min-width: 1201px) {
-    height: 700px;
-  }
-  @media (min-width: 1401px) {
-    height: 800px;
-  } */
+  position: relative;
 `;
 
 export const Moto = styled.div`
+  height: 100%;
   width: 90%;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: flex-start;
   gap: 40px;
 `;
 
@@ -84,6 +61,7 @@ export const Promo = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: flex-start;
   gap: 18px;
   flex-wrap: wrap;
 `;
@@ -93,6 +71,15 @@ export const MotoRow = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 32px;
+`;
+
+export const JoinButtonWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
   align-items: center;
 `;
 
@@ -101,16 +88,15 @@ export const Name = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: flex-start;
   flex-wrap: wrap;
 `;
 
-export const Letter = styled.div<{ background: string }>`
-  background-image: url(${(props) => props.background});
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: contain;
+export const Letter = styled.img`
   border: none;
   background-color: transparent;
+
+  object-fit: contain;
 
   @media (max-width: 576px) {
     width: 30.13px;
@@ -138,11 +124,41 @@ export const Letter = styled.div<{ background: string }>`
   }
 `;
 
-export const LetterV = styled.div<{ background: string }>`
-  background-image: url(${(props) => props.background});
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: contain;
+export const LetterO = styled.img`
+  border: none;
+  background-color: transparent;
+
+  object-fit: contain;
+  object-position: 0 50%;
+
+  @media (max-width: 576px) {
+    width: 20px;
+    height: 24.53px;
+  }
+  @media (min-width: 577px) {
+    width: 30px;
+    height: 36.8px;
+  }
+  @media (min-width: 769px) {
+    width: 37.5px;
+    height: 46px;
+  }
+  @media (min-width: 993px) {
+    width: 50px;
+    height: 61.3px;
+  }
+  @media (min-width: 1201px) {
+    width: 60px;
+    height: 73.6px;
+  }
+  @media (min-width: 1401px) {
+    width: 75px;
+    height: 92px;
+  }
+`;
+
+export const LetterV = styled.img`
+  object-fit: contain;
   border: none;
   background-color: transparent;
 
@@ -172,11 +188,8 @@ export const LetterV = styled.div<{ background: string }>`
   }
 `;
 
-export const LetterE = styled.div<{ background: string }>`
-  background-image: url(${(props) => props.background});
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: contain;
+export const LetterE = styled.img`
+  object-fit: contain;
   border: none;
   background-color: transparent;
 
@@ -206,11 +219,8 @@ export const LetterE = styled.div<{ background: string }>`
   }
 `;
 
-export const LetterH = styled.div<{ background: string }>`
-  background-image: url(${(props) => props.background});
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: contain;
+export const LetterH = styled.img`
+  object-fit: contain;
   border: none;
   background-color: transparent;
 
@@ -240,11 +250,8 @@ export const LetterH = styled.div<{ background: string }>`
   }
 `;
 
-export const LetterS = styled.div<{ background: string }>`
-  background-image: url(${(props) => props.background});
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: contain;
+export const LetterS = styled.img`
+  object-fit: contain;
   border: none;
   background-color: transparent;
 
@@ -312,7 +319,7 @@ export const Button = styled.button<{ backgroundImg: any }>`
   background-position: center center;
   background-repeat: no-repeat;
   background-size: contain;
-  
+
   cursor: pointer;
 
   &:hover {
@@ -339,7 +346,7 @@ export const Button = styled.button<{ backgroundImg: any }>`
   }
 `;
 
-export const JoinButton = styled.button<{ backgroundImg: any }>`
+export const JoinButton = styled.a<{ backgroundImg: any }>`
   background-color: transparent;
   background-image: url(${(props) => props.backgroundImg});
   border: none;
@@ -347,11 +354,12 @@ export const JoinButton = styled.button<{ backgroundImg: any }>`
   justify-content: center;
   align-items: center;
   max-height: 50px;
+  text-decoration: none;
 
   background-position: center center;
   background-repeat: no-repeat;
   background-size: contain;
-  aspect-ratio: 1 / 7;
+  height: 42px;
   cursor: pointer;
 
   &:hover {
@@ -376,21 +384,6 @@ export const JoinButton = styled.button<{ backgroundImg: any }>`
   @media (min-width: 1401px) {
     width: 280px;
   }
-`;
-
-export const DefaultMenucontainer = styled.div`
-  border-bottom: 2px solid rgb(44, 44, 48);
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 12px;
-
-  padding-left: 7%;
-  padding-right: 7%;
-  padding-top: 16px;
-  padding-bottom: 16px;
-
-  width: 86%;
 `;
 
 export const Headercontainer = styled.div<{ gap: string }>`
@@ -468,8 +461,8 @@ export const Logo = styled.div<{ background: any }>`
     height: 48px;
   }
   @media (min-width: 1401px) {
-    fwidth: 48px;
-    height: 48px;
+    width: 66px;
+    height: 66px;
   }
 `;
 
@@ -551,46 +544,6 @@ export const MenuBurgerImg = styled.div<{ fill: string; fillHover: string }>`
   }
 `;
 
-export const CancelImg = styled.div<{ fill: string; fillHover: string }>`
-  background-color: transparent;
-  height: 20px;
-  width: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  & line {
-    stroke: ${(props) => props.fill};
-  }
-  svg:hover line {
-    stroke: ${(props) => props.fillHover};
-  }
-
-  @media (max-width: 576px) {
-    height: 16px;
-    width: 16px;
-  }
-  @media (min-width: 577px) {
-    height: 16px;
-    width: 16px;
-  }
-  @media (min-width: 769px) {
-    height: 20px;
-    width: 20px;
-  }
-  @media (min-width: 993px) {
-    height: 20px;
-    width: 20px;
-  }
-  @media (min-width: 1201px) {
-    height: 20px;
-    width: 20px;
-  }
-  @media (min-width: 1401px) {
-    height: 20px;
-    width: 20px;
-  }
-`;
-
 export const LinksContainer = styled.div`
   height: 100%;
   display: flex;
@@ -606,45 +559,6 @@ interface LinkProps extends NavLinkProps {
   isActive: boolean;
   bottomBorder: string;
 }
-
-export const HeaderLinkBtn: React.FC<LinkProps> = styled(Link)`
-  display: flex;
-  text-decoration: none;
-  justify-content: center;
-  align-items: center;
-  border: none;
-  box-shadow: none;
-  background-color: transparent;
-  height: 100%;
-  padding-left: 12px;
-  padding-right: 12px;
-  color: ${(props) => props.defaultColor};
-  border-bottom: ${(props) => (props.isActive ? props.bottomBorder : "none")};
-
-  &:hover {
-    background-color: ${(props) => props.hoverBackgroundColor};
-    color: ${(props) => props.hoverTextColor};
-  }
-
-  @media (max-width: 576px) {
-    font-size: 15px;
-  }
-  @media (min-width: 577px) {
-    font-size: 15px;
-  }
-  @media (min-width: 769px) {
-    font-size: 20px;
-  }
-  @media (min-width: 993px) {
-    font-size: 20px;
-  }
-  @media (min-width: 1201px) {
-    font-size: 20px;
-  }
-  @media (min-width: 1401px) {
-    font-size: 20px;
-  }
-`;
 
 export const HeaderLinkBtnInner = styled.a<{
   hoverTextColor: string;
@@ -692,49 +606,7 @@ export const HeaderLinkBtnInner = styled.a<{
   }
 `;
 
-export const MenuLinkBtn = styled.a<{
-  defaultColor: string;
-  hoverBackgroundColor: string;
-  hoverTextColor: string;
-}>`
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  text-decoration: none;
-  justify-content: start;
-  align-items: center;
-  border: none;
-  box-shadow: none;
-  background-color: transparent;
-  height: 100%;
-  color: ${(props) => props.defaultColor};
-
-  &:hover {
-    background-color: ${(props) => props.hoverBackgroundColor};
-    color: ${(props) => props.hoverTextColor};
-  }
-
-  @media (max-width: 576px) {
-    font-size: 15px;
-  }
-  @media (min-width: 577px) {
-    font-size: 15px;
-  }
-  @media (min-width: 769px) {
-    font-size: 20px;
-  }
-  @media (min-width: 993px) {
-    font-size: 20px;
-  }
-  @media (min-width: 1201px) {
-    font-size: 20px;
-  }
-  @media (min-width: 1401px) {
-    font-size: 20px;
-  }
-`;
-
-export const HeaderBtn = styled.button<{
+export const HeaderBtn = styled.a<{
   hoverTextColor: string;
   hoverBackgroundColor: string;
   defaultColor: string;
@@ -777,51 +649,6 @@ export const HeaderBtn = styled.button<{
   }
 `;
 
-export const Line = styled.div`
-  width: 100%;
-  border-bottom: 1px solid #22fa5f;
-`;
-
-export const MenuBtn = styled.a<{
-  hoverTextColor: string;
-  hoverBackgroundColor: string;
-  defaultColor: string;
-}>`
-  width: 100%;
-  text-decoration: none;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  border: none;
-  box-shadow: none;
-  background-color: transparent;
-  color: ${(props) => props.defaultColor};
-
-  &:hover {
-    background-color: ${(props) => props.hoverBackgroundColor};
-    color: ${(props) => props.hoverTextColor};
-  }
-
-  @media (max-width: 576px) {
-    font-size: 15px;
-  }
-  @media (min-width: 577px) {
-    font-size: 15px;
-  }
-  @media (min-width: 769px) {
-    font-size: 20px;
-  }
-  @media (min-width: 993px) {
-    font-size: 20px;
-  }
-  @media (min-width: 1201px) {
-    font-size: 20px;
-  }
-  @media (min-width: 1401px) {
-    font-size: 20px;
-  }
-`;
-
 export const Input = styled.input<{
   placeholderColor: string;
   defaultColor: string;
@@ -833,7 +660,7 @@ export const Input = styled.input<{
   background: transparent;
   font-family: "PF Videotext Pro";
   color: ${(props) => props.defaultColor};
-  
+
   &::placeholder {
     color: ${(props) => props.placeholderColor};
   }
@@ -872,8 +699,6 @@ export const Input = styled.input<{
 `;
 
 export const InputContainer = styled.div`
-  width: 32%;
-  min-width: 320px;
   border: 1px solid rgba(86, 223, 83, 0.53);
 
   display: flex;
@@ -881,24 +706,24 @@ export const InputContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   gap: 16px;
-  padding: 12px 21px 9px 25px
-/* 
+  padding: 12px 21px 9px 25px;
+
   @media (max-width: 576px) {
-    height: 37px;
+    width: 100%;
   }
   @media (min-width: 577px) {
-    height: 37px;
+    width: 100%;
   }
   @media (min-width: 769px) {
-    height: 37px;
+    width: 100%;
   }
   @media (min-width: 993px) {
-    height: 37px;
+    width: 32%;
   }
   @media (min-width: 1201px) {
-    height: 37px;
+    width: 32%;
   }
   @media (min-width: 1401px) {
-    padding: 12px 21px 9px 25px
-  } */
+    width: 32%;
+  }
 `;

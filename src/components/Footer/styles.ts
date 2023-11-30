@@ -59,7 +59,7 @@ export const Column = styled.div`
     gap: 8px;
     z-index: 4;
 `
-export const FooterBtn = styled.button`
+export const FooterBtn = styled.a`
     text-decoration: none;
     border: none;
     background-color: transparent;

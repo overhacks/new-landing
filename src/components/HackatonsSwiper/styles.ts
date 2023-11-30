@@ -12,12 +12,12 @@ export const PopupWrapper = styled.div<{ boxShadow: string }>`
   border-radius: 16px;
   padding-top: 20px;
   padding-bottom: 20px;
-  padding-left: 30px;
-  padding-right: 10px;
+  padding-left: 50px;
+  padding-right: 20px;
 
   background-color: rgba(196, 196, 196, 0.01);
   box-shadow: ${(props) => props.boxShadow};
-  backdrop-filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  -webkit-backdrop-filter: blur(50px);
   backdrop-filter: blur(50px);
 
   &::-webkit-scrollbar {
@@ -25,26 +25,29 @@ export const PopupWrapper = styled.div<{ boxShadow: string }>`
   }
 
   @media (max-width: 576px) {
-    width: 90% !important;
+    width: 90%;
   }
   @media (min-width: 577px) {
-    width: 80% !important;
+    width: 80%;
   }
   @media (min-width: 769px) {
-    width: 80% !important;
+    width: 80%;
   }
   @media (min-width: 993px) {
-    width: 70% !important;
+    width: 70%;
   }
   @media (min-width: 1201px) {
-    width: 65% !important;
+    width: 65%;
   }
   @media (min-width: 1401px) {
-    width: 55% !important;
+    width: 45%;
   }
 `;
 
-export const ScrollContainer = styled.div<{ scrollStickColor: string }>`
+export const ScrollContainer = styled.div<{
+  scrollStickColor: string;
+  hoverScrollStickColor: string;
+}>`
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -55,30 +58,92 @@ export const ScrollContainer = styled.div<{ scrollStickColor: string }>`
 
   &::-webkit-scrollbar {
     width: 9px;
+    background-color: transparent;
   }
-    
 
-&::-webkit-scrollbar-thumb {
-    background-color: ${props => props.scrollStickColor};
+  &::-webkit-scrollbar-thumb {
+    background-color: ${(props) => props.scrollStickColor};
     border-radius: 3px;
     width: 9px;
-}
-    
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: ${(props) => props.hoverScrollStickColor};
+  }
 `;
 
-export const PopupInnerWrapper = styled.div`
-  padding-top: 20px;
-  padding-bottom: 20px;
-  padding-left: 30px;
-  padding-right: 40px;
+export const PopupHeaderRow = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-right: 30px;
 `;
 
-export const PopupImgContainer = styled.div`
-  width: 35%;
+export const CancelBtn = styled.button`
+  border: none;
+  background-color: transparent;
+  text-decoration: none;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.8;
+  }
+`;
+
+export const Arrow = styled.button<{
+  imgSrc: string;
+  opacity: string;
+  popupOpen: boolean;
+}>`
+  background-image: url(${(props) => props.imgSrc});
+  background-color: transparent;
+  border: none;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  aspect-ratio: 1 / 1;
+  z-index: 2;
+  opacity: ${(props) => props.opacity};
+
+  width: 64px;
+
+  &:hover {
+    opacity: ${(props) => {
+      if (props.popupOpen) {
+        return "0.2";
+      }
+      return "0.8";
+    }};
+  }
+
+  cursor: pointer;
+`;
+
+export const PopupStyledCross = styled.button<{ imgSrc: string }>`
+  background-image: url(${(props) => props.imgSrc});
+  background-color: transparent;
+  border: none;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  z-index: 2;
+
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+`;
+
+export const PopupSponsorsContainer = styled.div`
+  width: 49%;
+`;
+
+export const SponsorsWrapper = styled.div<{ backgroundColor: string }>`
   display: flex;
   flex-direction: column;
-  gap: 50px;
-  padding-right: 30px;
+
+  padding: 15px;
+  background-color: ${(props) => props.backgroundColor};
+  border-radius: 12px;
 `;
 
 export const HackatonTitleText = styled.h1<{ color: string }>`
@@ -106,24 +171,40 @@ export const ImgAndDescription = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: flex-start;
   gap: 16px;
   margin-top: 20px;
 `;
+
+export const PopupContentsWrapper = styled.div`
+  width: calc(100% - 30px);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 20px;
+  margin-right: 30px;
+`;
+
 export const Description = styled.div`
   display: flex;
   flex-direction: column;
   gap: 12px;
-  width: 60%;
+  width: 49%;
 `;
 
 export const TextWrapper = styled.div<{ backgroundColor: string }>`
   padding: 15px;
   background-color: ${(props) => props.backgroundColor};
-  border-radius: 16px;
+  border-radius: 12px;
   display: flex;
   justify-content: center;
   align-items: center;
+
+  color: #E7FFB0;
+  font-family: "PF Videotext Pro";
+  font-size: 15px;
 `;
+
 export const Banner = styled.div<{ imgSrc: string; width: string }>`
   background-image: url(${(props) => props.imgSrc});
   background-position: center right;
@@ -188,13 +269,15 @@ export const Project = styled.div<{ backgroundColor: string }>`
   align-items: center;
 `;
 export const SlideContent = styled.div<{ opacity: string; boxShadow: string }>`
-  height: 100%;
+  max-height: 50vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: flex-start;
 
   background-color: rgba(196, 196, 196, 0.01);
   box-shadow: ${(props) => props.boxShadow};
+  -webkit-backdrop-filter: blur(50px);
   backdrop-filter: blur(50px);
   border-radius: 24px;
 
@@ -246,38 +329,59 @@ export const SlideContent = styled.div<{ opacity: string; boxShadow: string }>`
 `;
 export const Info = styled.div<{ borderTop: string }>`
   width: 100%;
-  max-height: 35%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   gap: 16px;
   margin-top: 40px;
-  //2px solid rgb(44, 44, 48)
 `;
 
-export const Button = styled.button<{ backgroundImg: any }>`
-  background-color: transparent;
-  background-image: url(${(props) => props.backgroundImg});
-  border: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  max-height: 50px;
+export const CardButtonWrapper = styled.div`
   width: 33%;
+`
+
+export const Button = styled.a<{ backgroundImg: any, isFinished: boolean }>`
+  background-color: transparent;
+  text-decoration: none;
+  background-image: url(${(props) => props.backgroundImg});
+  border: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-height: 50px;
+  width: 100%;
+  height: 40px;
 
   background-position: center center;
   background-repeat: no-repeat;
   background-size: contain;
-  aspect-ratio: 1 / 5;
-  cursor: pointer;
+  cursor: ${(props) => {
+    if (props.isFinished) {
+      return("default")
+    }
+    return("pointer")
+  }};
+
+  opacity: ${(props) => {
+    if (props.isFinished) {
+      return("0.4")
+    }
+    return("1")
+  }};
 
   &:hover {
-    opacity: 0.8;
+    opacity: ${(props) => {
+    if (props.isFinished) {
+      return("0.4")
+    }
+    return("0.8")
+  }};
   }
 `;
 
-export const LargeApplyButton = styled.button<{ backgroundImg: any }>`
+export const LargeApplyButton = styled.a<{ backgroundImg: any, isFinishedCurrent: boolean }>`
   background-color: transparent;
   background-image: url(${(props) => props.backgroundImg});
   border: none;
@@ -285,33 +389,36 @@ export const LargeApplyButton = styled.button<{ backgroundImg: any }>`
   justify-content: center;
   align-items: center;
   max-height: 50px;
+  width: calc(100% - 30px);
+  margin-right: 30px;
+  text-decoration: none;
 
   background-position: center center;
   background-repeat: no-repeat;
   background-size: contain;
-  aspect-ratio: 1 / 5;
-  cursor: pointer;
+  aspect-ratio: 0.626 / 10;
 
-  &:hover {
-    opacity: 0.8;
-  }
-  @media (max-width: 576px) {
-    width: 335px;
-  }
-  @media (min-width: 577px) {
-    width: 335px;
-  }
-  @media (min-width: 769px) {
-    width: 335px;
-  }
-  @media (min-width: 993px) {
-    width: 335px;
-  }
-  @media (min-width: 1201px) {
-    width: 335px;
-  }
-  @media (min-width: 1401px) {
-    width: 335px;
+  cursor: ${(props) => {
+    if (props.isFinishedCurrent) {
+      return("default")
+    }
+    return("pointer")
+  }};
+
+  opacity: ${(props) => {
+    if (props.isFinishedCurrent) {
+      return("0.4")
+    }
+    return("1")
+  }};
+
+&:hover {
+    opacity: ${(props) => {
+    if (props.isFinishedCurrent) {
+      return("0.4")
+    }
+    return("0.6")
+  }}
   }
 `;
 
@@ -322,6 +429,8 @@ export const PopupCellsWrapper = styled.div`
   gap: 12px;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 60px;
+  margin-top: 21px;
 `;
 
 export const PopupCell = styled.div<{ imgSrc: string }>`
@@ -335,7 +444,7 @@ export const PopupCell = styled.div<{ imgSrc: string }>`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 20%;
+  width: 25%;
 
   &:hover {
     opacity: 0.65;
@@ -376,6 +485,22 @@ export const ButtonText = styled.p`
   }
 `;
 
+export const CardsPoint = styled.p`
+  font-family: "PF Videotext Pro";
+  letter-spacing: 0em;
+  color: #E7FFB0;
+  text-align: left;
+  font-size: 15px;
+`
+
+export const CardsBullet = styled.b`
+  font-family: "PF Videotext Pro";
+  letter-spacing: 0em;
+  color: #22FA5F;
+  text-align: left;
+  font-size: 15px;
+`
+
 export const Row = styled.div<{
   paddingLeft?: string;
   width: string;
@@ -384,7 +509,7 @@ export const Row = styled.div<{
   display: flex;
   flex-direction: row;
   justify-content: ${(props) => props.justifyContent};
-  align-items: center;
+  align-items: flex-start;
   /* flex-wrap: wrap; */
   gap: 22px;
   padding-left: ${(props) => props.paddingLeft || "0px"};
@@ -394,6 +519,11 @@ export const SwiperWrapper = styled.div`
   width: 100%;
   z-index: 2;
   position: relative;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 `;
 const GSwipeHackatonsStyles: any = createGlobalStyle`
 
@@ -413,19 +543,14 @@ const GSwipeHackatonsStyles: any = createGlobalStyle`
 }
 
 
-  .styled_slide {
-    height: 100%;
+  .styled_swiper_hackatons {
+    width: 72%;
+    padding-left: 5%;
+    padding-right: 5%;
+    margin-bottom: 32px;
+    position: relative;
+    overflow-y: visible;
     z-index: 3;
-  }
-
-  .styled-swiper-hacktons {
-    width: 90%;
-  padding-left: 5%;
-  padding-right: 5%;
-  margin-bottom: 32px;
-  position: relative;
-  overflow-y: visible;
-  z-index: 2;
 
   @media (max-width: 576px) {
     /* height: 250px; */

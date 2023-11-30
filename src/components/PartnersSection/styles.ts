@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 export const PartnersSectionWrapper = styled.section`
   width: 100%;
-  padding-bottom: 338px;
+  padding-bottom: 90px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -34,49 +34,85 @@ export const RowContainerBetween = styled.div`
   padding-top: 167px;
   margin-bottom: 80px;
 `;
+export const ButtonWrapper = styled.div`
+  @media (max-width: 576px) {
+    width: 100%;
+    height: 100px;
+  }
+  @media (min-width: 577px) {
+    width: 100%;
+    height: 100px;
+  }
+  @media (min-width: 769px) {
+    width: 100%;
+    height: 100px;
+  }
+  @media (min-width: 993px) {
+    width: 280px;
+    height: 50px;
+  }
+  @media (min-width: 1201px) {
+    width: 300px;
+    height: 50px;
+  }
+  @media (min-width: 1401px) {
+    width: 321px;
+    height: 50px;
+  }
 
-export const JoinButton = styled.button<{ backgroundImg: any }>`
+`
+
+
+export const ButtonText = styled.p`
+  font-family: "PF Videotext Pro";
+  letter-spacing: 0em;
+  color: #000;
+  text-align: center;
+  cursor: pointer;
+
+  @media (max-width: 576px) {
+    font-size: 26px;
+  }
+  @media (min-width: 577px) {
+    font-size: 32px;
+  }
+  @media (min-width: 769px) {
+    font-size: 32px;
+  }
+  @media (min-width: 993px) {
+    font-size: 25px;
+  }
+  @media (min-width: 1201px) {
+    font-size: 25px;
+  }
+  @media (min-width: 1401px) {
+    font-size: 25px;
+  }
+`;
+export const JoinButton = styled.a<{ backgroundImg: any }>`
   background-color: transparent;
   background-image: url(${(props) => props.backgroundImg});
   border: none;
   display: flex;
   justify-content: center;
   align-items: center;
-  max-height: 50px;
+  text-decoration: none;
 
   background-position: center center;
   background-repeat: no-repeat;
   background-size: contain;
-  aspect-ratio: 1 / 7.4;
+  width: 100%;
+  height: 100%;
   cursor: pointer;
 
   &:hover {
     opacity: 0.8;
   }
-
-  @media (max-width: 576px) {
-    width: 260px;
-  }
-  @media (min-width: 577px) {
-    width: 260px;
-  }
-  @media (min-width: 769px) {
-    width: 260px;
-  }
-  @media (min-width: 993px) {
-    width: 280px;
-  }
-  @media (min-width: 1201px) {
-    width: 300px;
-  }
-  @media (min-width: 1401px) {
-    width: 321px;
-  }
 `;
 
 
 
-export const SlideContent = styled.div<{ imgSrc: string }>`
+export const SlideContent = styled.a<{ imgSrc: string }>`
   background-image: url(${(props) => props.imgSrc});
   background-position: center right;
   background-repeat: no-repeat;
@@ -94,6 +130,27 @@ export const SlideContent = styled.div<{ imgSrc: string }>`
     opacity: 0.65;
   }
 `;
+
+export const SponsorCell = styled.a<{ imgSrc: string }>`
+  background-image: url(${(props) => props.imgSrc});
+  background-position: center right;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 25%;
+  aspect-ratio: 1 / 1;
+  border-radius: 32px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &:hover {
+    opacity: 0.65;
+  }
+`;
+
+
 export const TonanaLogo = styled.a<{ imgSrc: string }>`
   background-image: url(${(props) => props.imgSrc});
   background-position: center right;
@@ -123,6 +180,7 @@ export const Arrow = styled.button<{ imgSrc: string }>`
   background-size: contain;
   aspect-ratio: 1 / 1 ;
   z-index: 2;
+  cursor: pointer;
 
   width: 64px;
 
@@ -130,6 +188,10 @@ export const Arrow = styled.button<{ imgSrc: string }>`
     opacity: 0.8;
   }
 `;
+
+export const SubTitleContainer = styled.div`
+  max-width: 30%;
+`
 
 export const SwiperContainer = styled.div`
   width: 100%;
@@ -140,10 +202,26 @@ export const SwiperContainer = styled.div`
   padding: 0 100px 0;
 `
 
+export const SponsorsContainerRow = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 16px;
+  row-gap: 62px;
+`
+
+export const SponsorsContainerColumn = styled.div`
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+`
+
+
 const GSwipePartnersStyles: any = createGlobalStyle`
 
   .styled_slide {
-    height: 100%;
     z-index: 1;
   }
 

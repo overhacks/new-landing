@@ -14,4 +14,6 @@ export const StyledAppScreen = styled.div`
   &::-webkit-scrollbar {
   width: 0;
 }
+
+
 `;

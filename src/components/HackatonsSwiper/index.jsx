@@ -1,6 +1,6 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import { useColorTheme } from "../../hooks/useColorTheme";
-
+import { register } from "swiper/element/bundle";
 import GSwipeHackatonsStyles, {
   Banner,
   Description,
@@ -17,53 +17,34 @@ import GSwipeHackatonsStyles, {
   Info,
   Button,
   SwiperWrapper,
-  PopupImgContainer,
   HackatonTitleText,
   HackatonTitleTextWrapper,
-  PopupInnerWrapper,
   LargeApplyButton,
   ButtonText,
   LargeApplyWrapper,
   PopupCellsWrapper,
   PopupCell,
   ScrollContainer,
+  PopupHeaderRow,
+  CancelBtn,
+  Arrow,
+  PopupStyledCross,
+  PopupSponsorsContainer,
+  PopupContentsWrapper,
+  SponsorsWrapper,
+  CardsPoint,
+  CardsBullet,
+  CardButtonWrapper,
 } from "./styles";
 import AnySizeTitle from "../Title";
 import SubTitle from "../SubTitle";
 import ApplyButton from "../../assets/img/button.svg";
 import LargeApplyButtonSVG from "../../assets/img/largeApply.svg";
 
-
-import PopupCellOngoing from "../../assets/img/popCellongoing.svg";
+import ArrowLeft from "../../assets/img/arrowLeft.svg";
+import ArrowRight from "../../assets/img/arrowRight.svg";
+import PopupCross from "../../assets/img/popupCross.svg";
 import PopupCellFinished from "../../assets/img/popupCellFinished.svg";
-
-
-// import styled from "styled-components";
-
-// const PerfectScrollbarStyled = styled(PerfectScrollbar)`
-//   .ps__thumb-y {
-//     background-color: ${(props) => props.color};
-//     width: 9px;
-//     /* transition: all 150ms ease !important; */
-//     &:hover {
-//       background-color: ${(props) => props.color};
-//     }
-//   }
-//   .ps__ral-iy:focus > .ps__thumb-y,
-//   .ps__rail-y.ps--clicking .ps__thumb-y {
-//     background-color: ${(props) => props.color};
-//   }
-//   .ps__rail-y:hover,
-//   .ps__rail-y:focus,
-//   .ps .ps__rail-y.ps--clickin {
-//     background-color: white;
-//   }
-//   .ps__thumb-x {
-//     display: none;
-//   }
-
-
-// `;
 
 const matcher = () => {
   return window.matchMedia("(max-width: 1201px)").matches;
@@ -93,6 +74,7 @@ const HackatonsSwiper = ({
   }, []);
 
   const [currentHackaton, setCurrentHackaton] = useState(null);
+  const [paragraphs, setParagraphs] = useState(null);
 
   useEffect(() => {
     const updatedCurrentHackaton =
@@ -101,149 +83,191 @@ const HackatonsSwiper = ({
   }, [selectedHackatonId, hackatons]);
 
   useEffect(() => {
+    if (currentHackaton) {
+      setParagraphs(currentHackaton?.description.split(/<\/p>\s*<p>/));
+    } else {
+      setParagraphs(null);
+    }
+  }, [currentHackaton]);
+
+  console.log("currentHackaton", currentHackaton);
+  console.log("paragraphs", paragraphs);
+
+  useEffect(() => {
     const swiperContainerHackatons = swiperRef.current;
     const params = {
       centeredSlides: false,
       grabCursor: true,
-      spaceBetween: 170,
+      spaceBetween: 47,
       centeredSlidesBounds: true,
       breakpoints: {
         640: {
           slidesPerView: 1,
           centeredSlides: true,
-          spaceBetween: 150,
+          spaceBetween: 47,
         },
         768: {
           slidesPerView: 1,
           centeredSlides: true,
-          spaceBetween: 150,
+          spaceBetween: 47,
         },
         1080: {
           slidesPerView: 2,
           centeredSlides: false,
-          spaceBetween: 150,
+          spaceBetween: 47,
         },
         1280: {
           slidesPerView: 2,
           centeredSlides: false,
-          spaceBetween: 170,
+          spaceBetween: 47,
         },
       },
-      // modules: [Autoplay],
-      // autoplay: {
-      //   delay: 3500,
-      //   disableOnInteraction: false,
-      // },
+      navigation: {
+        nextEl: ".swiper-button-next-unique-hackatons",
+        prevEl: ".swiper-button-prev-unique-hackatons",
+      },
+      loop: true,
     };
 
     Object.assign(swiperContainerHackatons, params);
     swiperContainerHackatons.initialize();
   }, []);
 
+  const handlePrevious = useCallback(() => {
+    swiperRef.current.swiper.slidePrev();
+  }, [swiperRef]);
+
+  const handleNext = useCallback(() => {
+    swiperRef.current.swiper.slideNext();
+  }, [swiperRef]);
+
+  const currentDate = new Date().toISOString();
+  const isFinishedCurrent = currentHackaton?.startDate < currentDate;
+
+  const popupOpenHandle = () => {};
+
   return (
     <SwiperWrapper>
       {!isSmallScreen && currentHackaton && popupOpen && (
-        <PopupWrapper
-          boxShadow={
-            isOngoin
-              ? webColors.BoxShadowHackatonPopupOngoing
-              : webColors.BoxShadowHackatonPopupFinished
-          }
-        >
-          <ScrollContainer scrollStickColor={isOngoin ? "#6E52AA" : "#445144"}>
-            <AnySizeTitle
-              text={currentHackaton.name}
-              color="#CCFF5A"
-              alignSelf="left"
-            />
-            <ImgAndDescription>
-              <Description>
-                <TextWrapper
-                  backgroundColor={
-                    isOngoin
-                      ? webColors.ProjectWrapperOngoing
-                      : webColors.ProjectWrapperFinished
-                  }
-                >
-                  <SubTitle
-                    textAlign="left"
-                    color="#E7FFB0"
-                    text={currentHackaton.description}
-                  />
-                </TextWrapper>
+        <PopupWrapper boxShadow={webColors.BoxShadowHackatonPopupFinished}>
+          <ScrollContainer
+            scrollStickColor="#445144"
+            hoverScrollStickColor="#445144a8"
+          >
+            <PopupHeaderRow>
+              <AnySizeTitle
+                text={currentHackaton.name}
+                color="#CCFF5A"
+                alignSelf="left"
+                maxWidth="85%"
+              />
+              <CancelBtn onClick={handlePopupOpen}>
+                <PopupStyledCross imgSrc={PopupCross} />
+              </CancelBtn>
+            </PopupHeaderRow>
 
-                <PopupCellsWrapper>
-                    <PopupCell imgSrc={isOngoin ? PopupCellOngoing : PopupCellFinished} />
-                    <PopupCell imgSrc={isOngoin ? PopupCellOngoing : PopupCellFinished} />
-                    <PopupCell imgSrc={isOngoin ? PopupCellOngoing : PopupCellFinished} />
+            <PopupContentsWrapper>
+              <Description>
+                {paragraphs &&
+                  paragraphs.map((paragraph) => (
+                    <TextWrapper
+                      backgroundColor={webColors.ProjectWrapperFinished}
+                      dangerouslySetInnerHTML={{ __html: paragraph }}
+                    ></TextWrapper>
+                  ))}
+              </Description>
+
+              <PopupSponsorsContainer>
+                <SponsorsWrapper
+                  backgroundColor={webColors.ProjectWrapperFinished}
+                >
+                  <Row justifyContent="flex-start" width="100%">
+                    <SubTitle
+                      textAlign="left"
+                      color="rgba(108, 109, 108, 1)"
+                      text="Sponsors"
+                    />
+                  </Row>
+
+                  <PopupCellsWrapper>
+                    <PopupCell imgSrc={PopupCellFinished} />
+                    <PopupCell imgSrc={PopupCellFinished} />
+                    <PopupCell imgSrc={PopupCellFinished} />
                   </PopupCellsWrapper>
 
-                  <LargeApplyWrapper>
-                    <LargeApplyButton backgroundImg={LargeApplyButtonSVG}>
-                  <SubTitle
-                    fontSize="25px"
-                    fontWeight="600"
-                    textAlign="left"
-                    color="#000"
-                    text="Apply"
-                  />
-                </LargeApplyButton>
-                  </LargeApplyWrapper>
+                  <Row justifyContent="space-between" width="100%">
+                    <InfoColumn>
+                      <SubTitle
+                        textAlign="left"
+                        color="rgba(231, 255, 176, 0.51)"
+                        text="Format"
+                      />
+                      <SubTitle
+                        marginTop="18px"
+                        textAlign="left"
+                        color="#E7FFB0"
+                        text="Offline"
+                      />
+                    </InfoColumn>
+                    <InfoColumn>
+                      <SubTitle
+                        textAlign="left"
+                        color="rgba(231, 255, 176, 0.51)"
+                        text="Prize"
+                      />
+                      <SubTitle
+                        marginTop="18px"
+                        textAlign="left"
+                        color="#E7FFB0"
+                        text={currentHackaton.prize}
+                      />
+                    </InfoColumn>
+                    <InfoColumn>
+                      <SubTitle
+                        textAlign="left"
+                        color="rgba(231, 255, 176, 0.51)"
+                        text="Start Date"
+                      />
+                      <SubTitle
+                        marginTop="18px"
+                        textAlign="left"
+                        color="#E7FFB0"
+                        text={new Date(currentHackaton.startDate)
+                          .toLocaleDateString("en-US", {
+                            month: "2-digit",
+                            day: "2-digit",
+                            year: "numeric",
+                          })
+                          .replace(/\//g, ".")}
+                      />
+                    </InfoColumn>
+                  </Row>
+                </SponsorsWrapper>
+              </PopupSponsorsContainer>
+            </PopupContentsWrapper>
 
-              
-                
-              </Description>
-              <PopupImgContainer>
-                <Banner width="100%" imgSrc={currentHackaton.imageUrl} />
-                <Row justifyContent="space-between" width="100%">
-                  <InfoColumn>
-                    <SubTitle
-                      textAlign="left"
-                      color="rgba(231, 255, 176, 0.51)"
-                      text="Format"
-                    />
-                    <SubTitle
-                      marginTop="18px"
-                      textAlign="left"
-                      color="#E7FFB0"
-                      text="Offline"
-                    />
-                  </InfoColumn>
-                  <InfoColumn>
-                    <SubTitle
-                      textAlign="left"
-                      color="rgba(231, 255, 176, 0.51)"
-                      text="Prize"
-                    />
-                    <SubTitle
-                      marginTop="18px"
-                      textAlign="left"
-                      color="#E7FFB0"
-                      text={currentHackaton.prize}
-                    />
-                  </InfoColumn>
-                  <InfoColumn>
-                    <SubTitle
-                      textAlign="left"
-                      color="rgba(231, 255, 176, 0.51)"
-                      text="Start Date"
-                    />
-                    <SubTitle
-                      marginTop="18px"
-                      textAlign="left"
-                      color="#E7FFB0"
-                      text={new Date(currentHackaton.startDate)
-                        .toLocaleDateString("en-US", {
-                          month: "2-digit",
-                          day: "2-digit",
-                          year: "numeric",
-                        })
-                        .replace(/\//g, ".")}
-                    />
-                  </InfoColumn>
-                </Row>
-              </PopupImgContainer>
-            </ImgAndDescription>
+            <LargeApplyWrapper>
+              <LargeApplyButton
+                disabled={isFinishedCurrent}
+                isFinishedCurrent={isFinishedCurrent}
+                backgroundImg={LargeApplyButtonSVG}
+                href={isOngoin ? "https://t.me/OverhacksBot" : undefined}
+                onClick={(e) => {
+                  if (isOngoin) {
+                    e.stopPropagation();
+                    e.nativeEvent.stopImmediatePropagation();
+                  }
+                }}
+              >
+                <SubTitle
+                  fontSize="25px"
+                  fontWeight="600"
+                  textAlign="left"
+                  color="#000"
+                  text="Apply"
+                />
+              </LargeApplyButton>
+            </LargeApplyWrapper>
 
             {currentHackaton.projects.length !== 0 && (
               <AnySizeTitle
@@ -256,13 +280,7 @@ const HackatonsSwiper = ({
 
             <Projects>
               {currentHackaton.projects.map((project) => (
-                <Project
-                  backgroundColor={
-                    isOngoin
-                      ? webColors.ProjectWrapperOngoing
-                      : webColors.ProjectWrapperFinished
-                  }
-                >
+                <Project backgroundColor={webColors.ProjectWrapperFinished}>
                   <SubTitle
                     text="Some Project"
                     color="#CCFF5A"
@@ -291,34 +309,26 @@ const HackatonsSwiper = ({
           </ScrollContainer>
         </PopupWrapper>
       )}
+      <Arrow
+        onClick={handlePrevious}
+        imgSrc={ArrowLeft}
+        class="swiper-button-prev-unique-hackatons"
+        opacity={popupOpen && !isSmallScreen ? "0.2" : "1"}
+        popupOpen={popupOpen}
+      ></Arrow>
+
       <swiper-container
-        class="styled-swiper-hacktons"
+        class="styled_swiper_hackatons"
         init="false"
         ref={swiperRef}
       >
         {hackatons.map((slideContent, index) => (
-          <swiper-slide
-            class="styled_slide"
-            key={slideContent.id}
-            virtualIndex={index}
-          >
+          <swiper-slide class="styled_slide_hackatons" key={slideContent.id}>
             <SlideContent
-              boxShadow={
-                isOngoin
-                  ? webColors.OngoingHackatonSlide
-                  : webColors.FinishedHackatonSlide
-              }
+              boxShadow={webColors.FinishedHackatonSlide}
               opacity={popupOpen && !isSmallScreen ? "0.2" : "1"}
-              onClick={() => handlePopupOpen(slideContent.id)}
+              onClick={() => handlePopupOpen(slideContent.id, swiperRef)}
             >
-              {/* <AnySizeTitle
-                text={slideContent.name}
-                color={isOngoin ? "#E7FFB0" : "#CCFF5A"}
-                alignSelf="left"
-                
-                textOverflow="ellipsis"
-                maxWidth="100%"
-              /> */}
               <HackatonTitleTextWrapper>
                 <HackatonTitleText color={isOngoin ? "#E7FFB0" : "#CCFF5A"}>
                   {slideContent.name}
@@ -328,13 +338,10 @@ const HackatonsSwiper = ({
               <ImgAndDescription>
                 <Description>
                   {slideContent.topics.map((topic) => (
-                    <SubTitle
-                      textAlign="left"
-                      color="#E7FFB0"
-                      overflow="hidden"
-                      textOverflow="ellipsis"
-                      text={"• " + topic}
-                    />
+                    <CardsPoint>
+                      {" "}
+                      <CardsBullet>// </CardsBullet> {topic}
+                    </CardsPoint>
                   ))}
                 </Description>
                 <Banner width="33%" imgSrc={slideContent.imageUrl} />
@@ -394,14 +401,33 @@ const HackatonsSwiper = ({
                   </InfoColumn>
                 </Row>
 
-                <Button backgroundImg={ApplyButton}>
-                  <ButtonText>Apply</ButtonText>
-                </Button>
+                <CardButtonWrapper>
+                  <Button
+                    isFinished={!isOngoin}
+                    backgroundImg={ApplyButton}
+                    href={isOngoin ? "https://t.me/OverhacksBot" : undefined}
+                    onClick={(e) => {
+                      if (isOngoin) {
+                        e.stopPropagation();
+                        e.nativeEvent.stopImmediatePropagation();
+                      }
+                    }}
+                  >
+                    <ButtonText>Apply</ButtonText>
+                  </Button>
+                </CardButtonWrapper>
               </Info>
             </SlideContent>
           </swiper-slide>
         ))}
       </swiper-container>
+      <Arrow
+        onClick={handleNext}
+        imgSrc={ArrowRight}
+        class="swiper-button-next-unique-hackatons"
+        opacity={popupOpen && !isSmallScreen ? "0.2" : "1"}
+        popupOpen={popupOpen}
+      ></Arrow>
       <GSwipeHackatonsStyles />
     </SwiperWrapper>
   );
