@@ -36,25 +36,59 @@ export const RowContainerBetween = styled.div`
 `;
 export const ButtonWrapper = styled.div`
   @media (max-width: 576px) {
-    width: 260px;
+    width: 100%;
+    height: 100px;
   }
   @media (min-width: 577px) {
-    width: 260px;
+    width: 100%;
+    height: 100px;
   }
   @media (min-width: 769px) {
-    width: 260px;
+    width: 100%;
+    height: 100px;
   }
   @media (min-width: 993px) {
     width: 280px;
+    height: 50px;
   }
   @media (min-width: 1201px) {
     width: 300px;
+    height: 50px;
   }
   @media (min-width: 1401px) {
     width: 321px;
+    height: 50px;
   }
 
 `
+
+
+export const ButtonText = styled.p`
+  font-family: "PF Videotext Pro";
+  letter-spacing: 0em;
+  color: #000;
+  text-align: center;
+  cursor: pointer;
+
+  @media (max-width: 576px) {
+    font-size: 26px;
+  }
+  @media (min-width: 577px) {
+    font-size: 32px;
+  }
+  @media (min-width: 769px) {
+    font-size: 32px;
+  }
+  @media (min-width: 993px) {
+    font-size: 25px;
+  }
+  @media (min-width: 1201px) {
+    font-size: 25px;
+  }
+  @media (min-width: 1401px) {
+    font-size: 25px;
+  }
+`;
 export const JoinButton = styled.a<{ backgroundImg: any }>`
   background-color: transparent;
   background-image: url(${(props) => props.backgroundImg});
@@ -68,8 +102,7 @@ export const JoinButton = styled.a<{ backgroundImg: any }>`
   background-repeat: no-repeat;
   background-size: contain;
   width: 100%;
-  height: 50px;
-  max-height: 50px;
+  height: 100%;
   cursor: pointer;
 
   &:hover {
@@ -97,6 +130,27 @@ export const SlideContent = styled.a<{ imgSrc: string }>`
     opacity: 0.65;
   }
 `;
+
+export const SponsorCell = styled.a<{ imgSrc: string }>`
+  background-image: url(${(props) => props.imgSrc});
+  background-position: center right;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 25%;
+  aspect-ratio: 1 / 1;
+  border-radius: 32px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &:hover {
+    opacity: 0.65;
+  }
+`;
+
+
 export const TonanaLogo = styled.a<{ imgSrc: string }>`
   background-image: url(${(props) => props.imgSrc});
   background-position: center right;
@@ -147,6 +201,23 @@ export const SwiperContainer = styled.div`
   gap: 5%;
   padding: 0 100px 0;
 `
+
+export const SponsorsContainerRow = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 16px;
+  row-gap: 62px;
+`
+
+export const SponsorsContainerColumn = styled.div`
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+`
+
 
 const GSwipePartnersStyles: any = createGlobalStyle`
 

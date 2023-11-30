@@ -1,5 +1,6 @@
 import GSwipePartnersStyles, {
   Arrow,
+  ButtonText,
   ButtonWrapper,
   CubeLogo,
   JoinButton,
@@ -7,11 +8,14 @@ import GSwipePartnersStyles, {
   RowContainer,
   RowContainerBetween,
   SlideContent,
+  SponsorCell,
+  SponsorsContainerColumn,
+  SponsorsContainerRow,
   SubTitleContainer,
   SwiperContainer,
   TonanaLogo,
 } from "./styles";
-import React, { useEffect, useRef, useCallback } from "react";
+import React, { useEffect, useRef, useCallback, useState } from "react";
 import SubTitleRow from "../SubTitleRow";
 import { useColorTheme } from "../../hooks/useColorTheme";
 import PartnerBackground from "../../assets/img/partnerBackground.png";
@@ -21,24 +25,39 @@ import GrassCard from "../../assets/img/grassPartner.svg";
 import TonCard from "../../assets/img/tonPartner.svg";
 import SubTitle from "../SubTitle";
 import JoinButtonPng from "../../assets/img/JoinButton.png";
+import JoinButtonMobile from "../../assets/img/mobilePartnerButton.svg";
 import ArrowLeft from "../../assets/img/arrowLeft.svg";
 import ArrowRight from "../../assets/img/arrowRight.svg";
 
 import AOS from "aos";
 import "aos/dist/aos.css";
 
+const matcher = () => {
+  return window.matchMedia("(max-width: 993px)").matches;
+};
 
 const PartnersSection = () => {
   const swiperRef = useRef(null);
   const { webColors } = useColorTheme();
+  const [isSmallScreen, setIsSmallScreen] = useState(matcher());
+
+  const checkScreenSize = () => {
+    setIsSmallScreen(matcher());
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", checkScreenSize);
+    return () => {
+      window.removeEventListener("resize", checkScreenSize);
+    };
+  }, []);
 
   useEffect(() => {
     AOS.init({
-      duration : 200,
+      duration: 200,
       once: true,
     });
   }, []);
-
 
   useEffect(() => {
     const swiperContainer = swiperRef.current;
@@ -66,9 +85,11 @@ const PartnersSection = () => {
       },
     };
 
-    Object.assign(swiperContainer, params);
-    swiperContainer.initialize();
-  }, []);
+    if (!isSmallScreen) {
+      Object.assign(swiperContainer, params);
+      swiperContainer.initialize();
+    }
+  }, [isSmallScreen]);
 
   const handlePrevious = useCallback(() => {
     swiperRef.current.swiper.slidePrev();
@@ -84,91 +105,144 @@ const PartnersSection = () => {
         <SubTitleRow text="Our partners" />
       </RowContainer>
 
-      <SwiperContainer>
-        <Arrow
-          onClick={handlePrevious}
-          imgSrc={ArrowLeft}
-          class="swiper-button-prev-unique"
-        ></Arrow>
-        <swiper-container class="styled-swiper" init="false" ref={swiperRef}>
-          <swiper-slide class="styled_slide">
-            <SlideContent imgSrc={PartnerBackground}>
-              <TonanaLogo
-                href="https://tonana.org/"
+      {!isSmallScreen && (
+        <SwiperContainer>
+          <Arrow
+            onClick={handlePrevious}
+            imgSrc={ArrowLeft}
+            class="swiper-button-prev-unique"
+          ></Arrow>
+          <swiper-container class="styled-swiper" init="false" ref={swiperRef}>
+            <swiper-slide class="styled_slide">
+              <SlideContent imgSrc={PartnerBackground}>
+                <TonanaLogo
+                  href="https://tonana.org/"
+                  target="_blank"
+                  imgSrc={TonanaLogoSvg}
+                />
+              </SlideContent>
+            </swiper-slide>
+            <swiper-slide class="styled_slide">
+              <SlideContent imgSrc={PartnerBackground}>
+                <CubeLogo
+                  href="https://dedust.io/"
+                  target="_blank"
+                  imgSrc={Cube}
+                />
+              </SlideContent>
+            </swiper-slide>
+            <swiper-slide class="styled_slide">
+              <SlideContent
+                href="https://society.ton.org/"
                 target="_blank"
-                imgSrc={TonanaLogoSvg}
-              />
-            </SlideContent>
-          </swiper-slide>
-          <swiper-slide class="styled_slide">
-            <SlideContent imgSrc={PartnerBackground}>
-              <CubeLogo href="https://dedust.io/" target="_blank" imgSrc={Cube} />
-            </SlideContent>
-          </swiper-slide>
-          <swiper-slide class="styled_slide">
-            <SlideContent href="https://society.ton.org/" target="_blank" imgSrc={GrassCard}></SlideContent>
-          </swiper-slide>
-          <swiper-slide class="styled_slide">
-            <SlideContent href="https://ton.org/" target="_blank" imgSrc={TonCard}></SlideContent>
-          </swiper-slide>
+                imgSrc={GrassCard}
+              ></SlideContent>
+            </swiper-slide>
+            <swiper-slide class="styled_slide">
+              <SlideContent
+                href="https://ton.org/"
+                target="_blank"
+                imgSrc={TonCard}
+              ></SlideContent>
+            </swiper-slide>
 
-          <swiper-slide class="styled_slide">
-            <SlideContent imgSrc={PartnerBackground}>
+            <swiper-slide class="styled_slide">
+              <SlideContent imgSrc={PartnerBackground}>
+                <TonanaLogo
+                  href="https://tonana.org/"
+                  target="_blank"
+                  imgSrc={TonanaLogoSvg}
+                />
+              </SlideContent>
+            </swiper-slide>
+            <swiper-slide class="styled_slide">
+              <SlideContent imgSrc={PartnerBackground}>
+                <CubeLogo
+                  href="https://dedust.io/"
+                  target="_blank"
+                  imgSrc={Cube}
+                />
+              </SlideContent>
+            </swiper-slide>
+            <swiper-slide class="styled_slide">
+              <SlideContent
+                href="https://society.ton.org/"
+                target="_blank"
+                imgSrc={GrassCard}
+              ></SlideContent>
+            </swiper-slide>
+            <swiper-slide class="styled_slide">
+              <SlideContent
+                href="https://ton.org/"
+                target="_blank"
+                imgSrc={TonCard}
+              ></SlideContent>
+            </swiper-slide>
+          </swiper-container>
+          <Arrow
+            onClick={handleNext}
+            imgSrc={ArrowRight}
+            class="swiper-button-next-unique"
+          ></Arrow>
+        </SwiperContainer>
+      )}
+
+      {isSmallScreen && (
+        <SponsorsContainerColumn>
+          <SponsorsContainerRow>
+            <SponsorCell
+              href="https://ton.org/"
+              target="_blank"
+              imgSrc={TonCard}
+              data-aos="fade-down"
+            />
+            <SponsorCell
+              href="https://society.ton.org/"
+              target="_blank"
+              imgSrc={GrassCard}
+              data-aos="fade-down"
+            />
+            <SponsorCell data-aos="fade-down" imgSrc={PartnerBackground}>
+              <CubeLogo
+                href="https://dedust.io/"
+                target="_blank"
+                imgSrc={Cube}
+              />
+            </SponsorCell>
+          </SponsorsContainerRow>
+          <SponsorsContainerRow>
+            <SponsorCell data-aos="fade-down" imgSrc={PartnerBackground}>
               <TonanaLogo
                 href="https://tonana.org/"
                 target="_blank"
                 imgSrc={TonanaLogoSvg}
               />
-            </SlideContent>
-          </swiper-slide>
-          <swiper-slide class="styled_slide">
-            <SlideContent imgSrc={PartnerBackground}>
-              <CubeLogo href="https://dedust.io/" target="_blank" imgSrc={Cube} />
-            </SlideContent>
-          </swiper-slide>
-          <swiper-slide class="styled_slide">
-            <SlideContent href="https://society.ton.org/" target="_blank" imgSrc={GrassCard}></SlideContent>
-          </swiper-slide>
-          <swiper-slide class="styled_slide">
-            <SlideContent href="https://ton.org/" target="_blank" imgSrc={TonCard}></SlideContent>
-          </swiper-slide>
-        </swiper-container>
-        <Arrow
-          onClick={handleNext}
-          imgSrc={ArrowRight}
-          class="swiper-button-next-unique"
-        ></Arrow>
-      </SwiperContainer>
+            </SponsorCell>
+          </SponsorsContainerRow>
+        </SponsorsContainerColumn>
+      )}
 
       <RowContainerBetween>
-        <SubTitleContainer data-aos="fade-down">
+        { !isSmallScreen && <SubTitleContainer data-aos="fade-down">
           <SubTitle
-          text="Become our partner to be a part of trusted unity!"
-          textAlign="left"
-          fontSize="20px"
-          color="rgba(204, 255, 90, 1)"
-        />
-        </SubTitleContainer>
-        
+            text="Become our partner to be a part of trusted unity!"
+            textAlign="left"
+            fontSize="20px"
+            color="rgba(204, 255, 90, 1)"
+          />
+        </SubTitleContainer>}
 
         <ButtonWrapper>
-          <JoinButton backgroundImg={JoinButtonPng}
-        href="https://forms.gle/Exqa4wAzTi1kSzbU9"
-        target="_blank"
-        data-aos="fade-down">
-          <SubTitle
-            fontSize="25px"
-            fontWeight="600"
-            textAlign="left"
-            color="#000"
-            text="Become a partner"
-            cursor="pointer"
-          />
-        </JoinButton>
+          <JoinButton
+            backgroundImg={isSmallScreen ? JoinButtonMobile : JoinButtonPng}
+            href="https://forms.gle/Exqa4wAzTi1kSzbU9"
+            target="_blank"
+            data-aos="fade-down"
+          >
+
+            <ButtonText>Become a partner</ButtonText>
+          </JoinButton>
         </ButtonWrapper>
-        
-
-
       </RowContainerBetween>
 
       <GSwipePartnersStyles />
