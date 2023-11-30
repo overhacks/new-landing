@@ -48,9 +48,11 @@ const WhySection = () => {
 
   return (
     <WhyCardsSection>
+      
       <RowContainer data-aos="fade-right">
         <SubTitleRow text="Why do people choose Overhacks?" />
       </RowContainer>
+
       <CardsContainer>
         <WhyCard
           backgroundColor={webColors.whyCardBackground}

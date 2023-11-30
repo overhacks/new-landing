@@ -100,153 +100,159 @@ const PartnersSection = () => {
   }, [swiperRef]);
 
   return (
-    <PartnersSectionWrapper>
-      <RowContainer data-aos="fade-right">
+    <>
+    <RowContainer data-aos="fade-right">
         <SubTitleRow text="Our partners" />
       </RowContainer>
-
-      {!isSmallScreen && (
-        <SwiperContainer>
-          <Arrow
-            onClick={handlePrevious}
-            imgSrc={ArrowLeft}
-            class="swiper-button-prev-unique"
-          ></Arrow>
-          <swiper-container class="styled-swiper" init="false" ref={swiperRef}>
-            <swiper-slide class="styled_slide">
-              <SlideContent imgSrc={PartnerBackground}>
-                <TonanaLogo
-                  href="https://tonana.org/"
+      <PartnersSectionWrapper>
+        {!isSmallScreen && (
+          <SwiperContainer>
+            <Arrow
+              onClick={handlePrevious}
+              imgSrc={ArrowLeft}
+              class="swiper-button-prev-unique"
+            ></Arrow>
+            <swiper-container
+              class="styled-swiper"
+              init="false"
+              ref={swiperRef}
+            >
+              <swiper-slide class="styled_slide">
+                <SlideContent imgSrc={PartnerBackground}>
+                  <TonanaLogo
+                    href="https://tonana.org/"
+                    target="_blank"
+                    imgSrc={TonanaLogoSvg}
+                  />
+                </SlideContent>
+              </swiper-slide>
+              <swiper-slide class="styled_slide">
+                <SlideContent imgSrc={PartnerBackground}>
+                  <CubeLogo
+                    href="https://dedust.io/"
+                    target="_blank"
+                    imgSrc={Cube}
+                  />
+                </SlideContent>
+              </swiper-slide>
+              <swiper-slide class="styled_slide">
+                <SlideContent
+                  href="https://society.ton.org/"
                   target="_blank"
-                  imgSrc={TonanaLogoSvg}
-                />
-              </SlideContent>
-            </swiper-slide>
-            <swiper-slide class="styled_slide">
-              <SlideContent imgSrc={PartnerBackground}>
+                  imgSrc={GrassCard}
+                ></SlideContent>
+              </swiper-slide>
+              <swiper-slide class="styled_slide">
+                <SlideContent
+                  href="https://ton.org/"
+                  target="_blank"
+                  imgSrc={TonCard}
+                ></SlideContent>
+              </swiper-slide>
+
+              <swiper-slide class="styled_slide">
+                <SlideContent imgSrc={PartnerBackground}>
+                  <TonanaLogo
+                    href="https://tonana.org/"
+                    target="_blank"
+                    imgSrc={TonanaLogoSvg}
+                  />
+                </SlideContent>
+              </swiper-slide>
+              <swiper-slide class="styled_slide">
+                <SlideContent imgSrc={PartnerBackground}>
+                  <CubeLogo
+                    href="https://dedust.io/"
+                    target="_blank"
+                    imgSrc={Cube}
+                  />
+                </SlideContent>
+              </swiper-slide>
+              <swiper-slide class="styled_slide">
+                <SlideContent
+                  href="https://society.ton.org/"
+                  target="_blank"
+                  imgSrc={GrassCard}
+                ></SlideContent>
+              </swiper-slide>
+              <swiper-slide class="styled_slide">
+                <SlideContent
+                  href="https://ton.org/"
+                  target="_blank"
+                  imgSrc={TonCard}
+                ></SlideContent>
+              </swiper-slide>
+            </swiper-container>
+            <Arrow
+              onClick={handleNext}
+              imgSrc={ArrowRight}
+              class="swiper-button-next-unique"
+            ></Arrow>
+          </SwiperContainer>
+        )}
+
+        {isSmallScreen && (
+          <SponsorsContainerColumn>
+            <SponsorsContainerRow>
+              <SponsorCell
+                href="https://ton.org/"
+                target="_blank"
+                imgSrc={TonCard}
+                data-aos="fade-down"
+              />
+              <SponsorCell
+                href="https://society.ton.org/"
+                target="_blank"
+                imgSrc={GrassCard}
+                data-aos="fade-down"
+              />
+              <SponsorCell data-aos="fade-down" imgSrc={PartnerBackground}>
                 <CubeLogo
                   href="https://dedust.io/"
                   target="_blank"
                   imgSrc={Cube}
                 />
-              </SlideContent>
-            </swiper-slide>
-            <swiper-slide class="styled_slide">
-              <SlideContent
-                href="https://society.ton.org/"
-                target="_blank"
-                imgSrc={GrassCard}
-              ></SlideContent>
-            </swiper-slide>
-            <swiper-slide class="styled_slide">
-              <SlideContent
-                href="https://ton.org/"
-                target="_blank"
-                imgSrc={TonCard}
-              ></SlideContent>
-            </swiper-slide>
-
-            <swiper-slide class="styled_slide">
-              <SlideContent imgSrc={PartnerBackground}>
+              </SponsorCell>
+            </SponsorsContainerRow>
+            <SponsorsContainerRow>
+              <SponsorCell data-aos="fade-down" imgSrc={PartnerBackground}>
                 <TonanaLogo
                   href="https://tonana.org/"
                   target="_blank"
                   imgSrc={TonanaLogoSvg}
                 />
-              </SlideContent>
-            </swiper-slide>
-            <swiper-slide class="styled_slide">
-              <SlideContent imgSrc={PartnerBackground}>
-                <CubeLogo
-                  href="https://dedust.io/"
-                  target="_blank"
-                  imgSrc={Cube}
-                />
-              </SlideContent>
-            </swiper-slide>
-            <swiper-slide class="styled_slide">
-              <SlideContent
-                href="https://society.ton.org/"
-                target="_blank"
-                imgSrc={GrassCard}
-              ></SlideContent>
-            </swiper-slide>
-            <swiper-slide class="styled_slide">
-              <SlideContent
-                href="https://ton.org/"
-                target="_blank"
-                imgSrc={TonCard}
-              ></SlideContent>
-            </swiper-slide>
-          </swiper-container>
-          <Arrow
-            onClick={handleNext}
-            imgSrc={ArrowRight}
-            class="swiper-button-next-unique"
-          ></Arrow>
-        </SwiperContainer>
-      )}
+              </SponsorCell>
+            </SponsorsContainerRow>
+          </SponsorsContainerColumn>
+        )}
 
-      {isSmallScreen && (
-        <SponsorsContainerColumn>
-          <SponsorsContainerRow>
-            <SponsorCell
-              href="https://ton.org/"
-              target="_blank"
-              imgSrc={TonCard}
-              data-aos="fade-down"
-            />
-            <SponsorCell
-              href="https://society.ton.org/"
-              target="_blank"
-              imgSrc={GrassCard}
-              data-aos="fade-down"
-            />
-            <SponsorCell data-aos="fade-down" imgSrc={PartnerBackground}>
-              <CubeLogo
-                href="https://dedust.io/"
-                target="_blank"
-                imgSrc={Cube}
+        <RowContainerBetween>
+          {!isSmallScreen && (
+            <SubTitleContainer data-aos="fade-down">
+              <SubTitle
+                text="Become our partner to be a part of trusted unity!"
+                textAlign="left"
+                fontSize="20px"
+                color="rgba(204, 255, 90, 1)"
               />
-            </SponsorCell>
-          </SponsorsContainerRow>
-          <SponsorsContainerRow>
-            <SponsorCell data-aos="fade-down" imgSrc={PartnerBackground}>
-              <TonanaLogo
-                href="https://tonana.org/"
-                target="_blank"
-                imgSrc={TonanaLogoSvg}
-              />
-            </SponsorCell>
-          </SponsorsContainerRow>
-        </SponsorsContainerColumn>
-      )}
+            </SubTitleContainer>
+          )}
 
-      <RowContainerBetween>
-        { !isSmallScreen && <SubTitleContainer data-aos="fade-down">
-          <SubTitle
-            text="Become our partner to be a part of trusted unity!"
-            textAlign="left"
-            fontSize="20px"
-            color="rgba(204, 255, 90, 1)"
-          />
-        </SubTitleContainer>}
+          <ButtonWrapper>
+            <JoinButton
+              backgroundImg={isSmallScreen ? JoinButtonMobile : JoinButtonPng}
+              href="https://forms.gle/Exqa4wAzTi1kSzbU9"
+              target="_blank"
+              data-aos="fade-down"
+            >
+              <ButtonText>Become a partner</ButtonText>
+            </JoinButton>
+          </ButtonWrapper>
+        </RowContainerBetween>
 
-        <ButtonWrapper>
-          <JoinButton
-            backgroundImg={isSmallScreen ? JoinButtonMobile : JoinButtonPng}
-            href="https://forms.gle/Exqa4wAzTi1kSzbU9"
-            target="_blank"
-            data-aos="fade-down"
-          >
-
-            <ButtonText>Become a partner</ButtonText>
-          </JoinButton>
-        </ButtonWrapper>
-      </RowContainerBetween>
-
-      <GSwipePartnersStyles />
-    </PartnersSectionWrapper>
+        <GSwipePartnersStyles />
+      </PartnersSectionWrapper>
+    </>
   );
 };
 

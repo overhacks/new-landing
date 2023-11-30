@@ -117,7 +117,7 @@ const AboutSection = () => {
                 </AboutText>
               </TextBlock>
             </ColumnTextLarge>
-            {!isSmallScreen && <PhotoVertical imgSrc={About2} />}
+            {!isSmallScreen && <PhotoVertical data-aos="fade-up" imgSrc={About2} />}
           </SecondAboutWrapper>
         </AboutWrapper>
 
