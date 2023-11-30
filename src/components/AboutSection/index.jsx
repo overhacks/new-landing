@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import SubTitleRow from "../SubTitleRow";
 import { useColorTheme } from "../../hooks/useColorTheme";
 import AnySizeTitle from "../Title";
@@ -17,74 +17,97 @@ import {
   AboutWrapper,
   ColumnText,
   ColumnTextLarge,
+  FirstAboutWrapper,
   PhotoHorizontal,
   PhotoVertical,
   Row,
-  RowAbout,
+  SecondAboutWrapper,
   SectionWrapper,
   Spider,
   TextBlock,
   TitleWrapper,
 } from "./styles";
 
+const matcher = () => {
+  return window.matchMedia("(max-width: 993px)").matches;
+};
+
 const AboutSection = () => {
   const { webColors } = useColorTheme();
+  const [isSmallScreen, setIsSmallScreen] = useState(matcher());
+
+  const checkScreenSize = () => {
+    setIsSmallScreen(matcher());
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", checkScreenSize);
+    return () => {
+      window.removeEventListener("resize", checkScreenSize);
+    };
+  }, []);
 
   useEffect(() => {
     AOS.init({
-      duration : 200,
+      duration: 200,
       once: true,
     });
   }, []);
 
   return (
     <>
-      {/* <div data-aos="fade-right">
-        <AnySizeTitle text="AOS ANIMATION" color="#E7FFB0" alignSelf="left" />
-      </div> */}
-
       <Row data-aos="fade-right">
         <SubTitleRow text="About" />
       </Row>
 
       <SectionWrapper id="about">
         <AboutWrapper>
-          <RowAbout>
-            <PhotoHorizontal imgSrc={About1} />
+          <FirstAboutWrapper>
+            {!isSmallScreen && <PhotoHorizontal imgSrc={About1} />}
             <ColumnText>
               <AboutText data-aos="fade-up">
-                Overhacks your go-to platform for hackathons focused on
+                <AboutTextB>Overhacks</AboutTextB> your go-to{" "}
+                <AboutTextB>platform for hackathons</AboutTextB> focused on
                 empowering enthusiastic individuals to unleash creativity and
                 ace their skills and knowledge to drive innovation in{" "}
                 <AboutTextB>WEB3</AboutTextB> world!
               </AboutText>
             </ColumnText>
-          </RowAbout>
-          <RowAbout>
+            {isSmallScreen && (
+              <PhotoHorizontal imgSrc={About1} data-aos="fade-up" />
+            )}
+          </FirstAboutWrapper>
+          <SecondAboutWrapper>
             <ColumnTextLarge>
               <TextBlock>
-                <TitleWrapper data-aos="fade-down">
-                  <AnySizeTitle
-                    text="OUR MISSOIN"
-                    color="#E7FFB0"
-                    alignSelf="left"
-                  />
-                </TitleWrapper>
+                {!isSmallScreen && (
+                  <TitleWrapper data-aos="fade-down">
+                    <AnySizeTitle
+                      text="OUR MISSOIN"
+                      color="#E7FFB0"
+                      alignSelf="left"
+                    />
+                  </TitleWrapper>
+                )}
 
                 <AboutText data-aos="fade-right">
-                  Our mission to empower and inspire enthusiastic individuals,
-                  fostering their creativity and helping them excel in web3
-                  technologies through immersive hackathons
+                  <AboutTextB>Our mission</AboutTextB> to empower and inspire
+                  enthusiastic individuals, fostering their creativity and
+                  helping them excel in web3 technologies through{" "}
+                  <AboutTextB>immersive hackathons</AboutTextB>
                 </AboutText>
               </TextBlock>
+              {isSmallScreen && <PhotoHorizontal imgSrc={About2} backgroundSize="cover" data-aos="fade-up"/>}
               <TextBlock>
-                <TitleWrapper data-aos="fade-down">
-                  <AnySizeTitle
-                    text="VISION"
-                    color="#E7FFB0"
-                    alignSelf="left"
-                  />
-                </TitleWrapper>
+                {!isSmallScreen && (
+                  <TitleWrapper data-aos="fade-down">
+                    <AnySizeTitle
+                      text="VISION"
+                      color="#E7FFB0"
+                      alignSelf="left"
+                    />
+                  </TitleWrapper>
+                )}
 
                 <AboutText data-aos="fade-right">
                   We envision a world where every developer on{" "}
@@ -94,8 +117,8 @@ const AboutSection = () => {
                 </AboutText>
               </TextBlock>
             </ColumnTextLarge>
-            <PhotoVertical imgSrc={About2} />
-          </RowAbout>
+            {!isSmallScreen && <PhotoVertical imgSrc={About2} />}
+          </SecondAboutWrapper>
         </AboutWrapper>
 
         <Spider data-aos="fade-up" src={SpiderPng} />
