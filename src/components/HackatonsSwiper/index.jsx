@@ -134,7 +134,6 @@ const HackatonsSwiper = ({
         nextEl: ".swiper-button-next-unique-hackatons",
         prevEl: ".swiper-button-prev-unique-hackatons",
       },
-      loop: true,
     };
 
     const paramsMobile = {
@@ -165,6 +164,7 @@ const HackatonsSwiper = ({
         },
       },
       loop: true,
+      navigation: false,
     };
 
     if (!isSmallScreen) {
