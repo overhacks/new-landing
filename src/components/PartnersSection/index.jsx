@@ -198,15 +198,15 @@ const PartnersSection = () => {
                 href="https://ton.org/"
                 target="_blank"
                 imgSrc={TonCard}
-                data-aos="fade-down"
+                data-aos="fade-right"
               />
               <SponsorCell
                 href="https://society.ton.org/"
                 target="_blank"
                 imgSrc={GrassCard}
-                data-aos="fade-down"
+                data-aos="fade-right"
               />
-              <SponsorCell data-aos="fade-down" imgSrc={PartnerBackground}>
+              <SponsorCell data-aos="fade-right" imgSrc={PartnerBackground}>
                 <CubeLogo
                   href="https://dedust.io/"
                   target="_blank"
@@ -215,7 +215,7 @@ const PartnersSection = () => {
               </SponsorCell>
             </SponsorsContainerRow>
             <SponsorsContainerRow>
-              <SponsorCell data-aos="fade-down" imgSrc={PartnerBackground}>
+              <SponsorCell data-aos="fade-right" imgSrc={PartnerBackground}>
                 <TonanaLogo
                   href="https://tonana.org/"
                   target="_blank"
@@ -228,7 +228,7 @@ const PartnersSection = () => {
 
         <RowContainerBetween>
           {!isSmallScreen && (
-            <SubTitleContainer data-aos="fade-down">
+            <SubTitleContainer data-aos="fade-right">
               <SubTitle
                 text="Become our partner to be a part of trusted unity!"
                 textAlign="left"
@@ -243,7 +243,7 @@ const PartnersSection = () => {
               backgroundImg={isSmallScreen ? JoinButtonMobile : JoinButtonPng}
               href="https://forms.gle/Exqa4wAzTi1kSzbU9"
               target="_blank"
-              data-aos="fade-down"
+              data-aos="fade-right"
             >
               <ButtonText>Become a partner</ButtonText>
             </JoinButton>

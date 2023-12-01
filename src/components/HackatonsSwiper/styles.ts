@@ -149,7 +149,24 @@ export const PopupStyledCross = styled.button<{ imgSrc: string }>`
 `;
 
 export const PopupSponsorsContainer = styled.div`
-  width: 49%;
+  @media (max-width: 576px) {
+    width: 100%;
+  }
+  @media (min-width: 577px) {
+    width: 100%;
+  }
+  @media (min-width: 769px) {
+    width: 100%;
+  }
+  @media (min-width: 993px) {
+    width: 49%;
+  }
+  @media (min-width: 1201px) {
+    width: 49%;
+  }
+  @media (min-width: 1401px) {
+    width: 49%;
+  }
 `;
 
 export const SponsorsWrapper = styled.div<{ backgroundColor: string }>`
@@ -200,11 +217,40 @@ export const PopupContentsWrapper = styled.div`
   margin-right: 30px;
 `;
 
+export const PopupContentsWrapperMobile = styled.div`
+  width: calc(100% - 30px);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 27px;
+  margin-top: 20px;
+  margin-right: 30px;
+
+`
+
 export const Description = styled.div`
   display: flex;
   flex-direction: column;
   gap: 12px;
-  width: 49%;
+
+  @media (max-width: 576px) {
+    width: 100%;
+  }
+  @media (min-width: 577px) {
+    width: 100%;
+  }
+  @media (min-width: 769px) {
+    width: 100%;
+  }
+  @media (min-width: 993px) {
+    width: 49%;
+  }
+  @media (min-width: 1201px) {
+    width: 49%;
+  }
+  @media (min-width: 1401px) {
+    width: 49%;
+  }
 `;
 
 export const PrizePoolContainer = styled.div`
