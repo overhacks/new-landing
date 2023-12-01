@@ -49,6 +49,7 @@ import S from "../../assets/img/s.png";
 import SubTitle from "../SubTitle";
 import SignUpButton from "../../assets/img/signupBtn.svg";
 import JoinButtonPng from "../../assets/img/JoinButton.png";
+import JoinButtonMobile from "../../assets/img/JoinButtonMobile.svg";
 
 const matcher = () => {
   return window.matchMedia("(max-width: 993px)").matches;
@@ -163,7 +164,7 @@ function Header() {
         </Headercontainer>
       </DefaultHeadercontainer>
 
-      <MotoContainer backgroundImg={BackgroundMoto}>
+      <MotoContainer backgroundImg={isSmallScreen ? "none" : BackgroundMoto}>
         <Moto>
           <Promo>
             <MotoPhase>Unleash</MotoPhase>
@@ -232,7 +233,7 @@ function Header() {
 
             <JoinButtonWrapper>
               <JoinButton
-                backgroundImg={JoinButtonPng}
+                backgroundImg={isSmallScreen ? JoinButtonMobile : JoinButtonPng}
                 href="https://t.me/OverhacksBot"
               >
                 <SubTitle

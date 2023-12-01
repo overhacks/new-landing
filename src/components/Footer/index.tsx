@@ -34,7 +34,7 @@ function Footer() {
   return (
     <FooterWrapper>
       <StyledFooter>
-        {!isSmallScreen && <Logo background={LogoHacks} />}
+         {!isSmallScreen && <Logo background={LogoHacks} />}
 
         <Container>
           <Column>
@@ -126,7 +126,7 @@ function Footer() {
             </Column>
           )}
         </Container>
-        <IconsContainer>
+        { isSmallScreen && <IconsContainer>
           <IconWrapper href="https://x.com/overhackscom" target="_blank">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -208,7 +208,7 @@ function Footer() {
               />
             </svg>
           </IconWrapper>
-        </IconsContainer>
+        </IconsContainer>}
       </StyledFooter>
     </FooterWrapper>
   );

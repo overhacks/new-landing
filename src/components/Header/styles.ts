@@ -81,6 +81,31 @@ export const JoinButtonWrapper = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
+
+  @media (max-width: 576px) {
+    width: 100%;
+    height: 100px;
+  }
+  @media (min-width: 577px) {
+    width: 100%;
+    height: 100px;
+  }
+  @media (min-width: 769px) {
+    width: 100%;
+    height: 100px;
+  }
+  @media (min-width: 993px) {
+    width: 231px;
+    height: 42px;
+  }
+  @media (min-width: 1201px) {
+    width: 231px;
+    height: 42px;
+  }
+  @media (min-width: 1401px) {
+    width: 280px;
+    height: 42px;
+  }
 `;
 
 export const Name = styled.div`
@@ -353,20 +378,20 @@ export const JoinButton = styled.a<{ backgroundImg: any }>`
   display: flex;
   justify-content: center;
   align-items: center;
-  max-height: 50px;
+  width: 100%;
   text-decoration: none;
 
   background-position: center center;
   background-repeat: no-repeat;
   background-size: contain;
-  height: 42px;
+  height: 100%;
   cursor: pointer;
 
   &:hover {
     opacity: 0.8;
   }
 
-  @media (max-width: 576px) {
+  /* @media (max-width: 576px) {
     width: 231px;
   }
   @media (min-width: 577px) {
@@ -383,7 +408,7 @@ export const JoinButton = styled.a<{ backgroundImg: any }>`
   }
   @media (min-width: 1401px) {
     width: 280px;
-  }
+  } */
 `;
 
 export const Headercontainer = styled.div<{ gap: string }>`

@@ -12,9 +12,7 @@ export const StyledFooter = styled.div`
   padding-right: 5%;
 
   display: flex;
-  flex-direction: column;
   gap: 60px;
-
   position: relative;
   z-index: 3;
 
@@ -37,6 +35,31 @@ export const StyledFooter = styled.div`
     );
     z-index: 2;
     /* backdrop-filter: blur(10px); */
+  }
+
+  @media (max-width: 576px) {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  @media (min-width: 577px) {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  @media (min-width: 769px) {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  @media (min-width: 993px) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  @media (min-width: 1201px) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  @media (min-width: 1401px) {
+    flex-direction: row;
+    justify-content: space-between;
   }
 `;
 

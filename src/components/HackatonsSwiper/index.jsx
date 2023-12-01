@@ -35,10 +35,17 @@ import GSwipeHackatonsStyles, {
   CardsPoint,
   CardsBullet,
   CardButtonWrapper,
+  PrizePoolContainer,
+  PrizeText,
+  PopupPrizePoolWrapper,
+  PopupInfoRow,
+  InfoColumnPopup,
 } from "./styles";
 import AnySizeTitle from "../Title";
 import SubTitle from "../SubTitle";
 import ApplyButton from "../../assets/img/button.svg";
+import SmallApplyButton from "../../assets/img/smallApplyButton.svg";
+
 import LargeApplyButtonSVG from "../../assets/img/largeApply.svg";
 
 import ArrowLeft from "../../assets/img/arrowLeft.svg";
@@ -47,7 +54,7 @@ import PopupCross from "../../assets/img/popupCross.svg";
 import PopupCellFinished from "../../assets/img/popupCellFinished.svg";
 
 const matcher = () => {
-  return window.matchMedia("(max-width: 1201px)").matches;
+  return window.matchMedia("(max-width: 993px)").matches;
 };
 
 const HackatonsSwiper = ({
@@ -58,6 +65,7 @@ const HackatonsSwiper = ({
   selectedHackatonId,
 }) => {
   const swiperRef = useRef(null);
+  const popupRef = useRef(null);
   const { webColors } = useColorTheme();
 
   const [isSmallScreen, setIsSmallScreen] = useState(matcher());
@@ -129,8 +137,43 @@ const HackatonsSwiper = ({
       loop: true,
     };
 
-    Object.assign(swiperContainerHackatons, params);
-    swiperContainerHackatons.initialize();
+    const paramsMobile = {
+      centeredSlides: false,
+      grabCursor: true,
+      spaceBetween: 47,
+      centeredSlidesBounds: true,
+      breakpoints: {
+        640: {
+          slidesPerView: 1,
+          centeredSlides: true,
+          spaceBetween: 47,
+        },
+        768: {
+          slidesPerView: 1,
+          centeredSlides: true,
+          spaceBetween: 47,
+        },
+        1080: {
+          slidesPerView: 2,
+          centeredSlides: false,
+          spaceBetween: 47,
+        },
+        1280: {
+          slidesPerView: 2,
+          centeredSlides: false,
+          spaceBetween: 47,
+        },
+      },
+      loop: true,
+    };
+
+    if (!isSmallScreen) {
+      Object.assign(swiperContainerHackatons, params);
+      swiperContainerHackatons.initialize();
+    } else if (isSmallScreen) {
+      Object.assign(swiperContainerHackatons, paramsMobile);
+      swiperContainerHackatons.initialize();
+    }
   }, []);
 
   const handlePrevious = useCallback(() => {
@@ -144,12 +187,13 @@ const HackatonsSwiper = ({
   const currentDate = new Date().toISOString();
   const isFinishedCurrent = currentHackaton?.startDate < currentDate;
 
-  const popupOpenHandle = () => {};
-
   return (
     <SwiperWrapper>
-      {!isSmallScreen && currentHackaton && popupOpen && (
-        <PopupWrapper boxShadow={webColors.BoxShadowHackatonPopupFinished}>
+      {currentHackaton && popupOpen && (
+        <PopupWrapper
+          ref={popupRef}
+          boxShadow={webColors.BoxShadowHackatonPopupFinished}
+        >
           <ScrollContainer
             scrollStickColor="#445144"
             hoverScrollStickColor="#445144a8"
@@ -195,41 +239,39 @@ const HackatonsSwiper = ({
                     <PopupCell imgSrc={PopupCellFinished} />
                   </PopupCellsWrapper>
 
-                  <Row justifyContent="space-between" width="100%">
-                    <InfoColumn>
+                  <PopupPrizePoolWrapper>
+                    <SubTitle
+                      textAlign="left"
+                      color="#6C6D6C"
+                      text="Prize pool:"
+                    />
+                    <SubTitle
+                      textAlign="left"
+                      color="#22FA5F"
+                      text={currentHackaton.prize}
+                    />
+                  </PopupPrizePoolWrapper>
+
+                  <PopupInfoRow>
+                    <InfoColumnPopup>
                       <SubTitle
                         textAlign="left"
                         color="rgba(231, 255, 176, 0.51)"
                         text="Format"
                       />
                       <SubTitle
-                        marginTop="18px"
                         textAlign="left"
                         color="#E7FFB0"
                         text="Offline"
                       />
-                    </InfoColumn>
-                    <InfoColumn>
-                      <SubTitle
-                        textAlign="left"
-                        color="rgba(231, 255, 176, 0.51)"
-                        text="Prize"
-                      />
-                      <SubTitle
-                        marginTop="18px"
-                        textAlign="left"
-                        color="#E7FFB0"
-                        text={currentHackaton.prize}
-                      />
-                    </InfoColumn>
-                    <InfoColumn>
+                    </InfoColumnPopup>
+                    <InfoColumnPopup>
                       <SubTitle
                         textAlign="left"
                         color="rgba(231, 255, 176, 0.51)"
                         text="Start Date"
                       />
                       <SubTitle
-                        marginTop="18px"
                         textAlign="left"
                         color="#E7FFB0"
                         text={new Date(currentHackaton.startDate)
@@ -240,8 +282,8 @@ const HackatonsSwiper = ({
                           })
                           .replace(/\//g, ".")}
                       />
-                    </InfoColumn>
-                  </Row>
+                    </InfoColumnPopup>
+                  </PopupInfoRow>
                 </SponsorsWrapper>
               </PopupSponsorsContainer>
             </PopupContentsWrapper>
@@ -259,13 +301,7 @@ const HackatonsSwiper = ({
                   }
                 }}
               >
-                <SubTitle
-                  fontSize="25px"
-                  fontWeight="600"
-                  textAlign="left"
-                  color="#000"
-                  text="Apply"
-                />
+                <ButtonText>Apply</ButtonText>
               </LargeApplyButton>
             </LargeApplyWrapper>
 
@@ -309,13 +345,15 @@ const HackatonsSwiper = ({
           </ScrollContainer>
         </PopupWrapper>
       )}
-      <Arrow
-        onClick={handlePrevious}
-        imgSrc={ArrowLeft}
-        class="swiper-button-prev-unique-hackatons"
-        opacity={popupOpen && !isSmallScreen ? "0.2" : "1"}
-        popupOpen={popupOpen}
-      ></Arrow>
+      {!isSmallScreen && (
+        <Arrow
+          onClick={handlePrevious}
+          imgSrc={ArrowLeft}
+          class="swiper-button-prev-unique-hackatons"
+          opacity={popupOpen && !isSmallScreen ? "0.2" : "1"}
+          popupOpen={popupOpen}
+        ></Arrow>
+      )}
 
       <swiper-container
         class="styled_swiper_hackatons"
@@ -343,6 +381,14 @@ const HackatonsSwiper = ({
                       <CardsBullet>// </CardsBullet> {topic}
                     </CardsPoint>
                   ))}
+                  <PrizePoolContainer>
+                    <SubTitle
+                      textAlign="left"
+                      color="#6C6D6C"
+                      text="Prize pool:"
+                    />
+                    <PrizeText>{slideContent.prize}</PrizeText>
+                  </PrizePoolContainer>
                 </Description>
                 <Banner width="33%" imgSrc={slideContent.imageUrl} />
               </ImgAndDescription>
@@ -361,18 +407,7 @@ const HackatonsSwiper = ({
                       textWrap="nowrap"
                     />
                   </InfoColumn>
-                  <InfoColumn>
-                    <SubTitle textAlign="left" color="#6C6D6C" text="Prize" />
-                    <SubTitle
-                      textAlign="left"
-                      color="#E7FFB0"
-                      text={slideContent.prize}
-                      overflow="hidden"
-                      textOverflow="ellipsis"
-                      maxWidth="100%"
-                      textWrap="nowrap"
-                    />
-                  </InfoColumn>
+
                   <InfoColumn>
                     <SubTitle
                       textAlign="left"
@@ -404,7 +439,9 @@ const HackatonsSwiper = ({
                 <CardButtonWrapper>
                   <Button
                     isFinished={!isOngoin}
-                    backgroundImg={ApplyButton}
+                    backgroundImg={
+                      isSmallScreen ? SmallApplyButton : ApplyButton
+                    }
                     href={isOngoin ? "https://t.me/OverhacksBot" : undefined}
                     onClick={(e) => {
                       if (isOngoin) {
@@ -421,13 +458,15 @@ const HackatonsSwiper = ({
           </swiper-slide>
         ))}
       </swiper-container>
-      <Arrow
-        onClick={handleNext}
-        imgSrc={ArrowRight}
-        class="swiper-button-next-unique-hackatons"
-        opacity={popupOpen && !isSmallScreen ? "0.2" : "1"}
-        popupOpen={popupOpen}
-      ></Arrow>
+      {!isSmallScreen && (
+        <Arrow
+          onClick={handleNext}
+          imgSrc={ArrowRight}
+          class="swiper-button-next-unique-hackatons"
+          opacity={popupOpen && !isSmallScreen ? "0.2" : "1"}
+          popupOpen={popupOpen}
+        ></Arrow>
+      )}
       <GSwipeHackatonsStyles />
     </SwiperWrapper>
   );
