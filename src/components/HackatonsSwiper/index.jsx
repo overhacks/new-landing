@@ -164,7 +164,6 @@ const HackatonsSwiper = ({
         },
       },
       loop: true,
-      navigation: false,
     };
 
     if (!isSmallScreen) {
