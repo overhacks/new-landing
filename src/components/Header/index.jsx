@@ -37,11 +37,18 @@ import {
   LogoLinksWrapper,
   MotoInnerWrapper,
   MotoLineWrapper,
+  MotoLine,
+  PromoInnerWrapper,
+  Character,
+  SloganWrapper,
+  SloganPhrase,
+  WithText,
+  UnderNameText,
 } from "./styles";
 import LogoHacks from "../../assets/img/LOGOHACK.png";
 import { routes } from "../../constants/routes";
 import Background from "../../assets/img/backgroundHeader1.png";
-import BackgroundMoto from "../../assets/img/moto.svg";
+import CharacterSVG from "../../assets/img/character.svg";
 import O from "../../assets/img/o.png";
 import V from "../../assets/img/v.png";
 import E from "../../assets/img/e.png";
@@ -54,8 +61,7 @@ import S from "../../assets/img/s.png";
 
 import SubTitle from "../SubTitle";
 import SignUpButton from "../../assets/img/signupBtn.svg";
-import JoinButtonPng from "../../assets/img/JoinButton.png";
-import JoinButtonMobile from "../../assets/img/JoinButtonMobile.svg";
+import JoinButtonSVG from "../../assets/img/JoinButtonMobile.svg";
 
 const matcher = () => {
   return window.matchMedia("(max-width: 993px)").matches;
@@ -148,15 +154,27 @@ function Header() {
 
       <MotoContainer>
         <Moto>
-          <MotoLineWrapper></MotoLineWrapper>
+          <MotoLineWrapper>
+            <MotoLine/>
+          </MotoLineWrapper>
           <MotoInnerWrapper>
             {!isSmallScreen && (
               <>
+
                 <Promo>
+                  <PromoInnerWrapper>
+                    <Character alt="Character" src={CharacterSVG}/>
+                    <SloganWrapper>
+                      <SloganPhrase>code</SloganPhrase>
+                      <SloganPhrase>/</SloganPhrase>
+                      <SloganPhrase>earn</SloganPhrase>
+                    </SloganWrapper>
+                    <WithText>with</WithText>
+                  </PromoInnerWrapper>
                   <JoinButtonWrapper>
                     <JoinButton
                       backgroundImg={
-                        isSmallScreen ? JoinButtonMobile : JoinButtonPng
+                        JoinButtonSVG
                       }
                       href="https://t.me/OverhacksBot"
                     >
@@ -247,33 +265,7 @@ function Header() {
             )}
 
             <MotoRow>
-              <InputContainer>
-                <Input
-                  placeholderColor="rgba(61, 115, 82, 0.41)"
-                  defaultColor="rgba(86, 223, 83, 0.53)"
-                  type="search"
-                  name="search"
-                  placeholder="Search hackathons..."
-                />
-                <SearchImg
-                  fill="#5C8C40"
-                  fillHover="#0e9f37"
-                  onClick={() => {
-                    console.log("search");
-                  }}
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    x="0px"
-                    y="0px"
-                    width="16"
-                    height="16"
-                    viewBox="0 0 50 50"
-                  >
-                    <path d="M 21 3 C 11.601563 3 4 10.601563 4 20 C 4 29.398438 11.601563 37 21 37 C 24.355469 37 27.460938 36.015625 30.09375 34.34375 L 42.375 46.625 L 46.625 42.375 L 34.5 30.28125 C 36.679688 27.421875 38 23.878906 38 20 C 38 10.601563 30.398438 3 21 3 Z M 21 7 C 28.199219 7 34 12.800781 34 20 C 34 27.199219 28.199219 33 21 33 C 13.800781 33 8 27.199219 8 20 C 8 12.800781 13.800781 7 21 7 Z"></path>
-                  </svg>{" "}
-                </SearchImg>
-              </InputContainer>
+              <UnderNameText>The world’s fastes growing Hackathons organasing platform</UnderNameText>
             </MotoRow>
           </MotoInnerWrapper>
         </Moto>

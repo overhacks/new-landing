@@ -29,7 +29,7 @@ export const HeaderContainer = styled.section<{ backgroundImg: any }>`
 export const MotoContainer = styled.div<{ backgroundImg: any }>`
   background-color: transparent;
   width: 100%;
-  height: 70%;
+  height: 80%;
   z-index: 2;
   display: flex;
   flex-direction: row;
@@ -52,7 +52,7 @@ export const MotoInnerWrapper = styled.div`
   width: 90%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: flex-start;
   gap: 40px;
 `;
@@ -67,14 +67,72 @@ export const MotoLineWrapper = styled.div`
   align-items: center;
 `;
 
+export const UnderNameText = styled.p`
+  color: #29af5e;
+
+  font-family: Orbitron;
+  font-size: 27px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 30.437px;
+  letter-spacing: 2.43px;
+
+  max-width: 100%;
+`;
+
+export const MotoLine = styled.div`
+  height: 100%;
+  width: 1px;
+  opacity: 0.4;
+
+  background: linear-gradient(to bottom, rgba(34, 250, 95, 0), #22fa5f);
+`;
+
 export const Promo = styled.div`
   width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: flex-end;
   gap: 18px;
   flex-wrap: wrap;
+`;
+
+export const PromoInnerWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-end;
+`;
+export const SloganWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 12px;
+  margin-left: 18px;
+`;
+
+export const SloganPhrase = styled.p`
+  color: #2dc669;
+  font-family: Orbitron;
+  font-size: 50px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 56.365px;
+  letter-spacing: 12.5px;
+`;
+export const WithText = styled.p`
+  color: #2dc669;
+  font-family: Orbitron;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 22.546px;
+  letter-spacing: 0.6px;
+
+  margin-left: 26px;
+  margin-bottom: 6px;
 `;
 
 export const MotoRow = styled.div`
@@ -139,7 +197,7 @@ export const JoinButtonWrapper = styled.div`
     height: 42px;
   }
   @media (min-width: 1401px) {
-    width: 280px;
+    width: 231px;
     height: 42px;
   }
 `;
@@ -151,6 +209,40 @@ export const Name = styled.div`
   justify-content: space-between;
   align-items: flex-start;
   flex-wrap: wrap;
+`;
+
+export const Character = styled.img`
+  border: none;
+  background-color: transparent;
+  position: relative;
+  top: 10px;
+
+  object-fit: contain;
+
+  @media (max-width: 576px) {
+    width: 133px;
+    height: 159px;
+  }
+  @media (min-width: 577px) {
+    width: 133px;
+    height: 159px;
+  }
+  @media (min-width: 769px) {
+    width: 133px;
+    height: 159px;
+  }
+  @media (min-width: 993px) {
+    width: 133px;
+    height: 159px;
+  }
+  @media (min-width: 1201px) {
+    width: 133px;
+    height: 159px;
+  }
+  @media (min-width: 1401px) {
+    width: 133px;
+    height: 159px;
+  }
 `;
 
 export const Letter = styled.img`
