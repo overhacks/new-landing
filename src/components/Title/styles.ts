@@ -24,7 +24,7 @@ export const Title = styled.h1<Props>`
   transition: all ease 35ms;
   line-height: ${(props) => props.lineHeight || "normal"};
 
-  font-family: "Hanson";
+  font-family: "Orbitron";
   font-style: normal;
   font-weight: 700;
   line-height: normal;

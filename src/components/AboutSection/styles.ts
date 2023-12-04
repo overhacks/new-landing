@@ -33,7 +33,7 @@ export const SectionWrapper = styled.section`
 `;
 
 export const AboutHeader = styled.h1`
-  font-family: "Hanson";
+  font-family: "Orbitron";
   font-style: normal;
   font-weight: 700;
   line-height: normal;

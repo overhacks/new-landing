@@ -21,18 +21,6 @@ const Gstyles: any = createGlobalStyle<{ connectButtonColor: string }>`
 }
 
 
-@import url(https://db.onlinewebfonts.com/c/5867a44d7af9038f2d931de87ff53d58?family=Hanson);
-
-@font-face {
-    font-family: "Hanson";
-    src: url("https://db.onlinewebfonts.com/t/5867a44d7af9038f2d931de87ff53d58.eot");
-    src: url("https://db.onlinewebfonts.com/t/5867a44d7af9038f2d931de87ff53d58.eot?#iefix")format("embedded-opentype"),
-    url("https://db.onlinewebfonts.com/t/5867a44d7af9038f2d931de87ff53d58.woff2")format("woff2"),
-    url("https://db.onlinewebfonts.com/t/5867a44d7af9038f2d931de87ff53d58.woff")format("woff"),
-    url("https://db.onlinewebfonts.com/t/5867a44d7af9038f2d931de87ff53d58.ttf")format("truetype"),
-    url("https://db.onlinewebfonts.com/t/5867a44d7af9038f2d931de87ff53d58.svg#Hanson")format("svg");
-}
-
 &::-webkit-scrollbar {
     width: 9px;
     background-color: rgb(14, 14, 14);

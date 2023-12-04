@@ -9,7 +9,7 @@ export const StyledAppScreen = styled.div`
   overflow: hidden;
   position: relative;
   z-index: 1;
-  background-color: rgb(14, 14, 14);
+  background-color: #0E0E0E;
 
   &::-webkit-scrollbar {
   width: 0;

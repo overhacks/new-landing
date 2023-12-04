@@ -209,161 +209,165 @@ const HackatonsSwiper = ({
                 <PopupStyledCross imgSrc={PopupCross} />
               </CancelBtn>
             </PopupHeaderRow>
-{ !isSmallScreen && <PopupContentsWrapper>
-              <Description>
-                {paragraphs &&
-                  paragraphs.map((paragraph) => (
-                    <TextWrapper
-                      backgroundColor={webColors.ProjectWrapperFinished}
-                      dangerouslySetInnerHTML={{ __html: paragraph }}
-                    ></TextWrapper>
-                  ))}
-              </Description>
+            {!isSmallScreen && (
+              <PopupContentsWrapper>
+                <Description>
+                  {paragraphs &&
+                    paragraphs.map((paragraph) => (
+                      <TextWrapper
+                        backgroundColor={webColors.ProjectWrapperFinished}
+                        dangerouslySetInnerHTML={{ __html: paragraph }}
+                      ></TextWrapper>
+                    ))}
+                </Description>
 
-              <PopupSponsorsContainer>
-                <SponsorsWrapper
-                  backgroundColor={webColors.ProjectWrapperFinished}
-                >
-                  <Row justifyContent="flex-start" width="100%">
-                    <SubTitle
-                      textAlign="left"
-                      color="rgba(108, 109, 108, 1)"
-                      text="Sponsors"
-                    />
-                  </Row>
-
-                  <PopupCellsWrapper>
-                    <PopupCell imgSrc={PopupCellFinished} />
-                    <PopupCell imgSrc={PopupCellFinished} />
-                    <PopupCell imgSrc={PopupCellFinished} />
-                  </PopupCellsWrapper>
-
-                  <PopupPrizePoolWrapper>
-                    <SubTitle
-                      textAlign="left"
-                      color="#6C6D6C"
-                      text="Prize pool:"
-                    />
-                    <SubTitle
-                      textAlign="left"
-                      color="#22FA5F"
-                      text={currentHackaton.prize}
-                    />
-                  </PopupPrizePoolWrapper>
-
-                  <PopupInfoRow>
-                    <InfoColumnPopup>
+                <PopupSponsorsContainer>
+                  <SponsorsWrapper
+                    backgroundColor={webColors.ProjectWrapperFinished}
+                  >
+                    <Row justifyContent="flex-start" width="100%">
                       <SubTitle
                         textAlign="left"
-                        color="rgba(231, 255, 176, 0.51)"
-                        text="Format"
+                        color="rgba(108, 109, 108, 1)"
+                        text="Sponsors"
+                      />
+                    </Row>
+
+                    <PopupCellsWrapper>
+                      <PopupCell imgSrc={PopupCellFinished} />
+                      <PopupCell imgSrc={PopupCellFinished} />
+                      <PopupCell imgSrc={PopupCellFinished} />
+                    </PopupCellsWrapper>
+
+                    <PopupPrizePoolWrapper>
+                      <SubTitle
+                        textAlign="left"
+                        color="#6C6D6C"
+                        text="Prize pool:"
                       />
                       <SubTitle
                         textAlign="left"
-                        color="#E7FFB0"
-                        text="Offline"
+                        color="#22FA5F"
+                        text={currentHackaton.prize}
                       />
-                    </InfoColumnPopup>
-                    <InfoColumnPopup>
-                      <SubTitle
-                        textAlign="left"
-                        color="rgba(231, 255, 176, 0.51)"
-                        text="Start Date"
-                      />
-                      <SubTitle
-                        textAlign="left"
-                        color="#E7FFB0"
-                        text={new Date(currentHackaton.startDate)
-                          .toLocaleDateString("en-US", {
-                            month: "2-digit",
-                            day: "2-digit",
-                            year: "numeric",
-                          })
-                          .replace(/\//g, ".")}
-                      />
-                    </InfoColumnPopup>
-                  </PopupInfoRow>
-                </SponsorsWrapper>
-              </PopupSponsorsContainer>
-            </PopupContentsWrapper>}
-            { isSmallScreen && <PopupContentsWrapperMobile>
-              <Description>
-                {paragraphs &&
-                  paragraphs.map((paragraph) => (
-                    <TextWrapper
-                      backgroundColor={webColors.ProjectWrapperFinished}
-                      dangerouslySetInnerHTML={{ __html: paragraph }}
-                    ></TextWrapper>
-                  ))}
-              </Description>
+                    </PopupPrizePoolWrapper>
 
-              <PopupSponsorsContainer>
-                <SponsorsWrapper
-                  backgroundColor={webColors.ProjectWrapperFinished}
-                >
-                  <Row justifyContent="flex-start" width="100%">
-                    <SubTitle
-                      textAlign="left"
-                      color="rgba(108, 109, 108, 1)"
-                      text="Sponsors"
-                    />
-                  </Row>
+                    <PopupInfoRow>
+                      <InfoColumnPopup>
+                        <SubTitle
+                          textAlign="left"
+                          color="rgba(231, 255, 176, 0.51)"
+                          text="Format"
+                        />
+                        <SubTitle
+                          textAlign="left"
+                          color="#E7FFB0"
+                          text="Offline"
+                        />
+                      </InfoColumnPopup>
+                      <InfoColumnPopup>
+                        <SubTitle
+                          textAlign="left"
+                          color="rgba(231, 255, 176, 0.51)"
+                          text="Start Date"
+                        />
+                        <SubTitle
+                          textAlign="left"
+                          color="#E7FFB0"
+                          text={new Date(currentHackaton.startDate)
+                            .toLocaleDateString("en-US", {
+                              month: "2-digit",
+                              day: "2-digit",
+                              year: "numeric",
+                            })
+                            .replace(/\//g, ".")}
+                        />
+                      </InfoColumnPopup>
+                    </PopupInfoRow>
+                  </SponsorsWrapper>
+                </PopupSponsorsContainer>
+              </PopupContentsWrapper>
+            )}
+            {isSmallScreen && (
+              <PopupContentsWrapperMobile>
+                <Description>
+                  {paragraphs &&
+                    paragraphs.map((paragraph) => (
+                      <TextWrapper
+                        backgroundColor={webColors.ProjectWrapperFinished}
+                        dangerouslySetInnerHTML={{ __html: paragraph }}
+                      ></TextWrapper>
+                    ))}
+                </Description>
 
-                  <PopupCellsWrapper>
-                    <PopupCell imgSrc={PopupCellFinished} />
-                    <PopupCell imgSrc={PopupCellFinished} />
-                    <PopupCell imgSrc={PopupCellFinished} />
-                  </PopupCellsWrapper>
+                <PopupSponsorsContainer>
+                  <SponsorsWrapper
+                    backgroundColor={webColors.ProjectWrapperFinished}
+                  >
+                    <Row justifyContent="flex-start" width="100%">
+                      <SubTitle
+                        textAlign="left"
+                        color="rgba(108, 109, 108, 1)"
+                        text="Sponsors"
+                      />
+                    </Row>
 
-                  <PopupPrizePoolWrapper>
-                    <SubTitle
-                      textAlign="left"
-                      color="#6C6D6C"
-                      text="Prize pool:"
-                    />
-                    <SubTitle
-                      textAlign="left"
-                      color="#22FA5F"
-                      text={currentHackaton.prize}
-                      fontSize="25px"
-                    />
-                  </PopupPrizePoolWrapper>
+                    <PopupCellsWrapper>
+                      <PopupCell imgSrc={PopupCellFinished} />
+                      <PopupCell imgSrc={PopupCellFinished} />
+                      <PopupCell imgSrc={PopupCellFinished} />
+                    </PopupCellsWrapper>
 
-                  <PopupInfoRow>
-                    <InfoColumnPopup>
+                    <PopupPrizePoolWrapper>
                       <SubTitle
                         textAlign="left"
-                        color="rgba(231, 255, 176, 0.51)"
-                        text="Format"
+                        color="#6C6D6C"
+                        text="Prize pool:"
                       />
                       <SubTitle
                         textAlign="left"
-                        color="#E7FFB0"
-                        text="Offline"
+                        color="#22FA5F"
+                        text={currentHackaton.prize}
+                        fontSize="25px"
                       />
-                    </InfoColumnPopup>
-                    <InfoColumnPopup>
-                      <SubTitle
-                        textAlign="left"
-                        color="rgba(231, 255, 176, 0.51)"
-                        text="Start Date"
-                      />
-                      <SubTitle
-                        textAlign="left"
-                        color="#E7FFB0"
-                        text={new Date(currentHackaton.startDate)
-                          .toLocaleDateString("en-US", {
-                            month: "2-digit",
-                            day: "2-digit",
-                            year: "numeric",
-                          })
-                          .replace(/\//g, ".")}
-                      />
-                    </InfoColumnPopup>
-                  </PopupInfoRow>
-                </SponsorsWrapper>
-              </PopupSponsorsContainer>
-            </PopupContentsWrapperMobile> }
+                    </PopupPrizePoolWrapper>
+
+                    <PopupInfoRow>
+                      <InfoColumnPopup>
+                        <SubTitle
+                          textAlign="left"
+                          color="rgba(231, 255, 176, 0.51)"
+                          text="Format"
+                        />
+                        <SubTitle
+                          textAlign="left"
+                          color="#E7FFB0"
+                          text="Offline"
+                        />
+                      </InfoColumnPopup>
+                      <InfoColumnPopup>
+                        <SubTitle
+                          textAlign="left"
+                          color="rgba(231, 255, 176, 0.51)"
+                          text="Start Date"
+                        />
+                        <SubTitle
+                          textAlign="left"
+                          color="#E7FFB0"
+                          text={new Date(currentHackaton.startDate)
+                            .toLocaleDateString("en-US", {
+                              month: "2-digit",
+                              day: "2-digit",
+                              year: "numeric",
+                            })
+                            .replace(/\//g, ".")}
+                        />
+                      </InfoColumnPopup>
+                    </PopupInfoRow>
+                  </SponsorsWrapper>
+                </PopupSponsorsContainer>
+              </PopupContentsWrapperMobile>
+            )}
             <LargeApplyWrapper>
               <LargeApplyButton
                 disabled={isFinishedCurrent}
@@ -399,12 +403,14 @@ const HackatonsSwiper = ({
                     alignSelf="left"
                     fontSize="25px"
                   />
-                  {!isSmallScreen && <SubTitle
-                    text="project description project description project description"
-                    color="#CCFF5A"
-                    alignSelf="left"
-                    maxWidth="33%"
-                  />}
+                  {!isSmallScreen && (
+                    <SubTitle
+                      text="project description project description project description"
+                      color="#CCFF5A"
+                      alignSelf="left"
+                      maxWidth="33%"
+                    />
+                  )}
 
                   <PopupButton backgroundColor="#79C777" width="128px">
                     <SubTitle

@@ -11,15 +11,11 @@ export const DefaultHeadercontainer = styled.header<{ paddingLeft: string }>`
 `;
 
 export const HeaderContainer = styled.section<{ backgroundImg: any }>`
-  background-image: url(${(props) => props.backgroundImg});
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
   width: 100%;
   height: 100vh;
 
   z-index: 1;
-  background-color: rgb(14, 14, 14);
+  background-color: transparent;
 
   display: flex;
   flex-direction: column;
@@ -32,15 +28,11 @@ export const HeaderContainer = styled.section<{ backgroundImg: any }>`
 
 export const MotoContainer = styled.div<{ backgroundImg: any }>`
   background-color: transparent;
-  background-image: url(${(props) => props.backgroundImg});
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
   width: 100%;
   height: 70%;
   z-index: 2;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   position: relative;
@@ -48,12 +40,31 @@ export const MotoContainer = styled.div<{ backgroundImg: any }>`
 
 export const Moto = styled.div`
   height: 100%;
+  width: 85%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+`;
+
+export const MotoInnerWrapper = styled.div`
+  height: 100%;
   width: 90%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
   gap: 40px;
+`;
+
+export const MotoLineWrapper = styled.div`
+  height: 100%;
+  width: 7%;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const Promo = styled.div`
@@ -82,7 +93,7 @@ export const MobilePromoWrapper = styled.div`
   flex-direction: column;
   gap: 42px;
   margin-bottom: 60px;
-`
+`;
 export const MobileRowWrapper = styled.div`
   width: 100%;
   display: flex;
@@ -90,8 +101,7 @@ export const MobileRowWrapper = styled.div`
   gap: 16px;
   justify-content: space-between;
   align-items: flex-end;
-
-`
+`;
 
 export const PartOfName = styled.div`
   width: 75%;
@@ -101,7 +111,6 @@ export const PartOfName = styled.div`
   align-items: flex-start;
   flex-wrap: wrap;
 `;
-
 
 export const JoinButtonWrapper = styled.div`
   display: flex;
@@ -335,7 +344,7 @@ export const LetterS = styled.img`
 
 export const MotoPhase = styled.p`
   color: #3d7352;
-  font-family: "Hanson";
+  font-family: "Orbitron";
   font-style: normal;
   font-weight: 700;
   line-height: normal;
@@ -398,6 +407,25 @@ export const Button = styled.button<{ backgroundImg: any }>`
   }
 `;
 
+export const ButtonText = styled.div`
+  color: #dddbdb;
+
+  font-family: Orbitron;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.45px;
+`;
+
+export const LogoLinksWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 78px;
+  align-items: center;
+  justify-content: flex-start;
+`;
+
 export const JoinButton = styled.a<{ backgroundImg: any }>`
   background-color: transparent;
   background-image: url(${(props) => props.backgroundImg});
@@ -447,13 +475,11 @@ export const Headercontainer = styled.div<{ gap: string }>`
   flex-wrap: wrap;
 
   @media (max-width: 576px) {
-    /* height: 48px; */
     padding-top: 16px;
     padding-bottom: 16px;
     justify-content: flex-start;
   }
   @media (min-width: 577px) {
-    /* height: 48px; */
     padding-top: 24px;
     padding-bottom: 24px;
     justify-content: flex-start;
@@ -465,26 +491,23 @@ export const Headercontainer = styled.div<{ gap: string }>`
     justify-content: flex-start;
   }
   @media (min-width: 993px) {
-    /* height: 68px; */
-    padding-top: 32px;
+    padding-top: 50px;
     padding-bottom: 32px;
     justify-content: space-between;
   }
   @media (min-width: 1201px) {
-    /* height: 68px; */
-    padding-top: 32px;
+    padding-top: 50px;
     padding-bottom: 32px;
     justify-content: space-between;
   }
   @media (min-width: 1401px) {
-    /* height: 68px; */
-    padding-top: 32px;
+    padding-top: 50px;
     padding-bottom: 32px;
     justify-content: space-between;
   }
 `;
 
-export const LogoAndName = styled.div`
+export const LogoWrapper = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -498,28 +521,28 @@ export const Logo = styled.div<{ background: any }>`
   background-size: cover;
 
   @media (max-width: 576px) {
-    width: 32px;
-    height: 32px;
+    width: 30px;
+    height: 30px;
   }
   @media (min-width: 577px) {
-    width: 48px;
-    height: 48px;
+    width: 30px;
+    height: 30px;
   }
   @media (min-width: 769px) {
-    width: 48px;
-    height: 48px;
+    width: 30px;
+    height: 30px;
   }
   @media (min-width: 993px) {
-    width: 48px;
-    height: 48px;
+    width: 30px;
+    height: 30px;
   }
   @media (min-width: 1201px) {
-    width: 48px;
-    height: 48px;
+    width: 30px;
+    height: 30px;
   }
   @media (min-width: 1401px) {
-    width: 66px;
-    height: 66px;
+    width: 30px;
+    height: 30px;
   }
 `;
 
@@ -606,7 +629,7 @@ export const LinksContainer = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 42px;
+  gap: 82px;
 `;
 
 interface LinkProps extends NavLinkProps {
@@ -634,32 +657,17 @@ export const HeaderLinkBtnInner = styled.a<{
   height: 100%;
   padding-left: 12px;
   padding-right: 12px;
-  font-family: "PF Videotext Pro";
+  font-family: Orbitron;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+
   color: ${(props) => props.defaultColor};
   border-bottom: ${(props) => (props.isActive ? props.bottomBorder : "none")};
 
   &:hover {
     /* background-color: ${(props) => props.hoverBackgroundColor}; */
     color: ${(props) => props.hoverTextColor};
-  }
-
-  @media (max-width: 576px) {
-    font-size: 20px;
-  }
-  @media (min-width: 577px) {
-    font-size: 20px;
-  }
-  @media (min-width: 769px) {
-    font-size: 20px;
-  }
-  @media (min-width: 993px) {
-    font-size: 20px;
-  }
-  @media (min-width: 1201px) {
-    font-size: 25px;
-  }
-  @media (min-width: 1401px) {
-    font-size: 25px;
   }
 `;
 
@@ -678,31 +686,15 @@ export const HeaderBtn = styled.a<{
   height: 100%;
   padding-left: 12px;
   padding-right: 12px;
-  font-family: "PF Videotext Pro";
+  font-family: Orbitron;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
   color: ${(props) => props.defaultColor};
 
   &:hover {
     /* background-color: ${(props) => props.hoverBackgroundColor}; */
     color: ${(props) => props.hoverTextColor};
-  }
-
-  @media (max-width: 576px) {
-    font-size: 20px;
-  }
-  @media (min-width: 577px) {
-    font-size: 20px;
-  }
-  @media (min-width: 769px) {
-    font-size: 20px;
-  }
-  @media (min-width: 993px) {
-    font-size: 20px;
-  }
-  @media (min-width: 1201px) {
-    font-size: 25px;
-  }
-  @media (min-width: 1401px) {
-    font-size: 25px;
   }
 `;
 

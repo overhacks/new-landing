@@ -18,7 +18,7 @@ export const Container = styled.div`
     width: 0;
   }
 
-  &::before,
+  /* &::before,
   &::after {
     content: "";
     z-index: -1;
@@ -144,7 +144,7 @@ export const Container = styled.div`
       transparent 240px
     );
     }
-  }
+  } */
 `;
 
 export const Block = styled.div`

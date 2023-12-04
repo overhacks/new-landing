@@ -180,7 +180,7 @@ export const SponsorsWrapper = styled.div<{ backgroundColor: string }>`
 
 export const HackatonTitleText = styled.h1<{ color: string }>`
   font-size: 17px;
-  font-family: "Hanson";
+  font-family: "Orbitron";
   font-style: normal;
   font-weight: 700;
   line-height: normal;
