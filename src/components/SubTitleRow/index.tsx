@@ -1,5 +1,5 @@
 import React from 'react'
-import { SubTitlecontainer } from './styles'
+import { SectionSubTitle, SubTitlecontainer } from './styles'
 import SubTitle from '../SubTitle'
 
 
@@ -21,7 +21,7 @@ const SubTitleRow: React.FC<SubTitleRowProps> = ({
           >
             <path d="M14.5 0.5H1V34.5H14.5" stroke="#CCFF5A" />
           </svg>
-          <SubTitle color="#CCFF5A" text={text} fontSize="30px" />
+          <SectionSubTitle>{text}</SectionSubTitle>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="15"

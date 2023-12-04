@@ -13,36 +13,137 @@ export const Container = styled.div`
   align-items: center;
 
   position: relative;
-  
-  &::-webkit-scrollbar {
-  width: 0;
-}
 
-  &::before, &::after {
-    content: '';
+  &::-webkit-scrollbar {
+    width: 0;
+  }
+
+  &::before,
+  &::after {
+    content: "";
     z-index: -1;
     position: absolute;
     width: 100%;
     height: 100%;
-    background-size: 240px 240px; 
-    background-image: repeating-linear-gradient(
-      0deg,
-      rgba(255, 255, 255, 0.05),
-      rgba(255, 255, 255, 0.05) 2px,
-      transparent 2px,
-      transparent 240px 
-    );
+    @media (max-width: 576px) {
+      background-size: 90px 90px;
+      background-image: repeating-linear-gradient(
+        0deg,
+        rgba(255, 255, 255, 0.05),
+        rgba(255, 255, 255, 0.05) 2px,
+        transparent 2px,
+        transparent 90px
+      );
+    }
+    @media (min-width: 577px) {
+      background-size: 90px 90px;
+      background-image: repeating-linear-gradient(
+        0deg,
+        rgba(255, 255, 255, 0.05),
+        rgba(255, 255, 255, 0.05) 2px,
+        transparent 2px,
+        transparent 90px
+      );
+    }
+    @media (min-width: 769px) {
+      background-size: 120px 120px;
+      background-image: repeating-linear-gradient(
+        0deg,
+        rgba(255, 255, 255, 0.05),
+        rgba(255, 255, 255, 0.05) 2px,
+        transparent 2px,
+        transparent 120px
+      );
+    }
+    @media (min-width: 993px) {
+      background-size: 240px 240px;
+      background-image: repeating-linear-gradient(
+        0deg,
+        rgba(255, 255, 255, 0.05),
+        rgba(255, 255, 255, 0.05) 2px,
+        transparent 2px,
+        transparent 240px
+      );
+    }
+    @media (min-width: 1201px) {
+      background-size: 240px 240px;
+      background-image: repeating-linear-gradient(
+        0deg,
+        rgba(255, 255, 255, 0.05),
+        rgba(255, 255, 255, 0.05) 2px,
+        transparent 2px,
+        transparent 240px
+      );
+    }
+    @media (min-width: 1401px) {
+      background-size: 240px 240px;
+      background-image: repeating-linear-gradient(
+        0deg,
+        rgba(255, 255, 255, 0.05),
+        rgba(255, 255, 255, 0.05) 2px,
+        transparent 2px,
+        transparent 240px
+      );
+    }
   }
 
   &::after {
     z-index: -1;
-    background-image: repeating-linear-gradient(
+
+    @media (max-width: 576px) {
+      background-image: repeating-linear-gradient(
       90deg,
       rgba(255, 255, 255, 0.05),
       rgba(255, 255, 255, 0.05) 2px,
       transparent 2px,
-      transparent 240px 
+      transparent 90px
     );
+    }
+    @media (min-width: 577px) {
+      background-image: repeating-linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.05),
+      rgba(255, 255, 255, 0.05) 2px,
+      transparent 2px,
+      transparent 90px
+    );
+    }
+    @media (min-width: 769px) {
+      background-image: repeating-linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.05),
+      rgba(255, 255, 255, 0.05) 2px,
+      transparent 2px,
+      transparent 120px
+    );
+    }
+    @media (min-width: 993px) {
+      background-image: repeating-linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.05),
+      rgba(255, 255, 255, 0.05) 2px,
+      transparent 2px,
+      transparent 240px
+    );
+    }
+    @media (min-width: 1201px) {
+      background-image: repeating-linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.05),
+      rgba(255, 255, 255, 0.05) 2px,
+      transparent 2px,
+      transparent 240px
+    );
+    }
+    @media (min-width: 1401px) {
+      background-image: repeating-linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.05),
+      rgba(255, 255, 255, 0.05) 2px,
+      transparent 2px,
+      transparent 240px
+    );
+    }
   }
 `;
 
@@ -82,4 +183,3 @@ export const SubTitlecontainer = styled.div`
   gap: 5px;
   justify-content: center;
 `;
-

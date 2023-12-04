@@ -65,7 +65,7 @@ const AboutSection = () => {
           <FirstAboutWrapper>
             {!isSmallScreen && <PhotoHorizontal imgSrc={About1} />}
             <ColumnText>
-              <AboutText data-aos="fade-up">
+              <AboutText data-aos="fade-right">
                 <AboutTextB>Overhacks</AboutTextB> your go-to{" "}
                 <AboutTextB>platform for hackathons</AboutTextB> focused on
                 empowering enthusiastic individuals to unleash creativity and
@@ -74,14 +74,14 @@ const AboutSection = () => {
               </AboutText>
             </ColumnText>
             {isSmallScreen && (
-              <PhotoHorizontal imgSrc={About1} data-aos="fade-up" />
+              <PhotoHorizontal imgSrc={About1} data-aos="fade-right" />
             )}
           </FirstAboutWrapper>
           <SecondAboutWrapper>
             <ColumnTextLarge>
               <TextBlock>
                 {!isSmallScreen && (
-                  <TitleWrapper data-aos="fade-down">
+                  <TitleWrapper data-aos="fade-right">
                     <AnySizeTitle
                       text="OUR MISSOIN"
                       color="#E7FFB0"
@@ -97,10 +97,10 @@ const AboutSection = () => {
                   <AboutTextB>immersive hackathons</AboutTextB>
                 </AboutText>
               </TextBlock>
-              {isSmallScreen && <PhotoHorizontal imgSrc={About2} backgroundSize="cover" data-aos="fade-up"/>}
+              {isSmallScreen && <PhotoHorizontal imgSrc={About2} backgroundSize="cover" data-aos="fade-right"/>}
               <TextBlock>
                 {!isSmallScreen && (
-                  <TitleWrapper data-aos="fade-down">
+                  <TitleWrapper data-aos="fade-right">
                     <AnySizeTitle
                       text="VISION"
                       color="#E7FFB0"
@@ -117,11 +117,11 @@ const AboutSection = () => {
                 </AboutText>
               </TextBlock>
             </ColumnTextLarge>
-            {!isSmallScreen && <PhotoVertical imgSrc={About2} />}
+            {!isSmallScreen && <PhotoVertical data-aos="fade-right" imgSrc={About2} />}
           </SecondAboutWrapper>
         </AboutWrapper>
 
-        <Spider data-aos="fade-up" src={SpiderPng} />
+        <Spider data-aos="fade-right" src={SpiderPng} />
       </SectionWrapper>
     </>
   );

@@ -379,7 +379,7 @@ export const PhotoVertical = styled.div<{ imgSrc: string }>`
 
 export const Spider = styled.img`
   margin-top: 110px;
-  background-color: #0E0E0E;
+  /* background-color: #0E0E0E; */
 
   @media (max-width: 576px) {
     width: 90%;

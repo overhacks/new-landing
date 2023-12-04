@@ -4,10 +4,10 @@ export const PopupWrapper = styled.div<{ boxShadow: string }>`
   position: absolute;
   top: 50%;
   left: 50%;
+  max-height: 100vh;
   transform: translate(-50%, -50%);
   z-index: 999;
   background: #fff;
-  height: 85%;
 
   border-radius: 16px;
   padding-top: 20px;
@@ -25,24 +25,39 @@ export const PopupWrapper = styled.div<{ boxShadow: string }>`
   }
 
   @media (max-width: 576px) {
-    width: 90%;
+    width: 80%;
+    height: 95%;
+    
   }
   @media (min-width: 577px) {
     width: 80%;
+    height: 95%;
   }
   @media (min-width: 769px) {
     width: 80%;
+    height: 95%;
   }
   @media (min-width: 993px) {
     width: 70%;
+    height: 85%;
   }
   @media (min-width: 1201px) {
     width: 65%;
+    height: 85%;
   }
   @media (min-width: 1401px) {
     width: 45%;
+    height: 85%;
   }
 `;
+
+export const PopupPrizePoolWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 41px;
+`
 
 export const ScrollContainer = styled.div<{
   scrollStickColor: string;
@@ -134,7 +149,24 @@ export const PopupStyledCross = styled.button<{ imgSrc: string }>`
 `;
 
 export const PopupSponsorsContainer = styled.div`
-  width: 49%;
+  @media (max-width: 576px) {
+    width: 100%;
+  }
+  @media (min-width: 577px) {
+    width: 100%;
+  }
+  @media (min-width: 769px) {
+    width: 100%;
+  }
+  @media (min-width: 993px) {
+    width: 49%;
+  }
+  @media (min-width: 1201px) {
+    width: 49%;
+  }
+  @media (min-width: 1401px) {
+    width: 49%;
+  }
 `;
 
 export const SponsorsWrapper = styled.div<{ backgroundColor: string }>`
@@ -185,11 +217,73 @@ export const PopupContentsWrapper = styled.div`
   margin-right: 30px;
 `;
 
+export const PopupContentsWrapperMobile = styled.div`
+  width: calc(100% - 30px);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 27px;
+  margin-top: 20px;
+  margin-right: 30px;
+
+`
+
 export const Description = styled.div`
   display: flex;
   flex-direction: column;
   gap: 12px;
-  width: 49%;
+
+  @media (max-width: 576px) {
+    width: 100%;
+  }
+  @media (min-width: 577px) {
+    width: 100%;
+  }
+  @media (min-width: 769px) {
+    width: 100%;
+  }
+  @media (min-width: 993px) {
+    width: 49%;
+  }
+  @media (min-width: 1201px) {
+    width: 49%;
+  }
+  @media (min-width: 1401px) {
+    width: 49%;
+  }
+`;
+
+export const PrizePoolContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-start;
+`
+
+export const PrizeText = styled.p`
+  font-family: "PF Videotext Pro";
+  letter-spacing: 0em;
+  color: #22FA5F;
+  text-align: center;
+
+  @media (max-width: 576px) {
+    font-size: 22px;
+  }
+  @media (min-width: 577px) {
+    font-size: 22px;
+  }
+  @media (min-width: 769px) {
+    font-size: 22px;
+  }
+  @media (min-width: 993px) {
+    font-size: 25px;
+  }
+  @media (min-width: 1201px) {
+    font-size: 25px;
+  }
+  @media (min-width: 1401px) {
+    font-size: 25px;
+  }
 `;
 
 export const TextWrapper = styled.div<{ backgroundColor: string }>`
@@ -247,8 +341,12 @@ export const InfoColumn = styled.div`
   display: flex;
   flex-direction: column;
   gap: 4px;
-  width: 33%;
-  max-width: 33%;
+`;
+
+export const InfoColumnPopup = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 `;
 
 export const Projects = styled.div`
@@ -466,13 +564,13 @@ export const ButtonText = styled.p`
   text-align: center;
 
   @media (max-width: 576px) {
-    font-size: 20px;
+    font-size: 15px;
   }
   @media (min-width: 577px) {
-    font-size: 20px;
+    font-size: 15px;
   }
   @media (min-width: 769px) {
-    font-size: 20px;
+    font-size: 17px;
   }
   @media (min-width: 993px) {
     font-size: 17px;
@@ -515,6 +613,16 @@ export const Row = styled.div<{
   padding-left: ${(props) => props.paddingLeft || "0px"};
   width: ${(props) => props.width};
 `;
+
+export const PopupInfoRow = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 16px;
+  row-gap: 32px;
+  flex-wrap: wrap;
+`
 export const SwiperWrapper = styled.div`
   width: 100%;
   z-index: 2;
@@ -544,7 +652,6 @@ const GSwipeHackatonsStyles: any = createGlobalStyle`
 
 
   .styled_swiper_hackatons {
-    width: 72%;
     padding-left: 5%;
     padding-right: 5%;
     margin-bottom: 32px;
@@ -553,33 +660,33 @@ const GSwipeHackatonsStyles: any = createGlobalStyle`
     z-index: 3;
 
   @media (max-width: 576px) {
-    /* height: 250px; */
+    width: 85%;
     padding-top: 60px;
     padding-bottom: 60px;
   }
   @media (min-width: 577px) {
-    /* height: 250px; */
+    width: 85%;
     padding-top: 60px;
     padding-bottom: 60px;
   }
 
   @media (min-width: 769px) {
-    /* height: 250px; */
+    width: 85%;
     padding-top: 70px;
     padding-bottom: 70px;
   }
   @media (min-width: 993px) {
-    /* height: 250px; */
+    width: 72%;
     padding-top: 70px;
     padding-bottom: 70px;
   }
   @media (min-width: 1201px) {
-    /* height: 250px; */
+    width: 72%;
     padding-top: 70px;
     padding-bottom: 70px;
   }
   @media (min-width: 1401px) {
-    /* height: 350px; */
+    width: 72%;
     padding-top: 80px;
     padding-bottom: 80px;
   }

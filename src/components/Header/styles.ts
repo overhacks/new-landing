@@ -76,11 +76,63 @@ export const MotoRow = styled.div`
   gap: 32px;
 `;
 
+export const MobilePromoWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 42px;
+  margin-bottom: 60px;
+`
+export const MobileRowWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  justify-content: space-between;
+  align-items: flex-end;
+
+`
+
+export const PartOfName = styled.div`
+  width: 75%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+`;
+
+
 export const JoinButtonWrapper = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+
+  @media (max-width: 576px) {
+    width: 100%;
+    height: 100px;
+  }
+  @media (min-width: 577px) {
+    width: 100%;
+    height: 100px;
+  }
+  @media (min-width: 769px) {
+    width: 100%;
+    height: 100px;
+  }
+  @media (min-width: 993px) {
+    width: 231px;
+    height: 42px;
+  }
+  @media (min-width: 1201px) {
+    width: 231px;
+    height: 42px;
+  }
+  @media (min-width: 1401px) {
+    width: 280px;
+    height: 42px;
+  }
 `;
 
 export const Name = styled.div`
@@ -103,16 +155,16 @@ export const Letter = styled.img`
     height: 24.53px;
   }
   @media (min-width: 577px) {
-    width: 45.2px;
-    height: 36.8px;
-  }
-  @media (min-width: 769px) {
-    width: 56.5px;
-    height: 46px;
-  }
-  @media (min-width: 993px) {
     width: 75.3px;
     height: 61.3px;
+  }
+  @media (min-width: 769px) {
+    width: 90.4px;
+    height: 73.6px;
+  }
+  @media (min-width: 993px) {
+    width: 90.4px;
+    height: 73.6px;
   }
   @media (min-width: 1201px) {
     width: 90.4px;
@@ -136,16 +188,16 @@ export const LetterO = styled.img`
     height: 24.53px;
   }
   @media (min-width: 577px) {
-    width: 30px;
-    height: 36.8px;
-  }
-  @media (min-width: 769px) {
-    width: 37.5px;
-    height: 46px;
-  }
-  @media (min-width: 993px) {
     width: 50px;
     height: 61.3px;
+  }
+  @media (min-width: 769px) {
+    width: 60px;
+    height: 73.6px;
+  }
+  @media (min-width: 993px) {
+    width: 60px;
+    height: 73.6px;
   }
   @media (min-width: 1201px) {
     width: 60px;
@@ -167,16 +219,16 @@ export const LetterV = styled.img`
     height: 24.53px;
   }
   @media (min-width: 577px) {
-    width: 52.8px;
-    height: 36.8px;
-  }
-  @media (min-width: 769px) {
-    width: 66px;
-    height: 46px;
-  }
-  @media (min-width: 993px) {
     width: 88px;
     height: 61.3px;
+  }
+  @media (min-width: 769px) {
+    width: 105.6px;
+    height: 73.6px;
+  }
+  @media (min-width: 993px) {
+    width: 105.6px;
+    height: 73.6px;
   }
   @media (min-width: 1201px) {
     width: 105.6px;
@@ -198,16 +250,16 @@ export const LetterE = styled.img`
     height: 24.53px;
   }
   @media (min-width: 577px) {
-    width: 59.8px;
-    height: 36.8px;
-  }
-  @media (min-width: 769px) {
-    width: 63.5px;
-    height: 46px;
-  }
-  @media (min-width: 993px) {
     width: 84px;
     height: 61.3px;
+  }
+  @media (min-width: 769px) {
+    width: 101.6px;
+    height: 73.6px;
+  }
+  @media (min-width: 993px) {
+    width: 101.6px;
+    height: 73.6px;
   }
   @media (min-width: 1201px) {
     width: 101.6px;
@@ -229,16 +281,16 @@ export const LetterH = styled.img`
     height: 24.53px;
   }
   @media (min-width: 577px) {
-    width: 46.8px;
-    height: 36.8px;
-  }
-  @media (min-width: 769px) {
-    width: 58.5px;
-    height: 46px;
-  }
-  @media (min-width: 993px) {
     width: 78px;
     height: 61.3px;
+  }
+  @media (min-width: 769px) {
+    width: 93.6px;
+    height: 73.6px;
+  }
+  @media (min-width: 993px) {
+    width: 93.6px;
+    height: 73.6px;
   }
   @media (min-width: 1201px) {
     width: 93.6px;
@@ -260,16 +312,16 @@ export const LetterS = styled.img`
     height: 24.53px;
   }
   @media (min-width: 577px) {
-    width: 46.8px;
-    height: 36.8px;
-  }
-  @media (min-width: 769px) {
-    width: 58.5px;
-    height: 46px;
-  }
-  @media (min-width: 993px) {
     width: 78px;
     height: 61.3px;
+  }
+  @media (min-width: 769px) {
+    width: 93.6px;
+    height: 73.6px;
+  }
+  @media (min-width: 993px) {
+    width: 93.6px;
+    height: 73.6px;
   }
   @media (min-width: 1201px) {
     width: 93.6px;
@@ -353,20 +405,20 @@ export const JoinButton = styled.a<{ backgroundImg: any }>`
   display: flex;
   justify-content: center;
   align-items: center;
-  max-height: 50px;
+  width: 100%;
   text-decoration: none;
 
   background-position: center center;
   background-repeat: no-repeat;
   background-size: contain;
-  height: 42px;
+  height: 100%;
   cursor: pointer;
 
   &:hover {
     opacity: 0.8;
   }
 
-  @media (max-width: 576px) {
+  /* @media (max-width: 576px) {
     width: 231px;
   }
   @media (min-width: 577px) {
@@ -383,7 +435,7 @@ export const JoinButton = styled.a<{ backgroundImg: any }>`
   }
   @media (min-width: 1401px) {
     width: 280px;
-  }
+  } */
 `;
 
 export const Headercontainer = styled.div<{ gap: string }>`
@@ -391,7 +443,6 @@ export const Headercontainer = styled.div<{ gap: string }>`
   flex-direction: row;
   align-items: center;
   max-width: 100%;
-  justify-content: space-between;
   gap: ${(props) => props.gap};
   flex-wrap: wrap;
 
@@ -399,31 +450,37 @@ export const Headercontainer = styled.div<{ gap: string }>`
     /* height: 48px; */
     padding-top: 16px;
     padding-bottom: 16px;
+    justify-content: flex-start;
   }
   @media (min-width: 577px) {
     /* height: 48px; */
     padding-top: 24px;
     padding-bottom: 24px;
+    justify-content: flex-start;
   }
   @media (min-width: 769px) {
     /* height: 58px; */
     padding-top: 32px;
     padding-bottom: 32px;
+    justify-content: flex-start;
   }
   @media (min-width: 993px) {
     /* height: 68px; */
     padding-top: 32px;
     padding-bottom: 32px;
+    justify-content: space-between;
   }
   @media (min-width: 1201px) {
     /* height: 68px; */
     padding-top: 32px;
     padding-bottom: 32px;
+    justify-content: space-between;
   }
   @media (min-width: 1401px) {
     /* height: 68px; */
     padding-top: 32px;
     padding-bottom: 32px;
+    justify-content: space-between;
   }
 `;
 
@@ -441,16 +498,16 @@ export const Logo = styled.div<{ background: any }>`
   background-size: cover;
 
   @media (max-width: 576px) {
-    width: 24px;
-    height: 24px;
-  }
-  @media (min-width: 577px) {
-    width: 24px;
-    height: 24px;
-  }
-  @media (min-width: 769px) {
     width: 32px;
     height: 32px;
+  }
+  @media (min-width: 577px) {
+    width: 48px;
+    height: 48px;
+  }
+  @media (min-width: 769px) {
+    width: 48px;
+    height: 48px;
   }
   @media (min-width: 993px) {
     width: 48px;

@@ -10,6 +10,26 @@ export const PartnersSectionWrapper = styled.section`
   align-items: center;
   position: relative;
   z-index: 2;
+  margin-bottom: 70px;
+
+  @media (max-width: 576px) {
+    background-color: #0E0E0E;
+  }
+  @media (min-width: 577px) {
+    background-color: #0E0E0E;
+  }
+  @media (min-width: 769px) {
+    background-color: #0E0E0E;
+  }
+  @media (min-width: 993px) {
+    background-color: transparent;
+  }
+  @media (min-width: 1201px) {
+    background-color: transparent;
+  }
+  @media (min-width: 1401px) {
+    background-color: transparent;
+  }
 `;
 
 export const RowContainer = styled.div`
@@ -27,37 +47,73 @@ export const RowContainerBetween = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: flex-start;
   flex-wrap: wrap;
   gap: 18px;
   padding-left: 5%;
   padding-right: 5%;
-  padding-top: 167px;
-  margin-bottom: 80px;
+
+  @media (max-width: 576px) {
+    margin-top: 0;
+  }
+  @media (min-width: 577px) {
+    margin-top: 0;
+  }
+  @media (min-width: 769px) {
+    margin-top: 0;
+  }
+  @media (min-width: 993px) {
+    margin-top: 160px;
+  }
+  @media (min-width: 1201px) {
+    margin-top: 160px;
+  }
+  @media (min-width: 1401px) {
+    margin-top: 160px;
+  }
 `;
 export const ButtonWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &:hover {
+    opacity: 0.8;
+  }
   @media (max-width: 576px) {
     width: 100%;
     height: 100px;
+    padding-top: 41px;
+    margin-bottom: 28px;
   }
   @media (min-width: 577px) {
     width: 100%;
     height: 100px;
+    padding-top: 41px;
+    margin-bottom: 28px;
   }
   @media (min-width: 769px) {
     width: 100%;
     height: 100px;
+    padding-top: 41px;
+    margin-bottom: 28px;
   }
   @media (min-width: 993px) {
     width: 280px;
     height: 50px;
+    padding-top: 0;
+    margin-bottom: 80px;
   }
   @media (min-width: 1201px) {
     width: 300px;
     height: 50px;
+    padding-top: 0;
+    margin-bottom: 80px;
   }
   @media (min-width: 1401px) {
     width: 321px;
     height: 50px;
+    padding-top: 0;
+    margin-bottom: 80px;
   }
 
 `

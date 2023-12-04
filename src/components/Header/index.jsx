@@ -30,6 +30,9 @@ import {
   MotoPhase,
   LetterO,
   JoinButtonWrapper,
+  MobilePromoWrapper,
+  MobileRowWrapper,
+  PartOfName,
 } from "./styles";
 // import InvitePopup from 'components/newDesignComponents/invitePopup'
 import LogoHacks from "../../assets/img/LOGOHACK.png";
@@ -49,6 +52,7 @@ import S from "../../assets/img/s.png";
 import SubTitle from "../SubTitle";
 import SignUpButton from "../../assets/img/signupBtn.svg";
 import JoinButtonPng from "../../assets/img/JoinButton.png";
+import JoinButtonMobile from "../../assets/img/JoinButtonMobile.svg";
 
 const matcher = () => {
   return window.matchMedia("(max-width: 993px)").matches;
@@ -61,7 +65,7 @@ function Header() {
 
   useEffect(() => {
     AOS.init({
-      duration : 200,
+      duration: 200,
       once: true,
     });
   }, []);
@@ -88,7 +92,7 @@ function Header() {
       <DefaultHeadercontainer paddingLeft={isSmallScreen ? "2%" : "7%"}>
         <Headercontainer gap={isSmallScreen ? "4px" : "16px"}>
           <LogoAndName>
-            {isSmallScreen && (
+            {/* {isSmallScreen && (
               <MenuBurgerImg
                 onClick={() => {
                   setOpenMenu(!openMenu);
@@ -107,9 +111,9 @@ function Header() {
                   <path d="M 0 7.5 L 0 12.5 L 50 12.5 L 50 7.5 Z M 0 22.5 L 0 27.5 L 50 27.5 L 50 22.5 Z M 0 37.5 L 0 42.5 L 50 42.5 L 50 37.5 Z"></path>
                 </svg>
               </MenuBurgerImg>
-            )}
+            )} */}
 
-            <Logo background={LogoHacks} />
+            {!isSmallScreen && <Logo background={LogoHacks} />}
           </LogoAndName>
 
           {!isSmallScreen && (
@@ -160,47 +164,96 @@ function Header() {
               </LinksContainer>
             </>
           )}
+
+          {isSmallScreen && <Logo background={LogoHacks} />}
         </Headercontainer>
       </DefaultHeadercontainer>
 
-      <MotoContainer backgroundImg={BackgroundMoto}>
+      <MotoContainer backgroundImg={isSmallScreen ? "none" : BackgroundMoto}>
         <Moto>
-          <Promo>
-            <MotoPhase>Unleash</MotoPhase>
-            <MotoPhase>your</MotoPhase>
-            <MotoPhase>potential</MotoPhase>
-            <MotoPhase>with</MotoPhase>
-          </Promo>
+          {!isSmallScreen && (
+            <>
+              <Promo>
+                <MotoPhase>Unleash</MotoPhase>
+                <MotoPhase>your</MotoPhase>
+                <MotoPhase>potential</MotoPhase>
+                <MotoPhase>with</MotoPhase>
+              </Promo>
 
-          <Name>
-            <div>
-              <LetterO src={O} alt="letter O" />
-            </div>
-            <div>
-              <LetterV src={V} alt="letter V" />
-            </div>
-            <div>
-              <LetterE src={E} alt="letter E" />
-            </div>
-            <div>
-              <Letter src={R} alt="letter R" />
-            </div>
-            <div>
-              <LetterH src={H} alt="letter H" />
-            </div>
-            <div>
-              <Letter src={A} alt="letter A" />
-            </div>
-            <div>
-              <Letter src={C} alt="letter C" />
-            </div>
-            <div>
-              <Letter src={K} alt="letter K" />
-            </div>
-            <div>
-              <LetterS src={S} alt="letter S" />
-            </div>
-          </Name>
+              <Name>
+                <div>
+                  <LetterO src={O} alt="letter O" />
+                </div>
+                <div>
+                  <LetterV src={V} alt="letter V" />
+                </div>
+                <div>
+                  <LetterE src={E} alt="letter E" />
+                </div>
+                <div>
+                  <Letter src={R} alt="letter R" />
+                </div>
+                <div>
+                  <LetterH src={H} alt="letter H" />
+                </div>
+                <div>
+                  <Letter src={A} alt="letter A" />
+                </div>
+                <div>
+                  <Letter src={C} alt="letter C" />
+                </div>
+                <div>
+                  <Letter src={K} alt="letter K" />
+                </div>
+                <div>
+                  <LetterS src={S} alt="letter S" />
+                </div>
+              </Name>
+            </>
+          )}
+
+          {isSmallScreen && (
+            <MobilePromoWrapper>
+              <MobileRowWrapper>
+                <PartOfName>
+                  <div>
+                    <LetterO src={O} alt="letter O" />
+                  </div>
+                  <div>
+                    <LetterV src={V} alt="letter V" />
+                  </div>
+                  <div>
+                    <LetterE src={E} alt="letter E" />
+                  </div>
+                  <div>
+                    <Letter src={R} alt="letter R" />
+                  </div>
+                </PartOfName>
+                <MotoPhase>HACKATHON</MotoPhase>
+              </MobileRowWrapper>
+              <MobileRowWrapper>
+                <MotoPhase>platform</MotoPhase>
+                <PartOfName>
+                  <div>
+                    <LetterH src={H} alt="letter H" />
+                  </div>
+                  <div>
+                    <Letter src={A} alt="letter A" />
+                  </div>
+                  <div>
+                    <Letter src={C} alt="letter C" />
+                  </div>
+                  <div>
+                    <Letter src={K} alt="letter K" />
+                  </div>
+                  <div>
+                    <LetterS src={S} alt="letter S" />
+                  </div>
+                </PartOfName>
+              </MobileRowWrapper>
+            </MobilePromoWrapper>
+          )}
+
           <MotoRow>
             <InputContainer>
               <Input
@@ -232,7 +285,7 @@ function Header() {
 
             <JoinButtonWrapper>
               <JoinButton
-                backgroundImg={JoinButtonPng}
+                backgroundImg={isSmallScreen ? JoinButtonMobile : JoinButtonPng}
                 href="https://t.me/OverhacksBot"
               >
                 <SubTitle
