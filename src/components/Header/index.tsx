@@ -44,10 +44,11 @@ import {
   SloganPhrase,
   WithText,
   UnderNameText,
+  CharacterWrapper,
 } from "./styles";
 import LogoHacks from "../../assets/img/LOGOHACK.png";
 import { routes } from "../../constants/routes";
-import Background from "../../assets/img/backgroundHeader1.png";
+import Background from "../../assets/img/radiance.png";
 import CharacterSVG from "../../assets/img/character.svg";
 import O from "../../assets/img/o.png";
 import V from "../../assets/img/v.png";
@@ -72,6 +73,8 @@ function Header() {
 
   const [isSmallScreen, setIsSmallScreen] = useState(matcher());
 
+  const [transform, setTransform] = useState("scaleY(0)");
+
   useEffect(() => {
     AOS.init({
       duration: 200,
@@ -95,6 +98,10 @@ function Header() {
       window.removeEventListener("resize", checkScreenSize);
     };
   }, []);
+
+  useEffect(() => {
+    setTransform("scaleY(1)")
+  }, [])
 
   return (
     <HeaderContainer backgroundImg={Background}>
@@ -155,7 +162,7 @@ function Header() {
       <MotoContainer>
         <Moto>
           <MotoLineWrapper>
-            <MotoLine/>
+            <MotoLine transform={transform} />
           </MotoLineWrapper>
           <MotoInnerWrapper>
             {!isSmallScreen && (
@@ -163,7 +170,10 @@ function Header() {
 
                 <Promo>
                   <PromoInnerWrapper>
-                    <Character alt="Character" src={CharacterSVG}/>
+                    <CharacterWrapper>
+                      <Character alt="Character" src={CharacterSVG}/>
+                    </CharacterWrapper>
+                    
                     <SloganWrapper>
                       <SloganPhrase>code</SloganPhrase>
                       <SloganPhrase>/</SloganPhrase>

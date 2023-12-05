@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { NavLinkProps } from "react-router-dom";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 export const DefaultHeadercontainer = styled.header<{ paddingLeft: string }>`
   /* border-bottom: 2px solid rgb(44, 44, 48); */
@@ -14,6 +14,11 @@ export const HeaderContainer = styled.section<{ backgroundImg: any }>`
   width: 100%;
   height: 100vh;
 
+  background-image: url(${(props) => props.backgroundImg});
+  background-position: right top;
+  background-repeat: no-repeat;
+  background-size: contain;
+
   z-index: 1;
   background-color: transparent;
 
@@ -26,7 +31,7 @@ export const HeaderContainer = styled.section<{ backgroundImg: any }>`
   position: relative;
 `;
 
-export const MotoContainer = styled.div<{ backgroundImg: any }>`
+export const MotoContainer = styled.div`
   background-color: transparent;
   width: 100%;
   height: 80%;
@@ -40,7 +45,7 @@ export const MotoContainer = styled.div<{ backgroundImg: any }>`
 
 export const Moto = styled.div`
   height: 100%;
-  width: 85%;
+  width: 90%;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -80,12 +85,28 @@ export const UnderNameText = styled.p`
   max-width: 100%;
 `;
 
-export const MotoLine = styled.div`
+const drawLineAnimation = keyframes`
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+`;
+
+export const MotoLine = styled.div<{ transform: string }>`
   height: 100%;
   width: 1px;
   opacity: 0.4;
-
   background: linear-gradient(to bottom, rgba(34, 250, 95, 0), #22fa5f);
+
+  /* transform: scaleY(0); */
+  /* animation: ${drawLineAnimation} 1s ease-out; */
+  transform: ${(props) => props.transform};
+
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+
+  transform-origin: 0 0;
 `;
 
 export const Promo = styled.div`
@@ -211,13 +232,30 @@ export const Name = styled.div`
   flex-wrap: wrap;
 `;
 
-export const Character = styled.img`
-  border: none;
-  background-color: transparent;
+export const CharacterWrapper = styled.div`
   position: relative;
   top: 10px;
+  z-index: 4;
 
-  object-fit: contain;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+    border-radius: 50%;
+
+    background: radial-gradient(
+      63.11% 63.11% at 50.82% 71.31%,
+      rgba(34, 250, 95, 0) 0%,
+      rgba(34, 250, 95, 0.46) 100%
+    );
+
+    filter: blur(40px);
+    width: 61px;
+    height: 61px;
+  }
 
   @media (max-width: 576px) {
     width: 133px;
@@ -243,6 +281,16 @@ export const Character = styled.img`
     width: 133px;
     height: 159px;
   }
+`;
+
+export const Character = styled.img`
+  border: none;
+  background-color: transparent;
+  height: 100%;
+  width: 100%;
+  z-index: 5;
+
+  object-fit: contain;
 `;
 
 export const Letter = styled.img`

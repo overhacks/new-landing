@@ -99,8 +99,8 @@ const HackatonsSwiper = ({
     }
   }, [currentHackaton]);
 
-  console.log("currentHackaton", currentHackaton);
-  console.log("paragraphs", paragraphs);
+  // console.log("currentHackaton", currentHackaton);
+  // console.log("paragraphs", paragraphs);
 
   useEffect(() => {
     const swiperContainerHackatons = swiperRef.current;

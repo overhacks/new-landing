@@ -10,6 +10,7 @@ import PartnersSection from "../../components/PartnersSection";
 import AboutSection from "../../components/AboutSection";
 import HackatonsSwiper from "../../components/HackatonsSwiper";
 import { Hackathon, getHackathons } from "../../api/client";
+import HeroSection from "../../components/HeroSection";
 
 
 interface ScrollProps {
@@ -178,13 +179,15 @@ function Hackatons() {
     
   }, [hackathons]);
 
-  console.log("hackathons", hackathons);
-  console.log("ongoingHackatons", ongoingHackatons);
-  console.log("finishedHackatons", finishedHackatons);
+  // console.log("hackathons", hackathons);
+  // console.log("ongoingHackatons", ongoingHackatons);
+  // console.log("finishedHackatons", finishedHackatons);
 
   return (
     <Container>
       <Header />
+
+      <HeroSection></HeroSection>
 
       <RowContainer id="hackatons">
         <SubTitleRow text="Ongoing" />
