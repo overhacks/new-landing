@@ -68,11 +68,12 @@ export const SectionContent = styled.div`
 
   display: flex;
   flex-direction: column;
+  align-items: center;
 `;
 
 export const Label = styled.div`
   color: #b2b2b2;
-
+  align-self: flex-start;
   font-family: Silkscreen;
   font-size: 30px;
   font-style: normal;
@@ -82,7 +83,7 @@ export const Label = styled.div`
 `;
 
 export const ChooserContainer = styled.div`
-  width: 100%;
+  width: calc(100% - 22px);
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -94,7 +95,12 @@ export const ChooserContainer = styled.div`
 export const ChooseWrapper = styled.button`
   display: flex;
   flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  /* width: 45%; */
   gap: 10px;
+
+  position: relative;
 
   text-decoration: none;
   border: none;
@@ -119,3 +125,4 @@ export const ChooseText = styled.div<{ color: string }>`
   line-height: 33.819px;
   letter-spacing: 7.5px;
 `;
+
