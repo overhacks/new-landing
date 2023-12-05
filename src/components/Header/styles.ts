@@ -96,7 +96,7 @@ const drawLineAnimation = keyframes`
 
 export const MotoLine = styled.div<{ transform: string }>`
   height: 100%;
-  width: 1px;
+  width: 1.5px;
   opacity: 0.4;
   background: linear-gradient(to bottom, rgba(34, 250, 95, 0), #22fa5f);
 
@@ -104,7 +104,7 @@ export const MotoLine = styled.div<{ transform: string }>`
   /* animation: ${drawLineAnimation} 1s ease-out; */
   transform: ${(props) => props.transform};
 
-  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 2.5s cubic-bezier(0.16, 1, 0.3, 1);
 
   transform-origin: 0 0;
 `;
@@ -526,6 +526,7 @@ export const Button = styled.button<{ backgroundImg: any }>`
   &:hover {
     opacity: 0.8;
   }
+  transition: opacity 0.15s ease-in-out;
 
   @media (max-width: 576px) {
     padding: 5px 44px 5px 44px;
@@ -585,6 +586,8 @@ export const JoinButton = styled.a<{ backgroundImg: any }>`
   &:hover {
     opacity: 0.8;
   }
+
+  transition: opacity 0.15s ease-in-out;
 
   /* @media (max-width: 576px) {
     width: 231px;
@@ -809,6 +812,7 @@ export const HeaderLinkBtnInner = styled.a<{
     /* background-color: ${(props) => props.hoverBackgroundColor}; */
     color: ${(props) => props.hoverTextColor};
   }
+  transition: color 0.15s ease-in-out;
 `;
 
 export const HeaderBtn = styled.a<{
@@ -836,6 +840,7 @@ export const HeaderBtn = styled.a<{
     /* background-color: ${(props) => props.hoverBackgroundColor}; */
     color: ${(props) => props.hoverTextColor};
   }
+  transition: color 0.15s ease-in-out;
 `;
 
 export const Input = styled.input<{

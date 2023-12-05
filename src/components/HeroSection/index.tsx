@@ -1,10 +1,12 @@
 import React, { useEffect, useState, useRef, useMemo } from "react";
-import { Line, LineWrapper, SectionContainer, SectionContent } from "./styles";
+import { Bullet, ChooseText, ChooseWrapper, ChooserContainer, Label, Line, LineWrapper, SectionContainer, SectionContent } from "./styles";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
 const HeroSection = () => {
   const [transform, setTransform] = useState("scaleY(0)");
+  const [isDeveloper, setisDeveloper] = useState(true);
+ 
  
   const lineRef = useRef(null);
   const lineInViewport1 = useIsInViewport(lineRef);
@@ -29,9 +31,20 @@ const HeroSection = () => {
   return (
     <SectionContainer>
       <LineWrapper>
+        <Bullet/>
         <Line ref={lineRef} transform={transform} />
       </LineWrapper>
-      <SectionContent></SectionContent>
+      <SectionContent>
+        <Label>Choose</Label>
+        <ChooserContainer>
+            <ChooseWrapper onClick={() => {setisDeveloper(true)}}>
+                <ChooseText color={isDeveloper ? "#2DC669" : "#A8A8A8"}>I am a developer</ChooseText>
+            </ChooseWrapper>
+            <ChooseWrapper onClick={() => {setisDeveloper(false)}}>
+            <ChooseText color={isDeveloper ? "#A8A8A8" : "#2DC669"}>I am a company</ChooseText>
+            </ChooseWrapper>
+        </ChooserContainer>
+      </SectionContent>
     </SectionContainer>
   );
 };
