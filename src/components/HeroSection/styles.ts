@@ -1,8 +1,119 @@
 import styled from "styled-components";
 
-export const SectionContainer = styled.section`
+export const HeroSectionsWrapper = styled.section`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+`;
+export const TurnContainer = styled.div`
   width: 90%;
-  height: 100vh;
+  height: 60vh;
+  margin-top: 32px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+`;
+
+export const RowContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+`;
+
+export const AnimatedBulletContainer = styled.div`
+  width: 7%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+    border-radius: 50%;
+
+    background: radial-gradient(
+      63.11% 63.11% at 50.82% 71.31%,
+      rgba(97, 0, 255, 0) 0%,
+      rgba(97, 0, 255, 1) 100%
+    );
+
+    filter: blur(20px);
+    width: 24px;
+    height: 24px;
+  }
+`;
+export const TurnLine = styled.div`
+  width: 93%;
+
+  padding-left: 3.5%;
+  padding-right: 3.5%;
+
+  .svg {
+    width: 100%;
+    height: 40vh;
+  }
+
+  .path {
+    stroke-dasharray: 2000;
+    stroke-dashoffset: 2000;
+    animation: dash 3s linear forwards;
+  }
+
+  @keyframes dash {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+`;
+
+export const BulletWrapper = styled.img`
+  border: none;
+  background-color: transparent;
+  width: 36px;
+  height: 36px;
+  z-index: 5;
+
+  object-fit: contain;
+`;
+
+export const Description = styled.h2`
+  width: 60%;
+
+  color: #d9dddb;
+  font-family: Orbitron;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 48.819px;
+  letter-spacing: 7.5px;
+`;
+
+export const DescriptionB = styled.b`
+  width: 93%;
+
+  color: #493ec0;
+  font-family: Orbitron;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 48.819px;
+  letter-spacing: 7.5px;
+`;
+
+export const ChooseSectionContainer = styled.div`
+  width: 90%;
+  height: 60vh;
   margin-top: 72px;
 
   z-index: 1;
@@ -111,12 +222,11 @@ export const ChooseWrapper = styled.button`
     opacity: 0.8;
   }
 
-
   transition: opacity 0.15s ease-in-out;
 `;
 
 export const ChooseText = styled.div<{ color: string }>`
-  color: ${props => props.color};
+  color: ${(props) => props.color};
 
   font-family: Orbitron;
   font-size: 30px;
@@ -125,4 +235,3 @@ export const ChooseText = styled.div<{ color: string }>`
   line-height: 33.819px;
   letter-spacing: 7.5px;
 `;
-
