@@ -19,10 +19,12 @@ import {
   Description,
   DescriptionB,
   DescriptionRight,
+  HeroEndContainer,
   HeroSectionsWrapper,
   HeroSubTitle,
   Label,
   Line,
+  LineEnd,
   LineWrapper,
   PromoText,
   PulseCircle,
@@ -42,17 +44,25 @@ import ApplyButtonBackgroundSvg from "../../assets/img/applyheroBackgroubd.svg";
 
 const HeroSection = () => {
   const [transform, setTransform] = useState("scaleY(0)");
+  const [transform2, setTransform2] = useState("scaleY(0)");
+  const [transform3, setTransform3] = useState("scaleY(0)");
 
   const [isDeveloper, setisDeveloper] = useState(true);
 
   const line1StartRef = useRef(null);
-  const lineTurnRef = useRef(null);
+  const line2StartRef = useRef(null);
+  const line3StartRef = useRef(null);
 
-  const lineTurnRef2 = useRef(null);
-
-  const lineTurnRef3 = useRef(null);
 
   const lineInViewport1 = useIsInViewport(line1StartRef);
+  const lineInViewport2 = useIsInViewport(line2StartRef);
+  const lineInViewport3 = useIsInViewport(line3StartRef);
+
+  const lineTurnRef = useRef(null);
+  const lineTurnRef2 = useRef(null);
+  const lineTurnRef3 = useRef(null);
+
+  
 
   const lineTurnInViewport1 = useIsInViewport(lineTurnRef);
   const lineTurnInViewport2 = useIsInViewport(lineTurnRef2);
@@ -62,10 +72,19 @@ const HeroSection = () => {
     if (lineInViewport1) {
       setTransform("scaleY(1)");
     }
-    // else if (!lineInViewport1) {
-    //   setTransform("scaleY(0)");
-    // }
   }, [lineInViewport1]);
+
+  useEffect(() => {
+    if (lineInViewport2) {
+      setTransform2("scaleY(1)");
+    }
+  }, [lineInViewport2]);
+
+  useEffect(() => {
+    if (lineInViewport3) {
+      setTransform3("scaleY(1)");
+    }
+  }, [lineInViewport3]);
 
   useEffect(() => {
     AOS.init({
@@ -175,9 +194,9 @@ const HeroSection = () => {
           <AnimatedBulletContainer>
             <PulseContainer>
               <BulletWrapper src={HeroBulletSVG} />
-              {/* {[1, 2, 3, 4, 5, 6, 7, 8].map((index) => (
+              {[1, 2, 3, 4, 5, 6, 7, 8].map((index) => (
                 <PulseCircle key={index} delay={index} size={300}/>
-              ))} */}
+              ))}
             </PulseContainer>
           </AnimatedBulletContainer>
 
@@ -221,6 +240,9 @@ const HeroSection = () => {
           <AnimatedBulletContainerRight>
             <PulseContainer>
               <BulletWrapper src={HeroBulletSVG} />
+              {[1, 2, 3, 4, 5, 6, 7, 8].map((index) => (
+                <PulseCircle key={index} delay={index} size={300}/>
+              ))}
             </PulseContainer>
           </AnimatedBulletContainerRight>
         </RowContainerRight>
@@ -330,83 +352,28 @@ const HeroSection = () => {
         </ButtonWrapper>
       </ApplyRow>
 
-      <HeroSubTitle data-aos="fade-right">
+      <HeroSubTitle ref={line2StartRef} data-aos="fade-right">
         Hackathon’s organisation
       </HeroSubTitle>
       <CenteredLine>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="2"
-          height="93"
-          viewBox="0 0 2 93"
-          fill="none"
-        >
-          <path
-            className="path"
-            d="M1 0L1 93"
-            stroke="url(#paint0_linear_1204_2543)"
-            stroke-opacity="0.4"
-            stroke-width="2"
-          />
-          <defs>
-            <linearGradient
-              id="paint0_linear_1204_2543"
-              x1="1.5"
-              y1="-2.73184e-10"
-              x2="1.5"
-              y2="93"
-              gradientUnits="userSpaceOnUse"
-            >
-              <stop stop-color="#2238FA" stop-opacity="0.72" />
-              <stop offset="0.505208" stop-color="#2622FA" />
-              <stop offset="1" stop-color="#141A56" />
-            </linearGradient>
-          </defs>
-        </svg>
+        <LineEnd transform={transform2}></LineEnd>
       </CenteredLine>
       <BulletContainer>
-        <BulletWrapper src={HeroBulletSVG} />
+        <BulletWrapper ref={line3StartRef} src={HeroBulletSVG} />
       </BulletContainer>
       
       <CenteredLine>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="3"
-          height="110"
-          viewBox="0 0 3 110"
-          fill="none"
-        >
-          <path
-            className="path"
-            d="M2 0L1 110"
-            stroke="url(#paint0_linear_1204_2544)"
-            stroke-opacity="0.4"
-            stroke-width="2"
-          />
-          <defs>
-            <linearGradient
-              id="paint0_linear_1204_2544"
-              x1="2.49998"
-              y1="0.00454527"
-              x2="1.49998"
-              y2="110.005"
-              gradientUnits="userSpaceOnUse"
-            >
-              <stop stop-color="#111336" />
-              <stop offset="0.505208" stop-color="#2622FA" />
-              <stop
-                offset="0.807292"
-                stop-color="#0117DD"
-                stop-opacity="0.63"
-              />
-            </linearGradient>
-          </defs>
-        </svg>
+      <LineEnd transform={transform3}></LineEnd>
       </CenteredLine>
 
       <HeroSubTitle data-aos="fade-right">
         Post hackathon projects’ support
       </HeroSubTitle>
+
+      <HeroEndContainer>
+
+      </HeroEndContainer>
+
     </HeroSectionsWrapper>
   );
 };

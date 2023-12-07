@@ -31,6 +31,17 @@ export const PromoText = styled.h1`
   letter-spacing: 0.25px;
 `;
 
+export const HeroEndContainer = styled.div`
+  width: 100%;
+  height: 70vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 3%;
+`
+
+
 export const HeroSubTitle = styled.h2`
   width: 90%;
   text-align: center;
@@ -52,23 +63,7 @@ export const CenteredLine = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  .svg {
-    width: 100%;
-    height: 40vh;
-  }
-
-  .path {
-    stroke-dasharray: 2000;
-    stroke-dashoffset: 2000;
-    animation: dash 3.5s linear forwards;
-    stroke-width: 1.5px;
-  }
-
-  @keyframes dash {
-    to {
-      stroke-dashoffset: 0;
-    }
-  }
+  
 `;
 
 export const ApplyRow = styled.div`
@@ -324,11 +319,11 @@ export const PulseContainer = styled.div`
 
 const pulseAnimation = keyframes`
   0% {
-    transform: scale(0);
+    transform: translate(-50%, -50%) scale(0);
     opacity: 0.6;
   }
   100% {
-    transform: scale(2);
+    transform: translate(-50%, -50%) scale(2);
     opacity: 0;
   }
 
@@ -338,7 +333,7 @@ export const PulseCircle = styled.div<{ delay: number; size: number }>`
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) scale(0);
   border-radius: 50%;
   background-color: transparent;
   border: 4px solid rgba(97, 0, 255, 0.3);
@@ -419,6 +414,22 @@ export const Line = styled.div<{ transform: string }>`
 
   transform-origin: 0 0;
 `;
+
+export const LineEnd = styled.div<{ transform: string }>`
+  width: 1.5px;
+  height: 93px;
+  opacity: 0.4;
+  /* background: rgba(34, 56, 250, 0.72); */
+  background: linear-gradient(to bottom, #111336, #2622FA, #111336);
+
+  transform: ${(props) => props.transform};
+  transition: transform 2s cubic-bezier(0.16, 1, 0.3, 1);
+
+  transform-origin: 0 0;
+`;
+
+
+
 
 export const Bullet = styled.div`
   width: 13px;
