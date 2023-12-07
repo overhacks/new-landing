@@ -100,8 +100,8 @@ function Header() {
   }, []);
 
   useEffect(() => {
-    setTransform("scaleY(1)")
-  }, [])
+    setTransform("scaleY(1)");
+  }, []);
 
   return (
     <HeaderContainer backgroundImg={Background}>
@@ -167,13 +167,12 @@ function Header() {
           <MotoInnerWrapper>
             {!isSmallScreen && (
               <>
-
                 <Promo>
                   <PromoInnerWrapper>
                     <CharacterWrapper>
-                      <Character alt="Character" src={CharacterSVG}/>
+                      <Character alt="Character" src={CharacterSVG} />
                     </CharacterWrapper>
-                    
+
                     <SloganWrapper>
                       <SloganPhrase>code</SloganPhrase>
                       <SloganPhrase>/</SloganPhrase>
@@ -183,9 +182,7 @@ function Header() {
                   </PromoInnerWrapper>
                   <JoinButtonWrapper>
                     <JoinButton
-                      backgroundImg={
-                        JoinButtonSVG
-                      }
+                      backgroundImg={JoinButtonSVG}
                       href="https://t.me/OverhacksBot"
                     >
                       <SubTitle
@@ -275,7 +272,9 @@ function Header() {
             )}
 
             <MotoRow>
-              <UnderNameText>The world’s fastes growing Hackathons organasing platform</UnderNameText>
+              <UnderNameText>
+                The world’s fastes growing Hackathons organasing platform
+              </UnderNameText>
             </MotoRow>
           </MotoInnerWrapper>
         </Moto>

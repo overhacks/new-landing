@@ -3,8 +3,15 @@ import styled, { keyframes } from "styled-components";
 import {
   AnimatedBulletContainer,
   AnimatedBulletContainerRight,
+  ApplyRow,
+  BackgroundStar,
   Bullet,
+  BulletContainer,
   BulletWrapper,
+  Button,
+  ButtonText,
+  ButtonWrapper,
+  CenteredLine,
   ChooseSectionContainer,
   ChooseText,
   ChooseWrapper,
@@ -13,9 +20,11 @@ import {
   DescriptionB,
   DescriptionRight,
   HeroSectionsWrapper,
+  HeroSubTitle,
   Label,
   Line,
   LineWrapper,
+  PromoText,
   PulseCircle,
   PulseContainer,
   RowContainer,
@@ -28,6 +37,8 @@ import {
 import AOS from "aos";
 import "aos/dist/aos.css";
 import HeroBulletSVG from "../../assets/img/heroBullet.svg";
+import ApplyButtonSvg from "../../assets/img/applyHeroButton.svg";
+import ApplyButtonBackgroundSvg from "../../assets/img/applyheroBackgroubd.svg";
 
 const HeroSection = () => {
   const [transform, setTransform] = useState("scaleY(0)");
@@ -300,11 +311,102 @@ const HeroSection = () => {
               preserveAspectRatio="none"
               viewBox="0 0 589 254"
               fill="none"
-            >
-            </svg>
+            ></svg>
           )}
         </TurnLineHalf>
       </TurnContainer>
+
+      <PromoText data-aos="fade-right">hackathon with overhacks</PromoText>
+
+      <ApplyRow>
+        <ButtonWrapper>
+          <Button
+            href="https://t.me/OverhacksBot"
+            backgroundImg={ApplyButtonSvg}
+          >
+            <ButtonText>Apply</ButtonText>
+          </Button>
+          <BackgroundStar backgroundImg={ApplyButtonBackgroundSvg} />
+        </ButtonWrapper>
+      </ApplyRow>
+
+      <HeroSubTitle data-aos="fade-right">
+        Hackathon’s organisation
+      </HeroSubTitle>
+      <CenteredLine>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="2"
+          height="93"
+          viewBox="0 0 2 93"
+          fill="none"
+        >
+          <path
+            className="path"
+            d="M1 0L1 93"
+            stroke="url(#paint0_linear_1204_2543)"
+            stroke-opacity="0.4"
+            stroke-width="2"
+          />
+          <defs>
+            <linearGradient
+              id="paint0_linear_1204_2543"
+              x1="1.5"
+              y1="-2.73184e-10"
+              x2="1.5"
+              y2="93"
+              gradientUnits="userSpaceOnUse"
+            >
+              <stop stop-color="#2238FA" stop-opacity="0.72" />
+              <stop offset="0.505208" stop-color="#2622FA" />
+              <stop offset="1" stop-color="#141A56" />
+            </linearGradient>
+          </defs>
+        </svg>
+      </CenteredLine>
+      <BulletContainer>
+        <BulletWrapper src={HeroBulletSVG} />
+      </BulletContainer>
+      
+      <CenteredLine>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="3"
+          height="110"
+          viewBox="0 0 3 110"
+          fill="none"
+        >
+          <path
+            className="path"
+            d="M2 0L1 110"
+            stroke="url(#paint0_linear_1204_2544)"
+            stroke-opacity="0.4"
+            stroke-width="2"
+          />
+          <defs>
+            <linearGradient
+              id="paint0_linear_1204_2544"
+              x1="2.49998"
+              y1="0.00454527"
+              x2="1.49998"
+              y2="110.005"
+              gradientUnits="userSpaceOnUse"
+            >
+              <stop stop-color="#111336" />
+              <stop offset="0.505208" stop-color="#2622FA" />
+              <stop
+                offset="0.807292"
+                stop-color="#0117DD"
+                stop-opacity="0.63"
+              />
+            </linearGradient>
+          </defs>
+        </svg>
+      </CenteredLine>
+
+      <HeroSubTitle data-aos="fade-right">
+        Post hackathon projects’ support
+      </HeroSubTitle>
     </HeroSectionsWrapper>
   );
 };
