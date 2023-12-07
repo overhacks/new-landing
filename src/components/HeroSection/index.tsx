@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef, useMemo } from "react";
+import styled, { keyframes } from "styled-components";
 import {
   AnimatedBulletContainer,
   Bullet,
@@ -13,6 +14,8 @@ import {
   Label,
   Line,
   LineWrapper,
+  PulseCircle,
+  PulseContainer,
   RowContainer,
   SectionContent,
   TurnContainer,
@@ -37,7 +40,7 @@ const HeroSection = () => {
   useEffect(() => {
     if (lineInViewport1) {
       setTransform("scaleY(1)");
-    } 
+    }
     // else if (!lineInViewport1) {
     //   setTransform("scaleY(0)");
     // }
@@ -149,8 +152,14 @@ const HeroSection = () => {
       <TurnContainer>
         <RowContainer>
           <AnimatedBulletContainer>
-            <BulletWrapper src={HeroBulletSVG} />
+            <PulseContainer>
+              <BulletWrapper src={HeroBulletSVG} />
+              {/* {[1, 2, 3, 4, 5, 6, 7, 8].map((index) => (
+                <PulseCircle key={index} delay={index} size={300}/>
+              ))} */}
+            </PulseContainer>
           </AnimatedBulletContainer>
+
           <Description data-aos="fade-right">
             Do you want to develop your skills and try yourself in{" "}
             <DescriptionB>web3</DescriptionB>?

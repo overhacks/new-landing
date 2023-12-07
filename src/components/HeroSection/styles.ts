@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 export const HeroSectionsWrapper = styled.section`
   width: 100%;
@@ -9,7 +9,6 @@ export const HeroSectionsWrapper = styled.section`
 `;
 export const TurnContainer = styled.div`
   width: 90%;
-  height: 60vh;
   margin-top: 32px;
 
   display: flex;
@@ -83,8 +82,42 @@ export const BulletWrapper = styled.img`
   width: 36px;
   height: 36px;
   z-index: 5;
-
   object-fit: contain;
+`;
+
+export const PulseContainer = styled.div`
+  position: relative;
+  width: 36px;
+  height: 36px;
+`;
+
+
+const pulseAnimation = keyframes`
+  0% {
+    transform: scale(0);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+
+`;
+
+
+export const PulseCircle = styled.div<{ delay: number; size: number }>`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background-color: transparent;
+  border: 4px solid rgba(97, 0, 255, 0.3);
+  animation: ${pulseAnimation} 7s ease-in-out infinite;
+  animation-delay: ${(props) => `${props.delay}s`};
+  width: ${(props) => `${props.size}px`};
+  height: ${(props) => `${props.size}px`};
+  
 `;
 
 export const Description = styled.h2`
