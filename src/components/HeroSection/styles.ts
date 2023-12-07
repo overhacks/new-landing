@@ -24,6 +24,14 @@ export const RowContainer = styled.div`
   width: 100%;
 `;
 
+export const RowContainerRight = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+`;
+
 export const AnimatedBulletContainer = styled.div`
   width: 7%;
   display: flex;
@@ -52,12 +60,43 @@ export const AnimatedBulletContainer = styled.div`
     height: 24px;
   }
 `;
+
+
+export const AnimatedBulletContainerRight = styled.div`
+  width: 7%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+    border-radius: 50%;
+
+    background: radial-gradient(
+      63.11% 63.11% at 50.82% 71.31%,
+      rgba(219, 0, 255, 0) 0%,
+      rgba(219, 0, 255, 1) 100%
+    );
+
+    filter: blur(20px);
+    width: 24px;
+    height: 24px;
+  }
+`;
+
+
 export const TurnLine = styled.div`
   width: 93%;
 
   padding-left: 3.5%;
   padding-right: 3.5%;
-
   .svg {
     width: 100%;
     height: 40vh;
@@ -66,7 +105,32 @@ export const TurnLine = styled.div`
   .path {
     stroke-dasharray: 2000;
     stroke-dashoffset: 2000;
-    animation: dash 3s linear forwards;
+    animation: dash 2s linear forwards;
+    stroke-width: 1.5px;
+  }
+
+  @keyframes dash {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+`;
+
+export const TurnLineHalf = styled.div`
+  width: 46.5%;
+
+  padding-left: 3.5%;
+  padding-right: 50%;
+  .svg {
+    width: 100%;
+    height: 40vh;
+  }
+
+  .path {
+    stroke-dasharray: 2000;
+    stroke-dashoffset: 2000;
+    animation: dash 2s linear forwards;
+    stroke-width: 1.5px;
   }
 
   @keyframes dash {
@@ -122,6 +186,19 @@ export const PulseCircle = styled.div<{ delay: number; size: number }>`
 
 export const Description = styled.h2`
   width: 60%;
+
+  color: #d9dddb;
+  font-family: Orbitron;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 48.819px;
+  letter-spacing: 7.5px;
+`;
+
+export const DescriptionRight = styled.h2`
+  width: 75%;
+  text-align: right;
 
   color: #d9dddb;
   font-family: Orbitron;
