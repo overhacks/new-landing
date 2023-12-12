@@ -49,6 +49,9 @@ import LeftLight from "../../assets/img/LeftLight.png";
 import RightLight from "../../assets/img/rightLight.png";
 import useIsInViewport from "../../hooks/viewPort";
 
+import HeroLight1 from "../../assets/img/HeroLight1.svg";
+import HeroLight2 from "../../assets/img/HeroLight2.svg";
+
 const HeroSection = () => {
   const [transform, setTransform] = useState("scaleY(0)");
   const [transform2, setTransform2] = useState("scaleY(0)");
@@ -207,7 +210,7 @@ const HeroSection = () => {
 
       <TurnContainer>
         <RowContainer>
-          <AnimatedBulletContainer>
+          <AnimatedBulletContainer backgroundImg={HeroLight1}>
             <PulseContainer>
               <BulletWrapper src={HeroBulletSVG} />
               {[1, 2, 3, 4, 5, 6, 7, 8].map((index) => (
@@ -253,7 +256,7 @@ const HeroSection = () => {
             Find like-minded people and teammates for your future startup?
           </DescriptionRight>
 
-          <AnimatedBulletContainerRight>
+          <AnimatedBulletContainerRight backgroundImg={HeroLight2}>
             <PulseContainer>
               <BulletWrapper src={HeroBulletSVG} />
               {[1, 2, 3, 4, 5, 6, 7, 8].map((index) => (
@@ -304,7 +307,7 @@ const HeroSection = () => {
 
       <TurnContainer>
         <RowContainer>
-          <AnimatedBulletContainerRight>
+          <AnimatedBulletContainerRight backgroundImg={HeroLight1}>
             <PulseContainer>
               <BulletWrapper src={HeroBulletSVG} />
             </PulseContainer>

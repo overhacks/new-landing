@@ -38,7 +38,7 @@ export const HeroEndContainer = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-`
+`;
 
 export const EndLineContainer = styled.div`
   width: 10%;
@@ -47,13 +47,13 @@ export const EndLineContainer = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: center;
-`
+`;
 
 export const LongLineEnd = styled.div<{ transform: string }>`
   width: 1.5px;
   height: 100%;
   opacity: 0.4;
-  background: linear-gradient(to bottom, #0B1042, #2622FA, #0D0F23);
+  background: linear-gradient(to bottom, #0b1042, #2622fa, #0d0f23);
 
   transform: ${(props) => props.transform};
   transition: transform 2.5s cubic-bezier(0.16, 1, 0.3, 1);
@@ -69,7 +69,7 @@ export const BackgroundContainer = styled.div<{ background: any }>`
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-`
+`;
 
 export const HeroSubTitle = styled.h2`
   width: 90%;
@@ -92,7 +92,6 @@ export const CenteredLine = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  
 `;
 
 export const ApplyRow = styled.div`
@@ -201,13 +200,31 @@ export const RowContainerRight = styled.div`
   width: 100%;
 `;
 
-export const AnimatedBulletContainer = styled.div`
+export const AnimatedBulletContainer = styled.div<{ backgroundImg: any }>`
   width: 7%;
   display: flex;
   justify-content: center;
   align-items: center;
 
   position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+
+    background-image: url(${(props) => props.backgroundImg});
+    background-position: left top;
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    filter: blur(119px);
+    width: 290px;
+    height: 500px;
+  }
 
   &::before {
     content: "";
@@ -230,13 +247,31 @@ export const AnimatedBulletContainer = styled.div`
   }
 `;
 
-export const AnimatedBulletContainerRight = styled.div`
+export const AnimatedBulletContainerRight = styled.div<{ backgroundImg: any }>`
   width: 7%;
   display: flex;
   justify-content: center;
   align-items: center;
 
   position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+
+    background-image: url(${(props) => props.backgroundImg});
+    background-position: left top;
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    filter: blur(119px);
+    width: 500px;
+    height: 500px;
+  }
 
   &::before {
     content: "";
@@ -322,14 +357,13 @@ export const BulletContainer = styled.div`
     z-index: 3;
     border-radius: 50%;
 
-    background: rgba(18, 21, 255, 0.60);
+    background: rgba(18, 21, 255, 0.6);
 
     filter: blur(17.5px);
     width: 43px;
     height: 43px;
   }
-  
-`
+`;
 
 export const BulletWrapper = styled.img`
   border: none;
@@ -449,16 +483,13 @@ export const LineEnd = styled.div<{ transform: string }>`
   height: 93px;
   opacity: 0.4;
   /* background: rgba(34, 56, 250, 0.72); */
-  background: linear-gradient(to bottom, #111336, #2622FA, #111336);
+  background: linear-gradient(to bottom, #111336, #2622fa, #111336);
 
   transform: ${(props) => props.transform};
   transition: transform 2s cubic-bezier(0.16, 1, 0.3, 1);
 
   transform-origin: 0 0;
 `;
-
-
-
 
 export const Bullet = styled.div`
   width: 13px;
