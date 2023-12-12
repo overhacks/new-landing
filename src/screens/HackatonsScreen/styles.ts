@@ -177,6 +177,21 @@ export const RowContainer = styled.div`
   z-index: 2;
 `;
 
+export const RowContainerFirst = styled.div`
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-top: 88px;
+  padding-bottom: 50px;
+  margin-top: -60px;
+
+  position: relative;
+  z-index: 2;
+`;
+
 export const SubTitlecontainer = styled.div`
   display: flex;
   flex-direction: row;

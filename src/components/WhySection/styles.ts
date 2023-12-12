@@ -79,51 +79,6 @@ export const CardsContainer = styled.div`
   gap: 16px;
 
   z-index: 4;
-
-  &::before {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 3;
-
-    border-radius: 50%;
-    background: #22fa5f;
-
-    filter: blur(200px);
-
-    @media (max-width: 576px) {
-      width: 50%;
-      opacity: 0.4;
-      height: 80%;
-    }
-    @media (min-width: 577px) {
-      width: 50%;
-      opacity: 0.4;
-      height: 80%;
-    }
-    @media (min-width: 769px) {
-      width: 40%;
-      opacity: 0.4;
-      height: 80%;
-    }
-    @media (min-width: 993px) {
-      width: 30%;
-      opacity: 0.9;
-      height: 65%;
-    }
-    @media (min-width: 1201px) {
-      width: 30%;
-      opacity: 0.9;
-      height: 65%;
-    }
-    @media (min-width: 1401px) {
-      width: 20%;
-      opacity: 0.9;
-      height: 65%;
-    }
-  }
 `;
 
 export const WhyColumn = styled.div`
@@ -156,80 +111,152 @@ export const WhyColumn = styled.div`
     gap: 0;
   }
 `;
-export const WhyCard = styled.div<{ backgroundColor: string; border: string }>`
-  z-index: 4;
-  border-radius: 21px;
-  background-color: ${(props) => props.backgroundColor};
-  border: ${(props) => props.border};
-  display: flex;
-  align-items: center;
 
-  @media (max-width: 576px) {
+export const CenteredLine = styled.div`
+  width: 100%;
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const LineLeftContainer = styled.div`
+  width: 7%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`
+
+export const BulletWrapper = styled.img`
+  border: none;
+  background-color: transparent;
+  width: 36px;
+  height: 36px;
+  z-index: 5;
+  object-fit: contain;
+`;
+
+export const PulseContainer = styled.div`
+  width: 36px;
+  height: 36px;
+
+
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+    border-radius: 50%;
+
+    background: rgba(18, 21, 255, 0.6);
+
+    filter: blur(17.5px);
+    width: 24px;
+    height: 24px;
+  }
+`;
+
+export const LineCenter = styled.div<{ transform: string }>`
+  width: 1.5px;
+  height: 201px;
+  opacity: 0.4;
+  /* background: rgba(34, 56, 250, 0.72); */
+  background: linear-gradient(to bottom, #111336, #2622FA, #111336);
+
+  transform: ${(props) => props.transform};
+  transition: transform 2s cubic-bezier(0.16, 1, 0.3, 1);
+
+  transform-origin: 0 0;
+`;
+
+export const BooferLineWrapper = styled.div`
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+`
+
+export const WhyCardWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+
+@media (max-width: 576px) {
     width: 67%;
-    flex-direction: column;
-    justify-content: flex-start;
-    gap: 22px;
     padding: 24px;
-    box-shadow: 0px 98px 100px 0px rgba(0, 0, 0, 0.12) inset,
-      0px 4px 18px 0px rgba(0, 0, 0, 0.57) inset,
-      0px 1px 18px 0px rgba(0, 0, 0, 0.23) inset;
   }
   @media (min-width: 577px) {
     width: 55%;
-    flex-direction: column;
-    justify-content: flex-start;
-    gap: 22px;
     padding: 24px;
-    box-shadow: 0px 98px 100px 0px rgba(0, 0, 0, 0.12) inset,
-      0px 4px 18px 0px rgba(0, 0, 0, 0.57) inset,
-      0px 1px 18px 0px rgba(0, 0, 0, 0.23) inset;
   }
   @media (min-width: 769px) {
     width: 50%;
+    padding: 24px;
+  }
+  @media (min-width: 993px) {
+    width: 90%;
+    padding: 24px 32px 24px;
+  }
+  @media (min-width: 1201px) {
+    width: 90%;
+    padding: 24px 32px 24px;
+  }
+  @media (min-width: 1401px) {
+    width: 90%;
+    padding: 24px 32px 24px;
+  }
+`
+
+export const WhyCard = styled.div`
+  z-index: 4;
+  border-radius: 21px;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  width: 93%;
+
+  @media (max-width: 576px) {
     flex-direction: column;
     justify-content: flex-start;
     gap: 22px;
-    padding: 24px;
-    box-shadow: 0px 98px 100px 0px rgba(0, 0, 0, 0.12) inset,
-      0px 4px 18px 0px rgba(0, 0, 0, 0.57) inset,
-      0px 1px 18px 0px rgba(0, 0, 0, 0.23) inset;
+  }
+  @media (min-width: 577px) {
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 22px;
+  }
+  @media (min-width: 769px) {
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 22px;
   }
   @media (min-width: 993px) {
-    width: 50%;
     flex-direction: row;
     justify-content: space-between;
     gap: 12px;
-    padding: 24px 32px 24px;
-    box-shadow: none;
   }
   @media (min-width: 1201px) {
-    width: 50%;
     flex-direction: row;
     justify-content: space-between;
     gap: 12px;
-    padding: 24px 32px 24px;
-    box-shadow: none;
   }
   @media (min-width: 1401px) {
-    width: 40%;
     flex-direction: row;
     justify-content: space-between;
     gap: 12px;
-    padding: 24px 32px 24px;
-    box-shadow: none;
   }
 `;
-export const Banner = styled.div<{
-  imgSrc: string;
+export const Banner = styled.img<{
   width: string;
   marginBottom?: string;
 }>`
-  background-image: url(${(props) => props.imgSrc});
-  background-position: center right;
-  background-repeat: no-repeat;
-  background-size: contain;
   width: ${(props) => props.width};
-  aspect-ratio: 1 / 1;
-  border-radius: 32px;
+  object-fit: contain;
+  object-position: center;
   margin-bottom: ${(props) => props.marginBottom || "0"};
 `;

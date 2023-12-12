@@ -9,9 +9,13 @@ export const SubTitlecontainer = styled.div`
 `;
 
 export const SectionSubTitle = styled.p`
-  font-family: "PF Videotext Pro";
-  letter-spacing: 0em;
-  color: #CCFF5A;
+  color: #2dc669;
+  font-family: Silkscreen;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 112.73%; /* 33.819px */
+  letter-spacing: 4.5px;
   text-align: center;
 
   @media (max-width: 576px) {

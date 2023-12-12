@@ -2,9 +2,12 @@ import GSwipePartnersStyles, {
   Arrow,
   ButtonText,
   ButtonWrapper,
+  CenteredLine,
   CubeLogo,
   JoinButton,
+  LineCenter,
   PartnersSectionWrapper,
+  PartnersText,
   RowContainer,
   RowContainerBetween,
   SlideContent,
@@ -15,7 +18,7 @@ import GSwipePartnersStyles, {
   SwiperContainer,
   TonanaLogo,
 } from "./styles";
-import React, { useEffect, useRef, useCallback, useState } from "react";
+import React, { useEffect, useRef, useCallback, useState, useMemo } from "react";
 import SubTitleRow from "../SubTitleRow";
 import { useColorTheme } from "../../hooks/useColorTheme";
 import PartnerBackground from "../../assets/img/partnerBackground.png";
@@ -31,6 +34,7 @@ import ArrowRight from "../../assets/img/arrowRight.svg";
 
 import AOS from "aos";
 import "aos/dist/aos.css";
+import useIsInViewport from "../../hooks/viewPort";
 
 const matcher = () => {
   return window.matchMedia("(max-width: 993px)").matches;
@@ -40,6 +44,8 @@ const PartnersSection = () => {
   const swiperRef = useRef(null);
   const { webColors } = useColorTheme();
   const [isSmallScreen, setIsSmallScreen] = useState(matcher());
+
+
 
   const checkScreenSize = () => {
     setIsSmallScreen(matcher());
@@ -101,7 +107,7 @@ const PartnersSection = () => {
 
   return (
     <>
-    <RowContainer data-aos="fade-right">
+      <RowContainer data-aos="fade-right">
         <SubTitleRow text="Our partners" />
       </RowContainer>
       <PartnersSectionWrapper>
@@ -229,12 +235,7 @@ const PartnersSection = () => {
         <RowContainerBetween>
           {!isSmallScreen && (
             <SubTitleContainer data-aos="fade-right">
-              <SubTitle
-                text="Become our partner to be a part of trusted unity!"
-                textAlign="left"
-                fontSize="20px"
-                color="rgba(204, 255, 90, 1)"
-              />
+              <PartnersText>Become our partner to be a part of trusted unity!</PartnersText>
             </SubTitleContainer>
           )}
 
@@ -257,3 +258,4 @@ const PartnersSection = () => {
 };
 
 export default PartnersSection;
+

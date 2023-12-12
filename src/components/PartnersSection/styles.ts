@@ -7,19 +7,20 @@ export const PartnersSectionWrapper = styled.section`
   padding-bottom: 90px;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
   position: relative;
   z-index: 2;
   margin-bottom: 70px;
 
   @media (max-width: 576px) {
-    background-color: #0E0E0E;
+    background-color: #0e0e0e;
   }
   @media (min-width: 577px) {
-    background-color: #0E0E0E;
+    background-color: #0e0e0e;
   }
   @media (min-width: 769px) {
-    background-color: #0E0E0E;
+    background-color: #0e0e0e;
   }
   @media (min-width: 993px) {
     background-color: transparent;
@@ -40,8 +41,9 @@ export const RowContainer = styled.div`
   padding-left: 5%;
   padding-right: 5%;
   padding-top: 32px;
-  padding-bottom: 80px;
+  margin-bottom: 144px;
 `;
+
 export const RowContainerBetween = styled.div`
   width: 90%;
   display: flex;
@@ -115,9 +117,7 @@ export const ButtonWrapper = styled.div`
     padding-top: 0;
     margin-bottom: 80px;
   }
-
-`
-
+`;
 
 export const ButtonText = styled.p`
   font-family: "PF Videotext Pro";
@@ -166,8 +166,6 @@ export const JoinButton = styled.a<{ backgroundImg: any }>`
   }
 `;
 
-
-
 export const SlideContent = styled.a<{ imgSrc: string }>`
   background-image: url(${(props) => props.imgSrc});
   background-position: center right;
@@ -206,15 +204,13 @@ export const SponsorCell = styled.a<{ imgSrc: string }>`
   }
 `;
 
-
 export const TonanaLogo = styled.a<{ imgSrc: string }>`
   background-image: url(${(props) => props.imgSrc});
   background-position: center right;
   background-repeat: no-repeat;
   background-size: contain;
-  aspect-ratio: 10 / 5.54 ;
+  aspect-ratio: 10 / 5.54;
 
-  
   width: 70%;
 `;
 export const CubeLogo = styled.a<{ imgSrc: string }>`
@@ -222,8 +218,8 @@ export const CubeLogo = styled.a<{ imgSrc: string }>`
   background-position: center right;
   background-repeat: no-repeat;
   background-size: contain;
-  aspect-ratio: 1 / 1 ;
-  
+  aspect-ratio: 1 / 1;
+
   width: 70%;
 `;
 
@@ -234,11 +230,11 @@ export const Arrow = styled.button<{ imgSrc: string }>`
   background-position: center right;
   background-repeat: no-repeat;
   background-size: contain;
-  aspect-ratio: 1 / 1 ;
+  aspect-ratio: 1 / 1;
   z-index: 2;
   cursor: pointer;
 
-  width: 64px;
+  width: 21px;
 
   &:hover {
     opacity: 0.8;
@@ -246,17 +242,28 @@ export const Arrow = styled.button<{ imgSrc: string }>`
 `;
 
 export const SubTitleContainer = styled.div`
-  max-width: 30%;
-`
+  max-width: 40%;
+`;
+
+export const PartnersText = styled.p`
+  color: #90c3a4;
+
+  font-family: Orbitron;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.6px;
+`;
 
 export const SwiperContainer = styled.div`
-  width: 100%;
+  width: calc(100% - 200px);
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
   gap: 5%;
   padding: 0 100px 0;
-`
+`;
 
 export const SponsorsContainerRow = styled.div`
   width: 100%;
@@ -265,15 +272,14 @@ export const SponsorsContainerRow = styled.div`
   justify-content: space-between;
   gap: 16px;
   row-gap: 62px;
-`
+`;
 
 export const SponsorsContainerColumn = styled.div`
   width: 90%;
   display: flex;
   flex-direction: column;
   gap: 60px;
-`
-
+`;
 
 const GSwipePartnersStyles: any = createGlobalStyle`
 
@@ -282,7 +288,7 @@ const GSwipePartnersStyles: any = createGlobalStyle`
   }
 
   .styled-swiper {
-    width: 70%;
+    width: 65%;
   }
 
 `;

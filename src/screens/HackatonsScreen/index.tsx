@@ -1,5 +1,5 @@
 import SubTitle from "../../components/SubTitle";
-import { Container, RowContainer } from "./styles";
+import { Container, RowContainer, RowContainerFirst } from "./styles";
 
 import { useEffect, useState } from "react";
 import Footer from "../../components/Footer";
@@ -189,9 +189,9 @@ function Hackatons() {
 
       <HeroSection></HeroSection>
 
-      <RowContainer id="hackatons">
+      <RowContainerFirst id="hackatons">
         <SubTitleRow text="Ongoing" />
-      </RowContainer>
+      </RowContainerFirst>
 
       <HackatonsSwiper
         selectedHackatonId={selectedSlideIdOngoing}

@@ -38,9 +38,38 @@ export const HeroEndContainer = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 3%;
 `
 
+export const EndLineContainer = styled.div`
+  width: 10%;
+  height: 70%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+`
+
+export const LongLineEnd = styled.div<{ transform: string }>`
+  width: 1.5px;
+  height: 100%;
+  opacity: 0.4;
+  background: linear-gradient(to bottom, #0B1042, #2622FA, #0D0F23);
+
+  transform: ${(props) => props.transform};
+  transition: transform 2.5s cubic-bezier(0.16, 1, 0.3, 1);
+
+  transform-origin: 0 0;
+`;
+
+export const BackgroundContainer = styled.div<{ background: any }>`
+  width: 45%;
+  height: 100%;
+
+  background-image: url(${(props) => props.background});
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+`
 
 export const HeroSubTitle = styled.h2`
   width: 90%;

@@ -4,6 +4,7 @@ import {
   AnimatedBulletContainer,
   AnimatedBulletContainerRight,
   ApplyRow,
+  BackgroundContainer,
   BackgroundStar,
   Bullet,
   BulletContainer,
@@ -19,6 +20,7 @@ import {
   Description,
   DescriptionB,
   DescriptionRight,
+  EndLineContainer,
   HeroEndContainer,
   HeroSectionsWrapper,
   HeroSubTitle,
@@ -26,6 +28,7 @@ import {
   Line,
   LineEnd,
   LineWrapper,
+  LongLineEnd,
   PromoText,
   PulseCircle,
   PulseContainer,
@@ -42,21 +45,28 @@ import HeroBulletSVG from "../../assets/img/heroBullet.svg";
 import ApplyButtonSvg from "../../assets/img/applyHeroButton.svg";
 import ApplyButtonBackgroundSvg from "../../assets/img/applyheroBackgroubd.svg";
 
+import LeftLight from "../../assets/img/LeftLight.png";
+import RightLight from "../../assets/img/rightLight.png";
+import useIsInViewport from "../../hooks/viewPort";
+
 const HeroSection = () => {
   const [transform, setTransform] = useState("scaleY(0)");
   const [transform2, setTransform2] = useState("scaleY(0)");
   const [transform3, setTransform3] = useState("scaleY(0)");
+  const [transform4, setTransform4] = useState("scaleY(0)");
 
   const [isDeveloper, setisDeveloper] = useState(true);
 
   const line1StartRef = useRef(null);
   const line2StartRef = useRef(null);
   const line3StartRef = useRef(null);
+  const line4StartRef = useRef(null);
 
 
   const lineInViewport1 = useIsInViewport(line1StartRef);
   const lineInViewport2 = useIsInViewport(line2StartRef);
   const lineInViewport3 = useIsInViewport(line3StartRef);
+  const lineInViewport4 = useIsInViewport(line4StartRef);
 
   const lineTurnRef = useRef(null);
   const lineTurnRef2 = useRef(null);
@@ -85,6 +95,12 @@ const HeroSection = () => {
       setTransform3("scaleY(1)");
     }
   }, [lineInViewport3]);
+
+  useEffect(() => {
+    if (lineInViewport4) {
+      setTransform4("scaleY(1)");
+    }
+  }, [lineInViewport4]);
 
   useEffect(() => {
     AOS.init({
@@ -371,7 +387,11 @@ const HeroSection = () => {
       </HeroSubTitle>
 
       <HeroEndContainer>
-
+        <BackgroundContainer background={LeftLight}/>
+        <EndLineContainer>
+          <LongLineEnd ref={line4StartRef} transform={transform4}/>
+        </EndLineContainer>
+        <BackgroundContainer background={RightLight}/>
       </HeroEndContainer>
 
     </HeroSectionsWrapper>
@@ -379,25 +399,3 @@ const HeroSection = () => {
 };
 
 export default HeroSection;
-
-function useIsInViewport(ref: any) {
-  const [isIntersecting, setIsIntersecting] = useState(false);
-
-  const observer = useMemo(
-    () =>
-      new IntersectionObserver(([entry]) =>
-        setIsIntersecting(entry.isIntersecting)
-      ),
-    []
-  );
-
-  useEffect(() => {
-    observer.observe(ref.current);
-
-    return () => {
-      observer.disconnect();
-    };
-  }, [ref, observer]);
-
-  return isIntersecting;
-}
