@@ -2,22 +2,22 @@ import React, { useEffect, useRef, useState } from "react";
 import SubTitleRow from "../SubTitleRow";
 import { useColorTheme } from "../../hooks/useColorTheme";
 import AnySizeTitle from "../Title";
-import About1 from "../../assets/img/about1.png";
-import About2 from "../../assets/img/about2.png";
+import About1 from "../../assets/img/About1Image.jpg";
+import About2 from "../../assets/img/About2Image.jpg";
 import SpiderPng from "../../assets/img/overhacksSpider.png";
 
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-import SubTitle from "../SubTitle";
 import {
-  AboutHeader,
   AboutText,
   AboutTextB,
   AboutWrapper,
+  CenteredLine,
   ColumnText,
   ColumnTextLarge,
   FirstAboutWrapper,
+  LineCenter,
   PhotoHorizontal,
   PhotoVertical,
   Row,
@@ -27,6 +27,7 @@ import {
   TextBlock,
   TitleWrapper,
 } from "./styles";
+import useIsInViewport from "../../hooks/viewPort";
 
 const matcher = () => {
   return window.matchMedia("(max-width: 993px)").matches;
@@ -35,6 +36,18 @@ const matcher = () => {
 const AboutSection = () => {
   const { webColors } = useColorTheme();
   const [isSmallScreen, setIsSmallScreen] = useState(matcher());
+
+  const [transform, setTransform] = useState("scaleY(0)");
+
+  const line1StartRef = useRef(null);
+
+  const lineInViewport1 = useIsInViewport(line1StartRef);
+
+  useEffect(() => {
+    if (lineInViewport1) {
+      setTransform("scaleY(1)");
+    }
+  }, [lineInViewport1]);
 
   const checkScreenSize = () => {
     setIsSmallScreen(matcher());
@@ -56,6 +69,10 @@ const AboutSection = () => {
 
   return (
     <>
+      <CenteredLine ref={line1StartRef}>
+        <LineCenter transform={transform} />
+      </CenteredLine>
+
       <Row data-aos="fade-right">
         <SubTitleRow text="About" />
       </Row>
@@ -63,61 +80,39 @@ const AboutSection = () => {
       <SectionWrapper id="about">
         <AboutWrapper>
           <FirstAboutWrapper>
-            {!isSmallScreen && <PhotoHorizontal imgSrc={About1} />}
-            <ColumnText>
+            <TextBlock>
               <AboutText data-aos="fade-right">
-                <AboutTextB>Overhacks</AboutTextB> your go-to{" "}
-                <AboutTextB>platform for hackathons</AboutTextB> focused on
+                Overhacks your go-to platform for hackathons focused on
                 empowering enthusiastic individuals to unleash creativity and
                 ace their skills and knowledge to drive innovation in{" "}
                 <AboutTextB>WEB3</AboutTextB> world!
               </AboutText>
-            </ColumnText>
-            {isSmallScreen && (
-              <PhotoHorizontal imgSrc={About1} data-aos="fade-right" />
-            )}
+            </TextBlock>
+
+            <PhotoHorizontal imgSrc={About1} data-aos="fade-right" />
           </FirstAboutWrapper>
           <SecondAboutWrapper>
             <ColumnTextLarge>
               <TextBlock>
-                {!isSmallScreen && (
-                  <TitleWrapper data-aos="fade-right">
-                    <AnySizeTitle
-                      text="OUR MISSOIN"
-                      color="#E7FFB0"
-                      alignSelf="left"
-                    />
-                  </TitleWrapper>
-                )}
-
                 <AboutText data-aos="fade-right">
-                  <AboutTextB>Our mission</AboutTextB> to empower and inspire
-                  enthusiastic individuals, fostering their creativity and
-                  helping them excel in web3 technologies through{" "}
-                  <AboutTextB>immersive hackathons</AboutTextB>
+                  Our mission to empower and inspire enthusiastic individuals,
+                  fostering their creativity and helping them excel in web3
+                  technologies through immersive hackathons
                 </AboutText>
               </TextBlock>
-              {isSmallScreen && <PhotoHorizontal imgSrc={About2} backgroundSize="cover" data-aos="fade-right"/>}
+              <PhotoHorizontal
+                imgSrc={About2}
+                backgroundSize="cover"
+                data-aos="fade-right"
+              />
               <TextBlock>
-                {!isSmallScreen && (
-                  <TitleWrapper data-aos="fade-right">
-                    <AnySizeTitle
-                      text="VISION"
-                      color="#E7FFB0"
-                      alignSelf="left"
-                    />
-                  </TitleWrapper>
-                )}
-
                 <AboutText data-aos="fade-right">
-                  We envision a world where every developer on{" "}
-                  <AboutTextB>OVERHACKS</AboutTextB> becomes a catalyst for
-                  innovation, shaping the future of the web3 landscape with
-                  their skills and knowledge
+                  Our mission to empower and inspire enthusiastic individuals,
+                  fostering their creativity and helping them excel in web3
+                  technologies through immersive hackathons
                 </AboutText>
               </TextBlock>
             </ColumnTextLarge>
-            {!isSmallScreen && <PhotoVertical data-aos="fade-right" imgSrc={About2} />}
           </SecondAboutWrapper>
         </AboutWrapper>
 

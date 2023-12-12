@@ -120,31 +120,36 @@ export const ButtonWrapper = styled.div`
 `;
 
 export const ButtonText = styled.p`
-  font-family: "PF Videotext Pro";
-  letter-spacing: 0em;
-  color: #000;
+  color: #dddbdb;
+
+  font-family: Orbitron;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: 0.45px;
   text-align: center;
   cursor: pointer;
 
   @media (max-width: 576px) {
-    font-size: 26px;
+    font-size: 15px;
   }
   @media (min-width: 577px) {
-    font-size: 32px;
+    font-size: 24px;
   }
   @media (min-width: 769px) {
     font-size: 32px;
   }
   @media (min-width: 993px) {
-    font-size: 25px;
+    font-size: 15px;
   }
   @media (min-width: 1201px) {
-    font-size: 25px;
+    font-size: 15px;
   }
   @media (min-width: 1401px) {
-    font-size: 25px;
+    font-size: 15px;
   }
 `;
+
 export const JoinButton = styled.a<{ backgroundImg: any }>`
   background-color: transparent;
   background-image: url(${(props) => props.backgroundImg});

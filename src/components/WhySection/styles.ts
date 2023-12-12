@@ -12,9 +12,39 @@ export const RowContainer = styled.div`
 `;
 export const WhyCardsSection = styled.section`
   width: 100%;
-  padding-bottom: 110px;
+  padding-bottom: 40px;
   position: relative;
   z-index: 2;
+`;
+
+export const WhySubtitle = styled.h2`
+  color: #d9dddb;
+
+  font-family: Orbitron;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 131.166%; /* 39.35px */
+
+
+  @media (max-width: 576px) {
+    font-size: 30px;
+  }
+  @media (min-width: 577px) {
+    font-size: 30px;
+  }
+  @media (min-width: 769px) {
+    font-size: 20px;
+  }
+  @media (min-width: 993px) {
+    font-size:20px;
+  }
+  @media (min-width: 1201px) {
+    font-size: 20px;
+  }
+  @media (min-width: 1401px) {
+    font-size: 20px;
+  }
 `;
 
 export const SubTitleContainer = styled.div`
@@ -121,13 +151,21 @@ export const CenteredLine = styled.div`
   justify-content: center;
 `;
 
+export const LineLeftWrapper = styled.div`
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+
+`
+
 export const LineLeftContainer = styled.div`
   width: 7%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-`
+`;
 
 export const BulletWrapper = styled.img`
   border: none;
@@ -141,7 +179,6 @@ export const BulletWrapper = styled.img`
 export const PulseContainer = styled.div`
   width: 36px;
   height: 36px;
-
 
   position: relative;
 
@@ -167,7 +204,20 @@ export const LineCenter = styled.div<{ transform: string }>`
   height: 201px;
   opacity: 0.4;
   /* background: rgba(34, 56, 250, 0.72); */
-  background: linear-gradient(to bottom, #111336, #2622FA, #111336);
+  background: linear-gradient(to bottom, #111336, #2622fa, #111336);
+
+  transform: ${(props) => props.transform};
+  transition: transform 2s cubic-bezier(0.16, 1, 0.3, 1);
+
+  transform-origin: 0 0;
+`;
+
+
+export const LineLeft = styled.div<{ transform: string }>`
+  width: 1.5px;
+  height: 267px;
+  opacity: 0.4;
+  background: #0F1068;
 
   transform: ${(props) => props.transform};
   transition: transform 2s cubic-bezier(0.16, 1, 0.3, 1);
@@ -180,37 +230,31 @@ export const BooferLineWrapper = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-`
+`;
 
 export const WhyCardWrapper = styled.div`
   display: flex;
   flex-direction: row;
 
-@media (max-width: 576px) {
+  @media (max-width: 576px) {
     width: 67%;
-    padding: 24px;
   }
   @media (min-width: 577px) {
     width: 55%;
-    padding: 24px;
   }
   @media (min-width: 769px) {
     width: 50%;
-    padding: 24px;
   }
   @media (min-width: 993px) {
     width: 90%;
-    padding: 24px 32px 24px;
   }
   @media (min-width: 1201px) {
     width: 90%;
-    padding: 24px 32px 24px;
   }
   @media (min-width: 1401px) {
     width: 90%;
-    padding: 24px 32px 24px;
   }
-`
+`;
 
 export const WhyCard = styled.div`
   z-index: 4;
@@ -259,4 +303,33 @@ export const Banner = styled.img<{
   object-fit: contain;
   object-position: center;
   margin-bottom: ${(props) => props.marginBottom || "0"};
+`;
+
+export const TurnLineHalfContainer = styled.div`
+  width: 90%;
+  margin-inline: auto;
+`;
+
+export const TurnLineHalf = styled.div`
+  width: 46.5%;
+
+  padding-left: 3.5%;
+  padding-right: 50%;
+  .svg {
+    width: 100%;
+    height: 40vh;
+  }
+
+  .path {
+    stroke-dasharray: 2000;
+    stroke-dashoffset: 2000;
+    animation: dash 3.5s linear forwards;
+    stroke-width: 1.5px;
+  }
+
+  @keyframes dash {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
 `;

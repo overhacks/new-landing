@@ -27,7 +27,6 @@ export const PopupWrapper = styled.div<{ boxShadow: string }>`
   @media (max-width: 576px) {
     width: 80%;
     height: 95%;
-    
   }
   @media (min-width: 577px) {
     width: 80%;
@@ -57,7 +56,7 @@ export const PopupPrizePoolWrapper = styled.div`
   flex-direction: column;
   gap: 6px;
   margin-bottom: 41px;
-`
+`;
 
 export const ScrollContainer = styled.div<{
   scrollStickColor: string;
@@ -225,32 +224,15 @@ export const PopupContentsWrapperMobile = styled.div`
   gap: 27px;
   margin-top: 20px;
   margin-right: 30px;
-
-`
+`;
 
 export const Description = styled.div`
   display: flex;
   flex-direction: column;
   gap: 12px;
 
-  @media (max-width: 576px) {
-    width: 100%;
-  }
-  @media (min-width: 577px) {
-    width: 100%;
-  }
-  @media (min-width: 769px) {
-    width: 100%;
-  }
-  @media (min-width: 993px) {
-    width: 49%;
-  }
-  @media (min-width: 1201px) {
-    width: 49%;
-  }
-  @media (min-width: 1401px) {
-    width: 49%;
-  }
+  width: 49%;
+
 `;
 
 export const PrizePoolContainer = styled.div`
@@ -258,12 +240,12 @@ export const PrizePoolContainer = styled.div`
   flex-direction: column;
   gap: 8px;
   align-items: flex-start;
-`
+`;
 
 export const PrizeText = styled.p`
   font-family: "PF Videotext Pro";
   letter-spacing: 0em;
-  color: #22FA5F;
+  color: #22fa5f;
   text-align: center;
 
   @media (max-width: 576px) {
@@ -294,7 +276,7 @@ export const TextWrapper = styled.div<{ backgroundColor: string }>`
   justify-content: center;
   align-items: center;
 
-  color: #E7FFB0;
+  color: #e7ffb0;
   font-family: "PF Videotext Pro";
   font-size: 15px;
 `;
@@ -437,9 +419,9 @@ export const Info = styled.div<{ borderTop: string }>`
 
 export const CardButtonWrapper = styled.div`
   width: 33%;
-`
+`;
 
-export const Button = styled.a<{ backgroundImg: any, isFinished: boolean }>`
+export const Button = styled.a<{ backgroundImg: any; isFinished: boolean }>`
   background-color: transparent;
   text-decoration: none;
   background-image: url(${(props) => props.backgroundImg});
@@ -457,29 +439,32 @@ export const Button = styled.a<{ backgroundImg: any, isFinished: boolean }>`
   background-size: contain;
   cursor: ${(props) => {
     if (props.isFinished) {
-      return("default")
+      return "default";
     }
-    return("pointer")
+    return "pointer";
   }};
 
   opacity: ${(props) => {
     if (props.isFinished) {
-      return("0.4")
+      return "0.4";
     }
-    return("1")
+    return "1";
   }};
 
   &:hover {
     opacity: ${(props) => {
-    if (props.isFinished) {
-      return("0.4")
-    }
-    return("0.8")
-  }};
+      if (props.isFinished) {
+        return "0.4";
+      }
+      return "0.8";
+    }};
   }
 `;
 
-export const LargeApplyButton = styled.a<{ backgroundImg: any, isFinishedCurrent: boolean }>`
+export const LargeApplyButton = styled.a<{
+  backgroundImg: any;
+  isFinishedCurrent: boolean;
+}>`
   background-color: transparent;
   background-image: url(${(props) => props.backgroundImg});
   border: none;
@@ -498,25 +483,25 @@ export const LargeApplyButton = styled.a<{ backgroundImg: any, isFinishedCurrent
 
   cursor: ${(props) => {
     if (props.isFinishedCurrent) {
-      return("default")
+      return "default";
     }
-    return("pointer")
+    return "pointer";
   }};
 
   opacity: ${(props) => {
     if (props.isFinishedCurrent) {
-      return("0.4")
+      return "0.4";
     }
-    return("1")
+    return "1";
   }};
 
-&:hover {
+  &:hover {
     opacity: ${(props) => {
-    if (props.isFinishedCurrent) {
-      return("0.4")
-    }
-    return("0.6")
-  }}
+      if (props.isFinishedCurrent) {
+        return "0.4";
+      }
+      return "0.6";
+    }};
   }
 `;
 
@@ -558,46 +543,32 @@ export const LargeApplyWrapper = styled.div`
 `;
 
 export const ButtonText = styled.p`
-  font-family: "PF Videotext Pro";
-  letter-spacing: 0em;
-  color: #000;
-  text-align: center;
+  color: #dddbdb;
+  font-family: Orbitron;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: 0.45px;
 
-  @media (max-width: 576px) {
-    font-size: 15px;
-  }
-  @media (min-width: 577px) {
-    font-size: 15px;
-  }
-  @media (min-width: 769px) {
-    font-size: 17px;
-  }
-  @media (min-width: 993px) {
-    font-size: 17px;
-  }
-  @media (min-width: 1201px) {
-    font-size: 20px;
-  }
-  @media (min-width: 1401px) {
-    font-size: 25px;
-  }
+  font-size: 15px;
+
 `;
 
 export const CardsPoint = styled.p`
   font-family: "PF Videotext Pro";
   letter-spacing: 0em;
-  color: #E7FFB0;
+  color: #e7ffb0;
   text-align: left;
   font-size: 15px;
-`
+`;
 
 export const CardsBullet = styled.b`
   font-family: "PF Videotext Pro";
   letter-spacing: 0em;
-  color: #22FA5F;
+  color: #22fa5f;
   text-align: left;
   font-size: 15px;
-`
+`;
 
 export const Row = styled.div<{
   paddingLeft?: string;
@@ -622,7 +593,7 @@ export const PopupInfoRow = styled.div`
   gap: 16px;
   row-gap: 32px;
   flex-wrap: wrap;
-`
+`;
 export const SwiperWrapper = styled.div`
   width: 100%;
   z-index: 2;

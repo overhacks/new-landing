@@ -17,6 +17,7 @@ import GSwipePartnersStyles, {
   SubTitleContainer,
   SwiperContainer,
   TonanaLogo,
+  TurnLineHalf,
 } from "./styles";
 import React, { useEffect, useRef, useCallback, useState, useMemo } from "react";
 import SubTitleRow from "../SubTitleRow";
@@ -27,7 +28,7 @@ import Cube from "../../assets/img/cubePartner.png";
 import GrassCard from "../../assets/img/grassPartner.svg";
 import TonCard from "../../assets/img/tonPartner.svg";
 import SubTitle from "../SubTitle";
-import JoinButtonPng from "../../assets/img/JoinButton.png";
+import JoinButtonImg from "../../assets/img/JoinButton.svg";
 import JoinButtonMobile from "../../assets/img/mobilePartnerButton.svg";
 import ArrowLeft from "../../assets/img/arrowLeft.svg";
 import ArrowRight from "../../assets/img/arrowRight.svg";
@@ -44,7 +45,6 @@ const PartnersSection = () => {
   const swiperRef = useRef(null);
   const { webColors } = useColorTheme();
   const [isSmallScreen, setIsSmallScreen] = useState(matcher());
-
 
 
   const checkScreenSize = () => {
@@ -241,7 +241,7 @@ const PartnersSection = () => {
 
           <ButtonWrapper>
             <JoinButton
-              backgroundImg={isSmallScreen ? JoinButtonMobile : JoinButtonPng}
+              backgroundImg={isSmallScreen ? JoinButtonMobile : JoinButtonImg}
               href="https://forms.gle/Exqa4wAzTi1kSzbU9"
               target="_blank"
               data-aos="fade-right"

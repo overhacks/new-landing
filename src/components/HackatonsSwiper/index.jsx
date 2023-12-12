@@ -521,9 +521,7 @@ const HackatonsSwiper = ({
                 <CardButtonWrapper>
                   <Button
                     isFinished={!isOngoin}
-                    backgroundImg={
-                      isSmallScreen ? SmallApplyButton : ApplyButton
-                    }
+                    backgroundImg={ApplyButton}
                     href={isOngoin ? "https://t.me/OverhacksBot" : undefined}
                     onClick={(e) => {
                       if (isOngoin) {
