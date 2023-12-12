@@ -9,7 +9,6 @@ export const SectionWrapper = styled.section`
   justify-content: center;
   z-index: 2;
   position: relative;
-  padding-top: 16px;
 
   @media (max-width: 576px) {
     background-color: transparent;
@@ -39,7 +38,8 @@ export const Row = styled.div`
   align-items: center;
   padding-left: 5%;
   padding-right: 5%;
-  padding-bottom: 104px;
+  margin-bottom: 30px;
+  margin-top: 30px;
 `;
 
 export const AboutWrapper = styled.div`
@@ -125,6 +125,35 @@ export const ColumnTextLarge = styled.div`
   width: 100%;
 `;
 
+export const TurnLineHalfContainer = styled.div`
+  width: 90%;
+  margin-inline: auto;
+`;
+
+export const TurnLineHalf = styled.div`
+  width: 46.5%;
+
+  padding-left: 3.5%;
+  padding-right: 50%;
+  .svg {
+    width: 100%;
+    height: 40vh;
+  }
+
+  .path {
+    stroke-dasharray: 2000;
+    stroke-dashoffset: 2000;
+    animation: dash 3.5s linear forwards;
+    stroke-width: 1.5px;
+  }
+
+  @keyframes dash {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+`;
+
 export const LineCenter = styled.div<{ transform: string }>`
   width: 1.5px;
   height: 201px;
@@ -154,8 +183,112 @@ export const TextBlock = styled.div`
   align-items: center;
   box-sizing: border-box;
   width: 100%;
-
 `;
+export const LineLeftContainer = styled.div`
+  width: 7%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const PulseContainer = styled.div`
+  width: 36px;
+  height: 36px;
+
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+    border-radius: 50%;
+
+    background: rgba(97, 0, 255, 0.8);
+
+    filter: blur(17.5px);
+    width: 24px;
+    height: 24px;
+  }
+`;
+
+export const BulletWrapper = styled.img`
+  border: none;
+  background-color: transparent;
+  width: 36px;
+  height: 36px;
+  z-index: 5;
+  object-fit: contain;
+`;
+
+export const TextBlockRow = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  box-sizing: border-box;
+  width: 100%;
+
+  margin-top: 45px;
+  margin-bottom: 45px;
+`;
+
+export const AboutTextWrapper = styled.div`
+  width: 93%;
+`;
+export const LineLeftWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+`;
+export const LineLeft = styled.div<{ transform: string }>`
+  width: 1.5px;
+  height: 200px;
+  opacity: 0.4;
+  background: #6100ff;
+
+  transform: ${(props) => props.transform};
+  transition: transform 2s cubic-bezier(0.16, 1, 0.3, 1);
+
+  transform-origin: 0 0;
+`;
+
+export const LineLeft3 = styled.div<{ transform: string }>`
+  width: 1.5px;
+  height: 200px;
+  opacity: 0.4;
+  background: linear-gradient(
+    to bottom,
+    rgba(97, 0, 255, 1),
+    rgba(97, 0, 255, 0.22)
+  );
+
+  transform: ${(props) => props.transform};
+  transition: transform 2s cubic-bezier(0.16, 1, 0.3, 1);
+
+  transform-origin: 0 0;
+`;
+
+export const LineLeft4 = styled.div<{ transform: string }>`
+  width: 1.5px;
+  height: 200px;
+  opacity: 0.4;
+  background: linear-gradient(
+    to bottom,
+    rgba(97, 0, 255, 0.22),
+    rgba(97, 0, 255, 1)
+  );
+
+  transform: ${(props) => props.transform};
+  transition: transform 2s cubic-bezier(0.16, 1, 0.3, 1);
+
+  transform-origin: 0 0;
+`;
+
 export const AboutText = styled.h2`
   text-align: left;
   max-width: 90%;
@@ -168,6 +301,20 @@ export const AboutText = styled.h2`
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+`;
+
+export const AboutLabel = styled.h2`
+  text-align: left;
+  max-width: 90%;
+  align-self: center;
+
+  color: #2dc669;
+  font-family: Silkscreen;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 38.4%; /* 11.52px */
+  letter-spacing: 0.15px;
 `;
 
 export const AboutTextB = styled.b`

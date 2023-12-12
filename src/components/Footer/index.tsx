@@ -38,7 +38,7 @@ function Footer() {
 
         <Container>
           <Column>
-            <AnySizeTitle color="#CCFF5A" text="OVERHACKS" fontSize="17px" />
+            <AnySizeTitle color="#2DC669" text="OVERHACKS" fontSize="17px" />
             <FooterBtn>
               <SubTitle
                 textAlign="left"
@@ -65,7 +65,7 @@ function Footer() {
             </FooterBtn>
           </Column>
           <Column>
-            <AnySizeTitle color="#CCFF5A" text="HACKATONS" fontSize="17px" />
+            <AnySizeTitle color="#2DC669" text="HACKATONS" fontSize="17px" />
             <FooterBtn
               href="https://forms.gle/Exqa4wAzTi1kSzbU9"
               target="_blank"
@@ -89,7 +89,7 @@ function Footer() {
           {!isSmallScreen && (
             <Column>
               <AnySizeTitle
-                color="#CCFF5A"
+                color="#2DC669"
                 text="SOCIAL MEDIA"
                 fontSize="17px"
               />

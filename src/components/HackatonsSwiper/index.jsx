@@ -450,7 +450,7 @@ const HackatonsSwiper = ({
               onClick={() => handlePopupOpen(slideContent.id, swiperRef)}
             >
               <HackatonTitleTextWrapper>
-                <HackatonTitleText color={isOngoin ? "#E7FFB0" : "#CCFF5A"}>
+                <HackatonTitleText color="#FFF">
                   {slideContent.name}
                 </HackatonTitleText>
               </HackatonTitleTextWrapper>
@@ -481,7 +481,7 @@ const HackatonsSwiper = ({
                     <SubTitle textAlign="left" color="#6C6D6C" text="Format" />
                     <SubTitle
                       textAlign="left"
-                      color="#E7FFB0"
+                      color="#C0C0C0"
                       text="Offline"
                       overflow="hidden"
                       textOverflow="ellipsis"
@@ -502,7 +502,7 @@ const HackatonsSwiper = ({
                     />
                     <SubTitle
                       textAlign="left"
-                      color="#E7FFB0"
+                      color="#C0C0C0"
                       text={new Date(slideContent.startDate)
                         .toLocaleDateString("en-US", {
                           month: "2-digit",

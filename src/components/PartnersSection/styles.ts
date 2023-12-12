@@ -4,14 +4,12 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 export const PartnersSectionWrapper = styled.section`
   width: 100%;
-  padding-bottom: 90px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
   position: relative;
   z-index: 2;
-  margin-bottom: 70px;
 
   @media (max-width: 576px) {
     background-color: #0e0e0e;

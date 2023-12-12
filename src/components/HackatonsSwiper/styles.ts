@@ -557,9 +557,9 @@ export const ButtonText = styled.p`
 export const CardsPoint = styled.p`
   font-family: "PF Videotext Pro";
   letter-spacing: 0em;
-  color: #e7ffb0;
+  color: #E2E2E2;
   text-align: left;
-  font-size: 15px;
+  font-size: 20px;
 `;
 
 export const CardsBullet = styled.b`
