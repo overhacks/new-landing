@@ -50,7 +50,7 @@ import {
 import LogoHacks from "../../assets/img/LOGOHACK.png";
 import { routes } from "../../constants/routes";
 import Background from "../../assets/img/radiance.png";
-import CharacterSVG from "../../assets/img/character.svg";
+import CharacterImg from "../../assets/img/SoftwareEngineer.png";
 import O from "../../assets/img/o.png";
 import V from "../../assets/img/v.png";
 import E from "../../assets/img/e.png";
@@ -198,7 +198,7 @@ function Header() {
                 <Promo>
                   <PromoInnerWrapper>
                     <CharacterWrapper>
-                      <Character alt="Character" src={CharacterSVG} />
+                      <Character alt="Character" src={CharacterImg} />
                     </CharacterWrapper>
 
                     <SloganWrapper>

@@ -190,6 +190,7 @@ export const RowContainer = styled.div`
   justify-content: flex-start;
   align-items: center;
   width: 100%;
+  
 `;
 
 export const RowContainerRight = styled.div`
@@ -296,6 +297,7 @@ export const AnimatedBulletContainerRight = styled.div<{ backgroundImg: any }>`
 
 export const TurnLine = styled.div`
   width: 93%;
+  margin-top: 32px;
 
   padding-left: 3.5%;
   padding-right: 3.5%;
@@ -323,6 +325,7 @@ export const TurnLineHalf = styled.div`
 
   padding-left: 3.5%;
   padding-right: 50%;
+  margin-top: 32px;
   .svg {
     width: 100%;
     height: 40vh;
@@ -378,7 +381,11 @@ export const PulseContainer = styled.div`
   position: relative;
   width: 36px;
   height: 36px;
-  margin-bottom: 32px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;
 
 const pulseAnimation = keyframes`

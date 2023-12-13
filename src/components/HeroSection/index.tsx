@@ -65,7 +65,6 @@ const HeroSection = () => {
   const line3StartRef = useRef(null);
   const line4StartRef = useRef(null);
 
-
   const lineInViewport1 = useIsInViewport(line1StartRef);
   const lineInViewport2 = useIsInViewport(line2StartRef);
   const lineInViewport3 = useIsInViewport(line3StartRef);
@@ -74,8 +73,6 @@ const HeroSection = () => {
   const lineTurnRef = useRef(null);
   const lineTurnRef2 = useRef(null);
   const lineTurnRef3 = useRef(null);
-
-  
 
   const lineTurnInViewport1 = useIsInViewport(lineTurnRef);
   const lineTurnInViewport2 = useIsInViewport(lineTurnRef2);
@@ -214,15 +211,22 @@ const HeroSection = () => {
             <PulseContainer>
               <BulletWrapper src={HeroBulletSVG} />
               {[1, 2, 3, 4, 5, 6, 7, 8].map((index) => (
-                <PulseCircle key={index} delay={index} size={300}/>
+                <PulseCircle key={index} delay={index} size={300} />
               ))}
             </PulseContainer>
           </AnimatedBulletContainer>
 
-          <Description data-aos="fade-right">
-            Do you want to develop your skills and try yourself in{" "}
-            <DescriptionB>web3</DescriptionB>?
-          </Description>
+          {isDeveloper ? (
+            <Description data-aos="fade-right">
+              Do you want to develop your skills and try yourself in{" "}
+              <DescriptionB>web3</DescriptionB>?
+            </Description>
+          ) : (
+            <Description data-aos="fade-right">
+              Do you need to <DescriptionB>solve</DescriptionB> dev{" "}
+              <DescriptionB>problems</DescriptionB>?
+            </Description>
+          )}
         </RowContainer>
         <TurnLine ref={lineTurnRef}>
           {lineTurnInViewport1 ? (
@@ -252,15 +256,22 @@ const HeroSection = () => {
 
       <TurnContainer>
         <RowContainerRight>
-          <DescriptionRight data-aos="fade-right">
-            Find like-minded people and teammates for your future startup?
-          </DescriptionRight>
+          {isDeveloper ? (
+            <DescriptionRight data-aos="fade-right">
+              Find like-minded people and teammates for your future startup?
+            </DescriptionRight>
+          ) : (
+            <DescriptionRight data-aos="fade-right">
+              Attract enthusiast's attentionto build infrastructure on your
+              Tech?
+            </DescriptionRight>
+          )}
 
           <AnimatedBulletContainerRight backgroundImg={HeroLight2}>
             <PulseContainer>
               <BulletWrapper src={HeroBulletSVG} />
               {[1, 2, 3, 4, 5, 6, 7, 8].map((index) => (
-                <PulseCircle key={index} delay={index} size={300}/>
+                <PulseCircle key={index} delay={index} size={300} />
               ))}
             </PulseContainer>
           </AnimatedBulletContainerRight>
@@ -311,14 +322,20 @@ const HeroSection = () => {
             <PulseContainer>
               <BulletWrapper src={HeroBulletSVG} />
               {[1, 2, 3, 4, 5, 6, 7, 8].map((index) => (
-                <PulseCircle key={index} delay={index} size={300}/>
+                <PulseCircle key={index} delay={index} size={300} />
               ))}
             </PulseContainer>
           </AnimatedBulletContainerRight>
 
-          <Description data-aos="fade-right">
-            Earn money and recognition?
-          </Description>
+          {isDeveloper ? (
+            <Description data-aos="fade-right">
+              Earn money and recognition?
+            </Description>
+          ) : (
+            <Description data-aos="fade-right">
+              Build a trusting community around your brand?
+            </Description>
+          )}
         </RowContainer>
 
         <TurnLineHalf ref={lineTurnRef3}>
@@ -383,9 +400,9 @@ const HeroSection = () => {
       <BulletContainer>
         <BulletWrapper ref={line3StartRef} src={HeroBulletSVG} />
       </BulletContainer>
-      
+
       <CenteredLine>
-      <LineEnd transform={transform3}></LineEnd>
+        <LineEnd transform={transform3}></LineEnd>
       </CenteredLine>
 
       <HeroSubTitle data-aos="fade-right">
@@ -393,13 +410,12 @@ const HeroSection = () => {
       </HeroSubTitle>
 
       <HeroEndContainer>
-        <BackgroundContainer background={LeftLight}/>
+        <BackgroundContainer background={LeftLight} />
         <EndLineContainer>
-          <LongLineEnd ref={line4StartRef} transform={transform4}/>
+          <LongLineEnd ref={line4StartRef} transform={transform4} />
         </EndLineContainer>
-        <BackgroundContainer background={RightLight}/>
+        <BackgroundContainer background={RightLight} />
       </HeroEndContainer>
-
     </HeroSectionsWrapper>
   );
 };

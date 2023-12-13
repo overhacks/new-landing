@@ -6,11 +6,15 @@ import About1 from "../../assets/img/About1Image.jpg";
 import About2 from "../../assets/img/About2Image.jpg";
 import SpiderPng from "../../assets/img/overhacksSpider.png";
 import HeroBulletSVG from "../../assets/img/heroBullet.svg";
+import BackgroundLightsLarge from "../../assets/img/LargeBackgroundLights.png";
+
+
 import AOS from "aos";
 import "aos/dist/aos.css";
 
 import {
   AboutLabel,
+  AboutLightsWrapper,
   AboutText,
   AboutTextB,
   AboutTextWrapper,
@@ -121,6 +125,8 @@ const AboutSection = () => {
 
   return (
     <>
+
+    <AboutLightsWrapper backgroundImg={BackgroundLightsLarge}>
       <CenteredLine ref={line1StartRef}>
         <LineCenter transform={transform} />
       </CenteredLine>
@@ -174,6 +180,8 @@ const AboutSection = () => {
           )}
         </TurnLineHalf>
       </TurnLineHalfContainer>
+    </AboutLightsWrapper>
+      
 
       <SectionWrapper id="about">
         <AboutWrapper>

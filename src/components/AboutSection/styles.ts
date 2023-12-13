@@ -167,6 +167,15 @@ export const LineCenter = styled.div<{ transform: string }>`
   transform-origin: 0 0;
 `;
 
+export const AboutLightsWrapper = styled.div<{ backgroundImg: any }>`
+  width: 100%;
+
+  background-image: url(${(props) => props.backgroundImg});
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+`
+
 export const CenteredLine = styled.div`
   width: 100%;
   margin-top: 24px;
