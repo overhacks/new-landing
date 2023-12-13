@@ -107,28 +107,28 @@ const HackatonsSwiper = ({
     const params = {
       centeredSlides: false,
       grabCursor: true,
-      spaceBetween: 47,
+      spaceBetween: 100,
       centeredSlidesBounds: true,
       breakpoints: {
         640: {
           slidesPerView: 1,
           centeredSlides: true,
-          spaceBetween: 47,
+          spaceBetween: 100,
         },
         768: {
           slidesPerView: 1,
           centeredSlides: true,
-          spaceBetween: 47,
+          spaceBetween: 100,
         },
         1080: {
           slidesPerView: 2,
           centeredSlides: false,
-          spaceBetween: 47,
+          spaceBetween: 100,
         },
         1280: {
           slidesPerView: 2,
           centeredSlides: false,
-          spaceBetween: 47,
+          spaceBetween: 100,
         },
       },
       navigation: {
@@ -140,28 +140,28 @@ const HackatonsSwiper = ({
     const paramsMobile = {
       centeredSlides: false,
       grabCursor: true,
-      spaceBetween: 47,
+      spaceBetween: 100,
       centeredSlidesBounds: true,
       breakpoints: {
         640: {
           slidesPerView: 1,
           centeredSlides: true,
-          spaceBetween: 47,
+          spaceBetween: 100,
         },
         768: {
           slidesPerView: 1,
           centeredSlides: true,
-          spaceBetween: 47,
+          spaceBetween: 100,
         },
         1080: {
           slidesPerView: 2,
           centeredSlides: false,
-          spaceBetween: 47,
+          spaceBetween: 100,
         },
         1280: {
           slidesPerView: 2,
           centeredSlides: false,
-          spaceBetween: 47,
+          spaceBetween: 100,
         },
       },
       loop: true,

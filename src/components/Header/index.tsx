@@ -45,6 +45,7 @@ import {
   WithText,
   UnderNameText,
   CharacterWrapper,
+  JoinText,
 } from "./styles";
 import LogoHacks from "../../assets/img/LOGOHACK.png";
 import { routes } from "../../constants/routes";
@@ -69,6 +70,37 @@ const matcher = () => {
 };
 
 function Header() {
+  const phrases = [
+    "code",
+    "manage",
+    "design",
+  ];
+  const [text, setText] = useState("");
+  const [phraseIndex, setPhraseIndex] = useState(0);
+  const [charIndex, setCharIndex] = useState(0);
+
+  useEffect(() => {
+    const typingInterval = setInterval(() => {
+      if (charIndex < phrases[phraseIndex].length) {
+        setText((prevText) => prevText + phrases[phraseIndex][charIndex]);
+        setCharIndex((prevCharIndex) => prevCharIndex + 1);
+      } else {
+        clearInterval(typingInterval);
+        setTimeout(() => {
+          setCharIndex(0);
+          setPhraseIndex(
+            (prevPhraseIndex) => (prevPhraseIndex + 1) % phrases.length
+          );
+          setText("");
+        }, 2000); // Delay before erasing
+      }
+    }, 300); // Typing speed
+
+    return () => {
+      clearInterval(typingInterval);
+    };
+  }, [charIndex, phraseIndex]);
+
   const [openMenu, setOpenMenu] = useState(false);
 
   const [isSmallScreen, setIsSmallScreen] = useState(matcher());
@@ -174,7 +206,7 @@ function Header() {
                     </CharacterWrapper>
 
                     <SloganWrapper>
-                      <SloganPhrase>code</SloganPhrase>
+                      <SloganPhrase>{text}</SloganPhrase>
                       <SloganPhrase>/</SloganPhrase>
                       <SloganPhrase>earn</SloganPhrase>
                     </SloganWrapper>
@@ -185,14 +217,7 @@ function Header() {
                       backgroundImg={JoinButtonSVG}
                       href="https://t.me/OverhacksBot"
                     >
-                      <SubTitle
-                        fontSize="25px"
-                        fontWeight="600"
-                        textAlign="left"
-                        color="#000"
-                        text="Join Now"
-                        cursor="pointer"
-                      />
+                      <JoinText>Join Now</JoinText>
                     </JoinButton>
                   </JoinButtonWrapper>
                 </Promo>
@@ -272,9 +297,13 @@ function Header() {
             )}
 
             <MotoRow>
-              <UnderNameText>
-                The world’s fastes growing Hackathons organasing platform
-              </UnderNameText>
+              <UnderNameText>The</UnderNameText>
+              <UnderNameText>world’s</UnderNameText>
+              <UnderNameText>fastes</UnderNameText>
+              <UnderNameText>growing</UnderNameText>
+              <UnderNameText>Hackathons</UnderNameText>
+              <UnderNameText>organasing</UnderNameText>
+              <UnderNameText>platform</UnderNameText>
             </MotoRow>
           </MotoInnerWrapper>
         </Moto>

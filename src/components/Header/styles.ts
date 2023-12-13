@@ -81,8 +81,6 @@ export const UnderNameText = styled.p`
   font-weight: 400;
   line-height: 30.437px;
   letter-spacing: 2.43px;
-
-  max-width: 100%;
 `;
 
 const drawLineAnimation = keyframes`
@@ -163,7 +161,7 @@ export const MotoRow = styled.div`
   justify-content: space-between;
   align-items: flex-start;
   flex-wrap: wrap;
-  gap: 32px;
+  gap: 16px;
 `;
 
 export const MobilePromoWrapper = styled.div`
@@ -565,6 +563,16 @@ export const LogoLinksWrapper = styled.div`
   gap: 78px;
   align-items: center;
   justify-content: flex-start;
+`;
+export const JoinText = styled.p`
+  color: #dddbdb;
+  font-family: Orbitron;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: 0.45px;
+  cursor: pointer;
 `;
 
 export const JoinButton = styled.a<{ backgroundImg: any }>`
