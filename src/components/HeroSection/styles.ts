@@ -378,6 +378,7 @@ export const PulseContainer = styled.div`
   position: relative;
   width: 36px;
   height: 36px;
+  margin-bottom: 32px;
 `;
 
 const pulseAnimation = keyframes`
@@ -467,7 +468,7 @@ export const LineWrapper = styled.div`
 `;
 
 export const Line = styled.div<{ transform: string }>`
-  height: calc(100% - 52px);
+  height: calc(100% - 76px);
   width: 1.5px;
   opacity: 0.4;
   background: linear-gradient(to bottom, #22fa5f, #6100ff);

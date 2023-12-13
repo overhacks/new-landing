@@ -5,7 +5,7 @@ export const useColorTheme = () => {
       whyCardBackground: "rgba(14, 14, 14, 0.90)",
       whyCardBorder: "1px solid rgba(14, 14, 14, 0.80)",
 
-      WhyCardText: "#D9DDDB",
+      WhyCardText: "#C5C5C5",
 
 
       // Hackatons

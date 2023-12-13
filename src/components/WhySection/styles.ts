@@ -130,15 +130,15 @@ export const WhyColumn = styled.div`
   }
   @media (min-width: 993px) {
     width: 30%;
-    gap: 0;
+    gap: 5px;
   }
   @media (min-width: 1201px) {
     width: 30%;
-    gap: 0;
+    gap: 5px;
   }
   @media (min-width: 1401px) {
     width: 30%;
-    gap: 0;
+    gap: 5px;
   }
 `;
 
@@ -217,7 +217,7 @@ export const LineLeft = styled.div<{ transform: string }>`
   width: 1.5px;
   height: 267px;
   opacity: 0.4;
-  background: #0F1068;
+  background: #6100FF;
 
   transform: ${(props) => props.transform};
   transition: transform 2s cubic-bezier(0.16, 1, 0.3, 1);

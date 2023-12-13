@@ -111,30 +111,30 @@ const WhySection = () => {
             <svg
               xmlns="http://www.w3.org/2000/svg"
               preserveAspectRatio="none"
-              viewBox="0 0 590 312"
+              viewBox="0 0 591 342"
               fill="none"
             >
               <path
-                d="M589 0V68.4672V124.934C589 144.817 572.882 160.934 553 160.934H37C17.1177 160.934 1 177.052 1 196.934V312"
-                stroke="url(#paint0_linear_1279_1183)"
-                stroke-opacity="0.4"
+                d="M590 0V110.131C590 130.013 573.882 146.131 554 146.131H37C17.1178 146.131 1 162.249 1 182.131V342"
+                stroke="url(#paint0_linear_1309_1539)"
+                stroke-opacity="0.7"
                 stroke-width="2"
                 className="path"
               />
               <defs>
                 <linearGradient
-                  id="paint0_linear_1279_1183"
-                  x1="589.499"
-                  y1="-24"
-                  x2="589.499"
-                  y2="160.934"
+                  id="paint0_linear_1309_1539"
+                  x1="590.5"
+                  y1="-3.56367e-06"
+                  x2="8.00031"
+                  y2="536"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop stop-color="#2238FA" stop-opacity="0.72" />
-                  <stop offset="0.505208" stop-color="#2622FA" />
+                  <stop stop-color="#6100FF" stop-opacity="0.63" />
+                  <stop offset="0.512857" stop-color="#6100FF" />
                   <stop
-                    offset="0.807292"
-                    stop-color="#0117DD"
+                    offset="0.945651"
+                    stop-color="#6100FF"
                     stop-opacity="0.63"
                   />
                 </linearGradient>

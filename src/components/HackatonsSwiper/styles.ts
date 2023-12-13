@@ -178,16 +178,16 @@ export const SponsorsWrapper = styled.div<{ backgroundColor: string }>`
 `;
 
 export const HackatonTitleText = styled.h1<{ color: string }>`
-  font-size: 17px;
-  font-family: "Orbitron";
+  font-family: Orbitron;
+  font-size: 25px;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
-  letter-spacing: 0.6px;
+  letter-spacing: 0.75px;
 
   color: ${(props) => props.color};
-  width: 100%;
-  max-width: 100%;
+  width: 85%;
+  max-width: 85%;
   text-overflow: ellipsis;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -232,7 +232,6 @@ export const Description = styled.div`
   gap: 12px;
 
   width: 49%;
-
 `;
 
 export const PrizePoolContainer = styled.div`
@@ -276,7 +275,7 @@ export const TextWrapper = styled.div<{ backgroundColor: string }>`
   justify-content: center;
   align-items: center;
 
-  color: #e7ffb0;
+  color: #fff;
   font-family: "PF Videotext Pro";
   font-size: 15px;
 `;
@@ -551,13 +550,12 @@ export const ButtonText = styled.p`
   letter-spacing: 0.45px;
 
   font-size: 15px;
-
 `;
 
 export const CardsPoint = styled.p`
   font-family: "PF Videotext Pro";
   letter-spacing: 0em;
-  color: #E2E2E2;
+  color: #e2e2e2;
   text-align: left;
   font-size: 20px;
 `;

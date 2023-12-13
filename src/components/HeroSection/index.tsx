@@ -310,6 +310,9 @@ const HeroSection = () => {
           <AnimatedBulletContainerRight backgroundImg={HeroLight1}>
             <PulseContainer>
               <BulletWrapper src={HeroBulletSVG} />
+              {[1, 2, 3, 4, 5, 6, 7, 8].map((index) => (
+                <PulseCircle key={index} delay={index} size={300}/>
+              ))}
             </PulseContainer>
           </AnimatedBulletContainerRight>
 

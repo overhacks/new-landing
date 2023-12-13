@@ -70,11 +70,7 @@ const matcher = () => {
 };
 
 function Header() {
-  const phrases = [
-    "code",
-    "manage",
-    "design",
-  ];
+  const phrases = ["code", "manage", "design"];
   const [text, setText] = useState("");
   const [phraseIndex, setPhraseIndex] = useState(0);
   const [charIndex, setCharIndex] = useState(0);
@@ -218,6 +214,20 @@ function Header() {
                       href="https://t.me/OverhacksBot"
                     >
                       <JoinText>Join Now</JoinText>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="6"
+                        height="9"
+                        viewBox="0 0 6 9"
+                        fill="none"
+                      >
+                        <path
+                          d="M0.981445 8.12122L4.98145 4.62122L0.981445 1.12122"
+                          stroke="white"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
                     </JoinButton>
                   </JoinButtonWrapper>
                 </Promo>

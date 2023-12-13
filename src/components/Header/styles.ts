@@ -25,7 +25,7 @@ export const HeaderContainer = styled.section<{ backgroundImg: any }>`
   display: flex;
   flex-direction: column;
   gap: 5%;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
 
   position: relative;
@@ -573,6 +573,7 @@ export const JoinText = styled.p`
   line-height: normal;
   letter-spacing: 0.45px;
   cursor: pointer;
+  margin-right: 10px;
 `;
 
 export const JoinButton = styled.a<{ backgroundImg: any }>`

@@ -107,28 +107,28 @@ const HackatonsSwiper = ({
     const params = {
       centeredSlides: false,
       grabCursor: true,
-      spaceBetween: 100,
+      spaceBetween: 80,
       centeredSlidesBounds: true,
       breakpoints: {
         640: {
           slidesPerView: 1,
           centeredSlides: true,
-          spaceBetween: 100,
+          spaceBetween: 80,
         },
         768: {
           slidesPerView: 1,
           centeredSlides: true,
-          spaceBetween: 100,
+          spaceBetween: 80,
         },
         1080: {
           slidesPerView: 2,
           centeredSlides: false,
-          spaceBetween: 100,
+          spaceBetween: 80,
         },
         1280: {
           slidesPerView: 2,
           centeredSlides: false,
-          spaceBetween: 100,
+          spaceBetween: 80,
         },
       },
       navigation: {
@@ -140,28 +140,28 @@ const HackatonsSwiper = ({
     const paramsMobile = {
       centeredSlides: false,
       grabCursor: true,
-      spaceBetween: 100,
+      spaceBetween: 80,
       centeredSlidesBounds: true,
       breakpoints: {
         640: {
           slidesPerView: 1,
           centeredSlides: true,
-          spaceBetween: 100,
+          spaceBetween: 80,
         },
         768: {
           slidesPerView: 1,
           centeredSlides: true,
-          spaceBetween: 100,
+          spaceBetween: 80,
         },
         1080: {
           slidesPerView: 2,
           centeredSlides: false,
-          spaceBetween: 100,
+          spaceBetween: 80,
         },
         1280: {
           slidesPerView: 2,
           centeredSlides: false,
-          spaceBetween: 100,
+          spaceBetween: 80,
         },
       },
       loop: true,
@@ -199,12 +199,7 @@ const HackatonsSwiper = ({
             hoverScrollStickColor="#445144a8"
           >
             <PopupHeaderRow>
-              <AnySizeTitle
-                text={currentHackaton.name}
-                color="#CCFF5A"
-                alignSelf="left"
-                maxWidth="85%"
-              />
+              <HackatonTitleText color="#FFF">{currentHackaton.name}</HackatonTitleText>
               <CancelBtn onClick={handlePopupOpen}>
                 <PopupStyledCross imgSrc={PopupCross} />
               </CancelBtn>
@@ -256,24 +251,24 @@ const HackatonsSwiper = ({
                       <InfoColumnPopup>
                         <SubTitle
                           textAlign="left"
-                          color="rgba(231, 255, 176, 0.51)"
+                          color="#6C6D6C"
                           text="Format"
                         />
                         <SubTitle
                           textAlign="left"
-                          color="#E7FFB0"
+                          color="#C0C0C0"
                           text="Offline"
                         />
                       </InfoColumnPopup>
                       <InfoColumnPopup>
                         <SubTitle
                           textAlign="left"
-                          color="rgba(231, 255, 176, 0.51)"
+                          color="#6C6D6C"
                           text="Start Date"
                         />
                         <SubTitle
                           textAlign="left"
-                          color="#E7FFB0"
+                          color="#C0C0C0"
                           text={new Date(currentHackaton.startDate)
                             .toLocaleDateString("en-US", {
                               month: "2-digit",
