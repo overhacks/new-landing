@@ -29,6 +29,7 @@ import {
   LineEnd,
   LineWrapper,
   LongLineEnd,
+  MobileButton,
   PromoText,
   PulseCircle,
   PulseContainer,
@@ -52,7 +53,24 @@ import useIsInViewport from "../../hooks/viewPort";
 import HeroLight1 from "../../assets/img/HeroLight1.svg";
 import HeroLight2 from "../../assets/img/HeroLight2.svg";
 
+const matcher = () => {
+  return window.matchMedia("(max-width: 993px)").matches;
+};
+
 const HeroSection = () => {
+  const [isSmallScreen, setIsSmallScreen] = useState(matcher());
+
+  const checkScreenSize = () => {
+    setIsSmallScreen(matcher());
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", checkScreenSize);
+    return () => {
+      window.removeEventListener("resize", checkScreenSize);
+    };
+  }, []);
+
   const [transform, setTransform] = useState("scaleY(0)");
   const [transform2, setTransform2] = useState("scaleY(0)");
   const [transform3, setTransform3] = useState("scaleY(0)");
@@ -119,88 +137,115 @@ const HeroSection = () => {
         <SectionContent>
           <Label>Choose</Label>
           <ChooserContainer ref={line1StartRef}>
-            <ChooseWrapper
-              onClick={() => {
-                setisDeveloper(true);
-              }}
-            >
-              {isDeveloper && (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="12"
-                  height="14"
-                  viewBox="0 0 12 14"
-                  fill="none"
+            {!isSmallScreen && (
+              <>
+                <ChooseWrapper
+                  onClick={() => {
+                    setisDeveloper(true);
+                  }}
                 >
-                  <path
-                    d="M11 1L1 7L11 13"
-                    stroke="#419261"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              )}
-              <ChooseText color={isDeveloper ? "#2DC669" : "#A8A8A8"}>
-                I am a developer
-              </ChooseText>
-              {isDeveloper && (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="12"
-                  height="14"
-                  viewBox="0 0 12 14"
-                  fill="none"
+                  {isDeveloper && (
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="12"
+                      height="14"
+                      viewBox="0 0 12 14"
+                      fill="none"
+                    >
+                      <path
+                        d="M11 1L1 7L11 13"
+                        stroke="#419261"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  )}
+                  <ChooseText color={isDeveloper ? "#2DC669" : "#A8A8A8"}>
+                    I am a developer
+                  </ChooseText>
+                  {isDeveloper && (
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="12"
+                      height="14"
+                      viewBox="0 0 12 14"
+                      fill="none"
+                    >
+                      <path
+                        d="M1 13L11 7L1 1"
+                        stroke="#419261"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  )}
+                </ChooseWrapper>
+                <ChooseWrapper
+                  onClick={() => {
+                    setisDeveloper(false);
+                  }}
                 >
-                  <path
-                    d="M1 13L11 7L1 1"
-                    stroke="#419261"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              )}
-            </ChooseWrapper>
-            <ChooseWrapper
-              onClick={() => {
-                setisDeveloper(false);
-              }}
-            >
-              {!isDeveloper && (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="12"
-                  height="14"
-                  viewBox="0 0 12 14"
-                  fill="none"
+                  {!isDeveloper && (
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="12"
+                      height="14"
+                      viewBox="0 0 12 14"
+                      fill="none"
+                    >
+                      <path
+                        d="M11 1L1 7L11 13"
+                        stroke="#419261"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  )}
+                  <ChooseText color={isDeveloper ? "#A8A8A8" : "#2DC669"}>
+                    I am a company
+                  </ChooseText>
+                  {!isDeveloper && (
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="12"
+                      height="14"
+                      viewBox="0 0 12 14"
+                      fill="none"
+                    >
+                      <path
+                        d="M1 13L11 7L1 1"
+                        stroke="#419261"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  )}
+                </ChooseWrapper>
+              </>
+            )}
+
+            {isSmallScreen && (
+              <>
+                <MobileButton
+                  onClick={() => {
+                    setisDeveloper(true);
+                  }}
                 >
-                  <path
-                    d="M11 1L1 7L11 13"
-                    stroke="#419261"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              )}
-              <ChooseText color={isDeveloper ? "#A8A8A8" : "#2DC669"}>
-                I am a company
-              </ChooseText>
-              {!isDeveloper && (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="12"
-                  height="14"
-                  viewBox="0 0 12 14"
-                  fill="none"
+                  <ChooseText color={isDeveloper ? "#2DC669" : "#A8A8A8"}>
+                    I am a developer
+                  </ChooseText>
+                </MobileButton>
+                <MobileButton
+                  onClick={() => {
+                    setisDeveloper(false);
+                  }}
                 >
-                  <path
-                    d="M1 13L11 7L1 1"
-                    stroke="#419261"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              )}
-            </ChooseWrapper>
+                  <ChooseText color={isDeveloper ? "#A8A8A8" : "#2DC669"}>
+                    I am a company
+                  </ChooseText>
+                </MobileButton>
+              </>
+            )}
           </ChooserContainer>
         </SectionContent>
       </ChooseSectionContainer>

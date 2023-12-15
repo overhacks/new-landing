@@ -26,7 +26,6 @@ export const WhySubtitle = styled.h2`
   font-weight: 700;
   line-height: 131.166%; /* 39.35px */
 
-
   @media (max-width: 576px) {
     font-size: 30px;
   }
@@ -37,7 +36,7 @@ export const WhySubtitle = styled.h2`
     font-size: 20px;
   }
   @media (min-width: 993px) {
-    font-size:20px;
+    font-size: 20px;
   }
   @media (min-width: 1201px) {
     font-size: 20px;
@@ -106,7 +105,7 @@ export const CardsContainer = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  gap: 16px;
+  gap: 56px;
 
   z-index: 4;
 `;
@@ -156,8 +155,7 @@ export const LineLeftWrapper = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-
-`
+`;
 
 export const LineLeftContainer = styled.div`
   width: 7%;
@@ -165,6 +163,25 @@ export const LineLeftContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  @media (max-width: 576px) {
+    justify-content: space-between;
+  }
+  @media (min-width: 577px) {
+    justify-content: space-between;
+  }
+  @media (min-width: 769px) {
+    justify-content: space-between;
+  }
+  @media (min-width: 993px) {
+    justify-content: center;
+  }
+  @media (min-width: 1201px) {
+    justify-content: center;
+  }
+  @media (min-width: 1401px) {
+    justify-content: center;
+  }
 `;
 
 export const BulletWrapper = styled.img`
@@ -212,17 +229,66 @@ export const LineCenter = styled.div<{ transform: string }>`
   transform-origin: 0 0;
 `;
 
-
 export const LineLeft = styled.div<{ transform: string }>`
   width: 1.5px;
-  height: 267px;
   opacity: 0.4;
-  background: #6100FF;
 
   transform: ${(props) => props.transform};
   transition: transform 2s cubic-bezier(0.16, 1, 0.3, 1);
 
   transform-origin: 0 0;
+  background: #6100ff;
+
+
+  @media (max-width: 576px) {
+    height: calc(100% - 92px);
+  }
+  @media (min-width: 577px) {
+    height: calc(100% - 92px);
+  }
+  @media (min-width: 769px) {
+    height: calc(100% - 92px);
+  }
+  @media (min-width: 993px) {
+    height: 267px;
+  }
+  @media (min-width: 1201px) {
+    height: 267px;
+  }
+  @media (min-width: 1401px) {
+    height: 267px;
+  }
+`;
+
+export const LineLeftMobileLast = styled.div<{ transform: string }>`
+  width: 1.5px;
+  opacity: 0.4;
+
+  transform: ${(props) => props.transform};
+  transition: transform 2s cubic-bezier(0.16, 1, 0.3, 1);
+
+  transform-origin: 0 0;
+  background: linear-gradient(to bottom, #6100ff, #11116E);
+
+
+  @media (max-width: 576px) {
+    height: calc(100% - 92px);
+  }
+  @media (min-width: 577px) {
+    height: calc(100% - 92px);
+  }
+  @media (min-width: 769px) {
+    height: calc(100% - 92px);
+  }
+  @media (min-width: 993px) {
+    height: 267px;
+  }
+  @media (min-width: 1201px) {
+    height: 267px;
+  }
+  @media (min-width: 1401px) {
+    height: 267px;
+  }
 `;
 
 export const BooferLineWrapper = styled.div`
@@ -237,22 +303,28 @@ export const WhyCardWrapper = styled.div`
   flex-direction: row;
 
   @media (max-width: 576px) {
-    width: 67%;
+    width: 90%;
+    padding-bottom: 0;
   }
   @media (min-width: 577px) {
-    width: 55%;
+    width: 90%;
+    padding-bottom: 0;
   }
   @media (min-width: 769px) {
-    width: 50%;
+    width: 90%;
+    padding-bottom: 0;
   }
   @media (min-width: 993px) {
     width: 90%;
+    padding-bottom: 0;
   }
   @media (min-width: 1201px) {
     width: 90%;
+    padding-bottom: 0;
   }
   @media (min-width: 1401px) {
     width: 90%;
+    padding-bottom: 0;
   }
 `;
 
@@ -324,7 +396,7 @@ export const TurnLineHalf = styled.div`
     stroke-dasharray: 2000;
     stroke-dashoffset: 2000;
     animation: dash 3.5s linear forwards;
-    stroke-width: 1.5px;
+    stroke-width: 3px;
   }
 
   @keyframes dash {

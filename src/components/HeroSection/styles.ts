@@ -27,7 +27,7 @@ export const PromoText = styled.h1`
   font-size: 50px;
   font-style: normal;
   font-weight: 400;
-  line-height: 19.2px;
+  line-height: 120%;
   letter-spacing: 0.25px;
 `;
 
@@ -190,7 +190,6 @@ export const RowContainer = styled.div`
   justify-content: flex-start;
   align-items: center;
   width: 100%;
-  
 `;
 
 export const RowContainerRight = styled.div`
@@ -546,14 +545,62 @@ export const Label = styled.div`
   letter-spacing: 0.15px;
 `;
 
+export const MobileButton = styled.button`
+  width: 100%;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  padding-right: 40px;
+  padding-left: 40px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: transparent;
+  text-decoration: none;
+  box-shadow: none;
+
+  border-radius: 56px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+`;
+
 export const ChooserContainer = styled.div`
   width: calc(100% - 22px);
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
   align-items: center;
 
   margin-top: 53px;
+
+  @media (max-width: 576px) {
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 36px;
+  }
+  @media (min-width: 577px) {
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 36px;
+  }
+  @media (min-width: 769px) {
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 36px;
+  }
+  @media (min-width: 993px) {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 0;
+  }
+  @media (min-width: 1201px) {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 0;
+  }
+  @media (min-width: 1401px) {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 0;
+  }
 `;
 
 export const ChooseWrapper = styled.button`

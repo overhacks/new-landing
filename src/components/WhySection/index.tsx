@@ -7,6 +7,7 @@ import {
   LineCenter,
   LineLeft,
   LineLeftContainer,
+  LineLeftMobileLast,
   LineLeftWrapper,
   PulseContainer,
   RowContainer,
@@ -157,6 +158,7 @@ const WhySection = () => {
             <PulseContainer>
               <BulletWrapper src={HeroBulletSVG} />
             </PulseContainer>
+           {isSmallScreen && <LineLeft transform={transform2} />}
           </LineLeftContainer>
           <WhyCard data-aos="fade-right">
             <SubTitleContainer>
@@ -170,7 +172,7 @@ const WhySection = () => {
 
             {!isSmallScreen && <Banner width="10%" src={EasyImg} />}
 
-            <WhyColumn>
+            <WhyColumn ref={line2StartRef}>
               <SubTitle
                 text="1. Choose your skills"
                 textAlign="left"
@@ -188,24 +190,26 @@ const WhySection = () => {
                 textAlign="left"
                 color={webColors.WhyCardText}
                 fontSize="25px"
+                
               />
             </WhyColumn>
 
-            {isSmallScreen && <Banner width="65%" src={EasyImg} />}
+            {isSmallScreen && <Banner width="50%" src={EasyImg} />}
           </WhyCard>
         </WhyCardWrapper>
 
-        <LineLeftWrapper>
-          <LineLeftContainer ref={line2StartRef}>
+        { !isSmallScreen && <LineLeftWrapper>
+          <LineLeftContainer>
             <LineLeft transform={transform2} />
           </LineLeftContainer>
-        </LineLeftWrapper>
+        </LineLeftWrapper>}
 
         <WhyCardWrapper>
           <LineLeftContainer>
             <PulseContainer>
               <BulletWrapper src={HeroBulletSVG} />
             </PulseContainer>
+            {isSmallScreen && <LineLeft transform={transform3} />}
           </LineLeftContainer>
           <WhyCard data-aos="fade-right">
             <SubTitleContainer>
@@ -219,7 +223,7 @@ const WhySection = () => {
 
             {!isSmallScreen && <Banner width="10%" src={Puzzle} />}
 
-            <WhyTextContainer>
+            <WhyTextContainer ref={line3StartRef}>
               <SubTitle
                 text="Matchmaking for skilled players to team up and complete bounties!"
                 textAlign="left"
@@ -229,22 +233,23 @@ const WhySection = () => {
             </WhyTextContainer>
 
             {isSmallScreen && (
-              <Banner width="55%" src={Puzzle} marginBottom="22px" />
+              <Banner width="45%" src={Puzzle} marginBottom="22px" />
             )}
           </WhyCard>
         </WhyCardWrapper>
 
-        <LineLeftWrapper>
-          <LineLeftContainer ref={line3StartRef}>
-            <LineLeft transform={transform3} />
+        { !isSmallScreen && <LineLeftWrapper>
+          <LineLeftContainer>
+            <LineLeftMobileLast transform={transform3} />
           </LineLeftContainer>
-        </LineLeftWrapper>
+        </LineLeftWrapper>}
 
         <WhyCardWrapper>
           <LineLeftContainer>
             <PulseContainer>
               <BulletWrapper src={HeroBulletSVG} />
             </PulseContainer>
+            {isSmallScreen && <LineLeft transform={transform3} />}
           </LineLeftContainer>
           <WhyCard data-aos="fade-right">
             <SubTitleContainer>
@@ -266,7 +271,7 @@ const WhySection = () => {
                 fontSize="25px"
               />
             </WhyTextContainer>
-            {isSmallScreen && <Banner width="55%" src={Cash} />}
+            {isSmallScreen && <Banner width="45%" src={Cash} />}
           </WhyCard>
         </WhyCardWrapper>
       </CardsContainer>
