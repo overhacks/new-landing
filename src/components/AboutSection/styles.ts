@@ -219,8 +219,8 @@ export const PulseContainer = styled.div`
     background: rgba(97, 0, 255, 0.8);
 
     filter: blur(17.5px);
-    width: 24px;
-    height: 24px;
+    width: 43px;
+    height: 43px;
   }
 `;
 
@@ -240,13 +240,14 @@ export const TextBlockRow = styled.div`
   align-items: center;
   box-sizing: border-box;
   width: 100%;
+  gap: 16px;
 
   margin-top: 45px;
   margin-bottom: 45px;
 `;
 
 export const AboutTextWrapper = styled.div`
-  width: 93%;
+  width: 90%;
 `;
 export const LineLeftWrapper = styled.div`
   width: 100%;
@@ -268,7 +269,7 @@ export const LineLeft = styled.div<{ transform: string }>`
 
 export const LineLeft3 = styled.div<{ transform: string }>`
   width: 1.5px;
-  height: 200px;
+  height: 310px;
   opacity: 0.4;
   background: linear-gradient(
     to bottom,
@@ -284,7 +285,7 @@ export const LineLeft3 = styled.div<{ transform: string }>`
 
 export const LineLeft4 = styled.div<{ transform: string }>`
   width: 1.5px;
-  height: 200px;
+  height: 310px;
   opacity: 0.4;
   background: linear-gradient(
     to bottom,
@@ -306,10 +307,29 @@ export const AboutText = styled.h2`
   color: #d9dddb;
 
   font-family: PF Videotext Pro;
-  font-size: 30px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+
+  
+  @media (max-width: 576px) {
+    font-size: 20px;
+  }
+  @media (min-width: 577px) {
+    font-size: 20px;
+  }
+  @media (min-width: 769px) {
+    font-size: 20px;
+  }
+  @media (min-width: 993px) {
+    font-size: 30px;
+  }
+  @media (min-width: 1201px) {
+    font-size: 30px;
+  }
+  @media (min-width: 1401px) {
+    font-size: 30px;
+  }
 `;
 
 export const AboutLabel = styled.h2`
@@ -329,10 +349,28 @@ export const AboutLabel = styled.h2`
 export const AboutTextB = styled.b`
   color: #6100ff;
   font-family: PF Videotext Pro;
-  font-size: 30px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+
+  @media (max-width: 576px) {
+    font-size: 20px;
+  }
+  @media (min-width: 577px) {
+    font-size: 20px;
+  }
+  @media (min-width: 769px) {
+    font-size: 20px;
+  }
+  @media (min-width: 993px) {
+    font-size: 30px;
+  }
+  @media (min-width: 1201px) {
+    font-size: 30px;
+  }
+  @media (min-width: 1401px) {
+    font-size: 30px;
+  }
 `;
 
 export const TitleWrapper = styled.div`

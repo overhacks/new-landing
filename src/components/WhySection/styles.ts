@@ -380,6 +380,25 @@ export const Banner = styled.img<{
 export const TurnLineHalfContainer = styled.div`
   width: 90%;
   margin-inline: auto;
+
+  @media (max-width: 576px) {
+    margin-bottom: 56px;
+  }
+  @media (min-width: 577px) {
+    margin-bottom: 56px;
+  }
+  @media (min-width: 769px) {
+    margin-bottom: 56px;
+  }
+  @media (min-width: 993px) {
+    margin-bottom: 0;
+  }
+  @media (min-width: 1201px) {
+    margin-bottom: 0;
+  }
+  @media (min-width: 1401px) {
+    margin-bottom: 0;
+  }
 `;
 
 export const TurnLineHalf = styled.div`

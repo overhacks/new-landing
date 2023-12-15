@@ -10,8 +10,10 @@ import {
   BulletContainer,
   BulletWrapper,
   Button,
+  ButtonMobile,
   ButtonText,
   ButtonWrapper,
+  ButtonWrapperMobile,
   CenteredLine,
   ChooseSectionContainer,
   ChooseText,
@@ -44,6 +46,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import HeroBulletSVG from "../../assets/img/heroBullet.svg";
 import ApplyButtonSvg from "../../assets/img/applyHeroButton.svg";
+import ApplyButtonMobileSvg from "../../assets/img/applyMobile.svg";
 import ApplyButtonBackgroundSvg from "../../assets/img/applyheroBackgroubd.svg";
 
 import LeftLight from "../../assets/img/LeftLight.png";
@@ -127,6 +130,36 @@ const HeroSection = () => {
     });
   }, []);
 
+
+
+
+  const phrases = ["developer", "manager", "designer"];
+  const [text, setText] = useState("");
+  const [phraseIndex, setPhraseIndex] = useState(0);
+  const [charIndex, setCharIndex] = useState(0);
+
+  useEffect(() => {
+    const typingInterval = setInterval(() => {
+      if (charIndex < phrases[phraseIndex].length) {
+        setText((prevText) => prevText + phrases[phraseIndex][charIndex]);
+        setCharIndex((prevCharIndex) => prevCharIndex + 1);
+      } else {
+        clearInterval(typingInterval);
+        setTimeout(() => {
+          setCharIndex(0);
+          setPhraseIndex(
+            (prevPhraseIndex) => (prevPhraseIndex + 1) % phrases.length
+          );
+          setText("");
+        }, 2000); // Delay before erasing
+      }
+    }, 300); // Typing speed
+
+    return () => {
+      clearInterval(typingInterval);
+    };
+  }, [charIndex, phraseIndex]);
+
   return (
     <HeroSectionsWrapper>
       <ChooseSectionContainer>
@@ -161,7 +194,7 @@ const HeroSection = () => {
                     </svg>
                   )}
                   <ChooseText color={isDeveloper ? "#2DC669" : "#A8A8A8"}>
-                    I am a developer
+                    I am a {text}
                   </ChooseText>
                   {isDeveloper && (
                     <svg
@@ -232,7 +265,7 @@ const HeroSection = () => {
                   }}
                 >
                   <ChooseText color={isDeveloper ? "#2DC669" : "#A8A8A8"}>
-                    I am a developer
+                    I am a {text}
                   </ChooseText>
                 </MobileButton>
                 <MobileButton
@@ -273,6 +306,7 @@ const HeroSection = () => {
             </Description>
           )}
         </RowContainer>
+        
         <TurnLine ref={lineTurnRef}>
           {lineTurnInViewport1 ? (
             <svg
@@ -425,15 +459,28 @@ const HeroSection = () => {
       <PromoText data-aos="fade-right">hackathon with overhacks</PromoText>
 
       <ApplyRow>
-        <ButtonWrapper>
-          <Button
-            href="https://t.me/OverhacksBot"
-            backgroundImg={ApplyButtonSvg}
-          >
-            <ButtonText>Apply</ButtonText>
-          </Button>
-          <BackgroundStar backgroundImg={ApplyButtonBackgroundSvg} />
-        </ButtonWrapper>
+        {!isSmallScreen && (
+          <ButtonWrapper>
+            <Button
+              href="https://t.me/OverhacksBot"
+              backgroundImg={ApplyButtonSvg}
+            >
+              <ButtonText>Apply</ButtonText>
+            </Button>
+            <BackgroundStar backgroundImg={ApplyButtonBackgroundSvg} />
+          </ButtonWrapper>
+        )}
+
+        {isSmallScreen && (
+          <ButtonWrapperMobile>
+            <ButtonMobile
+              href="https://t.me/OverhacksBot"
+              backgroundImg={ApplyButtonMobileSvg}
+            >
+              <ButtonText>Apply</ButtonText>
+            </ButtonMobile>
+          </ButtonWrapperMobile>
+        )}
       </ApplyRow>
 
       <HeroSubTitle ref={line2StartRef} data-aos="fade-right">
@@ -455,11 +502,11 @@ const HeroSection = () => {
       </HeroSubTitle>
 
       <HeroEndContainer>
-        <BackgroundContainer background={LeftLight} />
+        <BackgroundContainer background={isSmallScreen ? undefined : LeftLight} />
         <EndLineContainer>
           <LongLineEnd ref={line4StartRef} transform={transform4} />
         </EndLineContainer>
-        <BackgroundContainer background={RightLight} />
+        <BackgroundContainer background={isSmallScreen ? undefined : RightLight} />
       </HeroEndContainer>
     </HeroSectionsWrapper>
   );

@@ -140,7 +140,7 @@ export const SloganPhrase = styled.p`
   line-height: 112.73%;
   letter-spacing: 12.5px;
   @media (max-width: 576px) {
-    font-size: 15px;
+    font-size: 10px;
   }
   @media (min-width: 577px) {
     font-size: 15px;
@@ -171,7 +171,7 @@ export const WithText = styled.p`
   margin-bottom: 6px;
 
   @media (max-width: 576px) {
-    font-size: 10px;
+    font-size: 8px;
     margin-left: 0;
     margin-bottom: 0;
   }

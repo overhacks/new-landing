@@ -6,7 +6,7 @@ import About1 from "../../assets/img/About1Image.jpg";
 import About2 from "../../assets/img/About2Image.jpg";
 import SpiderPng from "../../assets/img/overhacksSpider.png";
 import HeroBulletSVG from "../../assets/img/heroBullet.svg";
-import BackgroundLightsLarge from "../../assets/img/LargeBackgroundLights.png";
+import BackgroundLightsLarge from "../../assets/img/LargeBackgroundLights2.png";
 
 
 import AOS from "aos";

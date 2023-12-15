@@ -103,26 +103,69 @@ export const ApplyRow = styled.div`
   justify-content: center;
   align-items: center;
 
-  margin-top: 135px;
   margin-bottom: 72px;
+
+  @media (max-width: 576px) {
+    margin-top: 25px;
+  }
+  @media (min-width: 577px) {
+    margin-top: 25px;
+  }
+  @media (min-width: 769px) {
+    margin-top: 25px;
+  }
+  @media (min-width: 993px) {
+    margin-top: 135px;
+  }
+  @media (min-width: 1201px) {
+    margin-top: 135px;
+  }
+  @media (min-width: 1401px) {
+    margin-top: 135px;
+  }
 `;
 
 export const ButtonText = styled.div`
   color: #dddbdb;
 
   font-family: Orbitron;
-  font-size: 15px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
   letter-spacing: 0.45px;
   z-index: 5;
   cursor: pointer;
+
+  @media (max-width: 576px) {
+    font-size: 15px;
+  }
+  @media (min-width: 577px) {
+    font-size: 15px;
+  }
+  @media (min-width: 769px) {
+    font-size: 20px;
+  }
+  @media (min-width: 993px) {
+    font-size: 15px;
+  }
+  @media (min-width: 1201px) {
+    font-size: 15px;
+  }
+  @media (min-width: 1401px) {
+    font-size: 15px;
+  }
 `;
 
 export const ButtonWrapper = styled.div`
   position: relative;
 `;
+
+export const ButtonWrapperMobile = styled.div`
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+`;
+
 
 export const BackgroundStar = styled.div<{ backgroundImg: any }>`
   position: absolute;
@@ -184,12 +227,45 @@ export const Button = styled.a<{ backgroundImg: any }>`
   }
 `;
 
+
+export const ButtonMobile = styled.a<{ backgroundImg: any }>`
+  background-color: transparent;
+  background-image: url(${(props) => props.backgroundImg});
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  border: none;
+  box-shadow: none;
+  text-decoration: none;
+
+
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  z-index: 5;
+
+  width: 100%;
+  aspect-ratio: 6.5/1;
+
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.8;
+  }
+  transition: opacity 0.15s ease-in-out;
+`;
+
+
 export const RowContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
   width: 100%;
+  gap: 32px;
 `;
 
 export const RowContainerRight = styled.div`
@@ -198,6 +274,7 @@ export const RowContainerRight = styled.div`
   justify-content: flex-end;
   align-items: center;
   width: 100%;
+  gap: 32px;
 `;
 
 export const AnimatedBulletContainer = styled.div<{ backgroundImg: any }>`
@@ -414,8 +491,6 @@ export const PulseCircle = styled.div<{ delay: number; size: number }>`
 `;
 
 export const Description = styled.h2`
-  width: 60%;
-
   color: #d9dddb;
   font-family: Orbitron;
   font-size: 30px;
@@ -423,6 +498,26 @@ export const Description = styled.h2`
   font-weight: 700;
   line-height: 48.819px;
   letter-spacing: 7.5px;
+
+
+  @media (max-width: 576px) {
+    width: 90%;
+  }
+  @media (min-width: 577px) {
+    width: 90%;
+  }
+  @media (min-width: 769px) {
+    width: 90%;
+  }
+  @media (min-width: 993px) {
+    width: 60%;
+  }
+  @media (min-width: 1201px) {
+    width: 60%;
+  }
+  @media (min-width: 1401px) {
+    width: 60%;
+  }
 `;
 
 export const DescriptionRight = styled.h2`
