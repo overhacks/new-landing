@@ -277,7 +277,7 @@ function Header() {
                 <MobileRowWrapper>
                   <MobileMotoColumn>
                     <MobileMotoRow>
-                      <SloganPhrase>code</SloganPhrase>
+                      <SloganPhrase>{text}</SloganPhrase>
                       <SloganPhrase>/</SloganPhrase>
                     </MobileMotoRow>
                     <MobileMotoRow>

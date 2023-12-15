@@ -24,29 +24,90 @@ export const PromoText = styled.h1`
   color: #d9dddb;
 
   font-family: Silkscreen;
-  font-size: 50px;
   font-style: normal;
   font-weight: 400;
   line-height: 120%;
-  letter-spacing: 0.25px;
+
+  @media (max-width: 576px) {
+    font-size: 30px;
+    letter-spacing: 0.15px;
+  }
+  @media (min-width: 577px) {
+    font-size: 30px;
+    letter-spacing: 0.15px;
+  }
+  @media (min-width: 769px) {
+    font-size: 30px;
+    letter-spacing: 0.15px;
+  }
+  @media (min-width: 993px) {
+    font-size: 50px;
+    letter-spacing: 0.25px;
+  }
+  @media (min-width: 1201px) {
+    font-size: 50px;
+    letter-spacing: 0.25px;
+  }
+  @media (min-width: 1401px) {
+    font-size: 50px;
+    letter-spacing: 0.25px;
+  }
 `;
 
 export const HeroEndContainer = styled.div`
   width: 100%;
-  height: 70vh;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+
+
+  @media (max-width: 576px) {
+    height: 30vh;
+  }
+  @media (min-width: 577px) {
+    height: 30vh;
+  }
+  @media (min-width: 769px) {
+    height: 30vh;
+  }
+  @media (min-width: 993px) {
+    height: 70vh;
+  }
+  @media (min-width: 1201px) {
+    height: 70vh;
+  }
+  @media (min-width: 1401px) {
+    height: 70vh;
+  }
 `;
 
 export const EndLineContainer = styled.div`
   width: 10%;
-  height: 70%;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
+
+
+  @media (max-width: 576px) {
+    height: 100%;
+  }
+  @media (min-width: 577px) {
+    height: 100%;
+  }
+  @media (min-width: 769px) {
+    height: 100%;
+  }
+  @media (min-width: 993px) {
+    height: 70%;
+  }
+  @media (min-width: 1201px) {
+    height: 70%;
+  }
+  @media (min-width: 1401px) {
+    height: 70%;
+  }
 `;
 
 export const LongLineEnd = styled.div<{ transform: string }>`
@@ -78,11 +139,34 @@ export const HeroSubTitle = styled.h2`
   color: #c0c0c0;
 
   font-family: Orbitron;
-  font-size: 30px;
   font-style: normal;
   font-weight: 700;
   line-height: 162.73%;
-  letter-spacing: 7.5px;
+
+  @media (max-width: 576px) {
+    font-size: 20px;
+    letter-spacing: 2px;
+  }
+  @media (min-width: 577px) {
+    font-size: 20px;
+    letter-spacing: 2px;
+  }
+  @media (min-width: 769px) {
+    font-size: 20px;
+    letter-spacing: 2px;
+  }
+  @media (min-width: 993px) {
+    font-size: 30px;
+    letter-spacing: 7.5px;
+  }
+  @media (min-width: 1201px) {
+    font-size: 30px;
+    letter-spacing: 7.5px;
+  }
+  @media (min-width: 1401px) {
+    font-size: 30px;
+    letter-spacing: 7.5px;
+  }
 `;
 
 export const CenteredLine = styled.div`
@@ -103,25 +187,30 @@ export const ApplyRow = styled.div`
   justify-content: center;
   align-items: center;
 
-  margin-bottom: 72px;
 
   @media (max-width: 576px) {
     margin-top: 25px;
+    margin-bottom: 0;
   }
   @media (min-width: 577px) {
     margin-top: 25px;
+    margin-bottom: 0;
   }
   @media (min-width: 769px) {
     margin-top: 25px;
+    margin-bottom: 0;
   }
   @media (min-width: 993px) {
     margin-top: 135px;
+    margin-bottom: 72px;
   }
   @media (min-width: 1201px) {
     margin-top: 135px;
+    margin-bottom: 72px;
   }
   @media (min-width: 1401px) {
     margin-top: 135px;
+    margin-bottom: 72px;
   }
 `;
 
@@ -165,7 +254,6 @@ export const ButtonWrapperMobile = styled.div`
   width: 100%;
   max-width: 500px;
 `;
-
 
 export const BackgroundStar = styled.div<{ backgroundImg: any }>`
   position: absolute;
@@ -227,6 +315,33 @@ export const Button = styled.a<{ backgroundImg: any }>`
   }
 `;
 
+export const LineLeftContainer = styled.div`
+  width: 7%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+
+  @media (max-width: 576px) {
+    justify-content: space-between;
+  }
+  @media (min-width: 577px) {
+    justify-content: space-between;
+  }
+  @media (min-width: 769px) {
+    justify-content: space-between;
+  }
+  @media (min-width: 993px) {
+    justify-content: center;
+  }
+  @media (min-width: 1201px) {
+    justify-content: center;
+  }
+  @media (min-width: 1401px) {
+    justify-content: center;
+  }
+`;
 
 export const ButtonMobile = styled.a<{ backgroundImg: any }>`
   background-color: transparent;
@@ -240,7 +355,6 @@ export const ButtonMobile = styled.a<{ backgroundImg: any }>`
   border: none;
   box-shadow: none;
   text-decoration: none;
-
 
   background-position: center center;
   background-repeat: no-repeat;
@@ -258,12 +372,11 @@ export const ButtonMobile = styled.a<{ backgroundImg: any }>`
   transition: opacity 0.15s ease-in-out;
 `;
 
-
 export const RowContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  align-items: center;
+  align-items: flex-start;
   width: 100%;
   gap: 32px;
 `;
@@ -278,7 +391,7 @@ export const RowContainerRight = styled.div`
 `;
 
 export const AnimatedBulletContainer = styled.div<{ backgroundImg: any }>`
-  width: 7%;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -371,7 +484,20 @@ export const AnimatedBulletContainerRight = styled.div<{ backgroundImg: any }>`
   }
 `;
 
-export const TurnLine = styled.div`
+export const LineLeft = styled.div<{ transform: string }>`
+  width: 1.5px;
+  opacity: 0.4;
+
+  transform: ${(props) => props.transform};
+  transition: transform 2s cubic-bezier(0.16, 1, 0.3, 1);
+
+  transform-origin: 0 0;
+  background: #6100ff;
+  height: 350px;
+`;
+
+export const TurnLine = styled.div<{ display: string }>`
+  display: ${(props) => props.display};
   width: 93%;
   margin-top: 32px;
 
@@ -498,7 +624,6 @@ export const Description = styled.h2`
   font-weight: 700;
   line-height: 48.819px;
   letter-spacing: 7.5px;
-
 
   @media (max-width: 576px) {
     width: 90%;
@@ -724,9 +849,27 @@ export const ChooseText = styled.div<{ color: string }>`
   color: ${(props) => props.color};
 
   font-family: Orbitron;
-  font-size: 30px;
   font-style: normal;
   font-weight: 600;
-  line-height: 33.819px;
+  line-height: 112.73%;
   letter-spacing: 7.5px;
+
+  @media (max-width: 576px) {
+    font-size: 20px;
+  }
+  @media (min-width: 577px) {
+    font-size: 20px;
+  }
+  @media (min-width: 769px) {
+    font-size: 20px;
+  }
+  @media (min-width: 993px) {
+    font-size: 30px;
+  }
+  @media (min-width: 1201px) {
+    font-size: 30px;
+  }
+  @media (min-width: 1401px) {
+    font-size: 30px;
+  }
 `;

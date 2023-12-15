@@ -246,7 +246,9 @@ export const TextBlockRow = styled.div`
   margin-bottom: 45px;
 `;
 
-export const AboutTextWrapper = styled.div`
+export const AboutTextWrapper = styled.div<{ bottom?: string }>`
+  position: relative;
+  bottom: ${props => props.bottom || "0"};
   width: 90%;
 `;
 export const LineLeftWrapper = styled.div`
@@ -257,7 +259,6 @@ export const LineLeftWrapper = styled.div`
 `;
 export const LineLeft = styled.div<{ transform: string }>`
   width: 1.5px;
-  height: 200px;
   opacity: 0.4;
   background: #6100ff;
 
@@ -265,11 +266,30 @@ export const LineLeft = styled.div<{ transform: string }>`
   transition: transform 2s cubic-bezier(0.16, 1, 0.3, 1);
 
   transform-origin: 0 0;
+
+
+  @media (max-width: 576px) {
+    height: 100px;
+  }
+  @media (min-width: 577px) {
+    height: 100px;
+  }
+  @media (min-width: 769px) {
+    height: 100px;
+  }
+  @media (min-width: 993px) {
+    height: 200px;
+  }
+  @media (min-width: 1201px) {
+    height: 200px;
+  }
+  @media (min-width: 1401px) {
+    height: 200px;
+  }
 `;
 
 export const LineLeft3 = styled.div<{ transform: string }>`
   width: 1.5px;
-  height: 310px;
   opacity: 0.4;
   background: linear-gradient(
     to bottom,
@@ -281,11 +301,30 @@ export const LineLeft3 = styled.div<{ transform: string }>`
   transition: transform 2s cubic-bezier(0.16, 1, 0.3, 1);
 
   transform-origin: 0 0;
+
+
+  @media (max-width: 576px) {
+    height: 100px;
+  }
+  @media (min-width: 577px) {
+    height: 100px;
+  }
+  @media (min-width: 769px) {
+    height: 100px;
+  }
+  @media (min-width: 993px) {
+    height: 310px;
+  }
+  @media (min-width: 1201px) {
+    height: 310px;
+  }
+  @media (min-width: 1401px) {
+    height: 310px;
+  }
 `;
 
 export const LineLeft4 = styled.div<{ transform: string }>`
   width: 1.5px;
-  height: 310px;
   opacity: 0.4;
   background: linear-gradient(
     to bottom,
@@ -297,6 +336,25 @@ export const LineLeft4 = styled.div<{ transform: string }>`
   transition: transform 2s cubic-bezier(0.16, 1, 0.3, 1);
 
   transform-origin: 0 0;
+
+  @media (max-width: 576px) {
+    height: 200px;
+  }
+  @media (min-width: 577px) {
+    height: 200px;
+  }
+  @media (min-width: 769px) {
+    height: 200px;
+  }
+  @media (min-width: 993px) {
+    height: 310px;
+  }
+  @media (min-width: 1201px) {
+    height: 310px;
+  }
+  @media (min-width: 1401px) {
+    height: 310px;
+  }
 `;
 
 export const AboutText = styled.h2`
@@ -405,25 +463,31 @@ export const PhotoVertical = styled.div<{ imgSrc: string }>`
 `;
 
 export const Spider = styled.img`
-  margin-top: 110px;
+  margin-top: 142px;
   /* background-color: #0E0E0E; */
 
   @media (max-width: 576px) {
     width: 90%;
+    margin-bottom: 220px;
   }
   @media (min-width: 577px) {
     width: 90%;
+    margin-bottom: 220px;
   }
   @media (min-width: 769px) {
     width: 90%;
+    margin-bottom: 220px;
   }
   @media (min-width: 993px) {
     width: 90%;
+    margin-bottom: 250px;
   }
   @media (min-width: 1201px) {
     width: 90%;
+    margin-bottom: 250px;
   }
   @media (min-width: 1401px) {
     width: 75%;
+    margin-bottom: 250px;
   }
 `;

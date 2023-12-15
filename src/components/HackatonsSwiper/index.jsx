@@ -41,6 +41,7 @@ import GSwipeHackatonsStyles, {
   PopupInfoRow,
   InfoColumnPopup,
   PopupContentsWrapperMobile,
+  ButtonTextPopup,
 } from "./styles";
 import AnySizeTitle from "../Title";
 import SubTitle from "../SubTitle";
@@ -376,7 +377,7 @@ const HackatonsSwiper = ({
                   }
                 }}
               >
-                <ButtonText>Apply</ButtonText>
+                <ButtonTextPopup>Apply</ButtonTextPopup>
               </LargeApplyButton>
             </LargeApplyWrapper>
 

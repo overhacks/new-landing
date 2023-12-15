@@ -4,10 +4,9 @@ import { useColorTheme } from "../../hooks/useColorTheme";
 import AnySizeTitle from "../Title";
 import About1 from "../../assets/img/About1Image.jpg";
 import About2 from "../../assets/img/About2Image.jpg";
-import SpiderPng from "../../assets/img/overhacksSpider.png";
+import SpiderPng from "../../assets/img/NewSpider.png";
 import HeroBulletSVG from "../../assets/img/heroBullet.svg";
 import BackgroundLightsLarge from "../../assets/img/LargeBackgroundLights2.png";
-
 
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -125,63 +124,61 @@ const AboutSection = () => {
 
   return (
     <>
+      <AboutLightsWrapper backgroundImg={BackgroundLightsLarge}>
+        <CenteredLine ref={line1StartRef}>
+          <LineCenter transform={transform} />
+        </CenteredLine>
 
-    <AboutLightsWrapper backgroundImg={BackgroundLightsLarge}>
-      <CenteredLine ref={line1StartRef}>
-        <LineCenter transform={transform} />
-      </CenteredLine>
+        <Row>
+          <SubTitleRow text="About" />
+        </Row>
 
-      <Row>
-        <SubTitleRow text="About" />
-      </Row>
-
-      <TurnLineHalfContainer>
-        <TurnLineHalf ref={lineHalfStartRef}>
-          {lineHalfInViewport ? (
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              preserveAspectRatio="none"
-              viewBox="0 0 591 342"
-              fill="none"
-            >
-              <path
-                d="M590 0V110.131C590 130.013 573.882 146.131 554 146.131H37C17.1178 146.131 1 162.249 1 182.131V342"
-                stroke="url(#paint0_linear_1309_1539)"
-                stroke-opacity="0.7"
-                stroke-width="2"
-                className="path"
-              />
-              <defs>
-                <linearGradient
-                  id="paint0_linear_1309_1539"
-                  x1="590.5"
-                  y1="-3.56367e-06"
-                  x2="8.00031"
-                  y2="536"
-                  gradientUnits="userSpaceOnUse"
-                >
-                  <stop stop-color="#6100FF" stop-opacity="0.63" />
-                  <stop offset="0.512857" stop-color="#6100FF" />
-                  <stop
-                    offset="0.945651"
-                    stop-color="#6100FF"
-                    stop-opacity="0.63"
-                  />
-                </linearGradient>
-              </defs>
-            </svg>
-          ) : (
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              preserveAspectRatio="none"
-              viewBox="0 0 590 312"
-              fill="none"
-            ></svg>
-          )}
-        </TurnLineHalf>
-      </TurnLineHalfContainer>
-    </AboutLightsWrapper>
-      
+        <TurnLineHalfContainer>
+          <TurnLineHalf ref={lineHalfStartRef}>
+            {lineHalfInViewport ? (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                preserveAspectRatio="none"
+                viewBox="0 0 591 342"
+                fill="none"
+              >
+                <path
+                  d="M590 0V110.131C590 130.013 573.882 146.131 554 146.131H37C17.1178 146.131 1 162.249 1 182.131V342"
+                  stroke="url(#paint0_linear_1309_1539)"
+                  stroke-opacity="0.7"
+                  stroke-width="2"
+                  className="path"
+                />
+                <defs>
+                  <linearGradient
+                    id="paint0_linear_1309_1539"
+                    x1="590.5"
+                    y1="-3.56367e-06"
+                    x2="8.00031"
+                    y2="536"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop stop-color="#6100FF" stop-opacity="0.63" />
+                    <stop offset="0.512857" stop-color="#6100FF" />
+                    <stop
+                      offset="0.945651"
+                      stop-color="#6100FF"
+                      stop-opacity="0.63"
+                    />
+                  </linearGradient>
+                </defs>
+              </svg>
+            ) : (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                preserveAspectRatio="none"
+                viewBox="0 0 590 312"
+                fill="none"
+              ></svg>
+            )}
+          </TurnLineHalf>
+        </TurnLineHalfContainer>
+      </AboutLightsWrapper>
 
       <SectionWrapper id="about">
         <AboutWrapper>

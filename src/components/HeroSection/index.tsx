@@ -29,6 +29,8 @@ import {
   Label,
   Line,
   LineEnd,
+  LineLeft,
+  LineLeftContainer,
   LineWrapper,
   LongLineEnd,
   MobileButton,
@@ -78,6 +80,7 @@ const HeroSection = () => {
   const [transform2, setTransform2] = useState("scaleY(0)");
   const [transform3, setTransform3] = useState("scaleY(0)");
   const [transform4, setTransform4] = useState("scaleY(0)");
+  const [transform5, setTransform5] = useState("scaleY(0)");
 
   const [isDeveloper, setisDeveloper] = useState(true);
 
@@ -85,11 +88,13 @@ const HeroSection = () => {
   const line2StartRef = useRef(null);
   const line3StartRef = useRef(null);
   const line4StartRef = useRef(null);
+  const line5StartRef = useRef(null);
 
   const lineInViewport1 = useIsInViewport(line1StartRef);
   const lineInViewport2 = useIsInViewport(line2StartRef);
   const lineInViewport3 = useIsInViewport(line3StartRef);
   const lineInViewport4 = useIsInViewport(line4StartRef);
+  const lineInViewport5 = useIsInViewport(line5StartRef);
 
   const lineTurnRef = useRef(null);
   const lineTurnRef2 = useRef(null);
@@ -124,6 +129,12 @@ const HeroSection = () => {
   }, [lineInViewport4]);
 
   useEffect(() => {
+    if (lineInViewport5) {
+      setTransform5("scaleY(1)");
+    }
+  }, [lineInViewport5]);
+
+  useEffect(() => {
     AOS.init({
       duration: 200,
       once: true,
@@ -153,7 +164,7 @@ const HeroSection = () => {
           setText("");
         }, 2000); // Delay before erasing
       }
-    }, 300); // Typing speed
+    }, 180); // Typing speed
 
     return () => {
       clearInterval(typingInterval);
@@ -285,7 +296,8 @@ const HeroSection = () => {
 
       <TurnContainer>
         <RowContainer>
-          <AnimatedBulletContainer backgroundImg={HeroLight1}>
+          <LineLeftContainer>
+            <AnimatedBulletContainer ref={line5StartRef} backgroundImg={HeroLight1}>
             <PulseContainer>
               <BulletWrapper src={HeroBulletSVG} />
               {[1, 2, 3, 4, 5, 6, 7, 8].map((index) => (
@@ -293,6 +305,9 @@ const HeroSection = () => {
               ))}
             </PulseContainer>
           </AnimatedBulletContainer>
+          {isSmallScreen && <LineLeft transform={transform5} />}
+          </LineLeftContainer>
+          
 
           {isDeveloper ? (
             <Description data-aos="fade-right">
@@ -307,7 +322,7 @@ const HeroSection = () => {
           )}
         </RowContainer>
         
-        <TurnLine ref={lineTurnRef}>
+        <TurnLine display={isSmallScreen ? "none" : "block"} ref={lineTurnRef}>
           {lineTurnInViewport1 ? (
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -334,7 +349,7 @@ const HeroSection = () => {
       </TurnContainer>
 
       <TurnContainer>
-        <RowContainerRight>
+        { !isSmallScreen && <RowContainerRight>
           {isDeveloper ? (
             <DescriptionRight data-aos="fade-right">
               Find like-minded people and teammates for your future startup?
@@ -354,9 +369,9 @@ const HeroSection = () => {
               ))}
             </PulseContainer>
           </AnimatedBulletContainerRight>
-        </RowContainerRight>
+        </RowContainerRight>}
 
-        <TurnLine ref={lineTurnRef2}>
+        <TurnLine display={isSmallScreen ? "none" : "block"} ref={lineTurnRef2}>
           {lineTurnInViewport2 ? (
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -397,14 +412,17 @@ const HeroSection = () => {
 
       <TurnContainer>
         <RowContainer>
-          <AnimatedBulletContainerRight backgroundImg={HeroLight1}>
+          <LineLeftContainer>
+            <AnimatedBulletContainer backgroundImg={HeroLight1}>
             <PulseContainer>
               <BulletWrapper src={HeroBulletSVG} />
               {[1, 2, 3, 4, 5, 6, 7, 8].map((index) => (
                 <PulseCircle key={index} delay={index} size={300} />
               ))}
             </PulseContainer>
-          </AnimatedBulletContainerRight>
+          </AnimatedBulletContainer>
+          </LineLeftContainer>
+          
 
           {isDeveloper ? (
             <Description data-aos="fade-right">

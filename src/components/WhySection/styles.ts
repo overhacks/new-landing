@@ -105,9 +105,27 @@ export const CardsContainer = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  gap: 56px;
 
   z-index: 4;
+
+  @media (max-width: 576px) {
+    gap: 56px;
+  }
+  @media (min-width: 577px) {
+    gap: 56px;
+  }
+  @media (min-width: 769px) {
+    gap: 56px;
+  }
+  @media (min-width: 993px) {
+    gap: 0;
+  }
+  @media (min-width: 1201px) {
+    gap: 0;
+  }
+  @media (min-width: 1401px) {
+    gap: 0;
+  }
 `;
 
 export const WhyColumn = styled.div`

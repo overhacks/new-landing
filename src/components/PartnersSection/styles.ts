@@ -38,8 +38,34 @@ export const RowContainer = styled.div`
   justify-content: center;
   padding-left: 5%;
   padding-right: 5%;
-  padding-top: 32px;
-  margin-bottom: 144px;
+  @media (max-width: 576px) {
+    margin-bottom: 47px;
+    padding-top: 0;
+  }
+  @media (min-width: 577px) {
+    margin-bottom: 47px;
+    padding-top: 0;
+  }
+  @media (min-width: 769px) {
+    margin-bottom: 47px;
+    padding-top: 0;
+
+  }
+  @media (min-width: 993px) {
+    margin-bottom: 144px;
+    padding-top: 32px;
+
+  }
+  @media (min-width: 1201px) {
+    margin-bottom: 144px;
+    padding-top: 32px;
+
+  }
+  @media (min-width: 1401px) {
+    margin-bottom: 144px;
+    padding-top: 32px;
+
+  }
 `;
 
 export const RowContainerBetween = styled.div`
@@ -193,7 +219,7 @@ export const SponsorCell = styled.a<{ imgSrc: string }>`
   background-position: center right;
   background-repeat: no-repeat;
   background-size: contain;
-  width: 25%;
+  width: 22%;
   aspect-ratio: 1 / 1;
   border-radius: 32px;
 

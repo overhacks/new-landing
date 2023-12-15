@@ -231,7 +231,24 @@ export const Description = styled.div`
   flex-direction: column;
   gap: 12px;
 
-  width: 49%;
+  @media (max-width: 576px) {
+    width: 70%;
+  }
+  @media (min-width: 577px) {
+    width: 70%;
+  }
+  @media (min-width: 769px) {
+    width: 70%;
+  }
+  @media (min-width: 993px) {
+    width: 49%;
+  }
+  @media (min-width: 1201px) {
+    width: 49%;
+  }
+  @media (min-width: 1401px) {
+    width: 49%;
+  }
 `;
 
 export const PrizePoolContainer = styled.div`
@@ -239,6 +256,7 @@ export const PrizePoolContainer = styled.div`
   flex-direction: column;
   gap: 8px;
   align-items: flex-start;
+  max-width: 70%;
 `;
 
 export const PrizeText = styled.p`
@@ -429,9 +447,8 @@ export const Button = styled.a<{ backgroundImg: any; isFinished: boolean }>`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  max-height: 50px;
   width: 100%;
-  height: 40px;
+  aspect-ratio: 4 / 1;
 
   background-position: center center;
   background-repeat: no-repeat;
@@ -470,15 +487,13 @@ export const LargeApplyButton = styled.a<{
   display: flex;
   justify-content: center;
   align-items: center;
-  max-height: 50px;
-  width: calc(100% - 30px);
   margin-right: 30px;
   text-decoration: none;
 
   background-position: center center;
   background-repeat: no-repeat;
   background-size: contain;
-  aspect-ratio: 0.626 / 10;
+  aspect-ratio: 6.5 / 1;
 
   cursor: ${(props) => {
     if (props.isFinishedCurrent) {
@@ -501,6 +516,26 @@ export const LargeApplyButton = styled.a<{
       }
       return "0.6";
     }};
+  }
+
+  @media (max-width: 576px) {
+    width: calc(100% - 30px);
+  }
+  @media (min-width: 577px) {
+    width: calc(100% - 30px);
+  }
+
+  @media (min-width: 769px) {
+    width: calc(100% - 30px);
+  }
+  @media (min-width: 993px) {
+    width: calc(50% - 30px);
+  }
+  @media (min-width: 1201px) {
+    width: calc(50% - 30px);
+  }
+  @media (min-width: 1401px) {
+    width: calc(50% - 30px);
   }
 `;
 
@@ -550,6 +585,35 @@ export const ButtonText = styled.p`
   letter-spacing: 0.45px;
 
   font-size: 15px;
+`;
+
+export const ButtonTextPopup = styled.p`
+  color: #dddbdb;
+  font-family: Orbitron;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: 0.45px;
+
+  @media (max-width: 576px) {
+    font-size: 15px;
+  }
+  @media (min-width: 577px) {
+    font-size: 17px;
+  }
+
+  @media (min-width: 769px) {
+    font-size: 23px;
+  }
+  @media (min-width: 993px) {
+    font-size: 15px;
+  }
+  @media (min-width: 1201px) {
+    font-size: 15px;
+  }
+  @media (min-width: 1401px) {
+    font-size: 15px;
+  }
 `;
 
 export const CardsPoint = styled.p`

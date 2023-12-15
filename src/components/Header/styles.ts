@@ -12,7 +12,6 @@ export const DefaultHeadercontainer = styled.header<{ paddingLeft: string }>`
 
 export const HeaderContainer = styled.section<{ backgroundImg: any }>`
   width: 100%;
-  height: 100vh;
 
   background-image: url(${(props) => props.backgroundImg});
   background-position: right top;
@@ -29,6 +28,25 @@ export const HeaderContainer = styled.section<{ backgroundImg: any }>`
   align-items: center;
 
   position: relative;
+
+  @media (max-width: 576px) {
+    height: 80vh;
+  }
+  @media (min-width: 577px) {
+    height: 80vh;
+  }
+  @media (min-width: 769px) {
+    height: 80vh;
+  }
+  @media (min-width: 993px) {
+    height: 100vh;
+  }
+  @media (min-width: 1201px) {
+    height: 100vh;
+  }
+  @media (min-width: 1401px) {
+    height: 100vh;
+  }
 `;
 
 export const MotoContainer = styled.div`
@@ -73,14 +91,32 @@ export const MotoLineWrapper = styled.div`
 `;
 
 export const UnderNameText = styled.p`
-  color: #29af5e;
-
   font-family: Orbitron;
   font-size: 27px;
   font-style: normal;
   font-weight: 400;
   line-height: 30.437px;
   letter-spacing: 2.43px;
+
+  @media (max-width: 576px) {
+    color: #50775F
+  }
+  @media (min-width: 577px) {
+    color: #50775F
+  }
+  @media (min-width: 769px) {
+    color: #50775F
+  }
+  @media (min-width: 993px) {
+    color: #29af5e
+  }
+  @media (min-width: 1201px) {
+    color: #29af5e
+  }
+  @media (min-width: 1401px) {
+    color: #29af5e
+  }
+
 `;
 
 const drawLineAnimation = keyframes`
@@ -138,24 +174,29 @@ export const SloganPhrase = styled.p`
   font-style: normal;
   font-weight: 600;
   line-height: 112.73%;
-  letter-spacing: 12.5px;
   @media (max-width: 576px) {
-    font-size: 10px;
+    font-size: 15px;
+    letter-spacing: 3.75px;
   }
   @media (min-width: 577px) {
     font-size: 15px;
+    letter-spacing: 3.75px;
   }
   @media (min-width: 769px) {
-    font-size: 20px;
+    font-size: 15px;
+    letter-spacing: 3.75px;
   }
   @media (min-width: 993px) {
     font-size: 50px;
+    letter-spacing: 12.5px;
   }
   @media (min-width: 1201px) {
     font-size: 50px;
+    letter-spacing: 12.5px;
   }
   @media (min-width: 1401px) {
     font-size: 50px;
+    letter-spacing: 12.5px;
   }
 `;
 export const WithText = styled.p`
@@ -665,7 +706,6 @@ export const JoinText = styled.p`
   cursor: pointer;
   margin-right: 10px;
 
-
   @media (max-width: 576px) {
     font-size: 15px;
   }
@@ -749,12 +789,11 @@ export const JoinButtonMobile = styled.a<{ backgroundImg: any }>`
   }
 
   transition: opacity 0.15s ease-in-out;
-
 `;
 
 export const JoinBtnWrapperMobile = styled.div`
   width: 100%;
-`
+`;
 
 export const Headercontainer = styled.div<{ gap: string }>`
   display: flex;
