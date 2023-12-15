@@ -46,6 +46,11 @@ import {
   UnderNameText,
   CharacterWrapper,
   JoinText,
+  MobileMotoColumn,
+  MobileMotoRow,
+  PartOfNameFull,
+  JoinBtnWrapperMobile,
+  JoinButtonMobile,
 } from "./styles";
 import LogoHacks from "../../assets/img/LOGOHACK.png";
 import { routes } from "../../constants/routes";
@@ -63,7 +68,8 @@ import S from "../../assets/img/s.png";
 
 import SubTitle from "../SubTitle";
 import SignUpButton from "../../assets/img/signupBtn.svg";
-import JoinButtonSVG from "../../assets/img/JoinButtonMobile.svg";
+import JoinButtonSVG from "../../assets/img/JoinButton.svg";
+import JoinButtonSVGMobile from "../../assets/img/JoinButtonMobile.svg";
 
 const matcher = () => {
   return window.matchMedia("(max-width: 993px)").matches;
@@ -177,11 +183,13 @@ function Header() {
               </>
             )}
           </LogoLinksWrapper>
-          <LinksContainer>
-            <Button backgroundImg={SignUpButton}>
-              <ButtonText>Sign Up</ButtonText>
-            </Button>
-          </LinksContainer>
+          {!isSmallScreen && (
+            <LinksContainer>
+              <Button backgroundImg={SignUpButton}>
+                <ButtonText>Sign Up</ButtonText>
+              </Button>
+            </LinksContainer>
+          )}
 
           {isSmallScreen && <Logo background={LogoHacks} />}
         </Headercontainer>
@@ -267,6 +275,16 @@ function Header() {
             {isSmallScreen && (
               <MobilePromoWrapper>
                 <MobileRowWrapper>
+                  <MobileMotoColumn>
+                    <MobileMotoRow>
+                      <SloganPhrase>code</SloganPhrase>
+                      <SloganPhrase>/</SloganPhrase>
+                    </MobileMotoRow>
+                    <MobileMotoRow>
+                      <SloganPhrase>earn</SloganPhrase>
+                      <WithText>with</WithText>
+                    </MobileMotoRow>
+                  </MobileMotoColumn>
                   <PartOfName>
                     <div>
                       <LetterO src={O} alt="letter O" />
@@ -281,11 +299,9 @@ function Header() {
                       <Letter src={R} alt="letter R" />
                     </div>
                   </PartOfName>
-                  <MotoPhase>HACKATHON</MotoPhase>
                 </MobileRowWrapper>
                 <MobileRowWrapper>
-                  <MotoPhase>platform</MotoPhase>
-                  <PartOfName>
+                  <PartOfNameFull>
                     <div>
                       <LetterH src={H} alt="letter H" />
                     </div>
@@ -301,7 +317,7 @@ function Header() {
                     <div>
                       <LetterS src={S} alt="letter S" />
                     </div>
-                  </PartOfName>
+                  </PartOfNameFull>
                 </MobileRowWrapper>
               </MobilePromoWrapper>
             )}
@@ -312,9 +328,19 @@ function Header() {
               <UnderNameText>fastes</UnderNameText>
               <UnderNameText>growing</UnderNameText>
               <UnderNameText>Hackathons</UnderNameText>
-              <UnderNameText>organasing</UnderNameText>
-              <UnderNameText>platform</UnderNameText>
+              <UnderNameText>tool</UnderNameText>
+              <UnderNameText>kit</UnderNameText>
             </MotoRow>
+
+            { isSmallScreen && <JoinBtnWrapperMobile>
+              <JoinButtonMobile
+              backgroundImg={JoinButtonSVGMobile}
+              href="https://t.me/OverhacksBot"
+            >
+              <JoinText>Join Now</JoinText>
+            </JoinButtonMobile>
+            </JoinBtnWrapperMobile>}
+            
           </MotoInnerWrapper>
         </Moto>
       </MotoContainer>

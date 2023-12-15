@@ -135,11 +135,28 @@ export const SloganWrapper = styled.div`
 export const SloganPhrase = styled.p`
   color: #2dc669;
   font-family: Orbitron;
-  font-size: 50px;
   font-style: normal;
   font-weight: 600;
-  line-height: 56.365px;
+  line-height: 112.73%;
   letter-spacing: 12.5px;
+  @media (max-width: 576px) {
+    font-size: 15px;
+  }
+  @media (min-width: 577px) {
+    font-size: 15px;
+  }
+  @media (min-width: 769px) {
+    font-size: 20px;
+  }
+  @media (min-width: 993px) {
+    font-size: 50px;
+  }
+  @media (min-width: 1201px) {
+    font-size: 50px;
+  }
+  @media (min-width: 1401px) {
+    font-size: 50px;
+  }
 `;
 export const WithText = styled.p`
   color: #2dc669;
@@ -147,21 +164,70 @@ export const WithText = styled.p`
   font-size: 20px;
   font-style: normal;
   font-weight: 500;
-  line-height: 22.546px;
+  line-height: 112.73%;
   letter-spacing: 0.6px;
 
   margin-left: 26px;
   margin-bottom: 6px;
+
+  @media (max-width: 576px) {
+    font-size: 10px;
+    margin-left: 0;
+    margin-bottom: 0;
+  }
+  @media (min-width: 577px) {
+    font-size: 10px;
+    margin-left: 0;
+    margin-bottom: 0;
+  }
+  @media (min-width: 769px) {
+    font-size: 12px;
+    margin-left: 0;
+    margin-bottom: 0;
+  }
+  @media (min-width: 993px) {
+    font-size: 20px;
+    margin-left: 26px;
+    margin-bottom: 6px;
+  }
+  @media (min-width: 1201px) {
+    font-size: 20px;
+    margin-left: 26px;
+    margin-bottom: 6px;
+  }
+  @media (min-width: 1401px) {
+    font-size: 20px;
+    margin-left: 26px;
+    margin-bottom: 6px;
+  }
 `;
 
 export const MotoRow = styled.div`
   width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   align-items: flex-start;
   flex-wrap: wrap;
   gap: 16px;
+
+  @media (max-width: 576px) {
+    justify-content: flex-start;
+  }
+  @media (min-width: 577px) {
+    justify-content: flex-start;
+  }
+  @media (min-width: 769px) {
+    justify-content: flex-start;
+  }
+  @media (min-width: 993px) {
+    justify-content: space-between;
+  }
+  @media (min-width: 1201px) {
+    justify-content: space-between;
+  }
+  @media (min-width: 1401px) {
+    justify-content: space-between;
+  }
 `;
 
 export const MobilePromoWrapper = styled.div`
@@ -179,9 +245,34 @@ export const MobileRowWrapper = styled.div`
   justify-content: space-between;
   align-items: flex-end;
 `;
+export const MobileMotoColumn = styled.div`
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 5px;
+`;
+
+export const MobileMotoRow = styled.div`
+  width: 20%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-start;
+  gap: 8px;
+`;
 
 export const PartOfName = styled.div`
-  width: 75%;
+  width: 65%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+`;
+export const PartOfNameFull = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -567,13 +658,32 @@ export const LogoLinksWrapper = styled.div`
 export const JoinText = styled.p`
   color: #dddbdb;
   font-family: Orbitron;
-  font-size: 15px;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
   letter-spacing: 0.45px;
   cursor: pointer;
   margin-right: 10px;
+
+
+  @media (max-width: 576px) {
+    font-size: 15px;
+  }
+  @media (min-width: 577px) {
+    font-size: 20px;
+  }
+  @media (min-width: 769px) {
+    font-size: 24px;
+  }
+  @media (min-width: 993px) {
+    font-size: 15px;
+  }
+  @media (min-width: 1201px) {
+    font-size: 15px;
+  }
+  @media (min-width: 1401px) {
+    font-size: 15px;
+  }
 `;
 
 export const JoinButton = styled.a<{ backgroundImg: any }>`
@@ -617,6 +727,34 @@ export const JoinButton = styled.a<{ backgroundImg: any }>`
     width: 280px;
   } */
 `;
+
+export const JoinButtonMobile = styled.a<{ backgroundImg: any }>`
+  background-color: transparent;
+  background-image: url(${(props) => props.backgroundImg});
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  text-decoration: none;
+
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  aspect-ratio: 7/1;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  transition: opacity 0.15s ease-in-out;
+
+`;
+
+export const JoinBtnWrapperMobile = styled.div`
+  width: 100%;
+`
 
 export const Headercontainer = styled.div<{ gap: string }>`
   display: flex;
