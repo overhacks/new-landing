@@ -275,13 +275,13 @@ export const PrizeText = styled.p`
     font-size: 22px;
   }
   @media (min-width: 993px) {
-    font-size: 25px;
+    font-size: 22px;
   }
   @media (min-width: 1201px) {
-    font-size: 25px;
+    font-size: 22px;
   }
   @media (min-width: 1401px) {
-    font-size: 25px;
+    font-size: 22px;
   }
 `;
 
