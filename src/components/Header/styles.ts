@@ -2,12 +2,13 @@ import { Link } from "react-router-dom";
 import { NavLinkProps } from "react-router-dom";
 import styled, { keyframes } from "styled-components";
 
-export const DefaultHeadercontainer = styled.header<{ paddingLeft: string }>`
+export const DefaultHeadercontainer = styled.header`
   /* border-bottom: 2px solid rgb(44, 44, 48); */
 
-  padding-left: ${(props) => props.paddingLeft};
-  padding-right: 7%;
+  padding-left: 5%;
+  padding-right: 5%;
   width: 90%;
+  position: relative;
 `;
 
 export const HeaderContainer = styled.section<{ backgroundImg: any }>`
@@ -77,7 +78,25 @@ export const MotoInnerWrapper = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  gap: 40px;
+
+  @media (max-width: 576px) {
+    gap: 20px;
+  }
+  @media (min-width: 577px) {
+    gap: 20px;
+  }
+  @media (min-width: 769px) {
+    gap: 20px;
+  }
+  @media (min-width: 993px) {
+    gap: 40px;
+  }
+  @media (min-width: 1201px) {
+    gap: 40px;
+  }
+  @media (min-width: 1401px) {
+    gap: 40px;
+  }
 `;
 
 export const MotoLineWrapper = styled.div`
@@ -92,31 +111,40 @@ export const MotoLineWrapper = styled.div`
 
 export const UnderNameText = styled.p`
   font-family: Orbitron;
-  font-size: 27px;
   font-style: normal;
   font-weight: 400;
   line-height: 30.437px;
-  letter-spacing: 2.43px;
 
   @media (max-width: 576px) {
-    color: #50775F
+    color: #50775f;
+    font-size: 17px;
+    letter-spacing: 1.53px;
   }
   @media (min-width: 577px) {
-    color: #50775F
+    color: #50775f;
+    font-size: 17px;
+    letter-spacing: 1.53px;
   }
   @media (min-width: 769px) {
-    color: #50775F
+    color: #50775f;
+    font-size: 17px;
+    letter-spacing: 1.53px;
   }
   @media (min-width: 993px) {
-    color: #29af5e
+    color: #29af5e;
+    font-size: 27px;
+    letter-spacing: 2.43px;
   }
   @media (min-width: 1201px) {
-    color: #29af5e
+    color: #29af5e;
+    font-size: 27px;
+    letter-spacing: 2.43px;
   }
   @media (min-width: 1401px) {
-    color: #29af5e
+    color: #29af5e;
+    font-size: 27px;
+    letter-spacing: 2.43px;
   }
-
 `;
 
 const drawLineAnimation = keyframes`
@@ -249,25 +277,37 @@ export const MotoRow = styled.div`
   flex-direction: row;
   align-items: flex-start;
   flex-wrap: wrap;
-  gap: 16px;
 
   @media (max-width: 576px) {
     justify-content: flex-start;
+    row-gap: 5px;
+    gap: 8px;
   }
   @media (min-width: 577px) {
     justify-content: flex-start;
+    row-gap: 5px;
+    gap: 8px;
   }
   @media (min-width: 769px) {
     justify-content: flex-start;
+    row-gap: 5px;
+    gap: 8px;
   }
   @media (min-width: 993px) {
     justify-content: space-between;
+    row-gap: 5px;
+    gap: 12px;
   }
   @media (min-width: 1201px) {
     justify-content: space-between;
+    row-gap: 5px;
+    gap: 12px;
   }
   @media (min-width: 1401px) {
     justify-content: space-between;
+    row-gap: 5px;
+    gap: 12px;
+    
   }
 `;
 
@@ -795,6 +835,105 @@ export const JoinBtnWrapperMobile = styled.div`
   width: 100%;
 `;
 
+export const MobilebtnText = styled.div`
+  color: #f6f6f6;
+
+  font-family: Orbitron;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 112.73%; /* 22.546px */
+  letter-spacing: 5px;
+
+  @media (max-width: 576px) {
+    font-size: 12px;
+  }
+  @media (min-width: 577px) {
+    font-size: 16px;
+  }
+  @media (min-width: 769px) {
+    font-size: 20px;
+  }
+  @media (min-width: 993px) {
+    font-size: 20px;
+  }
+  @media (min-width: 1201px) {
+    font-size: 20px;
+  }
+  @media (min-width: 1401px) {
+    font-size: 20px;
+  }
+`;
+
+export const MobileButtonLinkInner = styled.a`
+  width: calc(100% - 80px);
+  padding-top: 25px;
+  padding-bottom: 25px;
+  padding-right: 40px;
+  padding-left: 40px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  background: transparent;
+  text-decoration: none;
+  box-shadow: none;
+
+  border-radius: 56px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+`;
+
+export const MobileButton = styled.button`
+  width: 100%;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  padding-right: 40px;
+  padding-left: 40px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  background: transparent;
+  text-decoration: none;
+  box-shadow: none;
+
+  border-radius: 56px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+`;
+
+export const BurgerMenu = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100vw;
+  height: 80vh;
+
+  background: #0f0e0e;
+  z-index: 9;
+
+  padding-top: 133px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+`;
+
+export const MenuButtonsContainer = styled.div`
+  padding-left: 5%;
+  padding-right: 5%;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 32px;
+`;
+
 export const Headercontainer = styled.div<{ gap: string }>`
   display: flex;
   flex-direction: row;
@@ -806,18 +945,18 @@ export const Headercontainer = styled.div<{ gap: string }>`
   @media (max-width: 576px) {
     padding-top: 16px;
     padding-bottom: 16px;
-    justify-content: flex-start;
+    justify-content: space-between;
   }
   @media (min-width: 577px) {
     padding-top: 24px;
     padding-bottom: 24px;
-    justify-content: flex-start;
+    justify-content: space-between;
   }
   @media (min-width: 769px) {
     /* height: 58px; */
     padding-top: 32px;
     padding-bottom: 32px;
-    justify-content: flex-start;
+    justify-content: space-between;
   }
   @media (min-width: 993px) {
     padding-top: 50px;
@@ -843,11 +982,27 @@ export const LogoWrapper = styled.div`
   gap: 16px;
 `;
 
+export const BurgerBtn = styled.button`
+  width: 30px;
+  height: 30px;
+  z-index: 10;
+
+  background: transparent;
+  border: none;
+  text-decoration: none;
+
+  .svg {
+    width: 100%;
+    height: 100%;
+  }
+`;
+
 export const Logo = styled.div<{ background: any }>`
   background-image: url(${(props) => props.background});
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
+  z-index: 10;
 
   @media (max-width: 576px) {
     width: 30px;

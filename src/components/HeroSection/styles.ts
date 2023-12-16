@@ -372,19 +372,19 @@ export const ButtonMobile = styled.a<{ backgroundImg: any }>`
   transition: opacity 0.15s ease-in-out;
 `;
 
-export const RowContainer = styled.div`
+export const RowContainer = styled.div<{ justify: string }>`
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
-  align-items: flex-start;
+  justify-content: ${props => props.justify};
+  align-items: center;
   width: 100%;
   gap: 32px;
 `;
 
-export const RowContainerRight = styled.div`
+export const RowContainerRight = styled.div<{ justify: string }>`
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
+  justify-content: ${props => props.justify};
   align-items: center;
   width: 100%;
   gap: 32px;
@@ -522,11 +522,21 @@ export const TurnLine = styled.div<{ display: string }>`
   }
 `;
 
-export const TurnLineHalf = styled.div`
+export const TurnLineHalf = styled.div <{ isDev: boolean }>`
   width: 46.5%;
 
-  padding-left: 3.5%;
-  padding-right: 50%;
+  padding-left: ${props => {
+    if (props.isDev) {
+      return("3.5%")
+    }
+    return("50%")
+  }};
+  padding-right:${props => {
+    if (props.isDev) {
+      return("50%")
+    }
+    return("3.5%")
+  }};
   margin-top: 32px;
   .svg {
     width: 100%;
@@ -616,7 +626,8 @@ export const PulseCircle = styled.div<{ delay: number; size: number }>`
   height: ${(props) => `${props.size}px`};
 `;
 
-export const Description = styled.h2`
+export const Description = styled.h2<{ textAligh: string }>`
+  text-align: ${props => props.textAligh};
   color: #d9dddb;
   font-family: Orbitron;
   font-size: 30px;
@@ -635,19 +646,19 @@ export const Description = styled.h2`
     width: 90%;
   }
   @media (min-width: 993px) {
-    width: 60%;
+    width: 85%;
   }
   @media (min-width: 1201px) {
-    width: 60%;
+    width: 85%;
   }
   @media (min-width: 1401px) {
-    width: 60%;
+    width: 85%;
   }
 `;
 
-export const DescriptionRight = styled.h2`
+export const DescriptionRight = styled.h2<{ textAligh: string }>`
+  text-align: ${props => props.textAligh};
   width: 75%;
-  text-align: right;
 
   color: #d9dddb;
   font-family: Orbitron;
@@ -747,7 +758,7 @@ export const Bullet = styled.div`
 
 export const SectionContent = styled.div`
   height: 100%;
-  width: 93%;
+  width: 86%;
 
   display: flex;
   flex-direction: column;
@@ -845,7 +856,7 @@ export const ChooseWrapper = styled.button`
   transition: opacity 0.15s ease-in-out;
 `;
 
-export const ChooseText = styled.div<{ color: string }>`
+export const ChooseText = styled.p<{ color: string }>`
   color: ${(props) => props.color};
 
   font-family: Orbitron;
@@ -855,10 +866,10 @@ export const ChooseText = styled.div<{ color: string }>`
   letter-spacing: 7.5px;
 
   @media (max-width: 576px) {
-    font-size: 20px;
+    font-size: 12px;
   }
   @media (min-width: 577px) {
-    font-size: 20px;
+    font-size: 16px;
   }
   @media (min-width: 769px) {
     font-size: 20px;

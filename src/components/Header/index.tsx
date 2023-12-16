@@ -51,6 +51,12 @@ import {
   PartOfNameFull,
   JoinBtnWrapperMobile,
   JoinButtonMobile,
+  BurgerBtn,
+  BurgerMenu,
+  MobileButton,
+  MenuButtonsContainer,
+  MobilebtnText,
+  MobileButtonLinkInner,
 } from "./styles";
 import LogoHacks from "../../assets/img/LOGOHACK.png";
 import { routes } from "../../constants/routes";
@@ -139,50 +145,52 @@ function Header() {
 
   return (
     <HeaderContainer backgroundImg={Background}>
-      <DefaultHeadercontainer paddingLeft={isSmallScreen ? "2%" : "7%"}>
+      <DefaultHeadercontainer>
         <Headercontainer gap={isSmallScreen ? "4px" : "16px"}>
-          <LogoLinksWrapper>
-            <LogoWrapper>
-              {!isSmallScreen && <Logo background={LogoHacks} />}
-            </LogoWrapper>
+          {!isSmallScreen && (
+            <LogoLinksWrapper>
+              <LogoWrapper>
+                {!isSmallScreen && <Logo background={LogoHacks} />}
+              </LogoWrapper>
 
-            {!isSmallScreen && (
-              <>
-                <LinksContainer>
-                  <HeaderLinkBtnInner
-                    bottomBorder="3px solid #2DC669"
-                    isActive={false}
-                    defaultColor="white"
-                    hoverBackgroundColor="rgb(42, 42, 45)"
-                    hoverTextColor="#2DC669"
-                    href="#hackatons"
-                  >
-                    Hackatons
-                  </HeaderLinkBtnInner>
-                  <HeaderLinkBtnInner
-                    bottomBorder="3px solid #2DC669"
-                    isActive={false}
-                    defaultColor="white"
-                    hoverBackgroundColor="rgb(42, 42, 45)"
-                    hoverTextColor="#2DC669"
-                    href="#about"
-                  >
-                    About
-                  </HeaderLinkBtnInner>
+              {!isSmallScreen && (
+                <>
+                  <LinksContainer>
+                    <HeaderLinkBtnInner
+                      bottomBorder="3px solid #2DC669"
+                      isActive={false}
+                      defaultColor="white"
+                      hoverBackgroundColor="rgb(42, 42, 45)"
+                      hoverTextColor="#2DC669"
+                      href="#hackatons"
+                    >
+                      Hackatons
+                    </HeaderLinkBtnInner>
+                    <HeaderLinkBtnInner
+                      bottomBorder="3px solid #2DC669"
+                      isActive={false}
+                      defaultColor="white"
+                      hoverBackgroundColor="rgb(42, 42, 45)"
+                      hoverTextColor="#2DC669"
+                      href="#about"
+                    >
+                      About
+                    </HeaderLinkBtnInner>
 
-                  <HeaderBtn
-                    defaultColor="white"
-                    hoverBackgroundColor="rgb(42, 42, 45)"
-                    hoverTextColor="#2DC669"
-                    href="https://forms.gle/Exqa4wAzTi1kSzbU9"
-                    target="_blank"
-                  >
-                    Host a hackaton
-                  </HeaderBtn>
-                </LinksContainer>
-              </>
-            )}
-          </LogoLinksWrapper>
+                    <HeaderBtn
+                      defaultColor="white"
+                      hoverBackgroundColor="rgb(42, 42, 45)"
+                      hoverTextColor="#2DC669"
+                      href="https://forms.gle/Exqa4wAzTi1kSzbU9"
+                      target="_blank"
+                    >
+                      Host a hackaton
+                    </HeaderBtn>
+                  </LinksContainer>
+                </>
+              )}
+            </LogoLinksWrapper>
+          )}
           {!isSmallScreen && (
             <LinksContainer>
               <Button backgroundImg={SignUpButton}>
@@ -192,6 +200,123 @@ function Header() {
           )}
 
           {isSmallScreen && <Logo background={LogoHacks} />}
+
+          {isSmallScreen && (
+            <BurgerBtn onClick={() => setOpenMenu(!openMenu)}>
+              {!openMenu && (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  preserveAspectRatio="none"
+                  viewBox="0 0 34 19"
+                  fill="none"
+                >
+                  <line
+                    x1="1.5"
+                    y1="1.5"
+                    x2="31.5151"
+                    y2="1.5"
+                    stroke="white"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                  />
+                  <line
+                    x1="1.5"
+                    y1="9.5"
+                    x2="31.5"
+                    y2="9.5"
+                    stroke="white"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                  />
+                  <line
+                    x1="1.5"
+                    y1="17.5"
+                    x2="31.5"
+                    y2="17.5"
+                    stroke="white"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                  />
+                </svg>
+              )}
+              {openMenu && (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  preserveAspectRatio="none"
+                  viewBox="0 0 26 24"
+                  fill="none"
+                >
+                  <path
+                    d="M2 2L13 12M24 22L13 12M13 12L24 2M13 12L2 22"
+                    stroke="white"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                  />
+                </svg>
+              )}
+            </BurgerBtn>
+          )}
+
+          {openMenu && (
+            <BurgerMenu>
+              <MenuButtonsContainer>
+                <MobileButtonLinkInner href="#hackatons">
+                  <MobilebtnText>Hackathons</MobilebtnText>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="8"
+                    height="12"
+                    viewBox="0 0 8 12"
+                    fill="none"
+                  >
+                    <path
+                      d="M1.00007 11L6.71436 6L1.00007 1"
+                      stroke="white"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </MobileButtonLinkInner>
+                <MobileButtonLinkInner href="#about">
+                  <MobilebtnText>About</MobilebtnText>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="8"
+                    height="12"
+                    viewBox="0 0 8 12"
+                    fill="none"
+                  >
+                    <path
+                      d="M1.00007 11L6.71436 6L1.00007 1"
+                      stroke="white"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </MobileButtonLinkInner>
+                <MobileButtonLinkInner
+                  href="https://forms.gle/Exqa4wAzTi1kSzbU9"
+                  target="_blank"
+                >
+                  <MobilebtnText>Start Hackathon</MobilebtnText>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="8"
+                    height="12"
+                    viewBox="0 0 8 12"
+                    fill="none"
+                  >
+                    <path
+                      d="M1.00007 11L6.71436 6L1.00007 1"
+                      stroke="white"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </MobileButtonLinkInner>
+              </MenuButtonsContainer>
+            </BurgerMenu>
+          )}
         </Headercontainer>
       </DefaultHeadercontainer>
 
@@ -332,15 +457,16 @@ function Header() {
               <UnderNameText>kit</UnderNameText>
             </MotoRow>
 
-            { isSmallScreen && <JoinBtnWrapperMobile>
-              <JoinButtonMobile
-              backgroundImg={JoinButtonSVGMobile}
-              href="https://t.me/OverhacksBot"
-            >
-              <JoinText>Join Now</JoinText>
-            </JoinButtonMobile>
-            </JoinBtnWrapperMobile>}
-            
+            {isSmallScreen && (
+              <JoinBtnWrapperMobile>
+                <JoinButtonMobile
+                  backgroundImg={JoinButtonSVGMobile}
+                  href="https://t.me/OverhacksBot"
+                >
+                  <JoinText>Join Now</JoinText>
+                </JoinButtonMobile>
+              </JoinBtnWrapperMobile>
+            )}
           </MotoInnerWrapper>
         </Moto>
       </MotoContainer>

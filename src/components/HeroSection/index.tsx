@@ -141,9 +141,6 @@ const HeroSection = () => {
     });
   }, []);
 
-
-
-
   const phrases = ["developer", "manager", "designer"];
   const [text, setText] = useState("");
   const [phraseIndex, setPhraseIndex] = useState(0);
@@ -175,9 +172,14 @@ const HeroSection = () => {
     <HeroSectionsWrapper>
       <ChooseSectionContainer>
         <LineWrapper>
-          <Bullet />
-          <Line transform={transform} />
+          {isDeveloper && (
+            <>
+              <Bullet />
+              <Line transform={transform} />
+            </>
+          )}
         </LineWrapper>
+
         <SectionContent>
           <Label>Choose</Label>
           <ChooserContainer ref={line1StartRef}>
@@ -292,36 +294,65 @@ const HeroSection = () => {
             )}
           </ChooserContainer>
         </SectionContent>
+        <LineWrapper>
+          {!isDeveloper && (
+            <>
+              <Bullet />
+              <Line transform={transform} />
+            </>
+          )}
+        </LineWrapper>
       </ChooseSectionContainer>
 
       <TurnContainer>
-        <RowContainer>
-          <LineLeftContainer>
-            <AnimatedBulletContainer ref={line5StartRef} backgroundImg={HeroLight1}>
-            <PulseContainer>
-              <BulletWrapper src={HeroBulletSVG} />
-              {[1, 2, 3, 4, 5, 6, 7, 8].map((index) => (
-                <PulseCircle key={index} delay={index} size={300} />
-              ))}
-            </PulseContainer>
-          </AnimatedBulletContainer>
-          {isSmallScreen && <LineLeft transform={transform5} />}
-          </LineLeftContainer>
-          
+        <RowContainer justify={isDeveloper ? "flex-start" : "flex-end"}>
+          {isDeveloper && (
+            <LineLeftContainer>
+              <AnimatedBulletContainer
+                ref={line5StartRef}
+                backgroundImg={HeroLight1}
+              >
+                <PulseContainer>
+                  <BulletWrapper src={HeroBulletSVG} />
+                  {[1, 2, 3, 4, 5, 6, 7, 8].map((index) => (
+                    <PulseCircle key={index} delay={index} size={300} />
+                  ))}
+                </PulseContainer>
+              </AnimatedBulletContainer>
+              {isSmallScreen && <LineLeft transform={transform5} />}
+            </LineLeftContainer>
+          )}
 
           {isDeveloper ? (
-            <Description data-aos="fade-right">
+            <Description textAligh="left" data-aos="fade-right">
               Do you want to develop your skills and try yourself in{" "}
               <DescriptionB>web3</DescriptionB>?
             </Description>
           ) : (
-            <Description data-aos="fade-right">
+            <Description textAligh="right" data-aos="fade-right">
               Do you need to <DescriptionB>solve</DescriptionB> dev{" "}
               <DescriptionB>problems</DescriptionB>?
             </Description>
           )}
+
+          {!isDeveloper && (
+            <LineLeftContainer>
+              <AnimatedBulletContainer
+                ref={line5StartRef}
+                backgroundImg={HeroLight1}
+              >
+                <PulseContainer>
+                  <BulletWrapper src={HeroBulletSVG} />
+                  {[1, 2, 3, 4, 5, 6, 7, 8].map((index) => (
+                    <PulseCircle key={index} delay={index} size={300} />
+                  ))}
+                </PulseContainer>
+              </AnimatedBulletContainer>
+              {isSmallScreen && <LineLeft transform={transform5} />}
+            </LineLeftContainer>
+          )}
         </RowContainer>
-        
+
         <TurnLine display={isSmallScreen ? "none" : "block"} ref={lineTurnRef}>
           {lineTurnInViewport1 ? (
             <svg
@@ -329,6 +360,7 @@ const HeroSection = () => {
               viewBox="0 0 1171 437"
               fill="none"
               preserveAspectRatio="none"
+              transform={!isDeveloper ? "scale(-1, 1)" : undefined}
             >
               <path
                 className="path"
@@ -349,27 +381,42 @@ const HeroSection = () => {
       </TurnContainer>
 
       <TurnContainer>
-        { !isSmallScreen && <RowContainerRight>
-          {isDeveloper ? (
-            <DescriptionRight data-aos="fade-right">
-              Find like-minded people and teammates for your future startup?
-            </DescriptionRight>
-          ) : (
-            <DescriptionRight data-aos="fade-right">
-              Attract enthusiast's attentionto build infrastructure on your
-              Tech?
-            </DescriptionRight>
-          )}
+        {!isSmallScreen && (
+          <RowContainerRight justify={isDeveloper ? "flex-end" : "flex-start"}>
+            {!isDeveloper && (
+              <AnimatedBulletContainerRight backgroundImg={HeroLight2}>
+                <PulseContainer>
+                  <BulletWrapper src={HeroBulletSVG} />
+                  {[1, 2, 3, 4, 5, 6, 7, 8].map((index) => (
+                    <PulseCircle key={index} delay={index} size={300} />
+                  ))}
+                </PulseContainer>
+              </AnimatedBulletContainerRight>
+            )}
 
-          <AnimatedBulletContainerRight backgroundImg={HeroLight2}>
-            <PulseContainer>
-              <BulletWrapper src={HeroBulletSVG} />
-              {[1, 2, 3, 4, 5, 6, 7, 8].map((index) => (
-                <PulseCircle key={index} delay={index} size={300} />
-              ))}
-            </PulseContainer>
-          </AnimatedBulletContainerRight>
-        </RowContainerRight>}
+            {isDeveloper ? (
+              <DescriptionRight textAligh="right" data-aos="fade-right">
+                Find like-minded people and teammates for your future startup?
+              </DescriptionRight>
+            ) : (
+              <DescriptionRight textAligh="left" data-aos="fade-right">
+                Attract enthusiast's attentionto build infrastructure on your
+                Tech?
+              </DescriptionRight>
+            )}
+
+            {isDeveloper && (
+              <AnimatedBulletContainerRight backgroundImg={HeroLight2}>
+                <PulseContainer>
+                  <BulletWrapper src={HeroBulletSVG} />
+                  {[1, 2, 3, 4, 5, 6, 7, 8].map((index) => (
+                    <PulseCircle key={index} delay={index} size={300} />
+                  ))}
+                </PulseContainer>
+              </AnimatedBulletContainerRight>
+            )}
+          </RowContainerRight>
+        )}
 
         <TurnLine display={isSmallScreen ? "none" : "block"} ref={lineTurnRef2}>
           {lineTurnInViewport2 ? (
@@ -378,6 +425,7 @@ const HeroSection = () => {
               preserveAspectRatio="none"
               viewBox="0 0 1172 330"
               fill="none"
+              transform={!isDeveloper ? "scale(-1, 1)" : undefined}
             >
               <path
                 className="path"
@@ -411,37 +459,52 @@ const HeroSection = () => {
       </TurnContainer>
 
       <TurnContainer>
-        <RowContainer>
-          <LineLeftContainer>
-            <AnimatedBulletContainer backgroundImg={HeroLight1}>
-            <PulseContainer>
-              <BulletWrapper src={HeroBulletSVG} />
-              {[1, 2, 3, 4, 5, 6, 7, 8].map((index) => (
-                <PulseCircle key={index} delay={index} size={300} />
-              ))}
-            </PulseContainer>
-          </AnimatedBulletContainer>
-          </LineLeftContainer>
-          
+        <RowContainer justify={isDeveloper ? "flex-start" : "flex-end"}>
+          {isDeveloper && (
+            <LineLeftContainer>
+              <AnimatedBulletContainer backgroundImg={HeroLight1}>
+                <PulseContainer>
+                  <BulletWrapper src={HeroBulletSVG} />
+                  {[1, 2, 3, 4, 5, 6, 7, 8].map((index) => (
+                    <PulseCircle key={index} delay={index} size={300} />
+                  ))}
+                </PulseContainer>
+              </AnimatedBulletContainer>
+            </LineLeftContainer>
+          )}
 
           {isDeveloper ? (
-            <Description data-aos="fade-right">
+            <Description textAligh="left" data-aos="fade-right">
               Earn money and recognition?
             </Description>
           ) : (
-            <Description data-aos="fade-right">
+            <Description textAligh="right" data-aos="fade-right">
               Build a trusting community around your brand?
             </Description>
           )}
+
+          {!isDeveloper && (
+            <LineLeftContainer>
+              <AnimatedBulletContainer backgroundImg={HeroLight1}>
+                <PulseContainer>
+                  <BulletWrapper src={HeroBulletSVG} />
+                  {[1, 2, 3, 4, 5, 6, 7, 8].map((index) => (
+                    <PulseCircle key={index} delay={index} size={300} />
+                  ))}
+                </PulseContainer>
+              </AnimatedBulletContainer>
+            </LineLeftContainer>
+          )}
         </RowContainer>
 
-        <TurnLineHalf ref={lineTurnRef3}>
+        <TurnLineHalf isDev={isDeveloper} ref={lineTurnRef3}>
           {lineTurnInViewport3 ? (
             <svg
               xmlns="http://www.w3.org/2000/svg"
               preserveAspectRatio="none"
               viewBox="0 0 589 254"
               fill="none"
+              transform={!isDeveloper ? "scale(-1, 1)" : undefined}
             >
               <path
                 d="M1 1.19209e-06V119.26C1 140.799 18.4609 158.26 40 158.26L549 158.26C570.539 158.26 588 175.721 588 197.26V254"
@@ -520,11 +583,15 @@ const HeroSection = () => {
       </HeroSubTitle>
 
       <HeroEndContainer>
-        <BackgroundContainer background={isSmallScreen ? undefined : LeftLight} />
+        <BackgroundContainer
+          background={isSmallScreen ? undefined : LeftLight}
+        />
         <EndLineContainer>
           <LongLineEnd ref={line4StartRef} transform={transform4} />
         </EndLineContainer>
-        <BackgroundContainer background={isSmallScreen ? undefined : RightLight} />
+        <BackgroundContainer
+          background={isSmallScreen ? undefined : RightLight}
+        />
       </HeroEndContainer>
     </HeroSectionsWrapper>
   );
