@@ -11,13 +11,39 @@ import AboutSection from "../../components/AboutSection";
 import HackatonsSwiper from "../../components/HackatonsSwiper";
 import { Hackathon, getHackathons } from "../../api/client";
 import HeroSection from "../../components/HeroSection";
+import HackatonsMobile from "../../components/HackatonsMobile";
+
+const matcher = () => {
+  return window.matchMedia("(max-width: 993px)").matches;
+};
 
 
-interface ScrollProps {
-  targetRef: React.RefObject<HTMLElement>;
-}
+// interface ScrollProps {
+//   targetRef: React.RefObject<HTMLElement>;
+// }
+
 
 function Hackatons() {
+  const [isSmallScreen, setIsSmallScreen] = useState(matcher());
+
+const checkScreenSize = () => {
+  setIsSmallScreen(matcher());
+};
+
+useEffect(() => {
+  window.addEventListener("resize", checkScreenSize);
+  return () => {
+    window.removeEventListener("resize", checkScreenSize);
+  };
+}, []);
+
+
+
+
+
+
+
+
   const [popupOpen, setPopupOpen] = useState(false);
   const [finishedPopupOpen, setFinishedPopupOpen] = useState(false);
   const [selectedSlideIdOngoing, setSelectedSlideIdOngoing] = useState(null);
@@ -25,31 +51,34 @@ function Hackatons() {
 
   const scrollToElement = (targetRef: React.RefObject<HTMLElement>) => {
     if (targetRef.current) {
-      targetRef.current.scrollIntoView({ behavior: 'smooth' });
+      targetRef.current.scrollIntoView({ behavior: "smooth" });
     }
   };
- 
 
-  
-
-  const handlePopupOpen = (id: any, swiperRef: React.RefObject<HTMLElement>) => {
+  const handlePopupOpen = (
+    id: any,
+    swiperRef: React.RefObject<HTMLElement>
+  ) => {
     if (popupOpen) {
       setPopupOpen(false);
       setSelectedSlideIdOngoing(null);
     } else if (!popupOpen) {
-      scrollToElement(swiperRef)
+      scrollToElement(swiperRef);
 
       setPopupOpen(true);
       setSelectedSlideIdOngoing(id);
     }
   };
 
-  const handleFinishedPopupOpen = (id: any, swiperRef: React.RefObject<HTMLElement>) => {
+  const handleFinishedPopupOpen = (
+    id: any,
+    swiperRef: React.RefObject<HTMLElement>
+  ) => {
     if (finishedPopupOpen) {
       setFinishedPopupOpen(false);
       setSelectedSlideIdFinished(null);
     } else if (!finishedPopupOpen) {
-      scrollToElement(swiperRef)
+      scrollToElement(swiperRef);
       setFinishedPopupOpen(true);
       setSelectedSlideIdFinished(id);
     }
@@ -109,7 +138,7 @@ function Hackatons() {
   //     description:
   //       "<p>Welcome to the second Hack-a-TONx in HubHub. It is a series of hackathons that brings together Web2 and Web3 developers, designers, PMs, technologists, and cypherpunks to prototype new blockchain-enabled products, and enjoy lectures and workshops in Prague on February 11-12.<br />\r\nWhat you can get?<br />\r\n$300,000 in prize pool (including $50K sponsored by DWF Labs)<br />\r\nFast track to $250M TONcoin Fund, the premier Ecosystem Fund<br />\r\nFast track to additional grants<br />\r\nSecurity audit subsidies from TON Foundation w/ our partners: CertiK, Quantstamp<br />\r\nChance to meet TON Foundation and VC/Investors on TON with an all-expense paid travel to our operations in Dubai</p>",
   //     endDate: "2022-02-11T00:00:00.000Z",
-  //     imageUrl: 
+  //     imageUrl:
   //     "https://storage.googleapis.com/overhacks-resources/hubhub.jpeg",
   //     name: "Hack in HubHub",
   //     prize: "$300000",
@@ -162,21 +191,28 @@ function Hackatons() {
       (hackathon) => hackathon.startDate < currentDate
     );
 
-    if (ongoing.length < 4) {
-      const duplicateOngoing = [...ongoing, ...ongoing.slice(0, ongoing.length)];
-      setOngoingHackatons(duplicateOngoing);
-    } else {
-      setOngoingHackatons(ongoing);
-    }
+    // if (ongoing.length < 4) {
+    //   const duplicateOngoing = [
+    //     ...ongoing,
+    //     ...ongoing.slice(0, ongoing.length),
+    //   ];
+    //   setOngoingHackatons(duplicateOngoing);
+    // } else {
+    //   setOngoingHackatons(ongoing);
+    // }
 
-    if (finished.length < 4) {
-      const duplicateFinished = [...finished, ...finished.slice(0, finished.length)];
-      setFinishedHackatons(duplicateFinished);
-    } else {
-      setFinishedHackatons(finished);
-    }
-    
-    
+    // if (finished.length < 4) {
+    //   const duplicateFinished = [
+    //     ...finished,
+    //     ...finished.slice(0, finished.length),
+    //   ];
+    //   setFinishedHackatons(duplicateFinished);
+    // } else {
+    //   setFinishedHackatons(finished);
+    // }
+
+    setOngoingHackatons(ongoing);
+    setFinishedHackatons(finished);
   }, [hackathons]);
 
   // console.log("hackathons", hackathons);
@@ -193,25 +229,30 @@ function Hackatons() {
         <SubTitleRow text="Ongoing" />
       </RowContainerFirst>
 
-      <HackatonsSwiper
-        selectedHackatonId={selectedSlideIdOngoing}
-        hackatons={ongoingHackatons}
-        popupOpen={popupOpen}
-        handlePopupOpen={handlePopupOpen}
-        isOngoin={true}
-      />
+      {!isSmallScreen ? (
+        <HackatonsSwiper
+          selectedHackatonId={selectedSlideIdOngoing}
+          hackatons={ongoingHackatons}
+          popupOpen={popupOpen}
+          handlePopupOpen={handlePopupOpen}
+          isOngoin={true}
+        />
+      ) : <HackatonsMobile hackatons={ongoingHackatons} isOngoing={true} />
+      }
 
       <RowContainer>
         <SubTitleRow text="Finished" />
       </RowContainer>
 
-      <HackatonsSwiper
-        selectedHackatonId={selectedSlideIdFinished}
-        hackatons={finishedHackatons}
-        popupOpen={finishedPopupOpen}
-        handlePopupOpen={handleFinishedPopupOpen}
-        isOngoin={false}
-      />
+      {!isSmallScreen ? (
+        <HackatonsSwiper
+          selectedHackatonId={selectedSlideIdFinished}
+          hackatons={finishedHackatons}
+          popupOpen={finishedPopupOpen}
+          handlePopupOpen={handleFinishedPopupOpen}
+          isOngoin={false}
+        />
+      ) : <HackatonsMobile hackatons={finishedHackatons} isOngoing={false}/>}
 
       <WhySection />
 

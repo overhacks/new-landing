@@ -630,6 +630,7 @@ export const Description = styled.h2<{ textAligh: string }>`
   text-align: ${props => props.textAligh};
   color: #d9dddb;
   font-family: Orbitron;
+  align-self: flex-start;
   font-size: 30px;
   font-style: normal;
   font-weight: 700;
