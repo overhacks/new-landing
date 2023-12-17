@@ -61,7 +61,6 @@ export const HeroEndContainer = styled.div`
   justify-content: center;
   align-items: center;
 
-
   @media (max-width: 576px) {
     height: 30vh;
   }
@@ -88,7 +87,6 @@ export const EndLineContainer = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: center;
-
 
   @media (max-width: 576px) {
     height: 100%;
@@ -186,7 +184,6 @@ export const ApplyRow = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-
 
   @media (max-width: 576px) {
     margin-top: 25px;
@@ -375,7 +372,7 @@ export const ButtonMobile = styled.a<{ backgroundImg: any }>`
 export const RowContainer = styled.div<{ justify: string }>`
   display: flex;
   flex-direction: row;
-  justify-content: ${props => props.justify};
+  justify-content: ${(props) => props.justify};
   align-items: center;
   width: 100%;
   gap: 32px;
@@ -384,7 +381,7 @@ export const RowContainer = styled.div<{ justify: string }>`
 export const RowContainerRight = styled.div<{ justify: string }>`
   display: flex;
   flex-direction: row;
-  justify-content: ${props => props.justify};
+  justify-content: ${(props) => props.justify};
   align-items: center;
   width: 100%;
   gap: 32px;
@@ -522,20 +519,20 @@ export const TurnLine = styled.div<{ display: string }>`
   }
 `;
 
-export const TurnLineHalf = styled.div <{ isDev: boolean }>`
+export const TurnLineHalf = styled.div<{ isDev: boolean }>`
   width: 46.5%;
 
-  padding-left: ${props => {
+  padding-left: ${(props) => {
     if (props.isDev) {
-      return("3.5%")
+      return "3.5%";
     }
-    return("50%")
+    return "50%";
   }};
-  padding-right:${props => {
+  padding-right: ${(props) => {
     if (props.isDev) {
-      return("50%")
+      return "50%";
     }
-    return("3.5%")
+    return "3.5%";
   }};
   margin-top: 32px;
   .svg {
@@ -572,7 +569,11 @@ export const BulletContainer = styled.div`
     z-index: 3;
     border-radius: 50%;
 
-    background: rgba(18, 21, 255, 0.6);
+    background: radial-gradient(
+      63.11% 63.11% at 50.82% 71.31%,
+      rgba(97, 0, 255, 0) 0%,
+      rgba(97, 0, 255, 1) 100%
+    );
 
     filter: blur(17.5px);
     width: 43px;
@@ -627,7 +628,7 @@ export const PulseCircle = styled.div<{ delay: number; size: number }>`
 `;
 
 export const Description = styled.h2<{ textAligh: string }>`
-  text-align: ${props => props.textAligh};
+  text-align: ${(props) => props.textAligh};
   color: #d9dddb;
   font-family: Orbitron;
   align-self: flex-start;
@@ -658,7 +659,7 @@ export const Description = styled.h2<{ textAligh: string }>`
 `;
 
 export const DescriptionRight = styled.h2<{ textAligh: string }>`
-  text-align: ${props => props.textAligh};
+  text-align: ${(props) => props.textAligh};
   width: 75%;
 
   color: #d9dddb;

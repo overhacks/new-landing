@@ -460,7 +460,7 @@ export const TextWrapper = styled.div`
   border: 1px solid #353535;
 
   padding: 25px;
-  width: calc(100% - 50px);
+  width: calc(100% - 52px);
 
   color: #cde6f1;
 
