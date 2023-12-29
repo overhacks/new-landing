@@ -14,7 +14,7 @@ export interface Hackathon {
   format: string;
 }
 
-const API_BASE_URL = 'https://levkach.xyz';
+const API_BASE_URL = 'https://overhacks.com';
 
 const api: AxiosInstance = axios.create({
   baseURL: API_BASE_URL,
