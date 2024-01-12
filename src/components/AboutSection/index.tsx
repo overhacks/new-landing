@@ -124,7 +124,7 @@ const AboutSection = () => {
 
   return (
     <>
-      <AboutLightsWrapper backgroundImg={BackgroundLightsLarge}>
+      <AboutLightsWrapper id="about" backgroundImg={BackgroundLightsLarge}>
         <CenteredLine ref={line1StartRef}>
           <LineCenter transform={transform} />
         </CenteredLine>

@@ -39,7 +39,7 @@ function Footer() {
         <Container>
           <Column>
             <AnySizeTitle color="#2DC669" text="OVERHACKS" fontSize="17px" />
-            <FooterBtn>
+            <FooterBtn href="#about">
               <SubTitle
                 textAlign="left"
                 color="#F4FFDD"
@@ -47,7 +47,10 @@ function Footer() {
                 cursor="pointer"
               />
             </FooterBtn>
-            <FooterBtn>
+            <FooterBtn 
+            href="https://forms.gle/Exqa4wAzTi1kSzbU9" 
+            target="_blank"
+            >
               <SubTitle
                 textAlign="left"
                 color="#F4FFDD"

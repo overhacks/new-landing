@@ -543,10 +543,11 @@ const HeroSection = () => {
         {!isSmallScreen && (
           <ButtonWrapper>
             <Button
-              href="https://t.me/OverhacksBot"
+              href={isDeveloper ? "https://t.me/OverhacksBot" : "https://forms.gle/Exqa4wAzTi1kSzbU9"}
+              target="_blank"
               backgroundImg={ApplyButtonSvg}
             >
-              <ButtonText>Apply</ButtonText>
+              <ButtonText>{isDeveloper ? 'Apply' : 'Host'}</ButtonText>
             </Button>
             <BackgroundStar backgroundImg={ApplyButtonBackgroundSvg} />
           </ButtonWrapper>
