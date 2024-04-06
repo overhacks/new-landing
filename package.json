@@ -31,7 +31,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "yarn build",
-    "deploy": "react-scripts build"
+    "deploy": "predeploy && gcloud storage cp --recursive build/* gs://overhacks-fe-prod"
   },
   "eslintConfig": {
     "extends": [
